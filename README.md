@@ -12,6 +12,29 @@ WeDance is a marketplace. In marketplaces you need to reach critical mass in ord
 
 Marketplaces have the chicken and egg problem. Community forum on its own is difficult enough to popularise or rather it's a long time window problem. You have to identify what's the demand side and what's the supply side. Then which part is the one willing to pay to solve its problem. Focus on creating a community on that side with a content engagement, etc. Only then it makes sense to start introducing marketplace mechanics and features. Otherwise it's like entering a huge almost empty hotel.
 
+## Participatory Network
+
+> The problem with the subscription economy is there is no opportunity for fans to own assets, and further, subscription models don’t take into account the value that fans bring to their communities. While it’s still a nascent space, there are a few companies building in what I call “the participatory economy” — where fans participate in a creator’s success.
+
+The Participatory economy can be understood as filling empowerment gaps and evolving our thinking from consumers as users to *customers as people.*
+
+In the participatory economy, the **creator is bidirectional** because the customer is also a creator. The **participation** can happen in several ways:
+
+1. The customer participates in the creation of the product
+2. The company’s core product enables more people to participate, thereby democratizing the nodes of influence
+3. The customer is aligned with the network’s upside and participates in the financial rewards
+
+At the time when there were only forums and personal blogs, decentralized platforms started to show up:
+
+- collaborative [wikipedia.com](http://wikipedia.com) competing with edited encyclopedias
+- [habr.com](http://habr.com) where everyone could become an author after getting some reputation, moderated by community
+- [stackoverflow.com](http://stackoverflow.com) where moderator is elected by voting, and members getting ratings
+- blog aggregators, ycombinator and reddit to bring and rate the most interesting articles by community
+
+Those platforms help to find like minded people and build a self-organized community around it. Discussing ideas in community, brings to life awesome projects and help topics to evolve. Communication is a key. Non-decentralized many-to-many communication.
+
+Foursquare succeeded because it focused on one city till it reached critical mass. Getting users across multiple cities would not have helped spark interactions among users leading to low engagement and eventual drop-off.
+
 ## WeDance For Dancers
 
 Dance communities use private chats. They are difficult to discover. People who don't use social media are left out. Chats generate too many notifications and get muted. Dance communities need a platform, where it is easy to find and share events, so that it is easier to discover and get less spam.
