@@ -1,106 +1,121 @@
 # WeDance Navigation Structure
 
-## Main Navigation
+## Core Features
 
-### Events
+### 1. Events & Discovery
 
-- Discover Events
-  - By City
-  - By Style
-  - By Date
-  - Map View
-- Calendar View
-- My Events (authenticated)
-- Create Event (authenticated)
+- **Main Routes**
+  - `/events` - Events discovery
+  - `/events/calendar` - Calendar view
+  - `/events/map` - Map view
+  - `/events/:eventId` - Event details
+  - `/events/create` - Create event (auth)
+  - `/events/my` - My events (auth)
+- **SEO Routes**
+  - `/dance-events` → `/events`
+  - `/dance-parties` → `/events?type=party`
+  - `/dance-festivals` → `/events?category=festival`
+  - `/:citySlug/dance-events` → `/events?city=:citySlug`
+  - `/:styleSlug-events` → `/events?style=:styleSlug`
 
-### Community
+### 2. Cities & Locations
 
-- Partner Search
-  - Find Partner
-  - Practice Groups
-  - Post Request
-- City Communities
-- Dance Styles
-- Members Directory
-- Travel & Shared Trips
+- **Main Routes**
+  - `/cities/:citySlug` - City page
+  - `/cities/:citySlug/events` - City events
+  - `/cities/:citySlug/community` - City community
+  - `/cities/:citySlug/venues` - City venues
+- **SEO Routes**
+  - `/:citySlug` → `/cities/:citySlug`
+  - `/:citySlug/dance` → `/cities/:citySlug`
+  - `/:citySlug/:styleSlug` → `/cities/:citySlug?style=:styleSlug`
 
-### Learn
+### 3. Dance Styles
 
-- Teachers & Artists
-  - Directory
-  - Book Classes
-  - Reviews
-- Classes & Workshops
-- Venues
-  - Directory
-  - Space Booking
-- Knowledge Base
-  - Style Guides
-  - Community Guidelines
-  - FAQs
-- Reviews & Experiences
+- **Main Routes**
+  - `/styles/:styleSlug` - Style page
+  - `/styles/:styleSlug/events` - Style events
+  - `/styles/:styleSlug/community` - Style community
+  - `/styles/:styleSlug/teachers` - Style teachers
+- **SEO Routes**
+  - `/:styleSlug` → `/styles/:styleSlug`
+  - `/learn-:styleSlug` → `/styles/:styleSlug?tab=learn`
+  - `/:styleSlug-classes` → `/styles/:styleSlug?tab=classes`
 
-### Profile (authenticated)
+### 4. Learning
 
-- My Profile
-  - Public Profile
-  - Dance Passport
-  - Preferences
-- My Calendar
-- Messages
-- Settings
-  - Account
-  - Notifications
-  - Privacy
-- Switch City/Style
+- **Main Routes**
+  - `/classes` - Classes listing
+  - `/classes/:classId` - Class details
+  - `/teachers` - Teachers directory
+  - `/venues` - Venues directory
+  - `/learn` - Knowledge base
+- **SEO Routes**
+  - `/dance-classes` → `/classes`
+  - `/dance-teachers` → `/teachers`
+  - `/dance-studios` → `/venues?type=studio`
+  - `/private-dance-lessons` → `/classes?type=private`
 
-## Role-Based Navigation
+### 5. Community
 
-### For Artists/Teachers
+- **Main Routes**
+  - `/partners` - Partner search
+  - `/partners/groups` - Practice groups
+  - `/trips` - Travel & trips
+  - `/reviews` - Reviews & experiences
+- **SEO Routes**
+  - `/find-dance-partner` → `/partners`
+  - `/dance-practice` → `/partners/groups`
+  - `/:styleSlug-partner` → `/partners?style=:styleSlug`
 
-- Dashboard
-- Manage Classes
-- Bookings & Schedule
-- Student Communications
-- Content Management
-- Analytics
+## User Features (Auth Required)
 
-### For Organizers
+### 6. Profile & Account
 
-- Event Management
-  - Create/Edit Events
-  - Ticket Management
-  - Attendee Lists
-- Check-in System
-- Promotion Tools
-- Analytics & Reports
+- `/profile` - User profile
+- `/messages` - Messages
+- `/calendar` - Personal calendar
+- `/settings` - Settings
+  - `/settings/notifications`
+  - `/settings/privacy`
 
-### For Venues
+### 7. Role-Based Features
 
-- Space Management
-- Availability Calendar
-- Booking Requests
-- Venue Profile
+- `/dashboard` - Universal dashboard
+- `/dashboard/teaching/*` - Teaching features
+- `/dashboard/organizing/*` - Organizing features
+- `/dashboard/venue/*` - Venue features
 
-## Footer Navigation
+## Static Pages
 
-### About
+- `/about` - About WeDance
+- `/mission` - Mission & Vision
+- `/help` - Help Center
+- `/legal/*` - Legal pages
 
-- About WeDance
-- Mission & Vision
-- Team
-- Careers
+## Common Query Parameters
 
-### Support
+- `city`: Filter by city
+- `style`: Filter by dance style
+- `type`: Content type filter
+- `tab`: Active tab
+- `view`: Display mode
+- `level`: Skill level
+- `page`: Pagination
+- `q`: Search query
 
-- Help Center
-- Contact Us
-- Report Issue
-- Safety Guidelines
+## URL Resolution Priority
 
-### Legal
+1. Exact SEO routes (e.g., `/berlin`, `/salsa`)
+2. Dynamic parameters (e.g., `/events/:eventId`)
+3. Core routes (e.g., `/events`, `/classes`)
 
-- Terms of Service
-- Privacy Policy
-- Community Guidelines
-- Cookie Policy
+## Implementation Guidelines
+
+1. Use hyphens for URL separators
+2. Keep URLs short and descriptive
+3. Include location when relevant
+4. Set up 301 redirects for SEO routes
+5. Implement canonical URLs
+6. Add structured data for events, classes, etc.
+7. Use dynamic meta tags based on route data
