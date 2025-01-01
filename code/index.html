@@ -7,8 +7,36 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js"></script>
+    <!-- Add Mapbox and other dependencies -->
   </head>
   <body class="bg-white">
+    <!-- Live Chat Bubble -->
+    <div class="fixed bottom-4 right-4 z-50">
+      <button
+        class="bg-purple-600 text-white p-4 rounded-full shadow-lg hover:bg-purple-700 flex items-center space-x-2"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+          ></path>
+        </svg>
+        <span class="hidden md:inline">Chat with Community</span>
+      </button>
+    </div>
+
     <!-- Navigation -->
     <nav class="bg-white shadow-sm fixed w-full z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -77,49 +105,100 @@
       </div>
     </nav>
 
-    <!-- Hero Section with Video Background -->
-    <div class="relative min-h-screen flex items-center">
-      <!-- Video Background -->
-      <div class="absolute inset-0 w-full h-full overflow-hidden bg-purple-900">
+    <!-- Hero Section with Interactive Map -->
+    <div class="relative min-h-screen">
+      <!-- Map Background -->
+      <div class="absolute inset-0 z-0">
+        <div id="map" class="w-full h-full"></div>
         <div
-          class="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-purple-600/90 z-10"
+          class="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-purple-600/90"
         ></div>
-        <video
-          class="absolute inset-0 w-full h-full object-cover"
-          autoplay
-          loop
-          muted
-          playsinline
-        >
-          <source src="https://your-video-url.mp4" type="video/mp4" />
-        </video>
       </div>
 
-      <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div class="text-center">
           <h1
             class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl"
             data-aos="fade-up"
           >
-            <span class="block">Dance Together,</span>
-            <span class="block text-purple-300">Create Together</span>
+            <span class="block">Find Your Dance</span>
+            <span class="block text-purple-300">Join Your Community</span>
           </h1>
-          <p
-            class="mt-6 text-xl text-gray-200"
+
+          <!-- Interactive Dance Matcher -->
+          <div
+            class="mt-12 max-w-lg mx-auto bg-white/10 backdrop-blur-sm p-6 rounded-lg"
             data-aos="fade-up"
             data-aos-delay="200"
           >
-            Join the world's most vibrant dance community platform where passion
-            meets opportunity
-          </p>
+            <h3 class="text-white font-bold mb-4">
+              Find Your Perfect Dance Style
+            </h3>
+            <div class="space-y-4">
+              <div>
+                <label class="block text-white text-sm mb-2"
+                  >What moves you?</label
+                >
+                <div class="flex flex-wrap gap-2">
+                  <button
+                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
+                  >
+                    Rhythm
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
+                  >
+                    Connection
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
+                  >
+                    Expression
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
+                  >
+                    Technique
+                  </button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-white text-sm mb-2"
+                  >Experience Level</label
+                >
+                <div class="flex flex-wrap gap-2">
+                  <button
+                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
+                  >
+                    Beginner
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
+                  >
+                    Intermediate
+                  </button>
+                  <button
+                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
+                  >
+                    Advanced
+                  </button>
+                </div>
+              </div>
+              <button
+                class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700"
+              >
+                Find My Dance Style
+              </button>
+            </div>
+          </div>
 
-          <!-- City & Style Selector -->
+          <!-- City Search with Autocomplete -->
           <div
-            class="mt-12 max-w-lg mx-auto"
+            class="mt-8 max-w-lg mx-auto"
             data-aos="fade-up"
             data-aos-delay="400"
           >
-            <div class="relative mb-4">
+            <div class="relative">
               <input
                 type="text"
                 placeholder="Enter your city"
@@ -128,70 +207,202 @@
               <button
                 class="absolute right-2 top-2 bg-purple-600 text-white px-4 py-1 rounded-lg hover:bg-purple-700"
               >
-                Find Community
+                Find Events
               </button>
-            </div>
-            <!-- Popular Cities -->
-            <div class="flex flex-wrap justify-center gap-2 mt-2">
-              <span class="text-sm text-gray-300">Popular:</span>
-              <a href="#" class="text-sm text-purple-300 hover:text-white"
-                >Berlin</a
-              >
-              <a href="#" class="text-sm text-purple-300 hover:text-white"
-                >London</a
-              >
-              <a href="#" class="text-sm text-purple-300 hover:text-white"
-                >Paris</a
-              >
-              <a href="#" class="text-sm text-purple-300 hover:text-white"
-                >New York</a
-              >
-            </div>
-          </div>
-
-          <!-- Community Impact -->
-          <div
-            class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-              <p class="text-2xl font-bold text-white">50+</p>
-              <p class="text-sm text-gray-300">Cities Worldwide</p>
-            </div>
-            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-              <p class="text-2xl font-bold text-white">10,000+</p>
-              <p class="text-sm text-gray-300">Active Dancers</p>
-            </div>
-            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-              <p class="text-2xl font-bold text-white">1,000+</p>
-              <p class="text-sm text-gray-300">Dance Teachers</p>
-            </div>
-            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
-              <p class="text-2xl font-bold text-white">5,000+</p>
-              <p class="text-sm text-gray-300">Events Monthly</p>
+              <!-- Autocomplete Dropdown -->
+              <div class="absolute w-full mt-1 bg-white rounded-lg shadow-lg">
+                <div class="p-2">
+                  <div
+                    class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded cursor-pointer"
+                  >
+                    <svg
+                      class="w-5 h-5 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path>
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      ></path>
+                    </svg>
+                    <div>
+                      <p class="font-medium text-gray-900">Berlin, Germany</p>
+                      <p class="text-sm text-gray-500">15 active communities</p>
+                    </div>
+                  </div>
+                  <!-- More city suggestions -->
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Scroll Indicator -->
-      <div
-        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
-      >
-        <svg
-          class="w-6 h-6 text-white"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+    <!-- Featured Community Members -->
+    <div class="bg-white py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+          Featured Community Members
+        </h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-4 gap-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
         >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M19 14l-7 7m0 0l-7-7m7 7V3"
-          ></path>
-        </svg>
+          <!-- Member Card -->
+          <div class="relative group">
+            <div class="relative h-64 w-full overflow-hidden rounded-lg">
+              <img
+                src="https://source.unsplash.com/random/400x400/?dancer"
+                alt="Dancer"
+                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+              ></div>
+              <div class="absolute bottom-0 left-0 right-0 p-4">
+                <h3 class="text-white font-bold">Elena Martinez</h3>
+                <p class="text-gray-300 text-sm">Salsa & Bachata Teacher</p>
+                <div class="mt-2 flex items-center space-x-2">
+                  <span
+                    class="bg-purple-600 text-white text-xs px-2 py-1 rounded-full"
+                    >Top Contributor</span
+                  >
+                  <span class="text-white text-sm"
+                    >🏆 Teacher of the Month</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- More member cards -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Upcoming Festivals -->
+    <div class="bg-purple-50 py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+          Upcoming Dance Festivals
+        </h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <!-- Festival Card -->
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden group hover:shadow-lg transition-shadow"
+          >
+            <div class="relative h-48">
+              <img
+                src="https://source.unsplash.com/random/800x600/?dance-festival"
+                alt="Festival"
+                class="w-full h-full object-cover"
+              />
+              <div
+                class="absolute top-4 right-4 bg-purple-600 text-white text-sm px-3 py-1 rounded-full"
+              >
+                3 days left
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold text-xl mb-2">Berlin Dance Festival 2024</h3>
+              <p class="text-gray-600 mb-4">
+                The biggest dance event in Europe with 50+ international artists
+              </p>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <svg
+                    class="w-5 h-5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                  <span class="text-gray-600">Jun 15-17</span>
+                </div>
+                <button
+                  class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- More festival cards -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Learning Paths -->
+    <div class="bg-white py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+          Your Dance Journey
+        </h2>
+
+        <div class="relative">
+          <!-- Progress Line -->
+          <div
+            class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-purple-100"
+          ></div>
+
+          <!-- Journey Steps -->
+          <div class="space-y-24">
+            <!-- Step -->
+            <div class="relative" data-aos="fade-up">
+              <div class="flex items-center justify-center mb-8">
+                <div
+                  class="bg-purple-600 text-white w-12 h-12 rounded-full flex items-center justify-center z-10"
+                >
+                  1
+                </div>
+              </div>
+              <div class="bg-purple-50 rounded-lg p-6 max-w-2xl mx-auto">
+                <h3 class="font-bold text-xl mb-4">Start Your Journey</h3>
+                <p class="text-gray-600 mb-4">
+                  Begin with the basics and find your dance style
+                </p>
+                <div class="grid grid-cols-2 gap-4">
+                  <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-medium mb-2">Free Trial Classes</h4>
+                    <p class="text-sm text-gray-600">
+                      Try different styles with experienced teachers
+                    </p>
+                  </div>
+                  <div class="bg-white p-4 rounded-lg">
+                    <h4 class="font-medium mb-2">Style Quiz</h4>
+                    <p class="text-sm text-gray-600">
+                      Discover which dance style suits you best
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- More steps -->
+          </div>
+        </div>
       </div>
     </div>
 
@@ -915,10 +1126,22 @@
     </footer>
 
     <script>
+      // Initialize map
+      mapboxgl.accessToken = "your-mapbox-token";
+      const map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/mapbox/dark-v10",
+        center: [-74.5, 40],
+        zoom: 9,
+      });
+
+      // Initialize AOS
       AOS.init({
         duration: 800,
         once: true,
       });
+
+      // Add other interactive features
     </script>
   </body>
 </html>
