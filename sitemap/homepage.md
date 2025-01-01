@@ -2,72 +2,77 @@
 
 ## Hero Section
 
-"Dance Together, Grow Together"
-Connect with your local dance community, find events, and share your passion for dance.
+"Where Dance Creates Community"
+Join a movement of dancers building genuine connections through shared passion.
+From your first step to your next performance, we're dancing this journey together.
 
-Primary CTA: "Find Dance Events Near You"
-Secondary CTA: "Join 10,000+ Dancers"
+Primary CTA: "Find Your Local Dance Community"
+Secondary CTA: "Share Your Dance Story"
 
 ## Dance Style Discovery
 
-Featured Styles:
+"Every Style Has a Home Here"
 
-- Salsa & Bachata
-- Urban & Hip Hop
-- Ballet & Contemporary
-- Swing & Jazz
-- Latin & Ballroom
-- Traditional & Folk
+Featured Communities:
 
-"Find your rhythm. Every style, every level, every day."
-CTA: "Explore Dance Styles"
+- Salsa & Bachata: Weekly socials, practice groups
+- Urban & Hip Hop: Jams, battles, workshops
+- Ballet & Contemporary: Classes, performances
+- Swing & Jazz: Social dances, exchanges
+- Latin & Ballroom: Practice sessions, competitions
+- Traditional & Folk: Cultural events, gatherings
+
+"Find dancers who share your passion"
+CTA: "Join Dance Communities"
 
 ## Upcoming Events
 
-"Your Next Dance Adventure Awaits"
+"Dance Together, Grow Together"
 
-- Filter by style, level, and location
-- Join workshops, socials, and festivals
-- Connect with local dance communities
-  CTA: "View All Events"
+- Community-organized events
+- From living room practices to festivals
+- All levels welcome, always
+  CTA: "Find Dance Events"
 
 ## Community Highlights
 
-"Join a Thriving Dance Community"
+"Built By Dancers, For Dancers"
 
-- 10,000+ active dancers
-- 500+ dance teachers
-- 1,000+ monthly events
-- 50+ dance styles
+Community Impact:
 
-Success Story:
-"WeDance helped me find my salsa family. From beginner to instructor, this platform has been my dance journey companion." - Maria S.
+- 100+ active local communities
+- Weekly gatherings in 20+ cities
+- Dancers supporting dancers
+- All styles, all levels, all welcome
 
-CTA: "Join Our Community"
+Real Story:
+"Through WeDance, I found not just dance partners, but a whole family. We started with weekly practice sessions, now we organize city-wide events." - Alex & Maria, Community Leaders
+
+CTA: "Be Part of Something Bigger"
 
 ## For Dance Artists
 
-"Grow Your Dance Business"
+"Share Your Art, Build Your Community"
 
-- Reach thousands of potential students
-- Manage classes effortlessly
-- Build your professional brand
-- Connect with venues and organizers
+- Create your teaching circle
+- Share your knowledge
+- Build lasting connections
+- Grow with your students
 
-Success Metric: "200+ teachers grew their student base by 40% in 3 months"
-CTA: "Create Artist Profile"
+Community Story: "My students became my biggest supporters, and together we're building something beautiful" - Lisa, Salsa Teacher
+CTA: "Start Teaching"
 
 ## For Event Organizers
 
-"Organize Successful Dance Events"
+"Create Spaces Where Dance Thrives"
 
-- Reach targeted dance audiences
-- Streamline event management
-- Build loyal communities
-- Collaborate with artists and venues
+- Build your dance community
+- Connect with local artists
+- Create meaningful experiences
+- Foster genuine connections
 
-Platform Reach: "Average event reaches 500+ relevant dancers"
-CTA: "Start Organizing"
+Community Impact: "Our monthly socials grew from 5 friends to a vibrant community of 100+ regular dancers"
+CTA: "Create Events"
 
 ## Platform Benefits
 
