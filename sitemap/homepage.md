@@ -1,56 +1,174 @@
-# Berlin [change]
+# WeDance Homepage Structure
 
-[Add Post] [Add Event] [Filter: All | Events | Posts | Partners]
+## Hero Section
 
-## Feed
+"Dance Together, Grow Together"
+Connect with your local dance community, find events, and share your passion for dance.
 
-### 🎉 Event Today
+Primary CTA: "Find Dance Events Near You"
+Secondary CTA: "Join 10,000+ Dancers"
 
-**Salsa Party @ Havanna**
-20:00-02:00 · Salsa & Bachata · 10€
-2 DJs · 120 going · Beginner friendly
-[Going] [Maybe] [Share]
+## Dance Style Discovery
 
-### 👋 New Post · 15m ago
+Featured Styles:
 
-**Alex**
-"Looking for a bachata practice partner! I'm an intermediate leader, available weekday evenings in Mitte."
-[Reply] [Share]
+- Salsa & Bachata
+- Urban & Hip Hop
+- Ballet & Contemporary
+- Swing & Jazz
+- Latin & Ballroom
+- Traditional & Folk
 
-### 🎉 Event Today
+"Find your rhythm. Every style, every level, every day."
+CTA: "Explore Dance Styles"
 
-**Bachata Social @ La Cubanita**
-21:00-01:00 · Bachata · 8€
-Beginner class included · 45 going
-[Going] [Maybe] [Share]
+## Upcoming Events
 
-### ✈️ Trip · 1h ago
+"Your Next Dance Adventure Awaits"
 
-**Maria**
-"Planning to go to Hamburg Salsa Congress next month. 3 spots left in the car, can share costs!"
-[Interested] [Share]
+- Filter by style, level, and location
+- Join workshops, socials, and festivals
+- Connect with local dance communities
+  CTA: "View All Events"
 
-### 🎉 Event Today
+## Community Highlights
 
-**Tango Milonga @ Tangoloft**
-21:30-02:00 · Tango · 15€
-Live music · Traditional milonga
-[Going] [Maybe] [Share]
+"Join a Thriving Dance Community"
 
-### 📝 Review · 2h ago
+- 10,000+ active dancers
+- 500+ dance teachers
+- 1,000+ monthly events
+- 50+ dance styles
 
-**Juan**
-"Great vibes at La Cubanita last night! The new DJ was amazing 🔥"
-[Comment] [Share]
+Success Story:
+"WeDance helped me find my salsa family. From beginner to instructor, this platform has been my dance journey companion." - Maria S.
 
-### 📢 Announcement · 3h ago
+CTA: "Join Our Community"
 
-**Salsa School**
-"New beginner course starting next Monday! 8 weeks, partner not required."
-[Details] [Share]
+## For Dance Artists
 
-[Load More]
+"Grow Your Dance Business"
 
-## Quick Links
+- Reach thousands of potential students
+- Manage classes effortlessly
+- Build your professional brand
+- Connect with venues and organizers
 
-[Calendar] [Cities] [Profile] [How it Works]
+Success Metric: "200+ teachers grew their student base by 40% in 3 months"
+CTA: "Create Artist Profile"
+
+## For Event Organizers
+
+"Organize Successful Dance Events"
+
+- Reach targeted dance audiences
+- Streamline event management
+- Build loyal communities
+- Collaborate with artists and venues
+
+Platform Reach: "Average event reaches 500+ relevant dancers"
+CTA: "Start Organizing"
+
+## Platform Benefits
+
+1. **Smart Event Discovery**
+
+   - AI-powered event recommendations
+   - Location-based suggestions
+   - Style and level matching
+
+2. **Partner Finding**
+
+   - Match by style, level, and goals
+   - Organize practice sessions
+   - Build dance connections
+
+3. **Community Connection**
+
+   - Join local dance groups
+   - Participate in discussions
+   - Share experiences and tips
+
+4. **Learning Resources**
+   - Find certified teachers
+   - Track your progress
+   - Access dance tutorials
+
+## Social Proof
+
+"Trusted by Dance Communities Worldwide"
+
+Testimonials:
+"WeDance revolutionized how we organize our salsa festivals" - John D., Event Organizer
+"Found my dance partner and now we compete together!" - Sarah M., Dancer
+"Doubled my student base in two months" - Alex K., Dance Teacher
+
+Platform Statistics:
+
+- 100,000+ dance connections made
+- 10,000+ events organized
+- 95% satisfaction rate
+- Present in 50+ cities
+
+## Getting Started
+
+"Your Dance Journey Begins Here"
+
+1. Create your profile
+2. Choose your dance styles
+3. Find local events
+4. Connect with dancers
+
+Quick Links:
+
+- Popular Events
+- Top Teachers
+- Active Communities
+- Dance Styles Guide
+
+## Footer
+
+### Community
+
+- About WeDance: "Building the future of dance communities"
+- Mission: "Connecting dancers worldwide"
+- Community Guidelines: "Dance with respect"
+- Success Stories: "Real stories from our community"
+
+### Features
+
+- Events: "Find your next dance adventure"
+- Classes: "Learn from the best"
+- Partner Search: "Find your perfect dance match"
+- Community Groups: "Join your local dance family"
+
+### Support
+
+- Help Center: "We're here to help"
+- Contact: "Reach out to our team"
+- FAQ: "Quick answers to common questions"
+- Safety Guidelines: "Dance safely"
+
+### Legal
+
+- Terms of Service
+- Privacy Policy
+- Cookie Policy
+- Community Standards
+
+## Technical Requirements
+
+- Mobile-first design
+- Fast loading (Core Web Vitals)
+- SEO optimized
+- Location aware
+- Multi-language support
+- Clear navigation path to all core features
+
+## SEO Elements
+
+- Style-specific meta descriptions
+- Location-aware titles
+- Rich snippets for events
+- Structured data markup
+- Canonical URLs
