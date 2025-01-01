@@ -3,11 +3,12 @@
 ## Hero Section
 
 "Where Dance Creates Community"
+A platform by dancers, where communities self-organize and thrive together.
 Join a movement of dancers building genuine connections through shared passion.
 From your first step to your next performance, we're dancing this journey together.
 
-Primary CTA: "Find Your Local Dance Community"
-Secondary CTA: "Share Your Dance Story"
+Primary CTA: "Find Your Local Community"
+Secondary CTA: "Start Something Beautiful"
 
 ## Dance Style Discovery
 
@@ -22,17 +23,32 @@ Featured Communities:
 - Latin & Ballroom: Practice sessions, competitions
 - Traditional & Folk: Cultural events, gatherings
 
-"Find dancers who share your passion"
+"Find dancers who share your passion and create together"
 CTA: "Join Dance Communities"
 
 ## Upcoming Events
 
 "Dance Together, Grow Together"
+From local meetups to city-wide movements
 
 - Community-organized events
 - From living room practices to festivals
 - All levels welcome, always
-  CTA: "Find Dance Events"
+- Created by dancers like you
+  CTA: "Find & Create Events"
+
+## Participate & Contribute
+
+"Your Dance Community Needs You"
+
+- Host practice sessions in your space
+- Share your knowledge with beginners
+- Organize local meetups
+- Welcome new dancers
+- Start a local community
+- Connect venues with artists
+
+CTA: "Start Contributing"
 
 ## Community Highlights
 
@@ -40,13 +56,15 @@ CTA: "Join Dance Communities"
 
 Community Impact:
 
-- 100+ active local communities
-- Weekly gatherings in 20+ cities
+- Active communities in 20+ cities
+- Weekly local gatherings everywhere
 - Dancers supporting dancers
 - All styles, all levels, all welcome
 
-Real Story:
+Real Stories:
 "Through WeDance, I found not just dance partners, but a whole family. We started with weekly practice sessions, now we organize city-wide events." - Alex & Maria, Community Leaders
+
+"What started as a small bachata practice group in my living room grew into our city's most active dance community" - Carlos, Community Initiator
 
 CTA: "Be Part of Something Bigger"
 
@@ -58,6 +76,8 @@ CTA: "Be Part of Something Bigger"
 - Share your knowledge
 - Build lasting connections
 - Grow with your students
+- Connect with local organizers
+- Find practice spaces
 
 Community Story: "My students became my biggest supporters, and together we're building something beautiful" - Lisa, Salsa Teacher
 CTA: "Start Teaching"
@@ -70,66 +90,72 @@ CTA: "Start Teaching"
 - Connect with local artists
 - Create meaningful experiences
 - Foster genuine connections
+- Find suitable venues
+- Collaborate with other organizers
 
 Community Impact: "Our monthly socials grew from 5 friends to a vibrant community of 100+ regular dancers"
 CTA: "Create Events"
 
 ## Platform Benefits
 
-1. **Smart Event Discovery**
+1. **Community Building**
 
-   - AI-powered event recommendations
-   - Location-based suggestions
-   - Style and level matching
+   - Connect with local dancers
+   - Find practice partners
+   - Join community initiatives
+   - Start your own gatherings
 
-2. **Partner Finding**
+2. **Self-Organization**
 
-   - Match by style, level, and goals
-   - Organize practice sessions
-   - Build dance connections
+   - Create practice groups
+   - Organize meetups
+   - Share resources
+   - Support each other
 
-3. **Community Connection**
+3. **Local Growth**
 
-   - Join local dance groups
-   - Participate in discussions
-   - Share experiences and tips
+   - Build city communities
+   - Connect with venues
+   - Organize local events
+   - Foster local connections
 
-4. **Learning Resources**
-   - Find certified teachers
-   - Track your progress
-   - Access dance tutorials
+4. **Knowledge Sharing**
+   - Learn from each other
+   - Share your experience
+   - Support beginners
+   - Grow together
 
 ## Social Proof
 
-"Trusted by Dance Communities Worldwide"
+"Growing Through Community"
 
-Testimonials:
-"WeDance revolutionized how we organize our salsa festivals" - John D., Event Organizer
-"Found my dance partner and now we compete together!" - Sarah M., Dancer
-"Doubled my student base in two months" - Alex K., Dance Teacher
+Real Impact:
 
-Platform Statistics:
+- 20+ cities with weekly gatherings
+- 100+ community-led events monthly
+- Countless friendships formed
+- Growing through word of mouth
 
-- 100,000+ dance connections made
-- 10,000+ events organized
-- 95% satisfaction rate
-- Present in 50+ cities
+Community Stories:
+"What I love about WeDance is how organic everything is. No pressure, just dancers helping dancers." - Maya, Community Member
+"Found my dance family here. Now we practice weekly and travel to festivals together!" - David & Sophie
+"Started as a student, became a teacher, now building my own dance community" - James, Dance Artist
 
 ## Getting Started
 
 "Your Dance Journey Begins Here"
 
-1. Create your profile
-2. Choose your dance styles
-3. Find local events
-4. Connect with dancers
+1. Join your local community
+2. Find dance friends nearby
+3. Participate in gatherings
+4. Create something new
 
 Quick Links:
 
-- Popular Events
-- Top Teachers
-- Active Communities
-- Dance Styles Guide
+- Local Communities
+- Practice Groups
+- Community Events
+- Start Initiative
 
 ## Footer
 
