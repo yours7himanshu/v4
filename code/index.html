@@ -37,6 +37,203 @@
       </button>
     </div>
 
+    <!-- Notification Center -->
+    <div class="hidden top-20 right-4 z-50">
+      <div class="bg-white rounded-lg shadow-lg p-4 max-w-sm">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center space-x-2">
+            <h3 class="font-bold text-gray-900">Activity Feed</h3>
+            <span
+              class="bg-purple-600 text-white text-xs px-2 py-1 rounded-full"
+              >Live</span
+            >
+          </div>
+          <button class="text-gray-400 hover:text-gray-500">
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <div class="space-y-4 max-h-96 overflow-auto">
+          <!-- Nearby Event -->
+          <div
+            class="flex items-start space-x-3 bg-purple-50 p-3 rounded-lg animate-pulse"
+          >
+            <div class="flex-shrink-0">
+              <span
+                class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-purple-500"
+              >
+                <svg
+                  class="h-5 w-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span
+                  class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-red-100 text-red-800"
+                >
+                  Happening Now
+                </span>
+                <span class="text-xs text-gray-500">500m away</span>
+              </div>
+              <p class="text-sm text-gray-800 mt-1">
+                Salsa Social at Havana Club
+              </p>
+              <div
+                class="mt-1 flex items-center space-x-1 text-xs text-gray-500"
+              >
+                <span>15 dancers</span>
+                <span>•</span>
+                <span>2 teachers</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Personal Achievement -->
+          <div class="flex items-start space-x-3 bg-green-50 p-3 rounded-lg">
+            <div class="flex-shrink-0">
+              <span
+                class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-green-500"
+              >
+                <svg
+                  class="h-5 w-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span
+                  class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800"
+                >
+                  Achievement
+                </span>
+              </div>
+              <p class="text-sm text-gray-800 mt-1">
+                You've attended 10 salsa classes!
+              </p>
+              <p class="text-xs text-gray-500 mt-1">
+                Keep it up! Next milestone: 20 classes
+              </p>
+            </div>
+          </div>
+
+          <!-- Community Update -->
+          <div class="flex items-start space-x-3 bg-blue-50 p-3 rounded-lg">
+            <div class="flex-shrink-0">
+              <span
+                class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-blue-500"
+              >
+                <svg
+                  class="h-5 w-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span
+                  class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-100 text-blue-800"
+                >
+                  Community
+                </span>
+              </div>
+              <p class="text-sm text-gray-800 mt-1">
+                New bachata practice group formed!
+              </p>
+              <p class="text-xs text-gray-500 mt-1">
+                8 members • Meets every Tuesday
+              </p>
+            </div>
+          </div>
+
+          <!-- Personalized Recommendation -->
+          <div class="flex items-start space-x-3 bg-yellow-50 p-3 rounded-lg">
+            <div class="flex-shrink-0">
+              <span
+                class="inline-flex items-center justify-center h-8 w-8 rounded-full bg-yellow-500"
+              >
+                <svg
+                  class="h-5 w-5 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  ></path>
+                </svg>
+              </span>
+            </div>
+            <div>
+              <div class="flex items-center space-x-2">
+                <span
+                  class="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-yellow-100 text-yellow-800"
+                >
+                  For You
+                </span>
+              </div>
+              <p class="text-sm text-gray-800 mt-1">
+                Based on your interests: Kizomba Workshop
+              </p>
+              <p class="text-xs text-gray-500 mt-1">
+                This Saturday • Beginner Friendly
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-4 pt-4 border-t border-gray-200">
+          <button
+            class="text-sm text-purple-600 hover:text-purple-700 font-medium"
+          >
+            View All Updates
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="bg-white shadow-sm fixed w-full z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -105,6 +302,78 @@
       </div>
     </nav>
 
+    <!-- Quick Actions Menu -->
+    <div class="fixed bottom-20 right-4 z-50">
+      <div class="flex flex-col space-y-2">
+        <button
+          class="bg-purple-600 text-white p-3 rounded-full shadow-lg hover:bg-purple-700 group relative"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            ></path>
+          </svg>
+          <span
+            class="absolute right-full mr-2 bg-gray-900 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+          >
+            Quick Actions
+          </span>
+        </button>
+        <button
+          class="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 group relative"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+            ></path>
+          </svg>
+          <span
+            class="absolute right-full mr-2 bg-gray-900 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+          >
+            Start Practice
+          </span>
+        </button>
+        <button
+          class="bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 group relative"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+            ></path>
+          </svg>
+          <span
+            class="absolute right-full mr-2 bg-gray-900 text-white text-sm py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap"
+          >
+            Find Partner
+          </span>
+        </button>
+      </div>
+    </div>
+
     <!-- Hero Section with Interactive Map -->
     <div class="relative min-h-screen">
       <!-- Map Background -->
@@ -124,6 +393,68 @@
             <span class="block">Find Your Dance</span>
             <span class="block text-purple-300">Join Your Community</span>
           </h1>
+
+          <!-- Quick Start Options -->
+          <div
+            class="mt-8 flex flex-wrap justify-center gap-4"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <button
+              class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors flex items-center space-x-2"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+              <span>Find Classes</span>
+            </button>
+            <button
+              class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors flex items-center space-x-2"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <span>Browse Events</span>
+            </button>
+            <button
+              class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors flex items-center space-x-2"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+              <span>Meet Dancers</span>
+            </button>
+          </div>
 
           <!-- Interactive Dance Matcher -->
           <div
@@ -1132,16 +1463,145 @@
         container: "map",
         style: "mapbox://styles/mapbox/dark-v10",
         center: [-74.5, 40],
-        zoom: 9,
+        zoom: 12,
+        pitch: 45,
+        bearing: -17.6,
+        antialias: true,
+      });
+
+      // Add 3D building layer
+      map.on("load", () => {
+        // Add 3D buildings
+        map.addLayer({
+          id: "3d-buildings",
+          source: "composite",
+          "source-layer": "building",
+          filter: ["==", "extrude", "true"],
+          type: "fill-extrusion",
+          minzoom: 15,
+          paint: {
+            "fill-extrusion-color": "#aaa",
+            "fill-extrusion-height": ["get", "height"],
+            "fill-extrusion-base": ["get", "min_height"],
+            "fill-extrusion-opacity": 0.6,
+          },
+        });
+
+        // Add dance activity markers
+        const activities = [
+          {
+            type: "social",
+            coordinates: [-74.5, 40],
+            title: "Salsa Night",
+            details: "15 dancers • Live music",
+            color: "#EF4444",
+          },
+          {
+            type: "class",
+            coordinates: [-74.49, 40.01],
+            title: "Bachata Class",
+            details: "8 spots left • Beginner friendly",
+            color: "#3B82F6",
+          },
+          {
+            type: "practice",
+            coordinates: [-74.51, 40.02],
+            title: "Practice Group",
+            details: "5 dancers • All levels",
+            color: "#F59E0B",
+          },
+        ];
+
+        // Add markers with custom HTML and animations
+        activities.forEach((activity) => {
+          // Create custom marker element
+          const el = document.createElement("div");
+          el.className = "relative";
+          el.innerHTML = `
+            <div class="absolute -top-2 -left-2 w-4 h-4 bg-${activity.color} rounded-full animate-ping"></div>
+            <div class="relative w-4 h-4 bg-${activity.color} rounded-full">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="block w-2 h-2 bg-white rounded-full"></span>
+              </div>
+            </div>
+          `;
+
+          // Add popup
+          const popup = new mapboxgl.Popup({
+            offset: 25,
+            closeButton: false,
+            className: "rounded-lg shadow-lg",
+          }).setHTML(`
+            <div class="p-3">
+              <h3 class="font-bold text-gray-900">${activity.title}</h3>
+              <p class="text-sm text-gray-600">${activity.details}</p>
+              <button class="mt-2 w-full bg-purple-600 text-white text-sm px-3 py-1 rounded hover:bg-purple-700">
+                Join Now
+              </button>
+            </div>
+          `);
+
+          // Add marker to map
+          new mapboxgl.Marker(el)
+            .setLngLat(activity.coordinates)
+            .setPopup(popup)
+            .addTo(map);
+        });
+
+        // Add smooth camera animations
+        let lastTime = 0;
+        const animate = (time) => {
+          if (lastTime !== 0) {
+            const delta = time - lastTime;
+            map.setBearing(map.getBearing() + delta * 0.01);
+          }
+          lastTime = time;
+          requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
       });
 
       // Initialize AOS
       AOS.init({
         duration: 800,
         once: true,
+        mirror: true,
       });
 
-      // Add other interactive features
+      // Add interactive features
+      document.addEventListener("DOMContentLoaded", () => {
+        // Quick action buttons
+        const quickActions = document.querySelectorAll("[data-quick-action]");
+        quickActions.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Add click animations and effects
+            button.classList.add("scale-95");
+            setTimeout(() => button.classList.remove("scale-95"), 200);
+          });
+        });
+
+        // Notification center
+        const notificationCenter = document.querySelector(
+          "[data-notification-center]"
+        );
+        if (notificationCenter) {
+          const toggle = notificationCenter.querySelector(
+            "[data-notification-toggle]"
+          );
+          toggle.addEventListener("click", () => {
+            notificationCenter.classList.toggle("translate-x-full");
+          });
+        }
+
+        // Dance style matcher
+        const styleButtons = document.querySelectorAll("[data-style-button]");
+        styleButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            button.classList.toggle("bg-purple-600");
+            button.classList.toggle("bg-white/20");
+          });
+        });
+      });
     </script>
   </body>
 </html>
