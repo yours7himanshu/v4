@@ -7,7 +7,7 @@ A platform by dancers, where communities self-organize and thrive together.
 Join a movement of dancers building genuine connections through shared passion.
 From your first step to your next performance, we're dancing this journey together.
 
-Primary CTA: "Find Your Local Community"
+Primary CTA: "Find Your Dance Style"
 Secondary CTA: "Start Something Beautiful"
 
 ## Dance Style Discovery
@@ -16,15 +16,33 @@ Secondary CTA: "Start Something Beautiful"
 
 Featured Communities:
 
-- Salsa & Bachata: Weekly socials, practice groups
-- Urban & Hip Hop: Jams, battles, workshops
-- Ballet & Contemporary: Classes, performances
-- Swing & Jazz: Social dances, exchanges
-- Latin & Ballroom: Practice sessions, competitions
-- Traditional & Folk: Cultural events, gatherings
+- Salsa & Bachata: Active in 12 cities, 50+ weekly socials
+- Urban & Hip Hop: Active in 8 cities, weekly jams & battles
+- Ballet & Contemporary: Growing in 5 cities, regular workshops
+- Swing & Jazz: Thriving in 7 cities, social dances & exchanges
+- Latin & Ballroom: Active in 6 cities, practice sessions
+- Traditional & Folk: Preserving culture in 4 cities
 
-"Find dancers who share your passion and create together"
+"Join thriving communities in your favorite dance style, then connect with local dancers"
 CTA: "Join Dance Communities"
+
+## Community Recognition
+
+"Celebrating Our Dance Heroes"
+
+Active Communities:
+
+- Most Active Cities: Berlin, Munich, Vienna
+- Fastest Growing Styles: Kizomba, Urban Dance
+- Recent Milestones: 100th social in Berlin Salsa
+
+Community Champions:
+
+- "Started 3 practice groups in 2 months" - Maria, Salsa Community
+- "Welcomed 50+ newcomers to bachata" - John, Welcome Team
+- "Connected 5 cities for monthly exchanges" - Dance Bridges Team
+
+CTA: "Become a Community Builder"
 
 ## Upcoming Events
 
