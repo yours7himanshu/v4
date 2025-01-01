@@ -175,6 +175,34 @@ Choose first dance style based on:
    - Community initiatives
    - Teacher satisfaction
 
+## SEO Dominance Strategy
+
+1. **Search Term Dominance**
+
+   - Target top rankings for dance style + location combinations (e.g., "Salsa Munich", "Kizomba Havana")
+   - Optimize for local event searches (e.g., "salsa parties today near me")
+   - Focus on dance style-specific keywords and terminology
+
+2. **Content Strategy**
+
+   - Create comprehensive dance style guides
+   - Maintain up-to-date event calendars
+   - Develop location-specific landing pages
+   - Build authoritative content for each dance style
+
+3. **Local SEO Focus**
+
+   - Optimize for city-specific searches
+   - Build location-aware event pages
+   - Create region-specific dance community content
+   - Implement structured data for events and locations
+
+4. **Technical SEO**
+   - Mobile-first design for local searches
+   - Fast-loading event pages
+   - Rich snippets for dance events
+   - Location-based URL structure
+
 ## Timeline and Milestones
 
 ### Month 1-3: Foundation
