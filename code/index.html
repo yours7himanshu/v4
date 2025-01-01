@@ -16,19 +16,61 @@
               <span class="text-2xl font-bold text-purple-600">WeDance</span>
             </div>
           </div>
+          <!-- Desktop Navigation -->
           <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
-            <a href="#" class="text-gray-700 hover:text-purple-600">Styles</a>
+            <a href="#" class="text-gray-700 hover:text-purple-600">Cities</a>
             <a href="#" class="text-gray-700 hover:text-purple-600">Events</a>
-            <a href="#" class="text-gray-700 hover:text-purple-600"
-              >Community</a
-            >
-            <a href="#" class="text-gray-700 hover:text-purple-600">Teach</a>
+            <a href="#" class="text-gray-700 hover:text-purple-600">Teachers</a>
+            <a href="#" class="text-gray-700 hover:text-purple-600">Venues</a>
             <button
               class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
             >
-              Join Now
+              Join Community
             </button>
           </div>
+          <!-- Mobile menu button -->
+          <div class="flex items-center sm:hidden">
+            <button type="button" class="text-gray-700 hover:text-purple-600">
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Navigation -->
+      <div class="sm:hidden hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="#"
+            class="block px-3 py-2 text-gray-700 hover:text-purple-600"
+            >Cities</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 text-gray-700 hover:text-purple-600"
+            >Events</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 text-gray-700 hover:text-purple-600"
+            >Teachers</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 text-gray-700 hover:text-purple-600"
+            >Venues</a
+          >
         </div>
       </div>
     </nav>
@@ -40,161 +82,458 @@
           <h1
             class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
           >
-            <span class="block">Dance Together,</span>
-            <span class="block text-purple-600">Grow Together</span>
+            <span class="block">Your Local Dance Community</span>
+            <span class="block text-purple-600">Empowered</span>
           </h1>
           <p class="mt-6 text-xl text-gray-600">
-            A community-driven platform where dancers create, share, and thrive
-            together
+            Join a thriving network of dancers, teachers, and organizers
+            creating amazing dance experiences together
           </p>
 
-          <!-- Community Pulse -->
+          <!-- Location Selector -->
+          <div class="mt-8 max-w-md mx-auto">
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Enter your city"
+                class="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-600 focus:outline-none"
+              />
+              <button
+                class="absolute right-2 top-2 bg-purple-600 text-white px-4 py-1 rounded-lg"
+              >
+                Find Community
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Platform Stats -->
           <div class="mt-8 flex flex-wrap justify-center gap-4">
             <div class="bg-white p-4 rounded-lg shadow-sm">
-              <p class="text-sm text-gray-600">Live Now</p>
-              <p class="font-bold">3 Practice Sessions</p>
-            </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm">
-              <p class="text-sm text-gray-600">Today</p>
-              <p class="font-bold">8 Community Events</p>
+              <p class="text-sm text-gray-600">Active Communities</p>
+              <p class="font-bold">50+ Cities</p>
             </div>
             <div class="bg-white p-4 rounded-lg shadow-sm">
               <p class="text-sm text-gray-600">This Week</p>
-              <p class="font-bold">12 New Initiatives</p>
+              <p class="font-bold">200+ Events</p>
             </div>
-          </div>
-
-          <!-- Style Selection -->
-          <div class="mt-12">
-            <p class="text-lg mb-4">Find your dance community:</p>
-            <div
-              class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
-            >
-              <a
-                href="/salsa"
-                class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-              >
-                <span class="block font-bold">Salsa</span>
-                <span class="text-sm text-gray-600">2,000+ dancers</span>
-              </a>
-              <a
-                href="/bachata"
-                class="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-              >
-                <span class="block font-bold">Bachata</span>
-                <span class="text-sm text-gray-600">1,500+ dancers</span>
-              </a>
-              <!-- More style cards -->
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+              <p class="text-sm text-gray-600">Community Members</p>
+              <p class="font-bold">10,000+ Dancers</p>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Community in Action -->
-    <div class="bg-white py-24">
+    <!-- Live Community Feed -->
+    <div class="bg-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-12">
-          Community in Action
+          Live in Your Community
         </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Community Initiatives -->
-          <div class="bg-purple-50 rounded-lg p-6">
-            <h3 class="font-bold mb-4">Latest Initiatives</h3>
+          <!-- Upcoming Events -->
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="font-bold text-lg mb-4 flex items-center">
+              <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+              Happening Now
+            </h3>
             <ul class="space-y-4">
-              <li>
-                <p class="font-medium">Weekly Practice Exchange</p>
-                <p class="text-sm text-gray-600">Started by Maria & John</p>
+              <li class="bg-white p-4 rounded-lg">
+                <span class="text-sm text-purple-600">Social Dancing</span>
+                <p class="font-medium">Salsa Night at Havana Club</p>
+                <p class="text-sm text-gray-600">15 dancers checked in</p>
               </li>
-              <li>
-                <p class="font-medium">Beginner Welcome Program</p>
-                <p class="text-sm text-gray-600">15 teachers volunteering</p>
-              </li>
-            </ul>
-          </div>
-
-          <!-- Community Events -->
-          <div class="bg-purple-50 rounded-lg p-6">
-            <h3 class="font-bold mb-4">Community Events</h3>
-            <ul class="space-y-4">
-              <li>
+              <li class="bg-white p-4 rounded-lg">
+                <span class="text-sm text-purple-600">Practice Session</span>
                 <p class="font-medium">Open Practice Space</p>
-                <p class="text-sm text-gray-600">
-                  Today, 18:00 - Organized by community
-                </p>
-              </li>
-              <li>
-                <p class="font-medium">Style Exchange Workshop</p>
-                <p class="text-sm text-gray-600">
-                  Tomorrow, 19:00 - Led by dancers
-                </p>
+                <p class="text-sm text-gray-600">8 dancers practicing</p>
               </li>
             </ul>
           </div>
 
-          <!-- Success Stories -->
-          <div class="bg-purple-50 rounded-lg p-6">
-            <h3 class="font-bold mb-4">Community Stories</h3>
+          <!-- Community Initiatives -->
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="font-bold text-lg mb-4 flex items-center">
+              <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
+              Community Initiatives
+            </h3>
+            <ul class="space-y-4">
+              <li class="bg-white p-4 rounded-lg">
+                <p class="font-medium">Beginner-Friendly Socials</p>
+                <p class="text-sm text-gray-600">12 teachers volunteering</p>
+                <a href="#" class="text-purple-600 text-sm"
+                  >Join Initiative →</a
+                >
+              </li>
+              <li class="bg-white p-4 rounded-lg">
+                <p class="font-medium">Dance Exchange Program</p>
+                <p class="text-sm text-gray-600">25 participants</p>
+                <a href="#" class="text-purple-600 text-sm">Learn More →</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Latest Activities -->
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="font-bold text-lg mb-4 flex items-center">
+              <span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
+              Latest Activities
+            </h3>
             <div class="space-y-4">
-              <blockquote>
+              <div class="bg-white p-4 rounded-lg">
                 <p class="text-sm">
-                  "From student to teacher - this community changed my dance
-                  journey"
+                  <span class="font-medium">Sarah M.</span> created a new
+                  practice group
                 </p>
-                <footer class="text-xs text-gray-600 mt-2">
-                  - Sarah, Community Teacher
-                </footer>
-              </blockquote>
-              <blockquote>
+                <p class="text-xs text-gray-600">5 minutes ago</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg">
                 <p class="text-sm">
-                  "Found my dance partner and started teaching together"
+                  <span class="font-medium">Dance Hub Studio</span> added 3 new
+                  classes
                 </p>
-                <footer class="text-xs text-gray-600 mt-2">
-                  - Mike & Ana, Event Organizers
-                </footer>
-              </blockquote>
+                <p class="text-xs text-gray-600">15 minutes ago</p>
+              </div>
+              <div class="bg-white p-4 rounded-lg">
+                <p class="text-sm">
+                  <span class="font-medium">Salsa Community</span> announced a
+                  new event
+                </p>
+                <p class="text-xs text-gray-600">1 hour ago</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Get Involved -->
-    <div class="bg-purple-50 py-24">
+    <!-- Community Tools -->
+    <div class="bg-purple-50 py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12">Get Involved</h2>
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Tools for Community Growth
+        </h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="text-center">
-            <h3 class="font-bold mb-2">Join as Dancer</h3>
-            <p class="text-gray-600 mb-4">
-              Find your community, partners, and events
-            </p>
-            <a href="#" class="text-purple-600 hover:text-purple-700"
-              >Get Started →</a
+          <!-- Event Organization -->
+          <div class="bg-white rounded-lg p-6">
+            <div
+              class="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4"
             >
+              <svg
+                class="h-6 w-6 text-purple-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Event Organization</h3>
+            <p class="text-gray-600 mb-4">
+              Create and manage events collaboratively with your community
+            </p>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-green-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Collaborative planning
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-green-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Resource sharing
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-green-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Attendee management
+              </li>
+            </ul>
           </div>
 
-          <div class="text-center">
-            <h3 class="font-bold mb-2">Become Ambassador</h3>
-            <p class="text-gray-600 mb-4">
-              Help grow your local dance community
-            </p>
-            <a href="#" class="text-purple-600 hover:text-purple-700"
-              >Learn More →</a
+          <!-- Community Marketplace -->
+          <div class="bg-white rounded-lg p-6">
+            <div
+              class="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4"
             >
+              <svg
+                class="h-6 w-6 text-purple-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Fair Marketplace</h3>
+            <p class="text-gray-600 mb-4">
+              Direct connections between teachers, venues, and students
+            </p>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-green-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                No middleman fees
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-green-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Transparent pricing
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-green-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Community reviews
+              </li>
+            </ul>
           </div>
 
-          <div class="text-center">
-            <h3 class="font-bold mb-2">Share Knowledge</h3>
-            <p class="text-gray-600 mb-4">
-              Teach, organize, contribute to the community
-            </p>
-            <a href="#" class="text-purple-600 hover:text-purple-700"
-              >Start Teaching →</a
+          <!-- Partner Finding -->
+          <div class="bg-white rounded-lg p-6">
+            <div
+              class="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4"
             >
+              <svg
+                class="h-6 w-6 text-purple-600"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Partner Finding</h3>
+            <p class="text-gray-600 mb-4">
+              Connect with dance partners based on style, level, and goals
+            </p>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-green-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Smart matching
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-green-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Practice scheduling
+              </li>
+              <li class="flex items-center">
+                <svg
+                  class="h-4 w-4 text-green-500 mr-2"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                Progress tracking
+              </li>
+            </ul>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Stories -->
+    <div class="bg-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Community Success Stories
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Teacher Story -->
+          <div class="bg-purple-50 rounded-lg p-6">
+            <div class="flex items-center mb-4">
+              <img
+                class="h-12 w-12 rounded-full"
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt=""
+              />
+              <div class="ml-4">
+                <h4 class="font-bold">Maria Rodriguez</h4>
+                <p class="text-sm text-gray-600">Salsa Teacher</p>
+              </div>
+            </div>
+            <blockquote class="text-gray-600">
+              "WeDance helped me build my teaching business from scratch. Now I
+              have a thriving community of students and regular events."
+            </blockquote>
+          </div>
+
+          <!-- Organizer Story -->
+          <div class="bg-purple-50 rounded-lg p-6">
+            <div class="flex items-center mb-4">
+              <img
+                class="h-12 w-12 rounded-full"
+                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt=""
+              />
+              <div class="ml-4">
+                <h4 class="font-bold">John Smith</h4>
+                <p class="text-sm text-gray-600">Event Organizer</p>
+              </div>
+            </div>
+            <blockquote class="text-gray-600">
+              "The collaborative tools made it easy to organize events. Our
+              community has grown from 50 to 500 dancers in just 6 months!"
+            </blockquote>
+          </div>
+
+          <!-- Venue Story -->
+          <div class="bg-purple-50 rounded-lg p-6">
+            <div class="flex items-center mb-4">
+              <img
+                class="h-12 w-12 rounded-full"
+                src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                alt=""
+              />
+              <div class="ml-4">
+                <h4 class="font-bold">Dance Hub Studio</h4>
+                <p class="text-sm text-gray-600">Dance Venue</p>
+              </div>
+            </div>
+            <blockquote class="text-gray-600">
+              "WeDance brought us consistent bookings and introduced us to
+              amazing teachers. Our space is now a vibrant community hub."
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Join the Movement -->
+    <div class="bg-purple-600 text-white py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-6">Join the Dance Movement</h2>
+        <p class="text-xl mb-8">
+          Be part of a community that's transforming how we dance, learn, and
+          connect
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a
+            href="#"
+            class="bg-white text-purple-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100"
+          >
+            Find Your Community
+          </a>
+          <a
+            href="#"
+            class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-700"
+          >
+            Start Teaching
+          </a>
         </div>
       </div>
     </div>
