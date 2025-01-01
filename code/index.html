@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WeDance - Where Dance Creates Community</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </head>
   <body class="bg-white">
     <!-- Navigation -->
-    <nav class="bg-white shadow-sm">
+    <nav class="bg-white shadow-sm fixed w-full z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
           <div class="flex">
@@ -75,133 +77,378 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="relative bg-purple-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <!-- Hero Section with Video Background -->
+    <div class="relative min-h-screen flex items-center">
+      <!-- Video Background -->
+      <div class="absolute inset-0 w-full h-full overflow-hidden bg-purple-900">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-purple-900/90 to-purple-600/90 z-10"
+        ></div>
+        <video
+          class="absolute inset-0 w-full h-full object-cover"
+          autoplay
+          loop
+          muted
+          playsinline
+        >
+          <source src="https://your-video-url.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <div class="text-center">
           <h1
-            class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+            class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl"
+            data-aos="fade-up"
           >
-            <span class="block">Your Local Dance Community</span>
-            <span class="block text-purple-600">Empowered</span>
+            <span class="block">Dance Together,</span>
+            <span class="block text-purple-300">Create Together</span>
           </h1>
-          <p class="mt-6 text-xl text-gray-600">
-            Join a thriving network of dancers, teachers, and organizers
-            creating amazing dance experiences together
+          <p
+            class="mt-6 text-xl text-gray-200"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            Join the world's most vibrant dance community platform where passion
+            meets opportunity
           </p>
 
-          <!-- Location Selector -->
-          <div class="mt-8 max-w-md mx-auto">
-            <div class="relative">
+          <!-- City & Style Selector -->
+          <div
+            class="mt-12 max-w-lg mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="relative mb-4">
               <input
                 type="text"
                 placeholder="Enter your city"
-                class="w-full px-4 py-3 rounded-lg border-2 border-purple-200 focus:border-purple-600 focus:outline-none"
+                class="w-full px-4 py-3 rounded-lg border-2 border-purple-300 focus:border-purple-400 focus:outline-none bg-white/90 backdrop-blur-sm"
               />
               <button
-                class="absolute right-2 top-2 bg-purple-600 text-white px-4 py-1 rounded-lg"
+                class="absolute right-2 top-2 bg-purple-600 text-white px-4 py-1 rounded-lg hover:bg-purple-700"
               >
                 Find Community
               </button>
             </div>
+            <!-- Popular Cities -->
+            <div class="flex flex-wrap justify-center gap-2 mt-2">
+              <span class="text-sm text-gray-300">Popular:</span>
+              <a href="#" class="text-sm text-purple-300 hover:text-white"
+                >Berlin</a
+              >
+              <a href="#" class="text-sm text-purple-300 hover:text-white"
+                >London</a
+              >
+              <a href="#" class="text-sm text-purple-300 hover:text-white"
+                >Paris</a
+              >
+              <a href="#" class="text-sm text-purple-300 hover:text-white"
+                >New York</a
+              >
+            </div>
           </div>
 
-          <!-- Live Platform Stats -->
-          <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <div class="bg-white p-4 rounded-lg shadow-sm">
-              <p class="text-sm text-gray-600">Active Communities</p>
-              <p class="font-bold">50+ Cities</p>
+          <!-- Community Impact -->
+          <div
+            class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+              <p class="text-2xl font-bold text-white">50+</p>
+              <p class="text-sm text-gray-300">Cities Worldwide</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm">
-              <p class="text-sm text-gray-600">This Week</p>
-              <p class="font-bold">200+ Events</p>
+            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+              <p class="text-2xl font-bold text-white">10,000+</p>
+              <p class="text-sm text-gray-300">Active Dancers</p>
             </div>
-            <div class="bg-white p-4 rounded-lg shadow-sm">
-              <p class="text-sm text-gray-600">Community Members</p>
-              <p class="font-bold">10,000+ Dancers</p>
+            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+              <p class="text-2xl font-bold text-white">1,000+</p>
+              <p class="text-sm text-gray-300">Dance Teachers</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg">
+              <p class="text-2xl font-bold text-white">5,000+</p>
+              <p class="text-sm text-gray-300">Events Monthly</p>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <svg
+          class="w-6 h-6 text-white"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+          ></path>
+        </svg>
+      </div>
     </div>
 
-    <!-- Live Community Feed -->
-    <div class="bg-white py-16">
+    <!-- Dance Styles Showcase -->
+    <div class="bg-white py-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-12">
+        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
+          Discover Your Dance Style
+        </h2>
+
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-6"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <!-- Style Card -->
+          <a
+            href="#"
+            class="group relative overflow-hidden rounded-lg aspect-square"
+          >
+            <img
+              src="https://source.unsplash.com/random/400x400/?salsa-dance"
+              alt="Salsa"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4"
+            >
+              <div>
+                <h3 class="text-white font-bold text-lg">Salsa</h3>
+                <p class="text-gray-300 text-sm">2,000+ dancers</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- More style cards -->
+          <a
+            href="#"
+            class="group relative overflow-hidden rounded-lg aspect-square"
+          >
+            <img
+              src="https://source.unsplash.com/random/400x400/?bachata-dance"
+              alt="Bachata"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4"
+            >
+              <div>
+                <h3 class="text-white font-bold text-lg">Bachata</h3>
+                <p class="text-gray-300 text-sm">1,500+ dancers</p>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="#"
+            class="group relative overflow-hidden rounded-lg aspect-square"
+          >
+            <img
+              src="https://source.unsplash.com/random/400x400/?kizomba-dance"
+              alt="Kizomba"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4"
+            >
+              <div>
+                <h3 class="text-white font-bold text-lg">Kizomba</h3>
+                <p class="text-gray-300 text-sm">800+ dancers</p>
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="#"
+            class="group relative overflow-hidden rounded-lg aspect-square"
+          >
+            <img
+              src="https://source.unsplash.com/random/400x400/?tango-dance"
+              alt="Tango"
+              class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4"
+            >
+              <div>
+                <h3 class="text-white font-bold text-lg">Tango</h3>
+                <p class="text-gray-300 text-sm">1,200+ dancers</p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <!-- View All Styles -->
+        <div class="text-center mt-8">
+          <a
+            href="#"
+            class="inline-flex items-center text-purple-600 hover:text-purple-700"
+          >
+            View All Dance Styles
+            <svg
+              class="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Community Feed with Tabs -->
+    <div class="bg-gray-50 py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">
           Live in Your Community
         </h2>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Upcoming Events -->
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3 class="font-bold text-lg mb-4 flex items-center">
-              <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+        <!-- Tabs -->
+        <div
+          class="flex justify-center mb-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <nav class="flex space-x-4" aria-label="Tabs">
+            <button
+              class="px-4 py-2 text-sm font-medium text-purple-700 bg-white rounded-lg shadow"
+            >
               Happening Now
-            </h3>
-            <ul class="space-y-4">
-              <li class="bg-white p-4 rounded-lg">
-                <span class="text-sm text-purple-600">Social Dancing</span>
-                <p class="font-medium">Salsa Night at Havana Club</p>
-                <p class="text-sm text-gray-600">15 dancers checked in</p>
-              </li>
-              <li class="bg-white p-4 rounded-lg">
-                <span class="text-sm text-purple-600">Practice Session</span>
-                <p class="font-medium">Open Practice Space</p>
-                <p class="text-sm text-gray-600">8 dancers practicing</p>
-              </li>
-            </ul>
+            </button>
+            <button
+              class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700"
+            >
+              Upcoming Events
+            </button>
+            <button
+              class="px-4 py-2 text-sm font-medium text-gray-500 hover:text-gray-700"
+            >
+              Community Posts
+            </button>
+          </nav>
+        </div>
+
+        <!-- Content Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-8"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <!-- Live Now -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <span class="w-3 h-3 bg-green-500 rounded-full"></span>
+                <h3 class="ml-2 font-bold text-lg">Live Now</h3>
+              </div>
+              <ul class="space-y-6">
+                <li>
+                  <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm text-purple-600">Social Dancing</span>
+                    <span class="text-xs text-gray-500">2.5km away</span>
+                  </div>
+                  <h4 class="font-medium">Salsa Night at Havana Club</h4>
+                  <div class="mt-2 flex items-center">
+                    <div class="flex -space-x-2">
+                      <img
+                        class="w-6 h-6 rounded-full border-2 border-white"
+                        src="https://images.unsplash.com/photo-1"
+                        alt=""
+                      />
+                      <img
+                        class="w-6 h-6 rounded-full border-2 border-white"
+                        src="https://images.unsplash.com/photo-2"
+                        alt=""
+                      />
+                      <img
+                        class="w-6 h-6 rounded-full border-2 border-white"
+                        src="https://images.unsplash.com/photo-3"
+                        alt=""
+                      />
+                    </div>
+                    <span class="ml-2 text-sm text-gray-600"
+                      >+12 dancers here</span
+                    >
+                  </div>
+                </li>
+                <!-- More live events -->
+              </ul>
+            </div>
           </div>
 
           <!-- Community Initiatives -->
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3 class="font-bold text-lg mb-4 flex items-center">
-              <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
-              Community Initiatives
-            </h3>
-            <ul class="space-y-4">
-              <li class="bg-white p-4 rounded-lg">
-                <p class="font-medium">Beginner-Friendly Socials</p>
-                <p class="text-sm text-gray-600">12 teachers volunteering</p>
-                <a href="#" class="text-purple-600 text-sm"
-                  >Join Initiative →</a
-                >
-              </li>
-              <li class="bg-white p-4 rounded-lg">
-                <p class="font-medium">Dance Exchange Program</p>
-                <p class="text-sm text-gray-600">25 participants</p>
-                <a href="#" class="text-purple-600 text-sm">Learn More →</a>
-              </li>
-            </ul>
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
+                <h3 class="ml-2 font-bold text-lg">New Initiatives</h3>
+              </div>
+              <ul class="space-y-6">
+                <li>
+                  <span
+                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 mb-2"
+                  >
+                    New Project
+                  </span>
+                  <h4 class="font-medium">Beginner-Friendly Socials</h4>
+                  <p class="text-sm text-gray-600 mt-1">
+                    Creating a welcoming space for new dancers
+                  </p>
+                  <div class="mt-2 flex items-center justify-between">
+                    <span class="text-sm text-gray-600"
+                      >12 teachers joined</span
+                    >
+                    <a
+                      href="#"
+                      class="text-purple-600 text-sm hover:text-purple-700"
+                      >Join →</a
+                    >
+                  </div>
+                </li>
+                <!-- More initiatives -->
+              </ul>
+            </div>
           </div>
 
           <!-- Latest Activities -->
-          <div class="bg-gray-50 rounded-lg p-6">
-            <h3 class="font-bold text-lg mb-4 flex items-center">
-              <span class="w-3 h-3 bg-blue-500 rounded-full mr-2"></span>
-              Latest Activities
-            </h3>
-            <div class="space-y-4">
-              <div class="bg-white p-4 rounded-lg">
-                <p class="text-sm">
-                  <span class="font-medium">Sarah M.</span> created a new
-                  practice group
-                </p>
-                <p class="text-xs text-gray-600">5 minutes ago</p>
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <span class="w-3 h-3 bg-blue-500 rounded-full"></span>
+                <h3 class="ml-2 font-bold text-lg">Community Updates</h3>
               </div>
-              <div class="bg-white p-4 rounded-lg">
-                <p class="text-sm">
-                  <span class="font-medium">Dance Hub Studio</span> added 3 new
-                  classes
-                </p>
-                <p class="text-xs text-gray-600">15 minutes ago</p>
-              </div>
-              <div class="bg-white p-4 rounded-lg">
-                <p class="text-sm">
-                  <span class="font-medium">Salsa Community</span> announced a
-                  new event
-                </p>
-                <p class="text-xs text-gray-600">1 hour ago</p>
+              <div class="space-y-6">
+                <div class="flex items-start">
+                  <img
+                    class="w-10 h-10 rounded-full"
+                    src="https://images.unsplash.com/photo-4"
+                    alt=""
+                  />
+                  <div class="ml-3">
+                    <p class="text-sm">
+                      <span class="font-medium">Sarah M.</span> created a new
+                      practice group for
+                      <span class="text-purple-600">Intermediate Bachata</span>
+                    </p>
+                    <span class="text-xs text-gray-500">5 minutes ago</span>
+                  </div>
+                </div>
+                <!-- More updates -->
               </div>
             </div>
           </div>
@@ -666,5 +913,12 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
   </body>
 </html>
