@@ -1,7 +1,39 @@
-# WeDance Documentation Index
+# WeDance
+
+WeDance is a participatory network transforming how dance communities connect, organize, and thrive together. We're building tools for self-organization, connection, and collaboration that put community first.
+
+## 🎯 Mission
+
+To empower dance communities by providing an inclusive platform where every member can be both creator and participant, moving beyond traditional social networks to create a truly collaborative ecosystem.
+
+## 🌟 Key Features
+
+- 🎭 **Smart Event Organization**  
+  Collaborative tools for planning, sharing, and managing dance events
+
+- 💃 **Intelligent Partner Matching**  
+  Connect with dance partners based on style, skill level, and goals
+
+- 💡 **Community-Driven Growth**  
+  Tools for collective decision making and resource sharing
+
+- 🤝 **Fair Dance Marketplace**  
+  Direct connections between teachers, venues, and students
+
+## 📊 Current Status
+
+🚧 **Project Stage**: Concept Development
+
+- Gathering community feedback
+- Building initial prototypes
+- Forming partnerships
+- Seeking contributors
 
 ## Platform Strategy
 
+- [Vision & Strategy](VISION.md)
+- [Dance Style First Strategy](strategy/dance-style-first.md) - Our approach to community-focused growth
+- [City First Strategy](strategy/city-first.md) - Our approach to city-by-city expansion
 - [Introduction](source/00-intro.md) - Platform overview and fundamentals
 - [Network Effects](source/03-network-effects-arent-enough.md) - Why network effects alone aren't sufficient
 - [Critical Mass](source/04-critical-mass-complete-guide.md) - Complete guide to achieving critical mass
