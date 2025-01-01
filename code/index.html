@@ -91,13 +91,30 @@
             <span class="block text-purple-300">Join Your Community</span>
           </h1>
 
-          <!-- Quick Start Options -->
-          <div class="mt-8 flex flex-wrap justify-center gap-4">
-            <button
-              class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors flex items-center space-x-2"
+          <!-- Simplified City Search -->
+          <div class="mt-12 max-w-lg mx-auto">
+            <div class="relative">
+              <input
+                type="text"
+                placeholder="Enter your city to discover dance events"
+                class="w-full px-4 py-3 rounded-lg border-2 border-purple-300 focus:border-purple-400 focus:outline-none bg-white/90 backdrop-blur-sm"
+              />
+              <button
+                class="absolute right-2 top-2 bg-purple-600 text-white px-4 py-1 rounded-lg hover:bg-purple-700"
+              >
+                Find Events
+              </button>
+            </div>
+          </div>
+
+          <!-- Secondary CTAs -->
+          <div class="mt-8 flex justify-center gap-4">
+            <a
+              href="#"
+              class="text-white hover:text-purple-200 flex items-center"
             >
               <svg
-                class="w-5 h-5"
+                class="w-5 h-5 mr-2"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -109,31 +126,14 @@
                   d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
                 ></path>
               </svg>
-              <span>Find Classes</span>
-            </button>
-            <button
-              class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors flex items-center space-x-2"
+              Browse Classes
+            </a>
+            <a
+              href="#"
+              class="text-white hover:text-purple-200 flex items-center"
             >
               <svg
-                class="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                ></path>
-              </svg>
-              <span>Browse Events</span>
-            </button>
-            <button
-              class="bg-white/20 backdrop-blur-sm text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors flex items-center space-x-2"
-            >
-              <svg
-                class="w-5 h-5"
+                class="w-5 h-5 mr-2"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -145,122 +145,8 @@
                   d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                 ></path>
               </svg>
-              <span>Meet Dancers</span>
-            </button>
-          </div>
-
-          <!-- Interactive Dance Matcher -->
-          <div
-            class="mt-12 max-w-lg mx-auto bg-white/10 backdrop-blur-sm p-6 rounded-lg"
-          >
-            <h3 class="text-white font-bold mb-4">
-              Find Your Perfect Dance Style
-            </h3>
-            <div class="space-y-4">
-              <div>
-                <label class="block text-white text-sm mb-2"
-                  >What moves you?</label
-                >
-                <div class="flex flex-wrap gap-2">
-                  <button
-                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
-                  >
-                    Rhythm
-                  </button>
-                  <button
-                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
-                  >
-                    Connection
-                  </button>
-                  <button
-                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
-                  >
-                    Expression
-                  </button>
-                  <button
-                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
-                  >
-                    Technique
-                  </button>
-                </div>
-              </div>
-              <div>
-                <label class="block text-white text-sm mb-2"
-                  >Experience Level</label
-                >
-                <div class="flex flex-wrap gap-2">
-                  <button
-                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
-                  >
-                    Beginner
-                  </button>
-                  <button
-                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
-                  >
-                    Intermediate
-                  </button>
-                  <button
-                    class="px-4 py-2 rounded-full bg-white/20 text-white text-sm hover:bg-white/30"
-                  >
-                    Advanced
-                  </button>
-                </div>
-              </div>
-              <button
-                class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700"
-              >
-                Find My Dance Style
-              </button>
-            </div>
-          </div>
-
-          <!-- City Search with Autocomplete -->
-          <div class="mt-8 max-w-lg mx-auto">
-            <div class="relative">
-              <input
-                type="text"
-                placeholder="Enter your city"
-                class="w-full px-4 py-3 rounded-lg border-2 border-purple-300 focus:border-purple-400 focus:outline-none bg-white/90 backdrop-blur-sm"
-              />
-              <button
-                class="absolute right-2 top-2 bg-purple-600 text-white px-4 py-1 rounded-lg hover:bg-purple-700"
-              >
-                Find Events
-              </button>
-              <!-- Autocomplete Dropdown -->
-              <div class="absolute w-full mt-1 bg-white rounded-lg shadow-lg">
-                <div class="p-2">
-                  <div
-                    class="flex items-center space-x-3 p-2 hover:bg-gray-100 rounded cursor-pointer"
-                  >
-                    <svg
-                      class="w-5 h-5 text-gray-400"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      ></path>
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      ></path>
-                    </svg>
-                    <div>
-                      <p class="font-medium text-gray-900">Berlin, Germany</p>
-                      <p class="text-sm text-gray-500">15 active communities</p>
-                    </div>
-                  </div>
-                  <!-- More city suggestions -->
-                </div>
-              </div>
-            </div>
+              Meet Dancers
+            </a>
           </div>
         </div>
       </div>
