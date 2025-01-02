@@ -73,17 +73,33 @@ const vClickOutside = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">
-          Find Your Salsa Scene
+          Join the Global Salsa Movement
         </h1>
         <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Discover local events, connect with dancers, and join the vibrant
-          salsa community.
-          {{
-            regions.reduce((sum, region) => sum + parseInt(region.count), 0)
-          }}+ dancers worldwide.
+          Connect with 40K+ dancers across Europe, Americas, and Asia. Find
+          events, partners, and your local salsa community.
         </p>
         <div class="flex justify-center gap-4">
           <Button variant="default" size="lg">Join Salseros</Button>
+        </div>
+
+        <div class="flex justify-center gap-8 mt-8 text-gray-500">
+          <div>
+            <div class="text-xl font-bold text-gray-900">1,200</div>
+            <div class="text-sm">Members</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-gray-900">500</div>
+            <div class="text-sm">Posts</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-gray-900">50</div>
+            <div class="text-sm">Projects</div>
+          </div>
+          <div>
+            <div class="text-xl font-bold text-gray-900">92%</div>
+            <div class="text-sm">Response Rate</div>
+          </div>
         </div>
       </div>
     </div>
@@ -100,7 +116,7 @@ const vClickOutside = {
           />
           <h3 class="text-lg font-semibold mb-2">Find Events</h3>
           <p class="text-gray-600">
-            Discover salsa parties, workshops, and festivals near you
+            Local parties, workshops, and festivals all in one place
           </p>
         </div>
         <div class="text-center">
@@ -110,15 +126,100 @@ const vClickOutside = {
           />
           <h3 class="text-lg font-semibold mb-2">Meet Partners</h3>
           <p class="text-gray-600">
-            Connect with local dancers for practice and social dancing
+            Find practice partners and social dancers nearby
           </p>
         </div>
         <div class="text-center">
           <Icon name="ph:star" class="w-12 h-12 text-purple-600 mx-auto mb-4" />
-          <h3 class="text-lg font-semibold mb-2">Learn & Grow</h3>
+          <h3 class="text-lg font-semibold mb-2">Learn Together</h3>
           <p class="text-gray-600">
-            Access resources, tips, and connect with instructors
+            Share tips and connect with local instructors
           </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Build Community Together -->
+  <div class="bg-purple-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold">Build the Community Together</h2>
+        <p class="text-gray-600 mt-2">
+          Join other dancers in making the salsa community even better
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Content Creation -->
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <div class="text-purple-600 mb-4">
+            <Icon name="ph:pencil-line" class="w-8 h-8" />
+          </div>
+          <h3 class="font-bold text-lg mb-2">Share Your Knowledge</h3>
+          <p class="text-gray-600 mb-4">
+            Write articles, share tips, or create video tutorials to help others
+            learn.
+          </p>
+          <div class="space-y-2 text-sm text-gray-600 mb-4">
+            <div class="flex items-center gap-2">
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
+              <span>Earn community recognition</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
+              <span>Help shape the community</span>
+            </div>
+          </div>
+          <button class="text-purple-600 font-medium">Start Creating →</button>
+        </div>
+
+        <!-- Community Projects -->
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <div class="text-purple-600 mb-4">
+            <Icon name="ph:users-three" class="w-8 h-8" />
+          </div>
+          <h3 class="font-bold text-lg mb-2">Lead Community Projects</h3>
+          <p class="text-gray-600 mb-4">
+            Start or join community initiatives, organize events, or lead
+            practice groups.
+          </p>
+          <div class="space-y-2 text-sm text-gray-600 mb-4">
+            <div class="flex items-center gap-2">
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
+              <span>Make real impact</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
+              <span>Build your network</span>
+            </div>
+          </div>
+          <button class="text-purple-600 font-medium">
+            Explore Projects →
+          </button>
+        </div>
+
+        <!-- Community Support -->
+        <div class="bg-white rounded-xl shadow-sm p-6">
+          <div class="text-purple-600 mb-4">
+            <Icon name="ph:handshake" class="w-8 h-8" />
+          </div>
+          <h3 class="font-bold text-lg mb-2">Support Others</h3>
+          <p class="text-gray-600 mb-4">
+            Answer questions, welcome newcomers, and help maintain a positive
+            community.
+          </p>
+          <div class="space-y-2 text-sm text-gray-600 mb-4">
+            <div class="flex items-center gap-2">
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
+              <span>Help others grow</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
+              <span>Build reputation</span>
+            </div>
+          </div>
+          <button class="text-purple-600 font-medium">Start Helping →</button>
         </div>
       </div>
     </div>
@@ -591,6 +692,11 @@ const vClickOutside = {
                       d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                     />
                   </svg>
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
                 </div>
                 <span class="ml-2 text-gray-600">5.0</span>
               </div>
@@ -889,111 +995,6 @@ const vClickOutside = {
       </div>
     </DialogContent>
   </Dialog>
-
-  <!-- Before the footer -->
-  <div class="bg-purple-50 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold">Build the Community Together</h2>
-        <p class="text-gray-600 mt-2">
-          Join other dancers in making the salsa community even better
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Content Creation -->
-        <div class="bg-white rounded-xl shadow-sm p-6">
-          <div class="text-purple-600 mb-4">
-            <Icon name="ph:pencil-line" class="w-8 h-8" />
-          </div>
-          <h3 class="font-bold text-lg mb-2">Share Your Knowledge</h3>
-          <p class="text-gray-600 mb-4">
-            Write articles, share tips, or create video tutorials to help others
-            learn.
-          </p>
-          <div class="space-y-2 text-sm text-gray-600 mb-4">
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Earn community recognition</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Help shape the community</span>
-            </div>
-          </div>
-          <button class="text-purple-600 font-medium">Start Creating →</button>
-        </div>
-
-        <!-- Community Projects -->
-        <div class="bg-white rounded-xl shadow-sm p-6">
-          <div class="text-purple-600 mb-4">
-            <Icon name="ph:users-three" class="w-8 h-8" />
-          </div>
-          <h3 class="font-bold text-lg mb-2">Lead Community Projects</h3>
-          <p class="text-gray-600 mb-4">
-            Start or join community initiatives, organize events, or lead
-            practice groups.
-          </p>
-          <div class="space-y-2 text-sm text-gray-600 mb-4">
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Make real impact</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Build your network</span>
-            </div>
-          </div>
-          <button class="text-purple-600 font-medium">
-            Explore Projects →
-          </button>
-        </div>
-
-        <!-- Community Support -->
-        <div class="bg-white rounded-xl shadow-sm p-6">
-          <div class="text-purple-600 mb-4">
-            <Icon name="ph:handshake" class="w-8 h-8" />
-          </div>
-          <h3 class="font-bold text-lg mb-2">Support Others</h3>
-          <p class="text-gray-600 mb-4">
-            Answer questions, welcome newcomers, and help maintain a positive
-            community.
-          </p>
-          <div class="space-y-2 text-sm text-gray-600 mb-4">
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Help others grow</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Build reputation</span>
-            </div>
-          </div>
-          <button class="text-purple-600 font-medium">Start Helping →</button>
-        </div>
-      </div>
-
-      <!-- Community Stats -->
-      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div class="text-center">
-          <div class="text-3xl font-bold text-purple-600">1,200+</div>
-          <div class="text-gray-600">Active Members</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-purple-600">500+</div>
-          <div class="text-gray-600">Monthly Posts</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-purple-600">50+</div>
-          <div class="text-gray-600">Community Projects</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-bold text-purple-600">92%</div>
-          <div class="text-gray-600">Questions Answered</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Footer -->
   <div class="py-12 bg-white">
