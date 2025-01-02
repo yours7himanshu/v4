@@ -56,93 +56,136 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-12">
           <h1 class="text-4xl font-bold mb-6">
-            Discover the Joy of Salsa Dancing
+            Join the Global Salsa Community
           </h1>
           <p class="text-xl text-gray-600 mb-8">
-            Join millions of dancers worldwide in experiencing the passion,
-            rhythm, and connection of salsa dance.
+            Connect with 50,000+ salsa dancers worldwide, share experiences, and
+            grow together
           </p>
-          <button
-            onclick="openCityModal()"
-            class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 text-lg"
-          >
-            Find Salsa Near You
-          </button>
+          <div class="flex flex-wrap justify-center gap-4">
+            <button
+              class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 text-lg"
+            >
+              Join Community
+            </button>
+            <button
+              onclick="openCityFilter()"
+              class="border-2 border-purple-600 text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-50 text-lg flex items-center gap-2"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+              </svg>
+              Filter by Location
+            </button>
+          </div>
         </div>
 
-        <!-- Key Features -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <!-- Community Highlights -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div class="bg-white p-6 rounded-xl shadow-sm">
-            <div
-              class="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-            >
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                />
-              </svg>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="bg-purple-100 p-2 rounded-full">
+                <svg
+                  class="w-6 h-6 text-purple-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="font-medium">Global Community</div>
+                <div class="text-sm text-gray-600">100+ countries</div>
+              </div>
             </div>
-            <h3 class="text-lg font-bold mb-2">Global Community</h3>
-            <p class="text-gray-600">
-              Connect with dancers worldwide and find events in over 100 cities.
-            </p>
           </div>
 
           <div class="bg-white p-6 rounded-xl shadow-sm">
-            <div
-              class="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-            >
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="bg-purple-100 p-2 rounded-full">
+                <svg
+                  class="w-6 h-6 text-purple-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="font-medium">Active Events</div>
+                <div class="text-sm text-gray-600">1000+ monthly</div>
+              </div>
             </div>
-            <h3 class="text-lg font-bold mb-2">Learn & Grow</h3>
-            <p class="text-gray-600">
-              Access structured learning paths and expert instruction for all
-              levels.
-            </p>
           </div>
 
           <div class="bg-white p-6 rounded-xl shadow-sm">
-            <div
-              class="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-            >
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
+            <div class="flex items-center gap-3 mb-4">
+              <div class="bg-purple-100 p-2 rounded-full">
+                <svg
+                  class="w-6 h-6 text-purple-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="font-medium">Dance Partners</div>
+                <div class="text-sm text-gray-600">50k+ dancers</div>
+              </div>
             </div>
-            <h3 class="text-lg font-bold mb-2">Find Partners</h3>
-            <p class="text-gray-600">
-              Connect with dance partners matching your level and goals.
-            </p>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl shadow-sm">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="bg-purple-100 p-2 rounded-full">
+                <svg
+                  class="w-6 h-6 text-purple-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div class="font-medium">Learning Resources</div>
+                <div class="text-sm text-gray-600">2k+ tutorials</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -584,14 +627,14 @@
       </div>
     </div>
 
-    <!-- City Selection Modal -->
-    <div id="cityModal" class="modal">
+    <!-- Rename City Modal to Location Filter -->
+    <div id="locationFilter" class="modal">
       <div class="bg-white rounded-xl shadow-lg max-w-lg w-full mx-4">
         <div class="p-6">
           <div class="flex justify-between items-center mb-6">
-            <h3 class="text-xl font-bold">Select Your City</h3>
+            <h3 class="text-xl font-bold">Filter by Location</h3>
             <button
-              onclick="closeCityModal()"
+              onclick="closeLocationFilter()"
               class="text-gray-400 hover:text-gray-600"
             >
               <svg
@@ -613,49 +656,67 @@
           <div class="mb-6">
             <input
               type="text"
-              placeholder="Search for your city..."
+              placeholder="Search location..."
               class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-              oninput="filterCities(this.value)"
+              oninput="filterLocations(this.value)"
             />
           </div>
 
-          <div
-            class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6"
-            id="popularCities"
-          >
-            <button
-              onclick="selectCity('munich')"
-              class="text-left p-3 rounded-lg hover:bg-purple-50"
-            >
-              <div class="font-medium">Munich</div>
-              <div class="text-sm text-gray-600">1,200+ dancers</div>
-            </button>
-            <button
-              onclick="selectCity('berlin')"
-              class="text-left p-3 rounded-lg hover:bg-purple-50"
-            >
-              <div class="font-medium">Berlin</div>
-              <div class="text-sm text-gray-600">2,500+ dancers</div>
-            </button>
-            <button
-              onclick="selectCity('vienna')"
-              class="text-left p-3 rounded-lg hover:bg-purple-50"
-            >
-              <div class="font-medium">Vienna</div>
-              <div class="text-sm text-gray-600">800+ dancers</div>
-            </button>
-            <button
-              onclick="selectCity('zurich')"
-              class="text-left p-3 rounded-lg hover:bg-purple-50"
-            >
-              <div class="font-medium">Zürich</div>
-              <div class="text-sm text-gray-600">500+ dancers</div>
-            </button>
+          <div class="mb-6">
+            <h4 class="font-medium mb-2">Popular Regions</h4>
+            <div class="grid grid-cols-2 gap-2">
+              <button class="text-left p-2 rounded hover:bg-purple-50">
+                Europe
+              </button>
+              <button class="text-left p-2 rounded hover:bg-purple-50">
+                North America
+              </button>
+              <button class="text-left p-2 rounded hover:bg-purple-50">
+                Latin America
+              </button>
+              <button class="text-left p-2 rounded hover:bg-purple-50">
+                Asia
+              </button>
+            </div>
           </div>
 
-          <div class="text-center text-sm text-gray-600">
-            Don't see your city?
-            <button class="text-purple-600 font-medium">Request it here</button>
+          <div class="mb-6">
+            <h4 class="font-medium mb-2">Active Cities</h4>
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                class="text-left p-2 rounded hover:bg-purple-50 flex items-center justify-between"
+              >
+                <span>New York</span>
+                <span class="text-sm text-gray-500">2.5k+</span>
+              </button>
+              <button
+                class="text-left p-2 rounded hover:bg-purple-50 flex items-center justify-between"
+              >
+                <span>London</span>
+                <span class="text-sm text-gray-500">2k+</span>
+              </button>
+              <button
+                class="text-left p-2 rounded hover:bg-purple-50 flex items-center justify-between"
+              >
+                <span>Madrid</span>
+                <span class="text-sm text-gray-500">1.8k+</span>
+              </button>
+              <button
+                class="text-left p-2 rounded hover:bg-purple-50 flex items-center justify-between"
+              >
+                <span>Berlin</span>
+                <span class="text-sm text-gray-500">1.5k+</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex justify-end">
+            <button
+              onclick="closeLocationFilter()"
+              class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
+            >
+              Apply Filters
+            </button>
           </div>
         </div>
       </div>
@@ -886,33 +947,24 @@
     </div>
 
     <script>
-      function openCityModal() {
-        document.getElementById("cityModal").classList.add("show");
+      function openLocationFilter() {
+        document.getElementById("locationFilter").classList.add("show");
       }
 
-      function closeCityModal() {
-        document.getElementById("cityModal").classList.remove("show");
+      function closeLocationFilter() {
+        document.getElementById("locationFilter").classList.remove("show");
       }
 
-      function selectCity(city) {
-        // Store the selected city in localStorage for future use
-        localStorage.setItem("selectedCity", city);
-        // Redirect to the city-specific page
-        window.location.href = `/code/salsa-${city}.html`;
-      }
-
-      function filterCities(searchTerm) {
-        // Implementation for city search/filter functionality
-        // This would typically involve filtering the list of cities based on the search term
-        console.log("Filtering cities with:", searchTerm);
+      function filterLocations(searchTerm) {
+        console.log("Filtering locations with:", searchTerm);
       }
 
       // Close modal when clicking outside
       document
-        .getElementById("cityModal")
+        .getElementById("locationFilter")
         .addEventListener("click", function (event) {
           if (event.target === this) {
-            closeCityModal();
+            closeLocationFilter();
           }
         });
     </script>
