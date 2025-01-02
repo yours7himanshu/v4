@@ -329,99 +329,101 @@ function handleStar(event) {
     title="Events"
     description="Discover upcoming Cuban dance events, workshops, and concerts in your area."
   >
-    <!-- Filter and Search Section -->
-    <div class="px-4 space-y-6 my-6">
-      <!-- Role Filter with Search -->
-      <div class="flex items-center gap-4 overflow-x-auto pb-2 -mx-4 px-4">
-        <div class="flex gap-2 flex-1">
+    <!-- Add background to filters -->
+    <div class="bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+        <!-- Role Filter with Search -->
+        <div class="flex items-center gap-4 overflow-x-auto">
+          <div class="flex gap-2 flex-1">
+            <Button
+              v-for="type in typeOptions"
+              :key="type.value"
+              :variant="selectedType === type.value ? 'default' : 'outline'"
+              @click="selectedType = type.value"
+              class="whitespace-nowrap"
+            >
+              {{ type.label }}
+            </Button>
+          </div>
+
+          <div class="flex items-center gap-2 shrink-0">
+            <Input
+              v-model="searchQuery"
+              placeholder="Search events..."
+              type="search"
+              class="w-[180px]"
+            />
+          </div>
+
+          <Select v-model="sortBy" class="w-[140px] shrink-0">
+            <SelectTrigger>
+              <SelectValue placeholder="Sort by" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="date">Most Recent</SelectItem>
+              <SelectItem value="price-low">Price: Low to High</SelectItem>
+              <SelectItem value="price-high">Price: High to Low</SelectItem>
+            </SelectContent>
+          </Select>
+
           <Button
-            v-for="type in typeOptions"
-            :key="type.value"
-            :variant="selectedType === type.value ? 'default' : 'outline'"
-            @click="selectedType = type.value"
-            class="whitespace-nowrap"
+            variant="outline"
+            size="sm"
+            @click="clearFilters"
+            v-if="hasActiveFilters"
+            class="shrink-0"
           >
-            {{ type.label }}
+            Clear all
           </Button>
         </div>
 
-        <div class="flex items-center gap-2 shrink-0">
-          <Input
-            v-model="searchQuery"
-            placeholder="Search events..."
-            type="search"
-            class="w-[180px]"
-          />
+        <!-- Common Filters Row -->
+        <div class="flex flex-wrap items-center gap-3">
+          <Select v-model="selectedLocation">
+            <SelectTrigger class="w-[160px]">
+              <SelectValue placeholder="Location" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in locationOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select v-model="selectedStatus">
+            <SelectTrigger class="w-[140px]">
+              <SelectValue placeholder="Status" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in statusOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select v-model="selectedPriceRange">
+            <SelectTrigger class="w-[160px]">
+              <SelectValue placeholder="Price Range" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in priceRangeOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
-
-        <Select v-model="sortBy" class="w-[140px] shrink-0">
-          <SelectTrigger>
-            <SelectValue placeholder="Sort by" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="date">Most Recent</SelectItem>
-            <SelectItem value="price-low">Price: Low to High</SelectItem>
-            <SelectItem value="price-high">Price: High to Low</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Button
-          variant="outline"
-          size="sm"
-          @click="clearFilters"
-          v-if="hasActiveFilters"
-          class="shrink-0"
-        >
-          Clear all
-        </Button>
-      </div>
-
-      <!-- Common Filters Row -->
-      <div class="flex flex-wrap items-center gap-3">
-        <Select v-model="selectedLocation">
-          <SelectTrigger class="w-[160px]">
-            <SelectValue placeholder="Location" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem
-              v-for="option in locationOptions"
-              :key="option.value"
-              :value="option.value"
-            >
-              {{ option.label }}
-            </SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Select v-model="selectedStatus">
-          <SelectTrigger class="w-[140px]">
-            <SelectValue placeholder="Status" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem
-              v-for="option in statusOptions"
-              :key="option.value"
-              :value="option.value"
-            >
-              {{ option.label }}
-            </SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Select v-model="selectedPriceRange">
-          <SelectTrigger class="w-[160px]">
-            <SelectValue placeholder="Price Range" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem
-              v-for="option in priceRangeOptions"
-              :key="option.value"
-              :value="option.value"
-            >
-              {{ option.label }}
-            </SelectItem>
-          </SelectContent>
-        </Select>
       </div>
     </div>
 

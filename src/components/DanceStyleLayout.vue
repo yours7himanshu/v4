@@ -101,7 +101,7 @@ defineProps({
                 : 'border-transparent text-gray-500 hover:text-gray-700',
             ]"
           >
-            All Posts
+            Feed
           </NuxtLink>
           <NuxtLink
             to="/about"

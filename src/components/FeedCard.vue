@@ -55,11 +55,11 @@ defineProps({
 
       <!-- Event Type -->
       <div v-if="post.type === 'event'" class="flex-1 flex flex-col">
-        <div class="relative">
+        <div class="relative aspect-video">
           <img
             :src="post.content.image"
             :alt="post.content.title"
-            class="w-full h-48 object-cover"
+            class="w-full h-full object-cover"
           />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
@@ -96,11 +96,11 @@ defineProps({
 
       <!-- Video Type -->
       <div v-if="post.type === 'video'" class="flex-1 flex flex-col">
-        <div class="relative">
+        <div class="relative aspect-video">
           <img
             :src="post.content.image"
             :alt="post.content.title"
-            class="w-full h-48 object-cover"
+            class="w-full h-full object-cover"
           />
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
@@ -178,11 +178,13 @@ defineProps({
             </div>
             <span class="ml-2 text-gray-600">{{ post.content.rating }}.0</span>
           </div>
-          <img
-            :src="post.content.image"
-            :alt="post.content.title"
-            class="w-full h-48 object-cover rounded-lg mb-4"
-          />
+          <div class="relative aspect-video">
+            <img
+              :src="post.content.image"
+              :alt="post.content.title"
+              class="w-full h-full object-cover rounded-lg"
+            />
+          </div>
           <p class="text-gray-600">{{ post.content.description }}</p>
           <div class="bg-purple-50 p-4 rounded-lg">
             <div class="font-medium mb-2">Quick Info:</div>
@@ -241,74 +243,45 @@ defineProps({
     <div
       class="p-4 border-t border-gray-100 flex items-center justify-between mt-auto"
     >
-      <!-- Post Type Footer -->
-      <template v-if="['post', 'video', 'review'].includes(post.type)">
-        <div class="flex items-center gap-4 text-sm text-gray-500">
-          <button class="flex items-center gap-1 hover:text-purple-600">
-            <Icon name="ph:heart" class="w-5 h-5" />
-            <span>{{ post.stats.likes }} Likes</span>
-          </button>
-          <button class="flex items-center gap-1 hover:text-purple-600">
-            <Icon name="ph:chat-circle" class="w-5 h-5" />
-            <span>{{ post.stats.comments }} Comments</span>
-          </button>
-          <button class="flex items-center gap-1 hover:text-purple-600">
-            <Icon name="ph:share-network" class="w-5 h-5" />
-            <span>Share</span>
-          </button>
-        </div>
-      </template>
-
-      <!-- Event Type Footer -->
-      <template v-if="post.type === 'event'">
-        <div class="flex items-center gap-4">
-          <Button variant="default">Get Tickets</Button>
-          <span class="text-sm text-gray-500"
-            >{{ post.stats.interested }} people interested</span
+      <!-- Left side with engagement actions -->
+      <div class="flex items-center gap-4 text-sm text-gray-500">
+        <button class="flex items-center gap-1 hover:text-purple-600">
+          <Icon name="ph:heart" class="w-5 h-5" />
+          <span
+            >{{
+              post.stats.likes || post.stats.interested || post.stats.responses
+            }}
+            Likes</span
           >
-        </div>
-        <div class="flex items-center gap-2">
-          <Button variant="ghost" size="sm">
-            <Icon name="ph:share-network" class="w-4 h-4" />
-          </Button>
-          <Button variant="ghost" size="sm">
-            <Icon name="ph:star" class="w-4 h-4" />
-          </Button>
-        </div>
-      </template>
+        </button>
+        <button
+          v-if="['post', 'video', 'review'].includes(post.type)"
+          class="flex items-center gap-1 hover:text-purple-600"
+        >
+          <Icon name="ph:chat-circle" class="w-5 h-5" />
+          <span>{{ post.stats.comments }} Comments</span>
+        </button>
+        <button class="flex items-center gap-1 hover:text-purple-600">
+          <Icon name="ph:share-network" class="w-5 h-5" />
+          <span>Share</span>
+        </button>
+      </div>
 
-      <!-- Question Type Footer -->
-      <template v-if="post.type === 'question'">
-        <div class="flex items-center gap-4 text-sm text-gray-500">
-          <button class="flex items-center gap-1 hover:text-purple-600">
-            <Icon name="ph:heart" class="w-5 h-5" />
-            <span>{{ post.stats.responses }} Responses</span>
-          </button>
-          <button class="text-purple-600 font-medium">Respond →</button>
-        </div>
-      </template>
-
-      <!-- Project Type Footer -->
-      <template v-if="post.type === 'project'">
-        <div class="flex items-center gap-4 text-sm text-gray-500">
-          <button class="flex items-center gap-1 hover:text-purple-600">
-            <Icon name="ph:heart" class="w-5 h-5" />
-            <span>{{ post.stats.interested }} people interested</span>
-          </button>
-          <button class="text-purple-600 font-medium">Join Project</button>
-        </div>
-      </template>
-
-      <!-- Travel Type Footer -->
-      <template v-if="post.type === 'travel'">
-        <div class="flex items-center gap-4 text-sm text-gray-500">
-          <button class="flex items-center gap-1 hover:text-purple-600">
-            <Icon name="ph:heart" class="w-5 h-5" />
-            <span>{{ post.stats.responses }} Responses</span>
-          </button>
-          <button class="text-purple-600 font-medium">Contact →</button>
-        </div>
-      </template>
+      <!-- Right side with primary action -->
+      <div>
+        <Button v-if="post.type === 'event'" variant="default">
+          Book Now
+        </Button>
+        <Button v-if="post.type === 'question'" variant="default">
+          Respond
+        </Button>
+        <Button v-if="post.type === 'project'" variant="default">
+          Join Project
+        </Button>
+        <Button v-if="post.type === 'travel'" variant="default">
+          Contact
+        </Button>
+      </div>
     </div>
   </div>
 </template>

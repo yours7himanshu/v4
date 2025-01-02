@@ -814,200 +814,202 @@ const sortedArtists = computed(() => {
     title="Salsa Cubana"
     description="Connect, organize, and grow with your local salsa community. Find dance partners, join events, and share your passion across 40K+ dancers worldwide."
   >
-    <!-- Filter and Search Section -->
-    <div class="px-4 space-y-6 my-6">
-      <!-- Role Filter with Search -->
-      <div class="flex items-center gap-4 overflow-x-auto pb-2 -mx-4 px-4">
-        <div class="flex gap-2 flex-1">
-          <Button
-            v-for="role in roleOptions"
-            :key="role.value"
-            :variant="selectedRole === role.value ? 'default' : 'outline'"
-            @click="selectedRole = role.value"
-            class="whitespace-nowrap"
-          >
-            {{ role.label }}
-          </Button>
-        </div>
+    <!-- Add background to filters -->
+    <div class="bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+        <!-- Role Filter with Search -->
+        <div class="flex items-center gap-4 overflow-x-auto">
+          <div class="flex gap-2 flex-1">
+            <Button
+              v-for="role in roleOptions"
+              :key="role.value"
+              :variant="selectedRole === role.value ? 'default' : 'outline'"
+              @click="selectedRole = role.value"
+              class="whitespace-nowrap"
+            >
+              {{ role.label }}
+            </Button>
+          </div>
 
-        <div class="flex items-center gap-2 shrink-0">
-          <Button
-            variant="ghost"
-            size="sm"
-            class="text-gray-500"
-            @click="showSearch = !showSearch"
-          >
-            <Icon
-              :name="showSearch ? 'ph:x' : 'ph:magnifying-glass'"
-              class="h-4 w-4"
+          <div class="flex items-center gap-2 shrink-0">
+            <Button
+              variant="ghost"
+              size="sm"
+              class="text-gray-500"
+              @click="showSearch = !showSearch"
+            >
+              <Icon
+                :name="showSearch ? 'ph:x' : 'ph:magnifying-glass'"
+                class="h-4 w-4"
+              />
+            </Button>
+            <Input
+              v-show="showSearch"
+              v-model="searchQuery"
+              placeholder="Search by name..."
+              type="search"
+              class="w-[180px] transition-all duration-200"
             />
-          </Button>
-          <Input
-            v-show="showSearch"
-            v-model="searchQuery"
-            placeholder="Search by name..."
-            type="search"
-            class="w-[180px] transition-all duration-200"
-          />
-        </div>
+          </div>
 
-        <Select v-model="sortBy" class="w-[140px] shrink-0">
-          <SelectTrigger>
-            <SelectValue placeholder="Sort by" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="relevance">Most Relevant</SelectItem>
-            <SelectItem value="rating">Highest Rated</SelectItem>
-            <SelectItem value="near">Nearest First</SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Button
-          variant="outline"
-          size="sm"
-          @click="clearFilters"
-          v-if="hasActiveFilters"
-          class="shrink-0"
-        >
-          Clear all
-        </Button>
-      </div>
-
-      <!-- Common Filters Row -->
-      <div class="flex flex-wrap items-center gap-3">
-        <Select v-model="selectedLocation">
-          <SelectTrigger class="w-[160px]">
-            <SelectValue placeholder="Location" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem
-              v-for="option in locationOptions"
-              :key="option.value"
-              :value="option.value"
-            >
-              {{ option.label }}
-            </SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Select v-model="selectedLanguage">
-          <SelectTrigger class="w-[140px]">
-            <SelectValue placeholder="Language" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem
-              v-for="option in languageOptions"
-              :key="option.value"
-              :value="option.value"
-            >
-              {{ option.label }}
-            </SelectItem>
-          </SelectContent>
-        </Select>
-
-        <Select v-model="selectedLevel">
-          <SelectTrigger class="w-[160px]">
-            <SelectValue placeholder="Experience Level" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem
-              v-for="option in levelOptions"
-              :key="option.value"
-              :value="option.value"
-            >
-              {{ option.label }}
-            </SelectItem>
-          </SelectContent>
-        </Select>
-
-        <!-- Availability Toggle -->
-        <div class="flex items-center gap-2">
-          <Switch v-model="showAvailable" />
-          <span class="text-sm text-gray-600">Available for Booking</span>
-        </div>
-      </div>
-
-      <!-- Role-Specific Filters -->
-      <div v-if="selectedRole !== 'all'" class="space-y-4 pt-4 border-t">
-        <div class="flex flex-wrap items-center gap-3">
-          <!-- Teaching Levels -->
-          <Select v-if="showTeachingLevels" v-model="selectedTeachingLevel">
-            <SelectTrigger class="w-[180px]">
-              <SelectValue placeholder="Class Level" />
+          <Select v-model="sortBy" class="w-[140px] shrink-0">
+            <SelectTrigger>
+              <SelectValue placeholder="Sort by" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem
-                v-for="option in teachingLevelOptions"
-                :key="option.value"
-                :value="option.value"
-              >
-                {{ option.label }}
-              </SelectItem>
+              <SelectItem value="relevance">Most Relevant</SelectItem>
+              <SelectItem value="rating">Highest Rated</SelectItem>
+              <SelectItem value="near">Nearest First</SelectItem>
             </SelectContent>
           </Select>
 
-          <!-- Equipment -->
-          <Select v-if="showEquipment" v-model="selectedEquipment">
-            <SelectTrigger class="w-[180px]">
-              <SelectValue placeholder="Equipment" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem
-                v-for="option in equipmentOptions"
-                :key="option.value"
-                :value="option.value"
-              >
-                {{ option.label }}
-              </SelectItem>
-            </SelectContent>
-          </Select>
-
-          <!-- Instruments -->
-          <Select v-if="showInstruments" v-model="selectedInstruments">
-            <SelectTrigger class="w-[160px]">
-              <SelectValue placeholder="Instruments" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem
-                v-for="option in instrumentOptions"
-                :key="option.value"
-                :value="option.value"
-              >
-                {{ option.label }}
-              </SelectItem>
-            </SelectContent>
-          </Select>
-
-          <!-- Specialties -->
-          <Select v-model="selectedSpecialty">
-            <SelectTrigger class="w-[180px]">
-              <SelectValue placeholder="Specialty" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem
-                v-for="option in specialtiesOptions"
-                :key="option.value"
-                :value="option.value"
-              >
-                {{ option.label }}
-              </SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
-
-        <!-- Services Buttons -->
-        <div v-if="showServices" class="flex flex-wrap gap-2">
           <Button
-            v-for="service in serviceOptions"
-            :key="service.value"
+            variant="outline"
             size="sm"
-            :variant="
-              selectedServices.includes(service.value) ? 'default' : 'outline'
-            "
-            @click="toggleService(service.value)"
+            @click="clearFilters"
+            v-if="hasActiveFilters"
+            class="shrink-0"
           >
-            {{ service.label }}
+            Clear all
           </Button>
+        </div>
+
+        <!-- Common Filters Row -->
+        <div class="flex flex-wrap items-center gap-3">
+          <Select v-model="selectedLocation">
+            <SelectTrigger class="w-[160px]">
+              <SelectValue placeholder="Location" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in locationOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select v-model="selectedLanguage">
+            <SelectTrigger class="w-[140px]">
+              <SelectValue placeholder="Language" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in languageOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <Select v-model="selectedLevel">
+            <SelectTrigger class="w-[160px]">
+              <SelectValue placeholder="Experience Level" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in levelOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <!-- Availability Toggle -->
+          <div class="flex items-center gap-2">
+            <Switch v-model="showAvailable" />
+            <span class="text-sm text-gray-600">Available for Booking</span>
+          </div>
+        </div>
+
+        <!-- Role-Specific Filters -->
+        <div v-if="selectedRole !== 'all'" class="space-y-4 pt-4 border-t">
+          <div class="flex flex-wrap items-center gap-3">
+            <!-- Teaching Levels -->
+            <Select v-if="showTeachingLevels" v-model="selectedTeachingLevel">
+              <SelectTrigger class="w-[180px]">
+                <SelectValue placeholder="Class Level" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem
+                  v-for="option in teachingLevelOptions"
+                  :key="option.value"
+                  :value="option.value"
+                >
+                  {{ option.label }}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+
+            <!-- Equipment -->
+            <Select v-if="showEquipment" v-model="selectedEquipment">
+              <SelectTrigger class="w-[180px]">
+                <SelectValue placeholder="Equipment" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem
+                  v-for="option in equipmentOptions"
+                  :key="option.value"
+                  :value="option.value"
+                >
+                  {{ option.label }}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+
+            <!-- Instruments -->
+            <Select v-if="showInstruments" v-model="selectedInstruments">
+              <SelectTrigger class="w-[160px]">
+                <SelectValue placeholder="Instruments" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem
+                  v-for="option in instrumentOptions"
+                  :key="option.value"
+                  :value="option.value"
+                >
+                  {{ option.label }}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+
+            <!-- Specialties -->
+            <Select v-model="selectedSpecialty">
+              <SelectTrigger class="w-[180px]">
+                <SelectValue placeholder="Specialty" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem
+                  v-for="option in specialtiesOptions"
+                  :key="option.value"
+                  :value="option.value"
+                >
+                  {{ option.label }}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <!-- Services Buttons -->
+          <div v-if="showServices" class="flex flex-wrap gap-2">
+            <Button
+              v-for="service in serviceOptions"
+              :key="service.value"
+              size="sm"
+              :variant="
+                selectedServices.includes(service.value) ? 'default' : 'outline'
+              "
+              @click="toggleService(service.value)"
+            >
+              {{ service.label }}
+            </Button>
+          </div>
         </div>
       </div>
     </div>

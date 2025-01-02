@@ -229,11 +229,13 @@ const loadMore = () => {
 </script>
 
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <FeedCard v-for="post in posts" :key="post.id" :post="post" />
-  </div>
+  <div class="max-w-xl mx-auto">
+    <div class="space-y-4">
+      <FeedCard v-for="post in posts" :key="post.id" :post="post" />
+    </div>
 
-  <div class="text-center mt-8">
-    <Button variant="link" @click="loadMore">Load More Posts</Button>
+    <div class="text-center mt-8">
+      <Button variant="link" @click="loadMore">Load More Posts</Button>
+    </div>
   </div>
 </template>
