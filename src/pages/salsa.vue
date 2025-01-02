@@ -1,3 +1,72 @@
+<script setup>
+import { ref, computed } from "vue";
+
+// State
+const showLocationFilter = ref(false);
+const showCreateMenu = ref(false);
+const locationSearch = ref("");
+const currentLocation = ref(null);
+
+// Data
+const regions = [
+  { name: "Europe", count: "15k+" },
+  { name: "North America", count: "12k+" },
+  { name: "Latin America", count: "8k+" },
+  { name: "Asia", count: "5k+" },
+];
+
+const cities = [
+  { name: "New York", count: "2.5k+" },
+  { name: "London", count: "2k+" },
+  { name: "Madrid", count: "1.8k+" },
+  { name: "Berlin", count: "1.5k+" },
+];
+
+// Computed
+const filteredRegions = computed(() => {
+  const search = locationSearch.value.toLowerCase();
+  return regions.filter((region) => region.name.toLowerCase().includes(search));
+});
+
+const filteredCities = computed(() => {
+  const search = locationSearch.value.toLowerCase();
+  return cities.filter((city) => city.name.toLowerCase().includes(search));
+});
+
+// Methods
+const applyLocationFilter = (location) => {
+  currentLocation.value = location;
+  showLocationFilter.value = false;
+  // Add your filtering logic here
+};
+
+const clearLocationFilter = () => {
+  currentLocation.value = null;
+  // Add your clear filter logic here
+};
+
+const createPost = (type) => {
+  showCreateMenu.value = false;
+  console.log(`Creating new ${type}`);
+  // Add your create post logic here
+};
+
+// Add click outside directive
+const vClickOutside = {
+  mounted(el, binding) {
+    el.clickOutsideEvent = (event) => {
+      if (!(el === event.target || el.contains(event.target))) {
+        binding.value(event);
+      }
+    };
+    document.addEventListener("click", el.clickOutsideEvent);
+  },
+  unmounted(el) {
+    document.removeEventListener("click", el.clickOutsideEvent);
+  },
+};
+</script>
+
 <template>
   <!-- Hero Section -->
   <div class="pt-24 pb-12 bg-gradient-to-b from-purple-50 to-white">
@@ -10,57 +79,6 @@
         </p>
         <div class="flex justify-center">
           <Button variant="default" size="lg"> Join Community </Button>
-        </div>
-      </div>
-
-      <!-- Community Highlights -->
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div class="bg-white p-6 rounded-xl shadow-sm">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="bg-purple-100 p-2 rounded-full">
-              <Icon name="ph:globe" class="w-6 h-6 text-purple-600" />
-            </div>
-            <div>
-              <div class="font-medium">Global Community</div>
-              <div class="text-sm text-gray-600">100+ countries</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-sm">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="bg-purple-100 p-2 rounded-full">
-              <Icon name="ph:calendar" class="w-6 h-6 text-purple-600" />
-            </div>
-            <div>
-              <div class="font-medium">Active Events</div>
-              <div class="text-sm text-gray-600">1000+ monthly</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-sm">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="bg-purple-100 p-2 rounded-full">
-              <Icon name="ph:users-three" class="w-6 h-6 text-purple-600" />
-            </div>
-            <div>
-              <div class="font-medium">Dance Partners</div>
-              <div class="text-sm text-gray-600">50k+ dancers</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white p-6 rounded-xl shadow-sm">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="bg-purple-100 p-2 rounded-full">
-              <Icon name="ph:book-open" class="w-6 h-6 text-purple-600" />
-            </div>
-            <div>
-              <div class="font-medium">Learning Resources</div>
-              <div class="text-sm text-gray-600">2k+ tutorials</div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -803,95 +821,6 @@
     </div>
   </div>
 
-  <!-- Getting Started Section -->
-  <div class="py-12 bg-purple-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-6">Start Your Salsa Journey</h2>
-        <p class="text-xl text-gray-600 mb-8">
-          Whether you're a complete beginner or an experienced dancer, we'll
-          help you find the perfect starting point.
-        </p>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <button
-            class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700"
-          >
-            Find Local Classes
-          </button>
-          <button
-            class="bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-50 border border-purple-600"
-          >
-            Explore Online Resources
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Global Scene -->
-  <div class="py-12 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold mb-8 text-center">Global Salsa Scene</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-          <div class="p-6">
-            <div class="text-sm text-purple-600 mb-1">Featured Congress</div>
-            <h3 class="text-xl font-bold mb-2">World Salsa Summit</h3>
-            <p class="text-gray-600 mb-4">
-              Join the world's largest salsa congress with workshops, shows, and
-              social dancing.
-            </p>
-            <div class="flex items-center gap-4 text-sm text-gray-600">
-              <span>Miami, FL</span>
-              <span>•</span>
-              <span>January 2025</span>
-            </div>
-            <button class="mt-4 text-purple-600 font-medium">
-              Learn more →
-            </button>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-          <div class="p-6">
-            <div class="text-sm text-purple-600 mb-1">Featured Festival</div>
-            <h3 class="text-xl font-bold mb-2">Cuban Salsa Festival</h3>
-            <p class="text-gray-600 mb-4">
-              Experience authentic Cuban salsa in the heart of Havana with top
-              instructors.
-            </p>
-            <div class="flex items-center gap-4 text-sm text-gray-600">
-              <span>Havana, Cuba</span>
-              <span>•</span>
-              <span>December 2024</span>
-            </div>
-            <button class="mt-4 text-purple-600 font-medium">
-              Learn more →
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Community Section -->
-  <div class="py-12 bg-purple-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto">
-        <h2 class="text-3xl font-bold mb-6">Join Our Global Community</h2>
-        <p class="text-xl text-gray-600 mb-8">
-          Connect with dancers worldwide, find events in your city, and start
-          your salsa journey today.
-        </p>
-        <button
-          class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 text-lg"
-        >
-          Get Started Now
-        </button>
-      </div>
-    </div>
-  </div>
-
   <!-- Rename City Modal to Location Filter -->
   <Dialog :open="showLocationFilter" @update:open="showLocationFilter = false">
     <DialogContent class="sm:max-w-lg">
@@ -1035,75 +964,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref, computed } from "vue";
-
-// State
-const showLocationFilter = ref(false);
-const showCreateMenu = ref(false);
-const locationSearch = ref("");
-const currentLocation = ref(null);
-
-// Data
-const regions = [
-  { name: "Europe", count: "15k+" },
-  { name: "North America", count: "12k+" },
-  { name: "Latin America", count: "8k+" },
-  { name: "Asia", count: "5k+" },
-];
-
-const cities = [
-  { name: "New York", count: "2.5k+" },
-  { name: "London", count: "2k+" },
-  { name: "Madrid", count: "1.8k+" },
-  { name: "Berlin", count: "1.5k+" },
-];
-
-// Computed
-const filteredRegions = computed(() => {
-  const search = locationSearch.value.toLowerCase();
-  return regions.filter((region) => region.name.toLowerCase().includes(search));
-});
-
-const filteredCities = computed(() => {
-  const search = locationSearch.value.toLowerCase();
-  return cities.filter((city) => city.name.toLowerCase().includes(search));
-});
-
-// Methods
-const applyLocationFilter = (location) => {
-  currentLocation.value = location;
-  showLocationFilter.value = false;
-  // Add your filtering logic here
-};
-
-const clearLocationFilter = () => {
-  currentLocation.value = null;
-  // Add your clear filter logic here
-};
-
-const createPost = (type) => {
-  showCreateMenu.value = false;
-  console.log(`Creating new ${type}`);
-  // Add your create post logic here
-};
-
-// Add click outside directive
-const vClickOutside = {
-  mounted(el, binding) {
-    el.clickOutsideEvent = (event) => {
-      if (!(el === event.target || el.contains(event.target))) {
-        binding.value(event);
-      }
-    };
-    document.addEventListener("click", el.clickOutsideEvent);
-  },
-  unmounted(el) {
-    document.removeEventListener("click", el.clickOutsideEvent);
-  },
-};
-</script>
 
 <style scoped>
 .modal {
