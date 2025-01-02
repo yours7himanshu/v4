@@ -1,11 +1,14 @@
 <script setup>
 import { ref, computed } from "vue";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("de-DE", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+}
 
 const events = [
   {
@@ -32,7 +35,8 @@ const events = [
     },
     description:
       "Experience the legendary Havana D'Primera live in Munich! A night of pure Cuban music and dance.",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=concert1",
+    image:
+      "https://res.cloudinary.com/djumxevsm/image/upload/v1732373003/a1zosu7n7luzj25tsr1l.jpg",
     price: {
       amount: 35,
       currency: "EUR",
@@ -62,7 +66,7 @@ const events = [
   {
     id: "2",
     name: "Cuban Weekend with Maykel Fonts",
-    type: "workshop",
+    type: "festival",
     date: {
       start: "2024-06-01T10:00:00",
       end: "2024-06-02T18:00:00",
@@ -80,11 +84,32 @@ const events = [
     description:
       "Two days of intensive Cuban salsa workshops with Maykel Fonts. All levels welcome!",
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=workshop1",
-    price: {
-      amount: 120,
-      currency: "EUR",
-      type: "per-person",
-    },
+    prices: [
+      {
+        name: "Full Pass",
+        amount: 120,
+        currency: "EUR",
+        description: "All workshops and parties",
+      },
+      {
+        name: "Saturday Pass",
+        amount: 70,
+        currency: "EUR",
+        description: "All Saturday activities",
+      },
+      {
+        name: "Sunday Pass",
+        amount: 70,
+        currency: "EUR",
+        description: "All Sunday activities",
+      },
+      {
+        name: "Single Workshop",
+        amount: 25,
+        currency: "EUR",
+        description: "Per workshop",
+      },
+    ],
     schedule: [
       {
         time: "10:00-11:30",
@@ -141,20 +166,22 @@ const events = [
   },
 ];
 
-// Filter states
+// Primary filter states
 const searchQuery = ref("");
 const selectedType = ref("all");
 const selectedStatus = ref("upcoming");
+const selectedLocation = ref("all");
 const selectedMonth = ref("all");
+const selectedPriceRange = ref("all");
+const sortBy = ref("date");
 
 // Filter options
 const typeOptions = [
   { value: "all", label: "All Types" },
-  { value: "party", label: "Parties" },
-  { value: "workshop", label: "Workshops" },
-  { value: "festival", label: "Festivals" },
-  { value: "concert", label: "Concerts" },
-  { value: "congress", label: "Congresses" },
+  { value: "party", label: "Social Party" },
+  { value: "workshop", label: "Workshop" },
+  { value: "concert", label: "Concert" },
+  { value: "festival", label: "Festival" },
 ];
 
 const statusOptions = [
@@ -163,58 +190,138 @@ const statusOptions = [
   { value: "past", label: "Past Events" },
 ];
 
-// Computed properties for filtering
+const priceRangeOptions = [
+  { value: "all", label: "Any Price" },
+  { value: "free", label: "Free" },
+  { value: "0-20", label: "Under 20€" },
+  { value: "20-50", label: "20-50€" },
+  { value: "50+", label: "50€+" },
+];
+
+// Get unique locations from events
+const locationOptions = computed(() => {
+  const locations = new Set(events.map((event) => event.location.city));
+  return [
+    { value: "all", label: "All Locations" },
+    ...Array.from(locations).map((loc) => ({ value: loc, label: loc })),
+  ];
+});
+
+// Check if any filters are active
+const hasActiveFilters = computed(() => {
+  return (
+    selectedType.value !== "all" ||
+    selectedStatus.value !== "upcoming" ||
+    selectedLocation.value !== "all" ||
+    selectedMonth.value !== "all" ||
+    selectedPriceRange.value !== "all" ||
+    searchQuery.value !== "" ||
+    sortBy.value !== "date"
+  );
+});
+
+// Clear all filters
+function clearFilters() {
+  selectedType.value = "all";
+  selectedStatus.value = "upcoming";
+  selectedLocation.value = "all";
+  selectedMonth.value = "all";
+  selectedPriceRange.value = "all";
+  searchQuery.value = "";
+  sortBy.value = "date";
+}
+
+// Filter events
 const filteredEvents = computed(() => {
   let filtered = events;
 
+  // Search filter
   if (searchQuery.value) {
+    const query = searchQuery.value.toLowerCase();
     filtered = filtered.filter(
       (event) =>
-        event.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
-        event.description
-          .toLowerCase()
-          .includes(searchQuery.value.toLowerCase()) ||
-        event.location.city
-          .toLowerCase()
-          .includes(searchQuery.value.toLowerCase())
+        event.name.toLowerCase().includes(query) ||
+        event.description.toLowerCase().includes(query) ||
+        event.location.city.toLowerCase().includes(query) ||
+        event.organizer.name.toLowerCase().includes(query)
     );
   }
 
+  // Type filter
   if (selectedType.value !== "all") {
     filtered = filtered.filter((event) => event.type === selectedType.value);
   }
 
+  // Status filter
   if (selectedStatus.value !== "all") {
     filtered = filtered.filter(
       (event) => event.status === selectedStatus.value
     );
   }
 
+  // Location filter
+  if (selectedLocation.value !== "all") {
+    filtered = filtered.filter(
+      (event) => event.location.city === selectedLocation.value
+    );
+  }
+
+  // Price range filter
+  if (selectedPriceRange.value !== "all") {
+    filtered = filtered.filter((event) => {
+      // Get minimum price from either single price or multiple prices
+      const minPrice =
+        event.price?.amount ||
+        (event.prices ? Math.min(...event.prices.map((p) => p.amount)) : 0);
+
+      switch (selectedPriceRange.value) {
+        case "free":
+          return minPrice === 0;
+        case "0-20":
+          return minPrice > 0 && minPrice <= 20;
+        case "20-50":
+          return minPrice > 20 && minPrice <= 50;
+        case "50+":
+          return minPrice > 50;
+        default:
+          return true;
+      }
+    });
+  }
+
   return filtered;
 });
 
+// Sort events
 const sortedEvents = computed(() => {
-  return [...filteredEvents.value].sort((a, b) => {
-    return new Date(a.date.start) - new Date(b.date.start);
-  });
+  const events = [...filteredEvents.value];
+
+  switch (sortBy.value) {
+    case "date":
+      return events.sort(
+        (a, b) => new Date(a.date.start) - new Date(b.date.start)
+      );
+    case "price-low":
+      return events.sort(
+        (a, b) => (a.price?.amount || 0) - (b.price?.amount || 0)
+      );
+    case "price-high":
+      return events.sort(
+        (a, b) => (b.price?.amount || 0) - (a.price?.amount || 0)
+      );
+    default:
+      return events;
+  }
 });
 
-// Add new ref for filter drawer
-const isFilterDrawerOpen = ref(false);
+// Add these functions after other functions
+function handleShare(event) {
+  console.log("Share event:", event.name);
+}
 
-// Add computed for mobile detection
-const isMobile = computed(() => window.innerWidth < 768);
-
-// Group filters into a more organized structure
-const filters = computed(() => ({
-  type: selectedType.value,
-  status: selectedStatus.value,
-  month: selectedMonth.value,
-  search: searchQuery.value,
-}));
-
-// Add sidebar visibility state for desktop
-const isSidebarOpen = ref(true); // Default open on desktop
+function handleStar(event) {
+  console.log("Star event:", event.name);
+}
 </script>
 
 <template>
@@ -222,193 +329,223 @@ const isSidebarOpen = ref(true); // Default open on desktop
     title="Events"
     description="Discover upcoming Cuban dance events, workshops, and concerts in your area."
   >
-    <div class="flex">
-      <!-- Desktop Sidebar -->
-      <div
-        class="hidden md:block w-80 shrink-0 border-r min-h-[calc(100vh-4rem)] p-6"
-      >
-        <EventFilters
-          :filters="filters"
-          @update:type="selectedType = $event"
-          @update:status="selectedStatus = $event"
-          @update:month="selectedMonth = $event"
-          @update:search="searchQuery = $event"
-        />
-      </div>
-
-      <!-- Main Content -->
-      <div class="flex-1">
-        <!-- Mobile Filter Button -->
-        <div class="md:hidden px-4 my-4">
+    <!-- Filter and Search Section -->
+    <div class="px-4 space-y-6 my-6">
+      <!-- Role Filter with Search -->
+      <div class="flex items-center gap-4 overflow-x-auto pb-2 -mx-4 px-4">
+        <div class="flex gap-2 flex-1">
           <Button
-            variant="outline"
-            class="w-full"
-            @click="isFilterDrawerOpen = true"
+            v-for="type in typeOptions"
+            :key="type.value"
+            :variant="selectedType === type.value ? 'default' : 'outline'"
+            @click="selectedType = type.value"
+            class="whitespace-nowrap"
           >
-            <Icon name="ph:funnel" class="mr-2 h-4 w-4" />
-            Filters
+            {{ type.label }}
           </Button>
         </div>
 
-        <!-- Events Grid -->
-        <div class="p-4 space-y-6">
-          <!-- Event Card -->
-          <div
-            v-for="event in sortedEvents"
-            :key="event.id"
-            class="relative rounded-lg border border-gray-200 bg-white shadow-sm hover:border-gray-300 transition-all duration-200"
-          >
-            <div class="p-4 sm:p-6">
-              <!-- Event Header -->
-              <div class="flex items-start gap-4">
-                <div
-                  class="shrink-0 w-16 h-16 bg-gray-100 rounded-lg overflow-hidden"
-                >
-                  <img
-                    :src="event.image"
-                    :alt="event.name"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-
-                <div class="flex-1 min-w-0">
-                  <div class="flex items-center gap-2">
-                    <h3 class="text-lg font-semibold text-gray-900">
-                      {{ event.name }}
-                    </h3>
-                    <span
-                      class="inline-flex items-center rounded-full px-2 py-1 text-xs font-medium"
-                      :class="{
-                        'bg-green-50 text-green-700':
-                          event.status === 'upcoming',
-                        'bg-blue-50 text-blue-700': event.status === 'ongoing',
-                        'bg-gray-50 text-gray-700': event.status === 'past',
-                      }"
-                    >
-                      {{ event.status }}
-                    </span>
-                  </div>
-
-                  <!-- Event Meta -->
-                  <div
-                    class="mt-1 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500"
-                  >
-                    <div class="flex items-center gap-1">
-                      <Icon name="ph:calendar" class="h-4 w-4" />
-                      {{ new Date(event.date.start).toLocaleDateString() }}
-                      <span v-if="event.date.end">
-                        - {{ new Date(event.date.end).toLocaleDateString() }}
-                      </span>
-                    </div>
-                    <div class="flex items-center gap-1">
-                      <Icon name="ph:map-pin" class="h-4 w-4" />
-                      {{ event.location.name }}, {{ event.location.city }}
-                    </div>
-                    <div v-if="event.price" class="flex items-center gap-1">
-                      <Icon name="ph:ticket" class="h-4 w-4" />
-                      {{ event.price.amount }} {{ event.price.currency }}
-                    </div>
-                  </div>
-
-                  <!-- Event Description -->
-                  <p class="mt-2 text-sm text-gray-600">
-                    {{ event.description }}
-                  </p>
-
-                  <!-- Tags -->
-                  <div class="mt-3 flex flex-wrap gap-2">
-                    <span
-                      v-for="tag in event.tags"
-                      :key="tag"
-                      class="inline-flex items-center rounded-full bg-gray-50 px-2 py-1 text-xs text-gray-600"
-                    >
-                      {{ tag }}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Schedule Preview -->
-              <div
-                v-if="event.schedule"
-                class="mt-4 border-t border-gray-100 pt-4 space-y-2"
-              >
-                <div
-                  v-for="(item, index) in event.schedule.slice(0, 2)"
-                  :key="index"
-                  class="flex items-start gap-2 text-sm"
-                >
-                  <span class="font-medium text-gray-900">{{ item.time }}</span>
-                  <span class="text-gray-600">{{ item.activity }}</span>
-                  <span v-if="item.description" class="text-gray-500 text-xs">
-                    ({{ item.description }})
-                  </span>
-                </div>
-                <Button
-                  v-if="event.schedule.length > 2"
-                  variant="ghost"
-                  size="sm"
-                  class="text-gray-600"
-                >
-                  Show full schedule
-                </Button>
-              </div>
-            </div>
-
-            <!-- Add Call-to-Action Buttons -->
-            <div
-              class="px-4 sm:px-6 pb-4 mt-4 flex gap-2 justify-end border-t pt-4"
-            >
-              <Button variant="outline" size="sm">
-                <Icon name="ph:calendar-plus" class="mr-2 h-4 w-4" />
-                Add to Calendar
-              </Button>
-              <Button variant="outline" size="sm">
-                <Icon name="ph:share" class="mr-2 h-4 w-4" />
-                Share
-              </Button>
-              <Button> Book Now </Button>
-            </div>
-          </div>
-
-          <!-- Empty State -->
-          <div v-if="sortedEvents.length === 0" class="text-center py-12">
-            <Icon
-              name="ph:calendar-x"
-              class="mx-auto h-12 w-12 text-gray-400"
-            />
-            <h3 class="mt-2 text-sm font-semibold text-gray-900">
-              No events found
-            </h3>
-            <p class="mt-1 text-sm text-gray-500">
-              Try adjusting your filters or check back later.
-            </p>
-          </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <Input
+            v-model="searchQuery"
+            placeholder="Search events..."
+            type="search"
+            class="w-[180px]"
+          />
         </div>
+
+        <Select v-model="sortBy" class="w-[140px] shrink-0">
+          <SelectTrigger>
+            <SelectValue placeholder="Sort by" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="date">Most Recent</SelectItem>
+            <SelectItem value="price-low">Price: Low to High</SelectItem>
+            <SelectItem value="price-high">Price: High to Low</SelectItem>
+          </SelectContent>
+        </Select>
+
+        <Button
+          variant="outline"
+          size="sm"
+          @click="clearFilters"
+          v-if="hasActiveFilters"
+          class="shrink-0"
+        >
+          Clear all
+        </Button>
+      </div>
+
+      <!-- Common Filters Row -->
+      <div class="flex flex-wrap items-center gap-3">
+        <Select v-model="selectedLocation">
+          <SelectTrigger class="w-[160px]">
+            <SelectValue placeholder="Location" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem
+              v-for="option in locationOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.label }}
+            </SelectItem>
+          </SelectContent>
+        </Select>
+
+        <Select v-model="selectedStatus">
+          <SelectTrigger class="w-[140px]">
+            <SelectValue placeholder="Status" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem
+              v-for="option in statusOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.label }}
+            </SelectItem>
+          </SelectContent>
+        </Select>
+
+        <Select v-model="selectedPriceRange">
+          <SelectTrigger class="w-[160px]">
+            <SelectValue placeholder="Price Range" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem
+              v-for="option in priceRangeOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.label }}
+            </SelectItem>
+          </SelectContent>
+        </Select>
       </div>
     </div>
 
-    <!-- Mobile Filter Drawer -->
-    <Sheet
-      :open="isFilterDrawerOpen"
-      @update:open="isFilterDrawerOpen = $event"
-    >
-      <SheetContent side="left" class="w-[90vw] sm:max-w-md">
-        <SheetHeader>
-          <SheetTitle>Filters</SheetTitle>
-        </SheetHeader>
+    <!-- Events Grid -->
+    <div class="p-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Event Card -->
+      <div
+        v-for="event in sortedEvents"
+        :key="event.id"
+        class="relative rounded-lg border border-gray-300 bg-white shadow-sm hover:border-gray-400 transition-all duration-200 flex flex-col h-full"
+      >
+        <!-- Card Content Wrapper -->
+        <div class="flex-1 flex flex-col">
+          <!-- Card Header with Image -->
+          <div class="relative h-48 rounded-t-lg overflow-hidden">
+            <img
+              class="w-full h-full object-cover"
+              :src="event.image"
+              :alt="event.name"
+              loading="lazy"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"
+            ></div>
+            <div class="absolute bottom-0 left-0 right-0 p-4">
+              <h3 class="text-xl font-semibold text-white drop-shadow">
+                {{ event.name }}
+              </h3>
+            </div>
+            <!-- Quick Actions Overlay -->
+            <div class="absolute top-2 right-2 z-10 flex items-center gap-2">
+              <Button
+                size="sm"
+                variant="secondary"
+                class="bg-white/90 hover:bg-white"
+                @click="handleShare(event)"
+              >
+                <Icon name="ph:share" class="h-4 w-4" />
+              </Button>
+              <Button
+                size="sm"
+                variant="secondary"
+                class="bg-white/90 hover:bg-white"
+                @click="handleStar(event)"
+              >
+                <Icon name="ph:star" class="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
 
-        <div class="py-6">
-          <EventFilters
-            :filters="filters"
-            layout="grid"
-            @update:type="selectedType = $event"
-            @update:status="selectedStatus = $event"
-            @update:month="selectedMonth = $event"
-            @update:search="searchQuery = $event"
-          />
+          <!-- Event Info - Clickable Area -->
+          <NuxtLink
+            :to="`/events/${event.id}`"
+            class="p-4 flex-1 hover:bg-gray-50/50"
+          >
+            <!-- Date and Location -->
+            <div class="space-y-2">
+              <div class="flex items-center gap-2 text-sm text-gray-600">
+                <Icon name="ph:calendar" class="h-4 w-4" />
+                <span>
+                  {{ formatDate(event.date.start) }}
+                  <span v-if="event.date.end">
+                    - {{ formatDate(event.date.end) }}
+                  </span>
+                </span>
+              </div>
+              <div class="flex items-center gap-2 text-sm text-gray-600">
+                <Icon name="ph:map-pin" class="h-4 w-4" />
+                <span
+                  >{{ event.location.name }}, {{ event.location.city }}</span
+                >
+              </div>
+            </div>
+
+            <!-- Description -->
+            <p class="mt-3 text-sm text-gray-600 line-clamp-2">
+              {{ event.description }}
+            </p>
+          </NuxtLink>
+
+          <!-- Card Footer -->
+          <div class="p-4 border-t border-gray-100">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-4">
+                <div class="text-sm">
+                  <template v-if="event.price">
+                    <span class="font-medium"
+                      >{{ event.price.amount }} {{ event.price.currency }}</span
+                    >
+                  </template>
+                  <template v-else-if="event.prices">
+                    <span class="font-medium"
+                      >From
+                      {{ Math.min(...event.prices.map((p) => p.amount)) }}
+                      {{ event.prices[0].currency }}</span
+                    >
+                  </template>
+                </div>
+                <div class="text-sm text-gray-500">
+                  <Icon name="ph:users" class="h-4 w-4 inline mr-1" />
+                  12 interested
+                </div>
+              </div>
+              <NuxtLink :to="`/events/${event.id}`">
+                <Button variant="default">Book Now</Button>
+              </NuxtLink>
+            </div>
+          </div>
         </div>
-      </SheetContent>
-    </Sheet>
+      </div>
+
+      <!-- Empty State -->
+      <div
+        v-if="sortedEvents.length === 0"
+        class="col-span-full text-center py-12"
+      >
+        <Icon name="ph:calendar-x" class="mx-auto h-12 w-12 text-gray-400" />
+        <h3 class="mt-2 text-sm font-semibold text-gray-900">
+          No events found
+        </h3>
+        <p class="mt-1 text-sm text-gray-500">
+          Try adjusting your search terms or clear the search.
+        </p>
+      </div>
+    </div>
   </DanceStyleLayout>
 </template>
