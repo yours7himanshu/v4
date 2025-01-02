@@ -1174,13 +1174,16 @@ const sortedArtists = computed(() => {
           </div>
 
           <div class="ml-auto flex items-center gap-4 shrink-0">
-            <div class="flex items-center gap-1">
-              <Icon name="ph:users" class="h-4 w-4" />
-              <span>{{ artist.followers }}</span>
-            </div>
-            <div v-if="artist.rating" class="flex items-center gap-1">
-              <Icon name="ph:star-fill" class="h-4 w-4 text-yellow-400" />
-              <span>{{ artist.rating }}</span>
+            <div class="flex items-center gap-2">
+              <div class="flex items-center gap-1">
+                <Icon name="ph:star-fill" class="h-4 w-4 text-yellow-400" />
+                <span class="font-medium">{{ artist.rating }}</span>
+                <span class="text-gray-500">({{ artist.reviewCount }})</span>
+              </div>
+              <div class="flex items-center gap-1 text-gray-500">
+                <Icon name="ph:users" class="h-4 w-4" />
+                <span>{{ artist.followers }}</span>
+              </div>
             </div>
           </div>
         </div>

@@ -64,32 +64,32 @@ defineProps({
           <div
             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
           />
+          <div class="absolute top-4 right-4">
+            <div class="bg-white/90 px-3 py-1 rounded-full text-sm font-medium">
+              {{ post.content.price?.amount || "Free" }}
+              {{ post.content.price?.currency }}
+            </div>
+          </div>
           <div class="absolute bottom-0 left-0 right-0 p-4">
-            <h3 class="text-lg font-semibold text-white">
+            <h3 class="text-lg font-semibold text-white drop-shadow">
               {{ post.content.title }}
             </h3>
+            <div class="flex items-center gap-3 mt-2 text-sm text-white/90">
+              <div class="flex items-center gap-1">
+                <Icon name="ph:calendar" class="h-4 w-4" />
+                <span>{{ post.content.details[0].text }}</span>
+              </div>
+              <div class="flex items-center gap-1">
+                <Icon name="ph:map-pin" class="h-4 w-4" />
+                <span>{{ post.content.details[1].text }}</span>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="p-4 space-y-4 flex-1">
-          <p class="text-gray-600">{{ post.content.description }}</p>
-
-          <div class="bg-purple-50 rounded-lg p-4 space-y-2">
-            <div class="font-medium text-purple-900">Event Details:</div>
-            <ul class="text-sm text-gray-600 space-y-1">
-              <li
-                v-for="detail in post.content.details"
-                :key="detail.text"
-                class="flex items-center gap-2"
-              >
-                <Icon :name="detail.icon" class="w-4 h-4 text-purple-500" />
-                {{ detail.text }}
-              </li>
-            </ul>
-          </div>
-
-          <p v-if="post.content.cta" class="text-purple-600 font-medium">
-            {{ post.content.cta }}
+        <div class="p-4 flex-1">
+          <p class="text-gray-600 line-clamp-2">
+            {{ post.content.description }}
           </p>
         </div>
       </div>
@@ -106,12 +106,18 @@ defineProps({
             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
           />
           <div class="absolute inset-0 flex items-center justify-center">
-            <button class="bg-white/90 p-3 rounded-full hover:bg-white">
-              <Icon name="ph:play-fill" class="w-6 h-6 text-purple-600" />
+            <button
+              class="bg-white/90 w-12 h-12 rounded-full hover:bg-white transition-colors flex items-center justify-center"
+              @click="$emit('play')"
+            >
+              <Icon
+                name="ph:play-fill"
+                class="w-6 h-6 text-purple-600 ml-0.5"
+              />
             </button>
           </div>
           <div class="absolute bottom-0 left-0 right-0 p-4">
-            <h3 class="text-lg font-semibold text-white">
+            <h3 class="text-lg font-semibold text-white drop-shadow">
               {{ post.content.title }}
             </h3>
           </div>
@@ -245,23 +251,23 @@ defineProps({
     >
       <!-- Left side with engagement actions -->
       <div class="flex items-center gap-4 text-sm text-gray-500">
-        <button class="flex items-center gap-1 hover:text-purple-600">
+        <div class="flex items-center gap-1">
           <Icon name="ph:heart" class="w-5 h-5" />
-          <span
-            >{{
-              post.stats.likes || post.stats.interested || post.stats.responses
-            }}
-            Likes</span
-          >
+          <span>{{
+            post.stats.likes || post.stats.interested || post.stats.responses
+          }}</span>
+        </div>
+        <button
+          class="flex items-center gap-1 hover:text-purple-600"
+          @click="$emit('bookmark')"
+        >
+          <Icon name="ph:bookmark-simple" class="w-5 h-5" />
+          <span>{{ post.stats.saves || 0 }}</span>
         </button>
         <button
-          v-if="['post', 'video', 'review'].includes(post.type)"
           class="flex items-center gap-1 hover:text-purple-600"
+          @click="$emit('share')"
         >
-          <Icon name="ph:chat-circle" class="w-5 h-5" />
-          <span>{{ post.stats.comments }} Comments</span>
-        </button>
-        <button class="flex items-center gap-1 hover:text-purple-600">
           <Icon name="ph:share-network" class="w-5 h-5" />
           <span>Share</span>
         </button>

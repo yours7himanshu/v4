@@ -48,7 +48,11 @@ defineProps({
               <div class="text-xl font-bold text-gray-900">
                 {{ stat.value }}
               </div>
-              <div class="text-sm">{{ stat.label }}</div>
+              <div class="text-sm">
+                {{
+                  stat.label === "Members" ? "community members" : stat.label
+                }}
+              </div>
             </div>
           </div>
         </div>
