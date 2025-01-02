@@ -886,7 +886,10 @@ const vClickOutside = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-bold mb-8 text-center">Popular Salsa Styles</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <NuxtLink
+          to="/styles/cuban-salsa"
+          class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+        >
           <img
             src="https://images.unsplash.com/photo-1545959570-a94084071b5d?w=800&h=400&fit=crop"
             alt="Cuban Salsa"
@@ -898,11 +901,14 @@ const vClickOutside = {
               Circular patterns and African-influenced movements characterize
               this energetic style.
             </p>
-            <button class="text-purple-600 font-medium">Learn more →</button>
+            <span class="text-purple-600 font-medium">Learn more →</span>
           </div>
-        </div>
+        </NuxtLink>
 
-        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <NuxtLink
+          to="/styles/la-style"
+          class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+        >
           <img
             src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&h=400&fit=crop"
             alt="LA Style"
@@ -914,11 +920,14 @@ const vClickOutside = {
               Linear patterns with theatrical moves and complex turn
               combinations.
             </p>
-            <button class="text-purple-600 font-medium">Learn more →</button>
+            <span class="text-purple-600 font-medium">Learn more →</span>
           </div>
-        </div>
+        </NuxtLink>
 
-        <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <NuxtLink
+          to="/styles/colombian-style"
+          class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
+        >
           <img
             src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&h=400&fit=crop"
             alt="Colombian Style"
@@ -930,9 +939,9 @@ const vClickOutside = {
               Smooth, close partner work with intricate footwork and subtle
               leading.
             </p>
-            <button class="text-purple-600 font-medium">Learn more →</button>
+            <span class="text-purple-600 font-medium">Learn more →</span>
           </div>
-        </div>
+        </NuxtLink>
       </div>
     </div>
   </div>
