@@ -958,10 +958,11 @@ const sortedArtists = computed(() => {
                   v-if="artist.availability.pricing?.privateClass"
                   class="text-gray-900"
                 >
-                  {{ artist.availability.pricing.privateClass.amount }}
-                  {{ artist.availability.pricing.privateClass.currency }}
-                  <span class="text-gray-500 text-xs">
-                    / {{ artist.availability.pricing.privateClass.duration }}min
+                  <span class="font-medium">
+                    {{ artist.availability.pricing.privateClass.amount }}€
+                  </span>
+                  <span class="text-gray-500">
+                    /{{ artist.availability.pricing.privateClass.duration }}min
                   </span>
                 </span>
               </div>
@@ -980,11 +981,14 @@ const sortedArtists = computed(() => {
                   v-if="artist.availability.pricing?.workshop"
                   class="text-gray-900"
                 >
-                  {{ artist.availability.pricing.workshop.amount }}
-                  {{ artist.availability.pricing.workshop.currency }}
-                  <span class="text-gray-500 text-xs">
-                    / {{ artist.availability.pricing.workshop.duration }}min
-                    {{ artist.availability.pricing.workshop.note }}
+                  <span class="font-medium">
+                    {{ artist.availability.pricing.workshop.amount }}€
+                  </span>
+                  <span class="text-gray-500">
+                    /{{ artist.availability.pricing.workshop.duration }}min
+                    <span class="text-xs"
+                      >({{ artist.availability.pricing.workshop.note }})</span
+                    >
                   </span>
                 </span>
               </div>
