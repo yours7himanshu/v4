@@ -137,7 +137,10 @@
                     @click="createPost('article')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <Icon name="ph:article" class="w-5 h-5 text-purple-600" />
+                    <Icon
+                      name="ph:article-medium"
+                      class="w-5 h-5 text-purple-600"
+                    />
                     Write Article
                   </button>
                   <button
@@ -154,7 +157,7 @@
                     @click="createPost('inspiration')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
+                    <Icon name="ph:sparkle" class="w-5 h-5 text-purple-600" />
                     Share Inspiration
                   </button>
 
@@ -167,7 +170,7 @@
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
                     <Icon
-                      name="ph:users-three"
+                      name="ph:magnifying-glass"
                       class="w-5 h-5 text-purple-600"
                     />
                     Find Events
@@ -177,7 +180,7 @@
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
                     <Icon
-                      name="ph:users-three"
+                      name="ph:calendar-plus"
                       class="w-5 h-5 text-purple-600"
                     />
                     Create Event
@@ -186,17 +189,14 @@
                     @click="createPost('discussion')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
+                    <Icon name="ph:chats" class="w-5 h-5 text-purple-600" />
                     Start Discussion
                   </button>
                   <button
                     @click="createPost('partner')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <Icon
-                      name="ph:users-three"
-                      class="w-5 h-5 text-purple-600"
-                    />
+                    <Icon name="ph:users" class="w-5 h-5 text-purple-600" />
                     Find Partner
                   </button>
 
@@ -204,10 +204,7 @@
                     @click="createPost('travel')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <Icon
-                      name="ph:users-three"
-                      class="w-5 h-5 text-purple-600"
-                    />
+                    <Icon name="ph:airplane" class="w-5 h-5 text-purple-600" />
                     Share Travel Plan
                   </button>
 
@@ -219,21 +216,24 @@
                     @click="createPost('venue-review')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
+                    <Icon name="ph:map-pin" class="w-5 h-5 text-purple-600" />
                     Review Venue
                   </button>
                   <button
                     @click="createPost('host-review')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
+                    <Icon
+                      name="ph:user-circle"
+                      class="w-5 h-5 text-purple-600"
+                    />
                     Review Host
                   </button>
                   <button
                     @click="createPost('artist-review')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
+                    <Icon name="ph:star" class="w-5 h-5 text-purple-600" />
                     Review Artist
                   </button>
                 </div>
@@ -984,7 +984,7 @@
         <!-- Content Creation -->
         <div class="bg-white rounded-xl shadow-sm p-6">
           <div class="text-purple-600 mb-4">
-            <Icon name="ph:pencil" class="w-8 h-8" />
+            <Icon name="ph:pencil-line" class="w-8 h-8" />
           </div>
           <h3 class="font-bold text-lg mb-2">Share Your Knowledge</h3>
           <p class="text-gray-600 mb-4">
@@ -993,35 +993,11 @@
           </p>
           <div class="space-y-2 text-sm text-gray-600 mb-4">
             <div class="flex items-center gap-2">
-              <svg
-                class="w-4 h-4 text-green-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
               <span>Earn community recognition</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg
-                class="w-4 h-4 text-green-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
               <span>Help shape the community</span>
             </div>
           </div>
@@ -1040,35 +1016,11 @@
           </p>
           <div class="space-y-2 text-sm text-gray-600 mb-4">
             <div class="flex items-center gap-2">
-              <svg
-                class="w-4 h-4 text-green-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
               <span>Make real impact</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg
-                class="w-4 h-4 text-green-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
               <span>Build your network</span>
             </div>
           </div>
@@ -1080,7 +1032,7 @@
         <!-- Community Support -->
         <div class="bg-white rounded-xl shadow-sm p-6">
           <div class="text-purple-600 mb-4">
-            <Icon name="ph:heart" class="w-8 h-8" />
+            <Icon name="ph:handshake" class="w-8 h-8" />
           </div>
           <h3 class="font-bold text-lg mb-2">Support Others</h3>
           <p class="text-gray-600 mb-4">
@@ -1089,35 +1041,11 @@
           </p>
           <div class="space-y-2 text-sm text-gray-600 mb-4">
             <div class="flex items-center gap-2">
-              <svg
-                class="w-4 h-4 text-green-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
               <span>Help others grow</span>
             </div>
             <div class="flex items-center gap-2">
-              <svg
-                class="w-4 h-4 text-green-500"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
+              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
               <span>Build reputation</span>
             </div>
           </div>
