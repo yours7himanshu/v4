@@ -73,14 +73,15 @@ const vClickOutside = {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <h1 class="text-4xl md:text-5xl font-bold mb-6">
-          Join the Global Salsa Movement
+          Salsa Dance Community
         </h1>
         <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Connect with 40K+ dancers across Europe, Americas, and Asia. Find
-          events, partners, and your local salsa community.
+          Connect, organize, and grow with your local salsa community. Find
+          dance partners, join events, and share your passion across 40K+
+          dancers worldwide.
         </p>
         <div class="flex justify-center gap-4">
-          <Button variant="default" size="lg">Join Salseros</Button>
+          <Button variant="default" size="lg">Join Community</Button>
         </div>
 
         <div class="flex justify-center gap-8 mt-8 text-gray-500">
@@ -140,91 +141,6 @@ const vClickOutside = {
     </div>
   </div>
 
-  <!-- Build Community Together -->
-  <div class="bg-purple-50 py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold">Build the Community Together</h2>
-        <p class="text-gray-600 mt-2">
-          Join other dancers in making the salsa community even better
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Content Creation -->
-        <div class="bg-white rounded-xl shadow-sm p-6">
-          <div class="text-purple-600 mb-4">
-            <Icon name="ph:pencil-line" class="w-8 h-8" />
-          </div>
-          <h3 class="font-bold text-lg mb-2">Share Your Knowledge</h3>
-          <p class="text-gray-600 mb-4">
-            Write articles, share tips, or create video tutorials to help others
-            learn.
-          </p>
-          <div class="space-y-2 text-sm text-gray-600 mb-4">
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Earn community recognition</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Help shape the community</span>
-            </div>
-          </div>
-          <button class="text-purple-600 font-medium">Start Creating →</button>
-        </div>
-
-        <!-- Community Projects -->
-        <div class="bg-white rounded-xl shadow-sm p-6">
-          <div class="text-purple-600 mb-4">
-            <Icon name="ph:users-three" class="w-8 h-8" />
-          </div>
-          <h3 class="font-bold text-lg mb-2">Lead Community Projects</h3>
-          <p class="text-gray-600 mb-4">
-            Start or join community initiatives, organize events, or lead
-            practice groups.
-          </p>
-          <div class="space-y-2 text-sm text-gray-600 mb-4">
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Make real impact</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Build your network</span>
-            </div>
-          </div>
-          <button class="text-purple-600 font-medium">
-            Explore Projects →
-          </button>
-        </div>
-
-        <!-- Community Support -->
-        <div class="bg-white rounded-xl shadow-sm p-6">
-          <div class="text-purple-600 mb-4">
-            <Icon name="ph:handshake" class="w-8 h-8" />
-          </div>
-          <h3 class="font-bold text-lg mb-2">Support Others</h3>
-          <p class="text-gray-600 mb-4">
-            Answer questions, welcome newcomers, and help maintain a positive
-            community.
-          </p>
-          <div class="space-y-2 text-sm text-gray-600 mb-4">
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Help others grow</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <Icon name="ph:check-circle" class="w-4 h-4 text-green-500" />
-              <span>Build reputation</span>
-            </div>
-          </div>
-          <button class="text-purple-600 font-medium">Start Helping →</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Community Feed & Participation -->
   <div class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -274,102 +190,152 @@ const vClickOutside = {
               Filter by Location
             </Button>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
+            <!-- New Mega Menu -->
+            <Dialog>
+              <DialogTrigger asChild>
                 <Button variant="default" class="flex items-center gap-2">
                   <Icon name="ph:plus" class="w-5 h-5" />
                   Create
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent class="w-64">
-                <DropdownMenuGroup>
-                  <DropdownMenuItem @click="createPost('article')">
-                    <Icon
-                      name="ph:article-medium"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Write Article
-                  </DropdownMenuItem>
-                  <DropdownMenuItem @click="createPost('tutorial')">
-                    <Icon
-                      name="ph:video-camera"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Share Tutorial
-                  </DropdownMenuItem>
-                  <DropdownMenuItem @click="createPost('inspiration')">
-                    <Icon
-                      name="ph:sparkle"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Share Inspiration
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
+              </DialogTrigger>
+              <DialogContent class="sm:max-w-3xl max-h-[80vh] overflow-y-auto">
+                <DialogHeader>
+                  <DialogTitle>Build the Community Together</DialogTitle>
+                  <DialogDescription
+                    >Join other dancers in making the salsa community even
+                    better</DialogDescription
+                  >
+                </DialogHeader>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                  <!-- Share Knowledge -->
+                  <div>
+                    <div class="text-purple-600 mb-4">
+                      <Icon name="ph:pencil-line" class="w-8 h-8" />
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Share Your Knowledge</h3>
+                    <p class="text-gray-600 mb-4">
+                      Write articles, share tips, or create video tutorials to
+                      help others learn.
+                    </p>
+                    <div class="space-y-2">
+                      <button
+                        class="w-full text-left px-3 py-3 hover:bg-gray-50 rounded-lg flex items-center"
+                      >
+                        <Icon
+                          name="ph:article-medium"
+                          class="w-5 h-5 text-purple-600 mr-2"
+                        />
+                        <span class="flex-1">Write Article</span>
+                        <Icon
+                          name="ph:arrow-right"
+                          class="w-5 h-5 text-gray-400"
+                        />
+                      </button>
+                      <button
+                        class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+                      >
+                        <Icon
+                          name="ph:video-camera"
+                          class="w-5 h-5 text-purple-600 mr-2"
+                        />
+                        <span>Share Tutorial</span>
+                      </button>
+                      <button
+                        class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+                      >
+                        <Icon
+                          name="ph:sparkle"
+                          class="w-5 h-5 text-purple-600 mr-2"
+                        />
+                        <span>Share Inspiration</span>
+                      </button>
+                    </div>
+                  </div>
 
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel>Events & Community</DropdownMenuLabel>
-                <DropdownMenuGroup>
-                  <DropdownMenuItem @click="createPost('find-events')">
-                    <Icon
-                      name="ph:magnifying-glass"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Find Events
-                  </DropdownMenuItem>
-                  <DropdownMenuItem @click="createPost('event')">
-                    <Icon
-                      name="ph:calendar-plus"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Create Event
-                  </DropdownMenuItem>
-                  <DropdownMenuItem @click="createPost('discussion')">
-                    <Icon
-                      name="ph:chats"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Start Discussion
-                  </DropdownMenuItem>
-                  <DropdownMenuItem @click="createPost('partner')">
-                    <Icon
-                      name="ph:users"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Find Partner
-                  </DropdownMenuItem>
-                  <DropdownMenuItem @click="createPost('travel')">
-                    <Icon
-                      name="ph:airplane"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Share Travel Plan
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
+                  <!-- Lead Community -->
+                  <div>
+                    <div class="text-purple-600 mb-4">
+                      <Icon name="ph:users-three" class="w-8 h-8" />
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Lead Community</h3>
+                    <p class="text-gray-600 mb-4">
+                      Start or join community initiatives, organize events, or
+                      lead practice groups.
+                    </p>
+                    <div class="space-y-2">
+                      <button
+                        class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+                      >
+                        <Icon
+                          name="ph:calendar-plus"
+                          class="w-5 h-5 text-purple-600 mr-2"
+                        />
+                        <span>Create Event</span>
+                      </button>
+                      <button
+                        class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+                      >
+                        <Icon
+                          name="ph:chats"
+                          class="w-5 h-5 text-purple-600 mr-2"
+                        />
+                        <span>Start Discussion</span>
+                      </button>
+                      <button
+                        class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+                      >
+                        <Icon
+                          name="ph:users"
+                          class="w-5 h-5 text-purple-600 mr-2"
+                        />
+                        <span>Find Partner</span>
+                      </button>
+                    </div>
+                  </div>
 
-                <DropdownMenuSeparator />
-                <DropdownMenuLabel>Reviews</DropdownMenuLabel>
-                <DropdownMenuGroup>
-                  <DropdownMenuItem @click="createPost('venue-review')">
-                    <Icon
-                      name="ph:map-pin"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Review Venue
-                  </DropdownMenuItem>
-                  <DropdownMenuItem @click="createPost('host-review')">
-                    <Icon
-                      name="ph:user-circle"
-                      class="w-5 h-5 text-purple-600 mr-2"
-                    />
-                    Review Host
-                  </DropdownMenuItem>
-                  <DropdownMenuItem @click="createPost('artist-review')">
-                    <Icon name="ph:star" class="w-5 h-5 text-purple-600 mr-2" />
-                    Review Artist
-                  </DropdownMenuItem>
-                </DropdownMenuGroup>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  <!-- Support Others -->
+                  <div>
+                    <div class="text-purple-600 mb-4">
+                      <Icon name="ph:handshake" class="w-8 h-8" />
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Support Others</h3>
+                    <p class="text-gray-600 mb-4">
+                      Answer questions, welcome newcomers, and help maintain a
+                      positive community.
+                    </p>
+                    <div class="space-y-2">
+                      <button
+                        class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+                      >
+                        <Icon
+                          name="ph:map-pin"
+                          class="w-5 h-5 text-purple-600 mr-2"
+                        />
+                        <span>Review Venue</span>
+                      </button>
+                      <button
+                        class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+                      >
+                        <Icon
+                          name="ph:user-circle"
+                          class="w-5 h-5 text-purple-600 mr-2"
+                        />
+                        <span>Review Host</span>
+                      </button>
+                      <button
+                        class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+                      >
+                        <Icon
+                          name="ph:star"
+                          class="w-5 h-5 text-purple-600 mr-2"
+                        />
+                        <span>Review Artist</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
         </div>
       </div>
