@@ -3,47 +3,11 @@
 </script>
 
 <template>
-  <StyleHero />
-
-  <!-- Tabs Navigation -->
-  <div class="py-12 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <nav class="border-b border-gray-200">
-        <div class="flex space-x-8 overflow-x-auto">
-          <NuxtLink
-            to="/salsa"
-            class="border-b-[3px] border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap -mb-[1px]"
-          >
-            All Posts
-          </NuxtLink>
-          <NuxtLink
-            to="/styles/casino"
-            class="border-b-[3px] border-purple-600 px-1 py-4 text-sm font-medium text-purple-600 whitespace-nowrap -mb-[1px]"
-          >
-            About
-          </NuxtLink>
-          <a
-            href="#"
-            class="border-b-[3px] border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap -mb-[1px]"
-          >
-            Events
-          </a>
-          <a
-            href="#"
-            class="border-b-[3px] border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap -mb-[1px]"
-          >
-            Learning
-          </a>
-          <a
-            href="#"
-            class="border-b-[3px] border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap -mb-[1px]"
-          >
-            Community
-          </a>
-        </div>
-      </nav>
-    </div>
-  </div>
+  <DanceStyleLayout
+    title="Salsa Cubana"
+    description="Connect, organize, and grow with your local salsa community. Find dance partners, join events, and share your passion across 40K+ dancers worldwide."
+  >
+  </DanceStyleLayout>
 
   <!-- Main Content -->
   <div class="py-12">
