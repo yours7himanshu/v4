@@ -22,19 +22,7 @@
         <div class="bg-white p-6 rounded-xl shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <div class="bg-purple-100 p-2 rounded-full">
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                />
-              </svg>
+              <Icon name="ph:globe" class="w-6 h-6 text-purple-600" />
             </div>
             <div>
               <div class="font-medium">Global Community</div>
@@ -46,19 +34,7 @@
         <div class="bg-white p-6 rounded-xl shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <div class="bg-purple-100 p-2 rounded-full">
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
+              <Icon name="ph:calendar" class="w-6 h-6 text-purple-600" />
             </div>
             <div>
               <div class="font-medium">Active Events</div>
@@ -70,19 +46,7 @@
         <div class="bg-white p-6 rounded-xl shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <div class="bg-purple-100 p-2 rounded-full">
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                />
-              </svg>
+              <Icon name="ph:users-three" class="w-6 h-6 text-purple-600" />
             </div>
             <div>
               <div class="font-medium">Dance Partners</div>
@@ -94,19 +58,7 @@
         <div class="bg-white p-6 rounded-xl shadow-sm">
           <div class="flex items-center gap-3 mb-4">
             <div class="bg-purple-100 p-2 rounded-full">
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
+              <Icon name="ph:book-open" class="w-6 h-6 text-purple-600" />
             </div>
             <div>
               <div class="font-medium">Learning Resources</div>
@@ -161,19 +113,7 @@
                 @click="showLocationFilter = true"
                 class="flex items-center gap-2 text-gray-700 hover:text-purple-600"
               >
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  />
-                </svg>
+                <Icon name="ph:map-pin" class="w-5 h-5" />
                 Filter by Location
               </button>
 
@@ -182,19 +122,7 @@
                   @click="showCreateMenu = !showCreateMenu"
                   class="w-full sm:w-auto flex items-center justify-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
                 >
-                  <svg
-                    class="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                    />
-                  </svg>
+                  <Icon name="ph:plus" class="w-5 h-5" />
                   Create
                 </button>
                 <!-- Create Menu Dropdown -->
@@ -209,63 +137,24 @@
                     @click="createPost('article')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
-                      class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H15M9 11l3 3m0 0l3-3m-3 3V8"
-                      />
-                    </svg>
+                    <Icon name="ph:article" class="w-5 h-5 text-purple-600" />
                     Write Article
                   </button>
                   <button
                     @click="createPost('tutorial')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
+                    <Icon
+                      name="ph:video-camera"
                       class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
-                      />
-                    </svg>
+                    />
                     Share Tutorial
                   </button>
                   <button
                     @click="createPost('inspiration')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
-                      class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
+                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
                     Share Inspiration
                   </button>
 
@@ -277,76 +166,37 @@
                     @click="createPost('find-events')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
+                    <Icon
+                      name="ph:users-three"
                       class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                      />
-                    </svg>
+                    />
                     Find Events
                   </button>
                   <button
                     @click="createPost('event')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
+                    <Icon
+                      name="ph:users-three"
                       class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                      />
-                    </svg>
+                    />
                     Create Event
                   </button>
                   <button
                     @click="createPost('discussion')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
-                      class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                      />
-                    </svg>
+                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
                     Start Discussion
                   </button>
                   <button
                     @click="createPost('partner')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
+                    <Icon
+                      name="ph:users-three"
                       class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
+                    />
                     Find Partner
                   </button>
 
@@ -354,19 +204,10 @@
                     @click="createPost('travel')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
+                    <Icon
+                      name="ph:users-three"
                       class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z M12 12l9-3-9-3-9 3 9 3z"
-                      />
-                    </svg>
+                    />
                     Share Travel Plan
                   </button>
 
@@ -378,63 +219,21 @@
                     @click="createPost('venue-review')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
-                      class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                      />
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                      />
-                    </svg>
+                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
                     Review Venue
                   </button>
                   <button
                     @click="createPost('host-review')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
-                      class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
-                      />
-                    </svg>
+                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
                     Review Host
                   </button>
                   <button
                     @click="createPost('artist-review')"
                     class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
                   >
-                    <svg
-                      class="w-5 h-5 text-purple-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                      />
-                    </svg>
+                    <Icon name="ph:heart" class="w-5 h-5 text-purple-600" />
                     Review Artist
                   </button>
                 </div>
@@ -502,51 +301,15 @@
             </div>
             <div class="flex items-center gap-4 text-sm text-gray-500">
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  ></path>
-                </svg>
+                <Icon name="ph:heart" class="w-5 h-5" />
                 <span>42 Likes</span>
               </button>
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  ></path>
-                </svg>
+                <Icon name="ph:chat-circle" class="w-5 h-5" />
                 <span>12 Comments</span>
               </button>
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                  ></path>
-                </svg>
+                <Icon name="ph:share-network" class="w-5 h-5" />
                 <span>Share</span>
               </button>
             </div>
@@ -683,51 +446,15 @@
             </div>
             <div class="flex items-center gap-4 text-sm text-gray-500">
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  ></path>
-                </svg>
+                <Icon name="ph:heart" class="w-5 h-5" />
                 <span>89 Likes</span>
               </button>
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  ></path>
-                </svg>
+                <Icon name="ph:chat-circle" class="w-5 h-5" />
                 <span>24 Comments</span>
               </button>
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                  ></path>
-                </svg>
+                <Icon name="ph:share-network" class="w-5 h-5" />
                 <span>Share</span>
               </button>
             </div>
@@ -777,19 +504,7 @@
             </div>
             <div class="flex items-center gap-4 text-sm text-gray-500">
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  ></path>
-                </svg>
+                <Icon name="ph:heart" class="w-5 h-5" />
                 <span>8 Responses</span>
               </button>
               <button class="text-purple-600 font-medium">Respond →</button>
@@ -871,35 +586,11 @@
             </div>
             <div class="flex items-center gap-4 text-sm text-gray-500">
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                  ></path>
-                </svg>
+                <Icon name="ph:heart" class="w-5 h-5" />
                 <span>35 Likes</span>
               </button>
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  ></path>
-                </svg>
+                <Icon name="ph:chat-circle" class="w-5 h-5" />
                 <span>15 Comments</span>
               </button>
               <button class="text-purple-600 font-medium">View Venue →</button>
@@ -1006,19 +697,7 @@
             </div>
             <div class="flex items-center gap-4 text-sm text-gray-500">
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
+                <Icon name="ph:heart" class="w-5 h-5" />
                 <span>5 Responses</span>
               </button>
               <button class="text-purple-600 font-medium">Contact →</button>
@@ -1076,19 +755,7 @@
             </div>
             <div class="flex items-center gap-4 text-sm text-gray-500">
               <button class="flex items-center gap-1 hover:text-purple-600">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                  />
-                </svg>
+                <Icon name="ph:heart" class="w-5 h-5" />
                 <span>8 Suggestions</span>
               </button>
               <button class="text-purple-600 font-medium">
@@ -1268,19 +935,7 @@
               @click="showLocationFilter = false"
               class="text-gray-400 hover:text-gray-600"
             >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              <Icon name="ph:x" class="w-6 h-6" />
             </button>
           </div>
 
@@ -1329,19 +984,7 @@
         <!-- Content Creation -->
         <div class="bg-white rounded-xl shadow-sm p-6">
           <div class="text-purple-600 mb-4">
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2h-5m-1.414 4.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-              />
-            </svg>
+            <Icon name="ph:pencil" class="w-8 h-8" />
           </div>
           <h3 class="font-bold text-lg mb-2">Share Your Knowledge</h3>
           <p class="text-gray-600 mb-4">
@@ -1388,19 +1031,7 @@
         <!-- Community Projects -->
         <div class="bg-white rounded-xl shadow-sm p-6">
           <div class="text-purple-600 mb-4">
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-              />
-            </svg>
+            <Icon name="ph:users-three" class="w-8 h-8" />
           </div>
           <h3 class="font-bold text-lg mb-2">Lead Community Projects</h3>
           <p class="text-gray-600 mb-4">
@@ -1449,19 +1080,7 @@
         <!-- Community Support -->
         <div class="bg-white rounded-xl shadow-sm p-6">
           <div class="text-purple-600 mb-4">
-            <svg
-              class="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              />
-            </svg>
+            <Icon name="ph:heart" class="w-8 h-8" />
           </div>
           <h3 class="font-bold text-lg mb-2">Support Others</h3>
           <p class="text-gray-600 mb-4">
