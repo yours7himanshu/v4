@@ -74,9 +74,7 @@ const vClickOutside = {
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <!-- Left: Content -->
         <div class="text-center md:text-left">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6">
-            Salsa Dance Community
-          </h1>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">Salsa Cubana</h1>
           <p class="text-xl text-gray-600 mb-8 max-w-2xl md:max-w-none mx-auto">
             Connect, organize, and grow with your local salsa community. Find
             dance partners, join events, and share your passion across 40K+
@@ -881,72 +879,6 @@ const vClickOutside = {
     </div>
   </div>
 
-  <!-- Styles Section -->
-  <div class="py-12 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold mb-8 text-center">Popular Salsa Styles</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <NuxtLink
-          to="/styles/cuban-salsa"
-          class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1545959570-a94084071b5d?w=800&h=400&fit=crop"
-            alt="Cuban Salsa"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Cuban Salsa</h3>
-            <p class="text-gray-600 mb-4">
-              Circular patterns and African-influenced movements characterize
-              this energetic style.
-            </p>
-            <span class="text-purple-600 font-medium">Learn more →</span>
-          </div>
-        </NuxtLink>
-
-        <NuxtLink
-          to="/styles/la-style"
-          class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=800&h=400&fit=crop"
-            alt="LA Style"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">LA Style</h3>
-            <p class="text-gray-600 mb-4">
-              Linear patterns with theatrical moves and complex turn
-              combinations.
-            </p>
-            <span class="text-purple-600 font-medium">Learn more →</span>
-          </div>
-        </NuxtLink>
-
-        <NuxtLink
-          to="/styles/colombian-style"
-          class="bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&h=400&fit=crop"
-            alt="Colombian Style"
-            class="w-full h-48 object-cover"
-          />
-          <div class="p-6">
-            <h3 class="text-xl font-bold mb-2">Colombian Style</h3>
-            <p class="text-gray-600 mb-4">
-              Smooth, close partner work with intricate footwork and subtle
-              leading.
-            </p>
-            <span class="text-purple-600 font-medium">Learn more →</span>
-          </div>
-        </NuxtLink>
-      </div>
-    </div>
-  </div>
-
-  <!-- Rename City Modal to Location Filter -->
   <Dialog :open="showLocationFilter" @update:open="showLocationFilter = false">
     <DialogContent class="sm:max-w-lg">
       <DialogHeader>
