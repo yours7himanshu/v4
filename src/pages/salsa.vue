@@ -106,41 +106,6 @@ const vClickOutside = {
     </div>
   </div>
 
-  <!-- Key Features -->
-  <div class="py-16 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <Icon
-            name="ph:calendar-check"
-            class="w-12 h-12 text-purple-600 mx-auto mb-4"
-          />
-          <h3 class="text-lg font-semibold mb-2">Find Events</h3>
-          <p class="text-gray-600">
-            Local parties, workshops, and festivals all in one place
-          </p>
-        </div>
-        <div class="text-center">
-          <Icon
-            name="ph:users-three"
-            class="w-12 h-12 text-purple-600 mx-auto mb-4"
-          />
-          <h3 class="text-lg font-semibold mb-2">Meet Partners</h3>
-          <p class="text-gray-600">
-            Find practice partners and social dancers nearby
-          </p>
-        </div>
-        <div class="text-center">
-          <Icon name="ph:star" class="w-12 h-12 text-purple-600 mx-auto mb-4" />
-          <h3 class="text-lg font-semibold mb-2">Learn Together</h3>
-          <p class="text-gray-600">
-            Share tips and connect with local instructors
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Community Feed & Participation -->
   <div class="py-12 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
