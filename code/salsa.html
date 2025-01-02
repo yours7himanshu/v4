@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salsa Community - WeDance</title>
+    <title>Salsa - WeDance</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="bg-white">
-    <!-- Navigation (same as index.html) -->
+    <!-- Navigation -->
     <nav class="bg-white shadow-sm fixed w-full z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -33,66 +33,209 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="relative min-h-[80vh]">
-      <div class="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1545959570-a94084071b5d"
-          alt="Salsa Dancing"
-          class="w-full h-full object-cover brightness-50"
-        />
-      </div>
-      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
-        <div class="text-center">
-          <div class="inline-flex items-center space-x-2 mb-6">
-            <span
-              class="px-3 py-1 text-sm text-purple-100 bg-purple-600/30 backdrop-blur-sm rounded-full"
-              >Community-Driven Dance</span
+    <!-- Hero Section - Keep existing but add city context -->
+    <div class="pt-24 pb-12 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- City Context Bar -->
+        <div
+          class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8"
+        >
+          <div class="flex items-center gap-2">
+            <span class="text-sm text-gray-600">You're viewing</span>
+            <button
+              class="flex items-center gap-1 text-purple-600 hover:text-purple-700 font-medium"
             >
-          </div>
-          <h1
-            class="mt-2 text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl"
-          >
-            Join Your Local Salsa Community
-          </h1>
-          <p class="mt-6 text-xl text-gray-200 max-w-2xl mx-auto">
-            Connect with dancers, teachers, and organizers. Learn, share, and
-            grow together in a collaborative dance ecosystem.
-          </p>
-
-          <!-- City-based Search -->
-          <div class="mt-10 max-w-md mx-auto">
-            <div class="relative">
-              <input
-                type="text"
-                placeholder="Find your city"
-                class="w-full px-4 py-3 rounded-lg border-2 border-purple-300 focus:border-purple-400 focus:outline-none bg-white/90 backdrop-blur-sm"
-              />
-              <button
-                class="absolute right-2 top-2 bg-purple-600 text-white px-6 py-1 rounded-lg hover:bg-purple-700"
+              Munich, Germany
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                Join Community
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="flex -space-x-2">
+              <img
+                class="w-6 h-6 rounded-full border-2 border-white"
+                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
+                alt="Active dancer"
+              />
+              <img
+                class="w-6 h-6 rounded-full border-2 border-white"
+                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&h=100&fit=crop"
+                alt="Active dancer"
+              />
+              <img
+                class="w-6 h-6 rounded-full border-2 border-white"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
+                alt="Active dancer"
+              />
+            </div>
+            <div class="flex items-center gap-1">
+              <div
+                class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+              ></div>
+              <span class="text-sm text-gray-600">127 dancers online</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Main Content Structure -->
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Left Column - Community Info -->
+          <div class="flex-1 order-1 lg:order-1">
+            <h1 class="text-3xl sm:text-4xl font-bold mb-4">Salsa</h1>
+            <p class="text-gray-600 mb-6">
+              Lively and rhythmic Latin dance that originated in the Caribbean.
+              Salsa is typically danced in pairs and combines a variety of
+              styles and influences.
+            </p>
+
+            <!-- Primary Actions -->
+            <div class="space-y-3 mb-8">
+              <button
+                class="w-full bg-purple-600 text-white px-4 sm:px-6 py-3 rounded-lg font-medium hover:bg-purple-700"
+              >
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
+                >
+                  <span>Join Tonight's Social (23 going)</span>
+                  <span
+                    class="bg-purple-500 px-2 py-1 rounded text-sm inline-block"
+                    >2.5km away</span
+                  >
+                </div>
+              </button>
+              <button
+                class="w-full bg-white border-2 border-purple-600 text-purple-600 px-4 sm:px-6 py-3 rounded-lg font-medium hover:bg-purple-50"
+              >
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
+                >
+                  <span>Start Learning Salsa</span>
+                  <span
+                    class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm inline-block"
+                    >From €5</span
+                  >
+                </div>
               </button>
             </div>
-            <!-- Active Communities -->
-            <div class="mt-4">
-              <p class="text-white/80 text-sm mb-2">Active Communities:</p>
-              <div class="flex justify-center gap-2 flex-wrap">
-                <button
-                  class="px-3 py-1 text-sm text-white/80 hover:text-white bg-white/10 rounded-full"
-                >
-                  Berlin (200+ dancers)
-                </button>
-                <button
-                  class="px-3 py-1 text-sm text-white/80 hover:text-white bg-white/10 rounded-full"
-                >
-                  Paris (150+ dancers)
-                </button>
-                <button
-                  class="px-3 py-1 text-sm text-white/80 hover:text-white bg-white/10 rounded-full"
-                >
-                  London (180+ dancers)
-                </button>
+
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <div class="text-2xl font-bold text-purple-600">45+</div>
+                <div class="text-sm text-gray-600">Weekly Classes</div>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <div class="text-2xl font-bold text-purple-600">1.2k</div>
+                <div class="text-sm text-gray-600">Active Dancers</div>
+              </div>
+              <div class="bg-purple-50 p-4 rounded-lg">
+                <div class="text-2xl font-bold text-purple-600">12</div>
+                <div class="text-sm text-gray-600">Verified Teachers</div>
+              </div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="bg-green-50 p-4 rounded-lg mb-8">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="bg-green-100 p-2 rounded-full">
+                  <svg
+                    class="w-5 h-5 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-medium">Verified Community</h3>
+                  <p class="text-sm text-gray-600">
+                    All teachers and venues are verified
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column - Start Dancing -->
+          <div class="lg:w-1/2 order-2 lg:order-2">
+            <div class="bg-white border rounded-xl shadow-sm overflow-hidden">
+              <div class="p-4 sm:p-6">
+                <h2 class="text-xl font-bold mb-4">Start Your Salsa Journey</h2>
+
+                <!-- Experience Level Selection -->
+                <div class="space-y-3 mb-6">
+                  <button
+                    class="w-full flex items-center justify-between p-3 rounded-lg bg-purple-50 border-2 border-purple-600"
+                  >
+                    <div class="flex items-center gap-3">
+                      <div
+                        class="bg-purple-100 p-2 rounded-full hidden sm:block"
+                      >
+                        <svg
+                          class="w-4 h-4 text-purple-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                          />
+                        </svg>
+                      </div>
+                      <div class="text-left">
+                        <div class="font-medium">Complete Beginner</div>
+                        <div class="text-sm text-gray-600 hidden sm:block">
+                          Perfect for first-timers
+                        </div>
+                      </div>
+                    </div>
+                    <span class="text-purple-600">Selected</span>
+                  </button>
+                  <!-- Add other experience levels -->
+                </div>
+
+                <!-- Next Steps -->
+                <div class="space-y-3">
+                  <h3 class="font-medium">Recommended Next Steps:</h3>
+                  <div class="bg-purple-50 p-4 rounded-lg">
+                    <div
+                      class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2"
+                    >
+                      <div class="font-medium">Free Intro Class</div>
+                      <span class="text-sm text-purple-600"
+                        >Tomorrow 19:00</span
+                      >
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                      Perfect for beginners - learn the basic steps
+                    </p>
+                    <button
+                      class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
+                    >
+                      Reserve Spot (6 left)
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -100,387 +243,6 @@
       </div>
     </div>
 
-    <!-- Community Participation -->
-    <div class="bg-purple-50 py-16">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold">How Our Community Works</h2>
-          <p class="mt-4 text-gray-600">
-            Everyone can contribute to the community's growth
-          </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Dancers -->
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div
-              class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4"
-            >
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-            </div>
-            <h3 class="font-bold text-xl mb-2">Dancers</h3>
-            <ul class="space-y-2 text-gray-600 mb-4">
-              <li class="flex items-center">
-                <svg
-                  class="w-4 h-4 mr-2 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Find practice partners
-              </li>
-              <li class="flex items-center">
-                <svg
-                  class="w-4 h-4 mr-2 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Join study groups
-              </li>
-              <li class="flex items-center">
-                <svg
-                  class="w-4 h-4 mr-2 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Organize socials
-              </li>
-            </ul>
-            <button
-              class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-            >
-              Start Dancing
-            </button>
-          </div>
-
-          <!-- Teachers -->
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div
-              class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4"
-            >
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 14l9-5-9-5-9 5 9 5z"
-                />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-                />
-              </svg>
-            </div>
-            <h3 class="font-bold text-xl mb-2">Teachers</h3>
-            <ul class="space-y-2 text-gray-600 mb-4">
-              <li class="flex items-center">
-                <svg
-                  class="w-4 h-4 mr-2 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Direct student connections
-              </li>
-              <li class="flex items-center">
-                <svg
-                  class="w-4 h-4 mr-2 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Fair pricing model
-              </li>
-              <li class="flex items-center">
-                <svg
-                  class="w-4 h-4 mr-2 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Community support
-              </li>
-            </ul>
-            <button
-              class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-            >
-              Start Teaching
-            </button>
-          </div>
-
-          <!-- Organizers -->
-          <div class="bg-white rounded-xl p-6 shadow-sm">
-            <div
-              class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4"
-            >
-              <svg
-                class="w-6 h-6 text-purple-600"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-            </div>
-            <h3 class="font-bold text-xl mb-2">Organizers</h3>
-            <ul class="space-y-2 text-gray-600 mb-4">
-              <li class="flex items-center">
-                <svg
-                  class="w-4 h-4 mr-2 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Collaborative planning
-              </li>
-              <li class="flex items-center">
-                <svg
-                  class="w-4 h-4 mr-2 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Resource sharing
-              </li>
-              <li class="flex items-center">
-                <svg
-                  class="w-4 h-4 mr-2 text-green-500"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                Event promotion
-              </li>
-            </ul>
-            <button
-              class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-            >
-              Start Organizing
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Community Stats -->
-    <div class="bg-white py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold">Growing Together</h2>
-          <p class="mt-4 text-gray-600">
-            Join our self-organizing dance communities across Europe
-          </p>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div class="text-center">
-            <div class="text-4xl font-bold text-purple-600">15+</div>
-            <p class="text-gray-600">Active Cities</p>
-            <p class="text-sm text-gray-500">Local communities</p>
-          </div>
-          <div class="text-center">
-            <div class="text-4xl font-bold text-purple-600">100+</div>
-            <p class="text-gray-600">Community Leaders</p>
-            <p class="text-sm text-gray-500">Organizing events</p>
-          </div>
-          <div class="text-center">
-            <div class="text-4xl font-bold text-purple-600">50+</div>
-            <p class="text-gray-600">Weekly Socials</p>
-            <p class="text-sm text-gray-500">Community-driven</p>
-          </div>
-          <div class="text-center">
-            <div class="text-4xl font-bold text-purple-600">1000+</div>
-            <p class="text-gray-600">Active Members</p>
-            <p class="text-sm text-gray-500">Growing daily</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Community Activities -->
-    <div class="bg-purple-50 py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl font-bold">Community Activities</h2>
-          <p class="mt-4 text-gray-600">
-            Join events organized by the community, for the community
-          </p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Practice Groups -->
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <div class="relative h-48">
-              <img
-                src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4"
-                alt="Practice Groups"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="p-6">
-              <h3 class="font-bold text-xl mb-2">Practice Groups</h3>
-              <p class="text-gray-600 mb-4">
-                Join or create study groups to practice together
-              </p>
-              <button
-                class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-              >
-                Find Groups
-              </button>
-            </div>
-          </div>
-
-          <!-- Social Dancing -->
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <div class="relative h-48">
-              <img
-                src="https://images.unsplash.com/photo-1545959570-a94084071b5d"
-                alt="Social Dancing"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="p-6">
-              <h3 class="font-bold text-xl mb-2">Social Dancing</h3>
-              <p class="text-gray-600 mb-4">
-                Weekly socials organized by the community
-              </p>
-              <button
-                class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-              >
-                Find Events
-              </button>
-            </div>
-          </div>
-
-          <!-- Workshops -->
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <div class="relative h-48">
-              <img
-                src="https://images.unsplash.com/photo-1547153760-18fc86324498"
-                alt="Workshops"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <div class="p-6">
-              <h3 class="font-bold text-xl mb-2">Workshops</h3>
-              <p class="text-gray-600 mb-4">
-                Community-organized learning experiences
-              </p>
-              <button
-                class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-              >
-                Browse Workshops
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Get Started -->
-    <div class="bg-white py-24">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center">
-          <h2 class="text-3xl font-bold">Start Your Journey</h2>
-          <p class="mt-4 text-gray-600 max-w-2xl mx-auto mb-8">
-            Join a community that's transforming how dancers connect, learn, and
-            grow together
-          </p>
-          <button
-            class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700"
-          >
-            Join Your Local Community
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Footer (same as before) -->
+    <!-- Continue with tabs and content sections -->
   </body>
 </html>
