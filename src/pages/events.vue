@@ -431,12 +431,12 @@ function handleStar(event) {
       <div
         v-for="event in sortedEvents"
         :key="event.id"
-        class="relative rounded-lg border border-gray-300 bg-white shadow-sm hover:border-gray-400 transition-all duration-200 flex flex-col h-full"
+        class="bg-white rounded-lg border-0 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-all duration-200 overflow-hidden flex flex-col"
       >
         <!-- Card Content Wrapper -->
         <div class="flex-1 flex flex-col">
           <!-- Card Header with Image -->
-          <div class="relative h-48 rounded-t-lg overflow-hidden">
+          <div class="relative h-48 overflow-hidden">
             <img
               class="w-full h-full object-cover"
               :src="event.image"
@@ -447,7 +447,7 @@ function handleStar(event) {
               class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent"
             ></div>
             <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-xl font-semibold text-white drop-shadow">
+              <h3 class="text-lg font-semibold text-white drop-shadow">
                 {{ event.name }}
               </h3>
             </div>
@@ -472,23 +472,14 @@ function handleStar(event) {
             </div>
           </div>
 
-          <!-- Event Info - Clickable Area -->
-          <NuxtLink
-            :to="`/events/${event.id}`"
-            class="p-4 flex-1 hover:bg-gray-50/50"
-          >
-            <!-- Date and Location -->
-            <div class="space-y-2">
-              <div class="flex items-center gap-2 text-sm text-gray-600">
+          <!-- Card Content -->
+          <div class="p-6 flex-1">
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-4">
+              <div class="flex items-center gap-1">
                 <Icon name="ph:calendar" class="h-4 w-4" />
-                <span>
-                  {{ formatDate(event.date.start) }}
-                  <span v-if="event.date.end">
-                    - {{ formatDate(event.date.end) }}
-                  </span>
-                </span>
+                <span>{{ formatDate(event.date.start) }}</span>
               </div>
-              <div class="flex items-center gap-2 text-sm text-gray-600">
+              <div class="flex items-center gap-1">
                 <Icon name="ph:map-pin" class="h-4 w-4" />
                 <span
                   >{{ event.location.name }}, {{ event.location.city }}</span
@@ -496,11 +487,8 @@ function handleStar(event) {
               </div>
             </div>
 
-            <!-- Description -->
-            <p class="mt-3 text-sm text-gray-600 line-clamp-2">
-              {{ event.description }}
-            </p>
-          </NuxtLink>
+            <p class="text-gray-600 line-clamp-3">{{ event.description }}</p>
+          </div>
 
           <!-- Card Footer -->
           <div class="p-4 border-t border-gray-100">

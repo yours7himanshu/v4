@@ -89,7 +89,9 @@ const vClickOutside = {
       </div>
     </div>
 
-    <Feed />
+    <div class="my-4">
+      <Feed />
+    </div>
 
     <Dialog
       :open="showLocationFilter"
