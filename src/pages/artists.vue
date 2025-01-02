@@ -537,6 +537,8 @@ function toggleService(service) {
     selectedServices.value.push(service);
   }
 }
+
+const showSearch = ref(false);
 </script>
 
 <template>
@@ -546,184 +548,187 @@ function toggleService(service) {
   >
     <!-- Filter and Search Section -->
     <div class="px-4 space-y-6 my-6">
-      <!-- Search Bar and Clear Filters Row -->
-      <div class="flex items-center justify-between gap-4">
-        <Input
-          v-model="searchQuery"
-          placeholder="Search artists..."
-          type="search"
-          class="max-w-md"
-        >
-          <template #prefix>
-            <Icon name="ph:magnifying-glass" class="h-4 w-4 text-gray-400" />
-          </template>
-        </Input>
+      <!-- Role Filter with Search -->
+      <div class="flex items-center gap-4 overflow-x-auto pb-2 -mx-4 px-4">
+        <div class="flex gap-2 flex-1">
+          <Button
+            v-for="role in roleOptions"
+            :key="role.value"
+            :variant="selectedRole === role.value ? 'default' : 'outline'"
+            @click="selectedRole = role.value"
+            class="whitespace-nowrap"
+          >
+            {{ role.label }}
+          </Button>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <Button
+            variant="ghost"
+            size="sm"
+            class="text-gray-500"
+            @click="showSearch = !showSearch"
+          >
+            <Icon
+              :name="showSearch ? 'ph:x' : 'ph:magnifying-glass'"
+              class="h-4 w-4"
+            />
+          </Button>
+          <Input
+            v-show="showSearch"
+            v-model="searchQuery"
+            placeholder="Search by name..."
+            type="search"
+            class="w-[180px] transition-all duration-200"
+          />
+        </div>
 
         <Button
           variant="outline"
           size="sm"
           @click="clearFilters"
           v-if="hasActiveFilters"
+          class="shrink-0"
         >
-          Clear Filters
-          <Icon name="ph:x" class="ml-2 h-4 w-4" />
+          Clear all
         </Button>
       </div>
 
-      <!-- Filter Groups -->
-      <div class="space-y-6">
-        <!-- Primary Filters -->
-        <div class="space-y-4">
-          <!-- Role Filter -->
-          <div class="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4">
-            <Button
-              v-for="role in roleOptions"
-              :key="role.value"
-              :variant="selectedRole === role.value ? 'default' : 'outline'"
-              @click="selectedRole = role.value"
-              class="whitespace-nowrap"
+      <!-- Common Filters Row -->
+      <div class="flex flex-wrap items-center gap-3">
+        <Select v-model="selectedLocation">
+          <SelectTrigger class="w-[160px]">
+            <SelectValue placeholder="Location" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem
+              v-for="option in locationOptions"
+              :key="option.value"
+              :value="option.value"
             >
-              {{ role.label }}
-            </Button>
-          </div>
+              {{ option.label }}
+            </SelectItem>
+          </SelectContent>
+        </Select>
 
-          <!-- Common Filters Row -->
-          <div class="flex flex-wrap items-center gap-3">
-            <Select v-model="selectedLocation">
-              <SelectTrigger class="w-[160px]">
-                <SelectValue placeholder="Location" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem
-                  v-for="option in locationOptions"
-                  :key="option.value"
-                  :value="option.value"
-                >
-                  {{ option.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
+        <Select v-model="selectedLanguage">
+          <SelectTrigger class="w-[140px]">
+            <SelectValue placeholder="Language" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem
+              v-for="option in languageOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.label }}
+            </SelectItem>
+          </SelectContent>
+        </Select>
 
-            <Select v-model="selectedLanguage">
-              <SelectTrigger class="w-[140px]">
-                <SelectValue placeholder="Language" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem
-                  v-for="option in languageOptions"
-                  :key="option.value"
-                  :value="option.value"
-                >
-                  {{ option.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
+        <Select v-model="selectedLevel">
+          <SelectTrigger class="w-[160px]">
+            <SelectValue placeholder="Experience Level" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem
+              v-for="option in levelOptions"
+              :key="option.value"
+              :value="option.value"
+            >
+              {{ option.label }}
+            </SelectItem>
+          </SelectContent>
+        </Select>
 
-            <Select v-model="selectedLevel">
-              <SelectTrigger class="w-[160px]">
-                <SelectValue placeholder="Experience Level" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem
-                  v-for="option in levelOptions"
-                  :key="option.value"
-                  :value="option.value"
-                >
-                  {{ option.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
+        <!-- Availability Toggle -->
+        <div class="flex items-center gap-2">
+          <Switch v-model="showAvailable" />
+          <span class="text-sm text-gray-600">Available for Booking</span>
+        </div>
+      </div>
 
-            <!-- Availability Toggle -->
-            <div class="flex items-center gap-2">
-              <Switch v-model="showAvailable" />
-              <span class="text-sm text-gray-600">Available for Booking</span>
-            </div>
-          </div>
+      <!-- Role-Specific Filters -->
+      <div v-if="selectedRole !== 'all'" class="space-y-4 pt-4 border-t">
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- Teaching Levels -->
+          <Select v-if="showTeachingLevels" v-model="selectedTeachingLevel">
+            <SelectTrigger class="w-[180px]">
+              <SelectValue placeholder="Class Level" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in teachingLevelOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <!-- Equipment -->
+          <Select v-if="showEquipment" v-model="selectedEquipment">
+            <SelectTrigger class="w-[180px]">
+              <SelectValue placeholder="Equipment" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in equipmentOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <!-- Instruments -->
+          <Select v-if="showInstruments" v-model="selectedInstruments">
+            <SelectTrigger class="w-[160px]">
+              <SelectValue placeholder="Instruments" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in instrumentOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+
+          <!-- Specialties -->
+          <Select v-model="selectedSpecialty">
+            <SelectTrigger class="w-[180px]">
+              <SelectValue placeholder="Specialty" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem
+                v-for="option in specialtiesOptions"
+                :key="option.value"
+                :value="option.value"
+              >
+                {{ option.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
 
-        <!-- Role-Specific Filters -->
-        <div v-if="selectedRole !== 'all'" class="space-y-4 pt-4 border-t">
-          <div class="flex flex-wrap items-center gap-3">
-            <!-- Teaching Levels -->
-            <Select v-if="showTeachingLevels" v-model="selectedTeachingLevel">
-              <SelectTrigger class="w-[180px]">
-                <SelectValue placeholder="Class Level" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem
-                  v-for="option in teachingLevelOptions"
-                  :key="option.value"
-                  :value="option.value"
-                >
-                  {{ option.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-
-            <!-- Equipment -->
-            <Select v-if="showEquipment" v-model="selectedEquipment">
-              <SelectTrigger class="w-[180px]">
-                <SelectValue placeholder="Equipment" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem
-                  v-for="option in equipmentOptions"
-                  :key="option.value"
-                  :value="option.value"
-                >
-                  {{ option.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-
-            <!-- Instruments -->
-            <Select v-if="showInstruments" v-model="selectedInstruments">
-              <SelectTrigger class="w-[160px]">
-                <SelectValue placeholder="Instruments" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem
-                  v-for="option in instrumentOptions"
-                  :key="option.value"
-                  :value="option.value"
-                >
-                  {{ option.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-
-            <!-- Specialties -->
-            <Select v-model="selectedSpecialty">
-              <SelectTrigger class="w-[180px]">
-                <SelectValue placeholder="Specialty" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem
-                  v-for="option in specialtiesOptions"
-                  :key="option.value"
-                  :value="option.value"
-                >
-                  {{ option.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <!-- Services Buttons -->
-          <div v-if="showServices" class="flex flex-wrap gap-2">
-            <Button
-              v-for="service in serviceOptions"
-              :key="service.value"
-              size="sm"
-              :variant="
-                selectedServices.includes(service.value) ? 'default' : 'outline'
-              "
-              @click="toggleService(service.value)"
-            >
-              {{ service.label }}
-            </Button>
-          </div>
+        <!-- Services Buttons -->
+        <div v-if="showServices" class="flex flex-wrap gap-2">
+          <Button
+            v-for="service in serviceOptions"
+            :key="service.value"
+            size="sm"
+            :variant="
+              selectedServices.includes(service.value) ? 'default' : 'outline'
+            "
+            @click="toggleService(service.value)"
+          >
+            {{ service.label }}
+          </Button>
         </div>
       </div>
     </div>
@@ -841,7 +846,15 @@ function toggleService(service) {
         >
           <div class="flex items-center gap-1.5 shrink-0">
             <Icon name="ph:map-pin" class="h-4 w-4" />
-            <span>{{ artist.location }}</span>
+            <span>
+              {{ artist.availability?.currentLocation || artist.location }}
+              <span
+                v-if="artist.availability?.currentLocation"
+                class="text-xs text-gray-400"
+              >
+                (from {{ artist.location }})
+              </span>
+            </span>
           </div>
 
           <div class="ml-auto flex items-center gap-4 shrink-0">
