@@ -1,4 +1,4 @@
-# Check your Pulse #50
+# Participatory Economy
 
 Happy Sunday friends,
 
