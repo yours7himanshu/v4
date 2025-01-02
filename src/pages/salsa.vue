@@ -71,35 +71,69 @@ const vClickOutside = {
   <!-- Hero Section -->
   <div class="pt-32 pb-12 bg-gradient-to-b from-purple-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6">
-          Salsa Dance Community
-        </h1>
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Connect, organize, and grow with your local salsa community. Find
-          dance partners, join events, and share your passion across 40K+
-          dancers worldwide.
-        </p>
-        <div class="flex justify-center gap-4">
-          <Button variant="default" size="lg">Join Community</Button>
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <!-- Left: Content -->
+        <div class="text-center md:text-left">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Salsa Dance Community
+          </h1>
+          <p class="text-xl text-gray-600 mb-8 max-w-2xl md:max-w-none mx-auto">
+            Connect, organize, and grow with your local salsa community. Find
+            dance partners, join events, and share your passion across 40K+
+            dancers worldwide.
+          </p>
+          <div class="flex justify-center md:justify-start gap-4">
+            <Button variant="default" size="lg">Join Community</Button>
+          </div>
+
+          <div
+            class="flex justify-center md:justify-start gap-8 mt-8 text-gray-500"
+          >
+            <div>
+              <div class="text-xl font-bold text-gray-900">1,200</div>
+              <div class="text-sm">Members</div>
+            </div>
+            <div>
+              <div class="text-xl font-bold text-gray-900">500</div>
+              <div class="text-sm">Posts</div>
+            </div>
+            <div>
+              <div class="text-xl font-bold text-gray-900">50</div>
+              <div class="text-sm">Projects</div>
+            </div>
+            <div>
+              <div class="text-xl font-bold text-gray-900">92%</div>
+              <div class="text-sm">Response Rate</div>
+            </div>
+          </div>
         </div>
 
-        <div class="flex justify-center gap-8 mt-8 text-gray-500">
-          <div>
-            <div class="text-xl font-bold text-gray-900">1,200</div>
-            <div class="text-sm">Members</div>
+        <!-- Right: Video -->
+        <div class="space-y-4">
+          <div class="aspect-video rounded-xl overflow-hidden shadow-xl">
+            <iframe
+              class="w-full h-full"
+              src="https://www.youtube.com/embed/R7E9cNydevg"
+              title="Salsa Dance Video"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
           </div>
-          <div>
-            <div class="text-xl font-bold text-gray-900">500</div>
-            <div class="text-sm">Posts</div>
-          </div>
-          <div>
-            <div class="text-xl font-bold text-gray-900">50</div>
-            <div class="text-sm">Projects</div>
-          </div>
-          <div>
-            <div class="text-xl font-bold text-gray-900">92%</div>
-            <div class="text-sm">Response Rate</div>
+
+          <!-- Video Game Invitation -->
+          <div class="bg-purple-50 rounded-lg p-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-sm font-medium text-purple-900">
+                  Help choose the best video
+                </p>
+                <p class="text-xs text-purple-700">
+                  Vote between pairs of videos
+                </p>
+              </div>
+              <Button variant="default" size="sm"> Play Video Game </Button>
+            </div>
           </div>
         </div>
       </div>
@@ -598,6 +632,11 @@ const vClickOutside = {
               </h3>
               <div class="flex items-center mb-3">
                 <div class="flex text-yellow-400">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
+                  </svg>
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
                       d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
