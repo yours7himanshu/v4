@@ -36,204 +36,228 @@
     <!-- Hero Section - Keep existing but add city context -->
     <div class="pt-24 pb-12 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- City Context Bar -->
-        <div
-          class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8"
-        >
-          <div class="flex items-center gap-2">
-            <span class="text-sm text-gray-600">You're viewing</span>
-            <button
-              class="flex items-center gap-1 text-purple-600 hover:text-purple-700 font-medium"
+        <!-- Compact Location Bar -->
+        <div class="flex items-center justify-between mb-6 text-sm">
+          <button
+            class="flex items-center gap-1 text-gray-600 hover:text-purple-600"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
             >
-              Munich, Germany
-              <svg
-                class="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
-            </button>
-          </div>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              />
+            </svg>
+            Munich, Germany
+          </button>
           <div class="flex items-center gap-2">
-            <div class="flex -space-x-2">
-              <img
-                class="w-6 h-6 rounded-full border-2 border-white"
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
-                alt="Active dancer"
-              />
-              <img
-                class="w-6 h-6 rounded-full border-2 border-white"
-                src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&h=100&fit=crop"
-                alt="Active dancer"
-              />
-              <img
-                class="w-6 h-6 rounded-full border-2 border-white"
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop"
-                alt="Active dancer"
-              />
-            </div>
-            <div class="flex items-center gap-1">
-              <div
-                class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
-              ></div>
-              <span class="text-sm text-gray-600">127 dancers online</span>
-            </div>
+            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            <span class="text-gray-600">127 dancers online</span>
           </div>
         </div>
 
-        <!-- Main Content Structure -->
+        <!-- Two Column Layout -->
         <div class="flex flex-col lg:flex-row gap-8">
-          <!-- Left Column - Community Info -->
-          <div class="flex-1 order-1 lg:order-1">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-4">Salsa</h1>
+          <!-- Left: Style Info -->
+          <div class="flex-1">
+            <h1 class="text-3xl sm:text-4xl font-bold mb-3">Salsa in Munich</h1>
             <p class="text-gray-600 mb-6">
-              Lively and rhythmic Latin dance that originated in the Caribbean.
-              Salsa is typically danced in pairs and combines a variety of
-              styles and influences.
+              Join Munich's largest salsa community with daily events, dedicated
+              teachers, and friendly dancers.
             </p>
 
-            <!-- Primary Actions -->
-            <div class="space-y-3 mb-8">
-              <button
-                class="w-full bg-purple-600 text-white px-4 sm:px-6 py-3 rounded-lg font-medium hover:bg-purple-700"
-              >
-                <div
-                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
-                >
-                  <span>Join Tonight's Social (23 going)</span>
-                  <span
-                    class="bg-purple-500 px-2 py-1 rounded text-sm inline-block"
-                    >2.5km away</span
-                  >
-                </div>
-              </button>
-              <button
-                class="w-full bg-white border-2 border-purple-600 text-purple-600 px-4 sm:px-6 py-3 rounded-lg font-medium hover:bg-purple-50"
-              >
-                <div
-                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2"
-                >
-                  <span>Start Learning Salsa</span>
-                  <span
-                    class="bg-green-100 text-green-600 px-2 py-1 rounded text-sm inline-block"
-                    >From €5</span
-                  >
-                </div>
-              </button>
-            </div>
-
-            <!-- Quick Stats -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mb-8">
+            <!-- Community Stats -->
+            <div class="grid grid-cols-3 gap-4 mb-8">
               <div class="bg-purple-50 p-4 rounded-lg">
-                <div class="text-2xl font-bold text-purple-600">45+</div>
-                <div class="text-sm text-gray-600">Weekly Classes</div>
+                <div class="text-2xl font-bold text-purple-600">Tonight</div>
+                <div class="text-sm text-gray-600">4 Social Events</div>
               </div>
               <div class="bg-purple-50 p-4 rounded-lg">
-                <div class="text-2xl font-bold text-purple-600">1.2k</div>
-                <div class="text-sm text-gray-600">Active Dancers</div>
+                <div class="text-2xl font-bold text-purple-600">This Week</div>
+                <div class="text-sm text-gray-600">45+ Classes</div>
               </div>
               <div class="bg-purple-50 p-4 rounded-lg">
-                <div class="text-2xl font-bold text-purple-600">12</div>
-                <div class="text-sm text-gray-600">Verified Teachers</div>
+                <div class="text-2xl font-bold text-purple-600">Community</div>
+                <div class="text-sm text-gray-600">1.2k Dancers</div>
               </div>
             </div>
 
-            <!-- Trust Indicators -->
-            <div class="bg-green-50 p-4 rounded-lg mb-8">
-              <div class="flex items-center gap-3 mb-3">
-                <div class="bg-green-100 p-2 rounded-full">
-                  <svg
-                    class="w-5 h-5 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            <!-- About Section -->
+            <div class="prose prose-purple mb-8">
+              <h2 class="text-xl font-bold">About Salsa</h2>
+              <p>
+                Lively and rhythmic Latin dance that originated in the
+                Caribbean. Salsa is typically danced in pairs and combines a
+                variety of styles and influences.
+              </p>
+
+              <!-- Style Variants -->
+              <div class="grid grid-cols-3 gap-4 mt-6">
+                <div class="group">
+                  <div class="relative rounded-lg overflow-hidden">
+                    <img
+                      class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
+                      src="https://images.unsplash.com/photo-1545959570-a94084071b5d?w=300&h=300&fit=crop"
+                      alt="Cuban Style Salsa dancers"
                     />
-                  </svg>
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                    ></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-3">
+                      <h3 class="text-white font-medium">Cuban Style</h3>
+                      <p class="text-white/80 text-sm">
+                        Traditional circular style
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div>
-                  <h3 class="font-medium">Verified Community</h3>
-                  <p class="text-sm text-gray-600">
-                    All teachers and venues are verified
-                  </p>
+
+                <div class="group">
+                  <div class="relative rounded-lg overflow-hidden">
+                    <img
+                      class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
+                      src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=300&h=300&fit=crop"
+                      alt="LA Style Salsa dancers"
+                    />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                    ></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-3">
+                      <h3 class="text-white font-medium">LA Style</h3>
+                      <p class="text-white/80 text-sm">
+                        Performance-oriented line style
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="group">
+                  <div class="relative rounded-lg overflow-hidden">
+                    <img
+                      class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
+                      src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300&h=300&fit=crop"
+                      alt="NY Style Salsa dancers"
+                    />
+                    <div
+                      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+                    ></div>
+                    <div class="absolute bottom-0 left-0 right-0 p-3">
+                      <h3 class="text-white font-medium">NY Style</h3>
+                      <p class="text-white/80 text-sm">
+                        On2 timing with complex turns
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Right Column - Start Dancing -->
-          <div class="lg:w-1/2 order-2 lg:order-2">
-            <div class="bg-white border rounded-xl shadow-sm overflow-hidden">
-              <div class="p-4 sm:p-6">
-                <h2 class="text-xl font-bold mb-4">Start Your Salsa Journey</h2>
-
-                <!-- Experience Level Selection -->
-                <div class="space-y-3 mb-6">
-                  <button
-                    class="w-full flex items-center justify-between p-3 rounded-lg bg-purple-50 border-2 border-purple-600"
-                  >
-                    <div class="flex items-center gap-3">
-                      <div
-                        class="bg-purple-100 p-2 rounded-full hidden sm:block"
-                      >
-                        <svg
-                          class="w-4 h-4 text-purple-600"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
-                          />
-                        </svg>
-                      </div>
-                      <div class="text-left">
-                        <div class="font-medium">Complete Beginner</div>
-                        <div class="text-sm text-gray-600 hidden sm:block">
-                          Perfect for first-timers
-                        </div>
-                      </div>
-                    </div>
-                    <span class="text-purple-600">Selected</span>
-                  </button>
-                  <!-- Add other experience levels -->
+          <!-- Right: Action Card -->
+          <div class="lg:w-[420px]">
+            <div
+              class="bg-white border rounded-xl shadow-sm overflow-hidden sticky top-24"
+            >
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-6">
+                  <h2 class="text-xl font-bold">Start Dancing Today</h2>
+                  <div class="flex items-center gap-2">
+                    <svg
+                      class="w-5 h-5 text-green-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      />
+                    </svg>
+                    <span class="text-sm text-gray-600"
+                      >Verified Community</span
+                    >
+                  </div>
                 </div>
 
-                <!-- Next Steps -->
-                <div class="space-y-3">
-                  <h3 class="font-medium">Recommended Next Steps:</h3>
-                  <div class="bg-purple-50 p-4 rounded-lg">
-                    <div
-                      class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2"
-                    >
-                      <div class="font-medium">Free Intro Class</div>
+                <!-- Quick Actions -->
+                <div class="space-y-4 mb-8">
+                  <button
+                    class="w-full bg-purple-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-700"
+                  >
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <div>Join Tonight's Social</div>
+                        <div class="text-sm text-purple-200">
+                          At Havana Club · 2.5km away
+                        </div>
+                      </div>
+                      <span class="bg-purple-500 px-2 py-1 rounded text-sm"
+                        >23 going</span
+                      >
+                    </div>
+                  </button>
+
+                  <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                      <div class="w-full border-t border-gray-200"></div>
+                    </div>
+                    <div class="relative flex justify-center">
+                      <span class="bg-white px-2 text-sm text-gray-500"
+                        >or start with a class</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="bg-purple-50 rounded-lg p-4">
+                    <div class="flex items-center justify-between mb-2">
+                      <div class="font-medium">Free Trial Class</div>
                       <span class="text-sm text-purple-600"
                         >Tomorrow 19:00</span
                       >
                     </div>
                     <p class="text-sm text-gray-600 mb-3">
-                      Perfect for beginners - learn the basic steps
+                      Perfect for complete beginners
                     </p>
                     <button
                       class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
                     >
-                      Reserve Spot (6 left)
+                      Reserve Your Spot (6 left)
                     </button>
+                  </div>
+                </div>
+
+                <!-- Teachers Preview -->
+                <div class="border-t pt-6">
+                  <h3 class="font-medium mb-4">Featured Teachers</h3>
+                  <div class="flex items-center gap-4">
+                    <div class="flex -space-x-2">
+                      <img
+                        class="w-8 h-8 rounded-full border-2 border-white"
+                        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop"
+                        alt="Maria - Salsa Teacher"
+                      />
+                      <img
+                        class="w-8 h-8 rounded-full border-2 border-white"
+                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop"
+                        alt="Carlos - Salsa Teacher"
+                      />
+                      <img
+                        class="w-8 h-8 rounded-full border-2 border-white"
+                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop"
+                        alt="Ana - Salsa Teacher"
+                      />
+                    </div>
+                    <div class="text-sm text-gray-600">
+                      12 verified teachers
+                    </div>
                   </div>
                 </div>
               </div>
