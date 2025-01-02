@@ -72,65 +72,54 @@ const vClickOutside = {
     title="Salsa Cubana"
     description="Connect, organize, and grow with your local salsa community. Find dance partners, join events, and share your passion across 40K+ dancers worldwide."
   >
-  </DanceStyleLayout>
+    <div class="bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-end items-center gap-4 py-4">
+          <Button
+            variant="ghost"
+            @click="showLocationFilter = true"
+            class="flex items-center gap-2"
+          >
+            <Icon name="ph:map-pin" class="w-5 h-5" />
+            Filter by Location
+          </Button>
 
-  <div class="bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-end items-center gap-4 py-4">
+          <Create />
+        </div>
+      </div>
+    </div>
+
+    <Feed />
+
+    <Dialog
+      :open="showLocationFilter"
+      @update:open="showLocationFilter = false"
+    >
+      <DialogContent class="sm:max-w-lg">
+        <DialogHeader>
+          <DialogTitle>Filter by Location</DialogTitle>
+        </DialogHeader>
+        <div class="py-4">
+          <Input
+            v-model="locationSearch"
+            placeholder="Search location..."
+            class="mb-4"
+          />
+
+          <h4 class="font-medium mb-2">Popular Regions</h4>
+          <div class="grid grid-cols-2 gap-2">
             <Button
+              v-for="region in filteredRegions"
+              :key="region.name"
               variant="ghost"
-              @click="showLocationFilter = true"
-              class="flex items-center gap-2"
+              class="justify-start"
+              @click="applyLocationFilter(region.name)"
             >
-              <Icon name="ph:map-pin" class="w-5 h-5" />
-              Filter by Location
+              {{ region.name }}
             </Button>
-
-            <Create />
           </div>
         </div>
-      </div>
-
-      <Feed />
-    </div>
-  </div>
-
-  <Dialog :open="showLocationFilter" @update:open="showLocationFilter = false">
-    <DialogContent class="sm:max-w-lg">
-      <DialogHeader>
-        <DialogTitle>Filter by Location</DialogTitle>
-      </DialogHeader>
-      <div class="py-4">
-        <Input
-          v-model="locationSearch"
-          placeholder="Search location..."
-          class="mb-4"
-        />
-
-        <h4 class="font-medium mb-2">Popular Regions</h4>
-        <div class="grid grid-cols-2 gap-2">
-          <Button
-            v-for="region in filteredRegions"
-            :key="region.name"
-            variant="ghost"
-            class="justify-start"
-            @click="applyLocationFilter(region.name)"
-          >
-            {{ region.name }}
-          </Button>
-        </div>
-      </div>
-    </DialogContent>
-  </Dialog>
-
-  <!-- Footer -->
-  <div class="py-12 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <p class="text-gray-600">&copy; 2024 WeDance. All rights reserved.</p>
-      </div>
-    </div>
-  </div>
+      </DialogContent>
+    </Dialog>
+  </DanceStyleLayout>
 </template>
