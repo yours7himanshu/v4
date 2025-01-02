@@ -11,5 +11,9 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-01-02",
-  modules: ["@nuxt/icon", "@shadcn-vue/nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "shadcn-nuxt"],
+  shadcn: {
+    prefix: "",
+    componentDir: "./components/ui",
+  },
 });

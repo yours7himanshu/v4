@@ -1,0 +1,11 @@
+# Cursor Rules for Vue Files
+
+1. File Organization
+
+   - `<script>` section should always be at the top of the file
+   - `<template>` section should follow the script
+   - `<style>` section (if present) should be at the bottom
+
+2. Import Rules
+
+   - Don't import components that are auto-imported by Nuxt or shadcn

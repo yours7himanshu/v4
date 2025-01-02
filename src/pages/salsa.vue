@@ -9,11 +9,7 @@
           grow together
         </p>
         <div class="flex justify-center">
-          <button
-            class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 text-lg"
-          >
-            Join Community
-          </button>
+          <Button variant="default" size="lg"> Join Community </Button>
         </div>
       </div>
 
@@ -104,141 +100,117 @@
             </a>
           </div>
         </nav>
+      </div>
 
-        <!-- Filter and Create buttons row with bg color -->
-        <div class="bg-gray-50">
-          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-end items-center gap-4 py-4">
-              <button
-                @click="showLocationFilter = true"
-                class="flex items-center gap-2 text-gray-700 hover:text-purple-600"
-              >
-                <Icon name="ph:map-pin" class="w-5 h-5" />
-                Filter by Location
-              </button>
+      <!-- Filter and Create buttons row with bg color -->
+      <div class="bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-end items-center gap-4 py-4">
+            <Button
+              variant="ghost"
+              @click="showLocationFilter = true"
+              class="flex items-center gap-2"
+            >
+              <Icon name="ph:map-pin" class="w-5 h-5" />
+              Filter by Location
+            </Button>
 
-              <div class="relative">
-                <button
-                  @click="showCreateMenu = !showCreateMenu"
-                  class="w-full sm:w-auto flex items-center justify-center gap-2 bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-                >
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="default" class="flex items-center gap-2">
                   <Icon name="ph:plus" class="w-5 h-5" />
                   Create
-                </button>
-                <!-- Create Menu Dropdown -->
-                <div
-                  v-if="showCreateMenu"
-                  class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg py-2 z-50"
-                  @click.outside="showCreateMenu = false"
-                >
-                  <!-- Keep existing menu items but change onclick to @click -->
-                  <!-- Example for one menu item: -->
-                  <button
-                    @click="createPost('article')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent class="w-64">
+                <DropdownMenuGroup>
+                  <DropdownMenuItem @click="createPost('article')">
                     <Icon
                       name="ph:article-medium"
-                      class="w-5 h-5 text-purple-600"
+                      class="w-5 h-5 text-purple-600 mr-2"
                     />
                     Write Article
-                  </button>
-                  <button
-                    @click="createPost('tutorial')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
+                  </DropdownMenuItem>
+                  <DropdownMenuItem @click="createPost('tutorial')">
                     <Icon
                       name="ph:video-camera"
-                      class="w-5 h-5 text-purple-600"
+                      class="w-5 h-5 text-purple-600 mr-2"
                     />
                     Share Tutorial
-                  </button>
-                  <button
-                    @click="createPost('inspiration')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
-                    <Icon name="ph:sparkle" class="w-5 h-5 text-purple-600" />
+                  </DropdownMenuItem>
+                  <DropdownMenuItem @click="createPost('inspiration')">
+                    <Icon
+                      name="ph:sparkle"
+                      class="w-5 h-5 text-purple-600 mr-2"
+                    />
                     Share Inspiration
-                  </button>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
 
-                  <!-- Events & Community -->
-                  <div class="mt-2 px-3 py-2 text-xs font-medium text-gray-500">
-                    Events & Community
-                  </div>
-                  <button
-                    @click="createPost('find-events')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>Events & Community</DropdownMenuLabel>
+                <DropdownMenuGroup>
+                  <DropdownMenuItem @click="createPost('find-events')">
                     <Icon
                       name="ph:magnifying-glass"
-                      class="w-5 h-5 text-purple-600"
+                      class="w-5 h-5 text-purple-600 mr-2"
                     />
                     Find Events
-                  </button>
-                  <button
-                    @click="createPost('event')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
+                  </DropdownMenuItem>
+                  <DropdownMenuItem @click="createPost('event')">
                     <Icon
                       name="ph:calendar-plus"
-                      class="w-5 h-5 text-purple-600"
+                      class="w-5 h-5 text-purple-600 mr-2"
                     />
                     Create Event
-                  </button>
-                  <button
-                    @click="createPost('discussion')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
-                    <Icon name="ph:chats" class="w-5 h-5 text-purple-600" />
+                  </DropdownMenuItem>
+                  <DropdownMenuItem @click="createPost('discussion')">
+                    <Icon
+                      name="ph:chats"
+                      class="w-5 h-5 text-purple-600 mr-2"
+                    />
                     Start Discussion
-                  </button>
-                  <button
-                    @click="createPost('partner')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
-                    <Icon name="ph:users" class="w-5 h-5 text-purple-600" />
+                  </DropdownMenuItem>
+                  <DropdownMenuItem @click="createPost('partner')">
+                    <Icon
+                      name="ph:users"
+                      class="w-5 h-5 text-purple-600 mr-2"
+                    />
                     Find Partner
-                  </button>
-
-                  <button
-                    @click="createPost('travel')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
-                    <Icon name="ph:airplane" class="w-5 h-5 text-purple-600" />
+                  </DropdownMenuItem>
+                  <DropdownMenuItem @click="createPost('travel')">
+                    <Icon
+                      name="ph:airplane"
+                      class="w-5 h-5 text-purple-600 mr-2"
+                    />
                     Share Travel Plan
-                  </button>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
 
-                  <!-- Reviews -->
-                  <div class="mt-2 px-3 py-2 text-xs font-medium text-gray-500">
-                    Reviews
-                  </div>
-                  <button
-                    @click="createPost('venue-review')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
-                    <Icon name="ph:map-pin" class="w-5 h-5 text-purple-600" />
+                <DropdownMenuSeparator />
+                <DropdownMenuLabel>Reviews</DropdownMenuLabel>
+                <DropdownMenuGroup>
+                  <DropdownMenuItem @click="createPost('venue-review')">
+                    <Icon
+                      name="ph:map-pin"
+                      class="w-5 h-5 text-purple-600 mr-2"
+                    />
                     Review Venue
-                  </button>
-                  <button
-                    @click="createPost('host-review')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
+                  </DropdownMenuItem>
+                  <DropdownMenuItem @click="createPost('host-review')">
                     <Icon
                       name="ph:user-circle"
-                      class="w-5 h-5 text-purple-600"
+                      class="w-5 h-5 text-purple-600 mr-2"
                     />
                     Review Host
-                  </button>
-                  <button
-                    @click="createPost('artist-review')"
-                    class="flex items-center gap-2 w-full px-4 py-2 text-left text-gray-700 hover:bg-purple-50"
-                  >
-                    <Icon name="ph:star" class="w-5 h-5 text-purple-600" />
+                  </DropdownMenuItem>
+                  <DropdownMenuItem @click="createPost('artist-review')">
+                    <Icon name="ph:star" class="w-5 h-5 text-purple-600 mr-2" />
                     Review Artist
-                  </button>
-                </div>
-              </div>
-            </div>
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
       </div>
@@ -921,54 +893,33 @@
   </div>
 
   <!-- Rename City Modal to Location Filter -->
-  <Teleport to="body">
-    <div
-      v-if="showLocationFilter"
-      class="modal show"
-      @click.self="showLocationFilter = false"
-    >
-      <div class="bg-white rounded-xl shadow-lg max-w-lg w-full mx-4">
-        <div class="p-6">
-          <div class="flex justify-between items-center mb-6">
-            <h3 class="text-xl font-bold">Filter by Location</h3>
-            <button
-              @click="showLocationFilter = false"
-              class="text-gray-400 hover:text-gray-600"
-            >
-              <Icon name="ph:x" class="w-6 h-6" />
-            </button>
-          </div>
+  <Dialog :open="showLocationFilter" @update:open="showLocationFilter = false">
+    <DialogContent class="sm:max-w-lg">
+      <DialogHeader>
+        <DialogTitle>Filter by Location</DialogTitle>
+      </DialogHeader>
+      <div class="py-4">
+        <Input
+          v-model="locationSearch"
+          placeholder="Search location..."
+          class="mb-4"
+        />
 
-          <div class="mb-6">
-            <input
-              v-model="locationSearch"
-              type="text"
-              placeholder="Search location..."
-              class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
-            />
-          </div>
-
-          <!-- Rest of the modal content -->
-          <!-- Update buttons to use @click instead of onclick -->
-          <div class="mb-6">
-            <h4 class="font-medium mb-2">Popular Regions</h4>
-            <div class="grid grid-cols-2 gap-2">
-              <button
-                v-for="region in filteredRegions"
-                :key="region.name"
-                @click="applyLocationFilter(region.name)"
-                class="text-left p-2 rounded hover:bg-purple-50"
-              >
-                {{ region.name }}
-              </button>
-            </div>
-          </div>
-
-          <!-- ... rest of the modal content ... -->
+        <h4 class="font-medium mb-2">Popular Regions</h4>
+        <div class="grid grid-cols-2 gap-2">
+          <Button
+            v-for="region in filteredRegions"
+            :key="region.name"
+            variant="ghost"
+            class="justify-start"
+            @click="applyLocationFilter(region.name)"
+          >
+            {{ region.name }}
+          </Button>
         </div>
       </div>
-    </div>
-  </Teleport>
+    </DialogContent>
+  </Dialog>
 
   <!-- Before the footer -->
   <div class="bg-purple-50 py-16">
