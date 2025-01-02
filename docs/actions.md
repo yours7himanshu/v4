@@ -6,6 +6,17 @@ This document describes all available actions for creating content on WeDance pl
 
 ### Events
 
+- **Find Events**
+
+  - Purpose: Search and discover dance events in specific locations
+  - Features:
+    - Location-based search
+    - Date range filtering
+    - Event type filtering (socials, festivals, workshops)
+    - Price range options
+    - Advanced search filters
+  - Example: "Find salsa events in Rome this weekend"
+
 - **Create Event**
   - Purpose: Create a new dance event, festival, workshop, or social
   - Features:
@@ -75,6 +86,7 @@ This document describes all available actions for creating content on WeDance pl
   - Example: Salsa for Beginners Workshop Series
 
 - **Share Inspiration**
+
   - Purpose: Share inspiring dance content from external sources
   - Features:
     - Video/media embedding
@@ -83,6 +95,16 @@ This document describes all available actions for creating content on WeDance pl
     - Tags for dance styles
     - Personal takeaways
   - Example: "Amazing bachata performance by World Champions"
+
+- **Share Travel Plan**
+  - Purpose: Coordinate travel and accommodation for dance events
+  - Features:
+    - Travel dates and destinations
+    - Accommodation sharing options
+    - Ride sharing arrangements
+    - Cost sharing preferences
+    - Travel group coordination
+  - Example: "Looking for roommates for Berlin Salsa Congress"
 
 ### Reviews
 
