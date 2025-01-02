@@ -2,112 +2,121 @@
 
 This document describes all available actions for creating content on WeDance platform.
 
-## Events
+## Content Types
 
-### New Event
+### Events
 
-- **Purpose**: Create a new dance event, festival, workshop, or social
-- **Key Features**:
-  - Event details (date, time, location)
-  - Description and highlights
-  - Ticket/registration information
-  - Images and promotional materials
-  - Instructor/performer information
-- **Example**: Barcelona Summer Salsa Festival 2024
+- **Create Event**
+  - Purpose: Create a new dance event, festival, workshop, or social
+  - Features:
+    - Event details (date, time, location)
+    - Description and highlights
+    - Ticket/registration information
+    - Images and promotional materials
+    - Instructor/performer information
+  - Example: Barcelona Summer Salsa Festival 2024
 
-## Learning
+### Educational Content
 
-### Share Tutorial
+- **Share Tutorial**
 
-- **Purpose**: Create educational content for dance techniques and skills
-- **Key Features**:
-  - Video or text-based instructions
-  - Step-by-step breakdowns
-  - Skill level indicators
-  - Learning objectives
-  - Tips and common mistakes
-- **Example**: Advanced Turn Patterns Tutorial
+  - Purpose: Create educational content for dance techniques
+  - Features:
+    - Video or text-based instructions
+    - Step-by-step breakdowns
+    - Skill level indicators
+    - Learning objectives
+    - Tips and common mistakes
+  - Example: Advanced Turn Patterns Tutorial
 
-### Share Article
+- **Write Article**
+  - Purpose: Write long-form content about dance topics
+  - Features:
+    - Rich text formatting
+    - Image embedding
+    - Topic categorization
+    - References and links
+    - Author attribution
+  - Example: "The History of Colombian Style Salsa"
 
-- **Purpose**: Write long-form content about dance topics
-- **Key Features**:
-  - Rich text formatting
-  - Image embedding
-  - Topic categorization
-  - References and links
-  - Author attribution
-- **Example**: "The History of Colombian Style Salsa"
+### Community Actions
 
-## Community
+- **Find Partner**
 
-### Find Partner
+  - Purpose: Connect with potential dance partners
+  - Features:
+    - Dance level
+    - Availability
+    - Location preferences
+    - Practice goals
+    - Style preferences
+  - Example: Practice Partner Search in Munich
 
-- **Purpose**: Connect with potential dance partners
-- **Key Features**:
-  - Dance level
-  - Availability
-  - Location preferences
-  - Practice goals
-  - Style preferences
-- **Example**: Practice Partner Search in Munich
+- **Start Discussion**
 
-### Start Discussion
+  - Purpose: Initiate conversations about dance-related topics
+  - Features:
+    - Topic introduction
+    - Question or discussion point
+    - Link sharing
+    - Community engagement
+    - Tags for categorization
+  - Example: Discussing musicality in dance
 
-- **Purpose**: Initiate conversations about dance-related topics
-- **Key Features**:
-  - Topic introduction
-  - Question or discussion point
-  - Link sharing
-  - Community engagement
-  - Tags for categorization
-- **Example**: Discussing an article about musicality
+- **Start Project**
 
-### Start Project
+  - Purpose: Organize community initiatives
+  - Features:
+    - Project description
+    - Goals and timeline
+    - Volunteer roles
+    - Resource requirements
+    - Progress tracking
+  - Example: Salsa for Beginners Workshop Series
 
-- **Purpose**: Organize community initiatives and collaborations
-- **Key Features**:
-  - Project description
-  - Goals and timeline
-  - Volunteer roles
-  - Resource requirements
-  - Progress tracking
-- **Example**: Salsa for Beginners Workshop Series
+- **Share Inspiration**
+  - Purpose: Share inspiring dance content from external sources
+  - Features:
+    - Video/media embedding
+    - Brief description
+    - Credit to original creators
+    - Tags for dance styles
+    - Personal takeaways
+  - Example: "Amazing bachata performance by World Champions"
 
-## Reviews
+### Reviews
 
-### Review Venue
+- **Review Venue**
 
-- **Purpose**: Share experiences about dance venues
-- **Key Features**:
-  - Venue details
-  - Dance floor quality
-  - Music and atmosphere
-  - Pricing information
-  - Photos and ratings
-- **Example**: Review of Havana Club in London
+  - Purpose: Share experiences about dance venues
+  - Features:
+    - Venue details
+    - Dance floor quality
+    - Music and atmosphere
+    - Pricing information
+    - Photos and ratings
+  - Example: Review of Havana Club in London
 
-### Review Host
+- **Review Host**
 
-- **Purpose**: Provide feedback about event organizers
-- **Key Features**:
-  - Event organization quality
-  - Communication
-  - Professionalism
-  - Track record
-  - Ratings and comments
-- **Example**: Review of a festival organizer
+  - Purpose: Provide feedback about event organizers
+  - Features:
+    - Event organization quality
+    - Communication
+    - Professionalism
+    - Track record
+    - Ratings and comments
+  - Example: Review of a festival organizer
 
-### Review Artist
-
-- **Purpose**: Share experiences with dance teachers or performers
-- **Key Features**:
-  - Teaching style
-  - Expertise level
-  - Class/performance quality
-  - Communication skills
-  - Ratings and feedback
-- **Example**: Review of a workshop instructor
+- **Review Artist**
+  - Purpose: Share experiences with instructors/performers
+  - Features:
+    - Teaching style
+    - Expertise level
+    - Class/performance quality
+    - Communication skills
+    - Ratings and feedback
+  - Example: Review of a workshop instructor
 
 ## Best Practices
 
