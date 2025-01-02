@@ -27,6 +27,19 @@ const artists = [
       workshops: true,
       touring: true,
       currentLocation: "Madrid, Spain",
+      pricing: {
+        privateClass: {
+          amount: 80,
+          currency: "EUR",
+          duration: 60, // minutes
+        },
+        workshop: {
+          amount: 35,
+          currency: "EUR",
+          duration: 120,
+          note: "per person",
+        },
+      },
     },
     certifications: [
       "International Casino Instructor",
@@ -271,6 +284,58 @@ const artists = [
     instruments: ["congas", "bongos", "electronic percussion"],
     equipment: ["Ableton Live", "Roland SPD-SX"],
   },
+  {
+    id: 11,
+    name: "Jorge Amado Perez Machado",
+    roles: ["instructor", "performer", "choreographer", "musician"],
+    specialties: [
+      "cuban folklore",
+      "afro-cuban",
+      "contemporary fusion",
+      "choreography",
+    ],
+    level: "master",
+    location: "Cuba",
+    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=amado",
+    followers: "40k+",
+    rating: 4.9,
+    reviewCount: 86,
+    languages: ["Spanish", "English", "German", "Czech"],
+    experience: {
+      years: 20,
+      teachingLevels: ["beginner", "intermediate", "advanced"],
+      achievements: [
+        "Ramiro Guerra Award 2012",
+        "First Dancer at Ban Rarrá Company 2006",
+        "Performance with Rihanna in Cuba",
+      ],
+    },
+    availability: {
+      privateClasses: true,
+      workshops: true,
+      touring: true,
+      currentLocation: "Munich, Germany",
+    },
+    certifications: [
+      "ISA University of Arts Graduate",
+      "Professional Folklore Dancer",
+      "Choreographer",
+    ],
+    socialMedia: {
+      instagram: "@amadoart",
+    },
+    albums: ["One More Time", "Latiendo", "Identity"],
+    collaborations: [
+      "Los Van Van",
+      "Pupy Y Los Que Son Son",
+      "Elito Revé Y Su Charangón",
+      "Yoruba Andabo",
+    ],
+    otherAchievements: [
+      "Actor in 'Una Danza Para Mi Habana'",
+      "Founder & Director of Dance Gods Company",
+    ],
+  },
 ];
 
 // Primary filter states
@@ -409,7 +474,7 @@ const languageOptions = computed(() => {
   ];
 });
 
-const filteredArtists = computed(() => {
+const filteredResults = computed(() => {
   let filtered = artists;
 
   if (searchQuery.value) {
@@ -511,7 +576,8 @@ const hasActiveFilters = computed(() => {
     selectedEquipment.value !== "all" ||
     selectedInstruments.value !== "all" ||
     showAvailable.value ||
-    searchQuery.value !== ""
+    searchQuery.value !== "" ||
+    sortBy.value !== "relevance"
   );
 });
 
@@ -526,6 +592,7 @@ function clearFilters() {
   searchQuery.value = "";
   selectedEquipment.value = "all";
   selectedInstruments.value = "all";
+  sortBy.value = "relevance";
 }
 
 function toggleService(service) {
@@ -539,6 +606,49 @@ function toggleService(service) {
 }
 
 const showSearch = ref(false);
+
+const sortBy = ref("relevance");
+
+const sortedArtists = computed(() => {
+  let results = filteredResults.value;
+
+  switch (sortBy.value) {
+    case "rating":
+      return [...results].sort((a, b) => b.rating - a.rating);
+    case "near":
+      // Fake distances from Munich in km
+      const distances = {
+        // German cities first
+        "Munich, Germany": 0,
+        "Berlin, Germany": 584,
+        // European cities
+        "Amsterdam, Netherlands": 840,
+        "Paris, France": 828,
+        "London, UK": 1174,
+        "Barcelona, Spain": 1352,
+        "Madrid, Spain": 1807,
+        // Other continents
+        "Havana, Cuba": 8158,
+        "Miami, USA": 7836,
+        "Mexico City, Mexico": 9623,
+        "Tokyo, Japan": 9147,
+      };
+
+      return [...results].sort((a, b) => {
+        const locA = a.availability?.currentLocation || a.location;
+        const locB = b.availability?.currentLocation || b.location;
+        // If location isn't in our distances map, put it at the end
+        const distA = distances[locA];
+        const distB = distances[locB];
+        if (distA === undefined && distB === undefined) return 0;
+        if (distA === undefined) return 1;
+        if (distB === undefined) return -1;
+        return distA - distB;
+      });
+    default:
+      return results;
+  }
+});
 </script>
 
 <template>
@@ -582,6 +692,17 @@ const showSearch = ref(false);
             class="w-[180px] transition-all duration-200"
           />
         </div>
+
+        <Select v-model="sortBy" class="w-[140px] shrink-0">
+          <SelectTrigger>
+            <SelectValue placeholder="Sort by" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="relevance">Most Relevant</SelectItem>
+            <SelectItem value="rating">Highest Rated</SelectItem>
+            <SelectItem value="near">Nearest First</SelectItem>
+          </SelectContent>
+        </Select>
 
         <Button
           variant="outline"
@@ -737,7 +858,7 @@ const showSearch = ref(false);
     <div class="p-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <!-- Artist Card -->
       <div
-        v-for="artist in filteredArtists"
+        v-for="artist in sortedArtists"
         :key="artist.id"
         class="relative rounded-lg border border-gray-300 bg-white shadow-sm hover:border-gray-400 transition-all duration-200 flex flex-col h-full"
       >
@@ -818,25 +939,56 @@ const showSearch = ref(false);
             </div>
           </div>
 
-          <!-- Availability - Move inside content wrapper -->
-          <div
-            v-if="artist.availability"
-            class="px-4 pb-4 mt-auto flex items-center gap-2 text-xs text-gray-500"
-          >
-            <span
-              v-if="artist.availability.privateClasses"
-              class="flex items-center gap-1"
-            >
-              <Icon name="ph:check-circle" class="h-3 w-3 text-green-500" />
-              Private Classes
-            </span>
-            <span
-              v-if="artist.availability.workshops"
-              class="flex items-center gap-1"
-            >
-              <Icon name="ph:check-circle" class="h-3 w-3 text-green-500" />
-              Workshops
-            </span>
+          <!-- Availability -->
+          <div v-if="artist.availability" class="px-4 pb-4 mt-auto space-y-3">
+            <!-- Services and Pricing -->
+            <div class="flex flex-col gap-2">
+              <div
+                v-if="artist.availability.privateClasses"
+                class="flex items-center justify-between text-sm"
+              >
+                <span class="flex items-center gap-1 text-gray-600">
+                  <Icon
+                    name="ph:check-circle"
+                    class="h-3.5 w-3.5 text-green-500"
+                  />
+                  Private Classes
+                </span>
+                <span
+                  v-if="artist.availability.pricing?.privateClass"
+                  class="text-gray-900"
+                >
+                  {{ artist.availability.pricing.privateClass.amount }}
+                  {{ artist.availability.pricing.privateClass.currency }}
+                  <span class="text-gray-500 text-xs">
+                    / {{ artist.availability.pricing.privateClass.duration }}min
+                  </span>
+                </span>
+              </div>
+              <div
+                v-if="artist.availability.workshops"
+                class="flex items-center justify-between text-sm"
+              >
+                <span class="flex items-center gap-1 text-gray-600">
+                  <Icon
+                    name="ph:check-circle"
+                    class="h-3.5 w-3.5 text-green-500"
+                  />
+                  Workshops
+                </span>
+                <span
+                  v-if="artist.availability.pricing?.workshop"
+                  class="text-gray-900"
+                >
+                  {{ artist.availability.pricing.workshop.amount }}
+                  {{ artist.availability.pricing.workshop.currency }}
+                  <span class="text-gray-500 text-xs">
+                    / {{ artist.availability.pricing.workshop.duration }}min
+                    {{ artist.availability.pricing.workshop.note }}
+                  </span>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -872,7 +1024,7 @@ const showSearch = ref(false);
 
       <!-- Empty State -->
       <div
-        v-if="filteredArtists.length === 0"
+        v-if="sortedArtists.length === 0"
         class="col-span-full text-center py-12"
       >
         <Icon
