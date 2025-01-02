@@ -265,6 +265,13 @@ defineProps({
           <span>{{ post.stats.saves || 0 }}</span>
         </button>
         <button
+          v-if="['post', 'video', 'review'].includes(post.type)"
+          class="flex items-center gap-1 hover:text-purple-600"
+        >
+          <Icon name="ph:chat-circle" class="w-5 h-5" />
+          <span>{{ post.stats.comments }} Comments</span>
+        </button>
+        <button
           class="flex items-center gap-1 hover:text-purple-600"
           @click="$emit('share')"
         >
