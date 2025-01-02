@@ -69,16 +69,56 @@ const vClickOutside = {
 
 <template>
   <!-- Hero Section -->
-  <div class="pt-24 pb-12 bg-gradient-to-b from-purple-50 to-white">
+  <div class="pt-32 pb-12 bg-gradient-to-b from-purple-50 to-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <h1 class="text-4xl font-bold mb-6">Join the Global Salsa Community</h1>
-        <p class="text-xl text-gray-600 mb-8">
-          Connect with 50,000+ salsa dancers worldwide, share experiences, and
-          grow together
+      <div class="text-center max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          Find Your Salsa Scene
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+          Discover local events, connect with dancers, and join the vibrant
+          salsa community.
+          {{
+            regions.reduce((sum, region) => sum + parseInt(region.count), 0)
+          }}+ dancers worldwide.
         </p>
-        <div class="flex justify-center">
-          <Button variant="default" size="lg"> Join Community </Button>
+        <div class="flex justify-center gap-4">
+          <Button variant="default" size="lg">Join Salseros</Button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Features -->
+  <div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <Icon
+            name="ph:calendar-check"
+            class="w-12 h-12 text-purple-600 mx-auto mb-4"
+          />
+          <h3 class="text-lg font-semibold mb-2">Find Events</h3>
+          <p class="text-gray-600">
+            Discover salsa parties, workshops, and festivals near you
+          </p>
+        </div>
+        <div class="text-center">
+          <Icon
+            name="ph:users-three"
+            class="w-12 h-12 text-purple-600 mx-auto mb-4"
+          />
+          <h3 class="text-lg font-semibold mb-2">Meet Partners</h3>
+          <p class="text-gray-600">
+            Connect with local dancers for practice and social dancing
+          </p>
+        </div>
+        <div class="text-center">
+          <Icon name="ph:star" class="w-12 h-12 text-purple-600 mx-auto mb-4" />
+          <h3 class="text-lg font-semibold mb-2">Learn & Grow</h3>
+          <p class="text-gray-600">
+            Access resources, tips, and connect with instructors
+          </p>
         </div>
       </div>
     </div>
