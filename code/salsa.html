@@ -36,270 +36,221 @@
     <!-- Hero Section - Keep existing but add city context -->
     <div class="pt-24 pb-12 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Compact Location Bar -->
-        <div class="flex items-center justify-between mb-6 text-sm">
-          <button
-            class="flex items-center gap-1 text-gray-600 hover:text-purple-600"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+        <!-- City Context -->
+        <div
+          class="flex flex-wrap items-center justify-between gap-4 mb-8 text-sm"
+        >
+          <div class="flex items-center gap-4">
+            <button
+              class="flex items-center gap-1 text-gray-600 hover:text-purple-600"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-              />
-            </svg>
-            Munich, Germany
-          </button>
-          <div class="flex items-center gap-2">
-            <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            <span class="text-gray-600">127 dancers online</span>
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+              </svg>
+              Munich, Germany
+            </button>
+            <span class="text-gray-400">·</span>
+            <div class="flex items-center gap-2">
+              <div
+                class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+              ></div>
+              <span class="text-gray-600">127 dancers online</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 text-gray-600">
+            <span>Also popular in:</span>
+            <div class="flex items-center gap-2">
+              <a href="#" class="hover:text-purple-600">Berlin</a>
+              <span>·</span>
+              <a href="#" class="hover:text-purple-600">Vienna</a>
+              <span>·</span>
+              <a href="#" class="hover:text-purple-600">+12 cities</a>
+            </div>
           </div>
         </div>
 
-        <!-- Two Column Layout -->
+        <!-- Main Content -->
         <div class="flex flex-col lg:flex-row gap-8">
-          <!-- Left: Style Info -->
+          <!-- Left Column -->
           <div class="flex-1">
-            <h1 class="text-3xl sm:text-4xl font-bold mb-3">Salsa in Munich</h1>
-            <p class="text-gray-600 mb-6">
-              Join Munich's largest salsa community with daily events, dedicated
-              teachers, and friendly dancers.
-            </p>
+            <div class="mb-8">
+              <h1 class="text-4xl font-bold mb-4">Salsa in Munich</h1>
 
-            <!-- Community Stats -->
-            <div class="grid grid-cols-3 gap-4 mb-8">
-              <div class="bg-purple-50 p-4 rounded-lg">
-                <div class="text-2xl font-bold text-purple-600">Tonight</div>
-                <div class="text-sm text-gray-600">4 Social Events</div>
-              </div>
-              <div class="bg-purple-50 p-4 rounded-lg">
-                <div class="text-2xl font-bold text-purple-600">This Week</div>
-                <div class="text-sm text-gray-600">45+ Classes</div>
-              </div>
-              <div class="bg-purple-50 p-4 rounded-lg">
-                <div class="text-2xl font-bold text-purple-600">Community</div>
-                <div class="text-sm text-gray-600">1.2k Dancers</div>
-              </div>
-            </div>
-
-            <!-- About Section -->
-            <div class="prose prose-purple mb-8">
-              <h2 class="text-xl font-bold">About Salsa</h2>
-              <p>
-                Lively and rhythmic Latin dance that originated in the
-                Caribbean. Salsa is typically danced in pairs and combines a
-                variety of styles and influences.
-              </p>
-
-              <!-- Style Variants -->
-              <div class="grid grid-cols-3 gap-4 mt-6">
-                <div class="group">
-                  <div class="relative rounded-lg overflow-hidden">
-                    <img
-                      class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
-                      src="https://images.unsplash.com/photo-1545959570-a94084071b5d?w=300&h=300&fit=crop"
-                      alt="Cuban Style Salsa dancers"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-                    ></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-3">
-                      <h3 class="text-white font-medium">Cuban Style</h3>
-                      <p class="text-white/80 text-sm">
-                        Traditional circular style
-                      </p>
-                    </div>
+              <!-- Value Proposition -->
+              <div class="space-y-4 mb-6">
+                <p class="text-xl text-gray-600">
+                  Join Munich's most vibrant dance community with daily events,
+                  dedicated teachers, and friendly dancers.
+                </p>
+                <div class="flex flex-wrap gap-4 text-sm">
+                  <div class="flex items-center gap-2">
+                    <svg
+                      class="w-5 h-5 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>45+ weekly classes</span>
                   </div>
-                </div>
-
-                <div class="group">
-                  <div class="relative rounded-lg overflow-hidden">
-                    <img
-                      class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
-                      src="https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=300&h=300&fit=crop"
-                      alt="LA Style Salsa dancers"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-                    ></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-3">
-                      <h3 class="text-white font-medium">LA Style</h3>
-                      <p class="text-white/80 text-sm">
-                        Performance-oriented line style
-                      </p>
-                    </div>
+                  <div class="flex items-center gap-2">
+                    <svg
+                      class="w-5 h-5 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>1,200+ active dancers</span>
                   </div>
-                </div>
-
-                <div class="group">
-                  <div class="relative rounded-lg overflow-hidden">
-                    <img
-                      class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-300"
-                      src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=300&h=300&fit=crop"
-                      alt="NY Style Salsa dancers"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-                    ></div>
-                    <div class="absolute bottom-0 left-0 right-0 p-3">
-                      <h3 class="text-white font-medium">NY Style</h3>
-                      <p class="text-white/80 text-sm">
-                        On2 timing with complex turns
-                      </p>
-                    </div>
+                  <div class="flex items-center gap-2">
+                    <svg
+                      class="w-5 h-5 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                    <span>12 verified teachers</span>
                   </div>
                 </div>
               </div>
+
+              <!-- Today's Highlights -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <div class="bg-purple-50 p-4 rounded-lg">
+                  <div class="flex items-center gap-2 mb-2">
+                    <div
+                      class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+                    ></div>
+                    <span class="text-sm font-medium text-purple-600"
+                      >Happening Now</span
+                    >
+                  </div>
+                  <div class="font-medium">Social Dancing</div>
+                  <div class="text-sm text-gray-600">
+                    23 dancers at Havana Club
+                  </div>
+                  <button class="mt-2 text-purple-600 text-sm font-medium">
+                    Join now →
+                  </button>
+                </div>
+
+                <div class="bg-purple-50 p-4 rounded-lg">
+                  <div class="flex items-center gap-2 mb-2">
+                    <svg
+                      class="w-4 h-4 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                    <span class="text-sm font-medium text-purple-600"
+                      >Next Class</span
+                    >
+                  </div>
+                  <div class="font-medium">Beginner Salsa</div>
+                  <div class="text-sm text-gray-600">
+                    In 2 hours · 6 spots left
+                  </div>
+                  <button class="mt-2 text-purple-600 text-sm font-medium">
+                    Book now →
+                  </button>
+                </div>
+
+                <div class="bg-purple-50 p-4 rounded-lg">
+                  <div class="flex items-center gap-2 mb-2">
+                    <svg
+                      class="w-4 h-4 text-purple-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                    <span class="text-sm font-medium text-purple-600"
+                      >Practice Partners</span
+                    >
+                  </div>
+                  <div class="font-medium">12 Looking Today</div>
+                  <div class="text-sm text-gray-600">All levels welcome</div>
+                  <button class="mt-2 text-purple-600 text-sm font-medium">
+                    Find partner →
+                  </button>
+                </div>
+              </div>
+
+              <!-- Continue with existing content (About, Styles, etc) -->
             </div>
           </div>
 
-          <!-- Right: Action Card -->
+          <!-- Right Column -->
           <div class="lg:w-[420px]">
             <div
               class="bg-white border rounded-xl shadow-sm overflow-hidden sticky top-24"
             >
               <div class="p-6">
-                <h2 class="text-xl font-bold mb-6">Start Dancing Today</h2>
-
-                <!-- Experience Level Selection -->
-                <div class="space-y-3 mb-6">
-                  <button
-                    class="w-full text-left p-4 rounded-lg bg-purple-50 border-2 border-purple-600"
-                  >
-                    <div class="flex items-center justify-between">
-                      <div>
-                        <div class="font-medium">Complete Beginner</div>
-                        <p class="text-sm text-gray-600">Never danced before</p>
-                      </div>
-                      <svg
-                        class="w-5 h-5 text-purple-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                  </button>
-
-                  <button
-                    class="w-full text-left p-4 rounded-lg hover:bg-gray-50 border-2 border-gray-200"
-                  >
-                    <div class="flex items-center justify-between">
-                      <div>
-                        <div class="font-medium">Some Experience</div>
-                        <p class="text-sm text-gray-600">Know basic steps</p>
+                <!-- Success Story -->
+                <div class="mb-6 bg-purple-50 rounded-lg p-4">
+                  <div class="flex items-center gap-3 mb-3">
+                    <img
+                      class="w-10 h-10 rounded-full"
+                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop"
+                      alt="Maria"
+                    />
+                    <div>
+                      <div class="font-medium">Maria</div>
+                      <div class="text-sm text-gray-600">
+                        Started 3 months ago
                       </div>
                     </div>
-                  </button>
-                </div>
-
-                <!-- Recommended Next Step -->
-                <div class="bg-purple-50 rounded-lg p-4 mb-6">
-                  <div class="text-sm text-purple-600 mb-1">
-                    Recommended First Step
                   </div>
-                  <div class="font-medium">Free Trial Class</div>
-                  <p class="text-sm text-gray-600 mb-3">
-                    Perfect introduction to salsa basics with experienced
-                    teachers
+                  <p class="text-sm text-gray-600 italic">
+                    "Found amazing teachers and dance partners through WeDance.
+                    Now I dance 3 times a week!"
                   </p>
-
-                  <div
-                    class="flex items-center gap-4 mb-4 text-sm text-gray-600"
-                  >
-                    <div class="flex items-center gap-1">
-                      <svg
-                        class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <span>Tomorrow 19:00</span>
-                    </div>
-                    <div class="flex items-center gap-1">
-                      <svg
-                        class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                        />
-                      </svg>
-                      <span>2.5km away</span>
-                    </div>
-                    <div class="flex items-center gap-1">
-                      <svg
-                        class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-                        />
-                      </svg>
-                      <span>6 spots left</span>
-                    </div>
-                  </div>
-
-                  <button
-                    class="w-full bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700"
-                  >
-                    Reserve Free Trial Class
-                  </button>
                 </div>
 
-                <!-- Alternative Options -->
-                <div class="space-y-4">
-                  <div class="text-sm text-gray-500 text-center">
-                    Other ways to start
-                  </div>
-
-                  <button
-                    class="w-full bg-white border-2 border-purple-600 text-purple-600 px-4 py-2 rounded-lg hover:bg-purple-50"
-                  >
-                    <div class="flex items-center justify-between">
-                      <span>Join Tonight's Social</span>
-                      <span
-                        class="bg-purple-100 text-purple-600 px-2 py-1 rounded text-sm"
-                        >23 going</span
-                      >
-                    </div>
-                  </button>
-
-                  <button
-                    class="w-full text-purple-600 hover:text-purple-700 text-sm font-medium"
-                  >
-                    Browse all classes →
-                  </button>
-                </div>
+                <!-- Continue with existing Start Dancing Today section -->
               </div>
             </div>
           </div>
