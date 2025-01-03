@@ -33,7 +33,7 @@
                 name="ph:article-medium"
                 class="w-5 h-5 text-purple-600 mr-2"
               />
-              <span class="flex-1">Article</span>
+              <span class="flex-1">Write</span>
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
@@ -75,11 +75,8 @@
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
-              <Icon
-                name="ph:users-three"
-                class="w-5 h-5 text-purple-600 mr-2"
-              />
-              <span>Project</span>
+              <Icon name="ph:briefcase" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Gig</span>
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
@@ -115,8 +112,14 @@
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
-              <Icon name="ph:briefcase" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Post Job</span>
+              <Icon name="ph:storefront" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Ad</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon name="ph:car" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Travel</span>
             </button>
           </div>
         </div>
