@@ -1,394 +1,252 @@
-<script setup>
-defineProps({
-  post: {
-    type: Object,
-    required: true,
-  },
-});
-</script>
-
 <template>
-  <div
-    class="bg-white rounded-lg border-0 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-all duration-200 overflow-hidden flex flex-col h-full"
-  >
-    <!-- Author Header -->
-    <div class="p-4 border-b border-gray-100">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center">
-          <img
-            :src="post.author.image"
-            :alt="post.author.name"
-            class="h-10 w-10 rounded-full object-cover"
-          />
-          <div class="ml-3">
-            <div class="font-medium">{{ post.author.name }}</div>
-            <div class="text-sm text-gray-500">
-              {{ post.timestamp }} ·
-              <span class="text-purple-600">{{ post.author.location }}</span>
-            </div>
-          </div>
+  <div class="bg-white rounded-lg shadow-sm border border-gray-100">
+    <!-- Header -->
+    <div class="p-4 flex items-center gap-3">
+      <img
+        :src="post.author.image"
+        :alt="post.author.name"
+        class="w-10 h-10 rounded-full object-cover"
+      />
+      <div class="flex-1">
+        <div class="font-medium">{{ post.author.name }}</div>
+        <div class="text-sm text-gray-500 flex items-center gap-1">
+          <span>{{ post.timestamp }}</span>
+          <span>·</span>
+          <span class="text-purple-600">{{ post.author.location }}</span>
         </div>
+      </div>
+      <div class="flex items-center gap-2">
         <div
-          class="flex items-center gap-2 bg-purple-50 px-3 py-1 rounded-full"
+          class="flex items-center gap-1 bg-purple-50 px-2 py-1 rounded-full"
         >
           <Icon
             :name="
               {
-                post: 'ph:note',
-                event: 'ph:ticket',
-                video: 'ph:video-camera',
-                question: 'ph:question',
+                note: 'ph:note',
+                article: 'ph:article-medium',
+                event: 'ph:calendar-plus',
+                meet: 'ph:users',
                 review: 'ph:star',
-                project: 'ph:rocket',
-                travel: 'ph:airplane',
-                article: 'ph:article',
-                find_partner: 'ph:users',
-                ask_locals: 'ph:info',
-                poll: 'ph:chart-bar',
                 gig: 'ph:briefcase',
-                ad: 'ph:megaphone',
-                announcement: 'ph:megaphone',
+                ask_locals: 'ph:info',
+                ad: 'ph:storefront',
               }[post.type]
             "
             class="w-4 h-4 text-purple-600"
           />
-          <span class="text-sm font-medium text-purple-600 capitalize">{{
+          <span class="text-sm text-purple-600 capitalize">{{
             post.type.replace("_", " ")
           }}</span>
         </div>
+        <Button variant="ghost" size="icon">
+          <Icon name="ph:dots-three" class="w-5 h-5" />
+        </Button>
       </div>
     </div>
 
-    <!-- Main Content -->
-    <div class="flex-1 flex flex-col">
-      <!-- Post Type -->
-      <div v-if="post.type === 'post'" class="p-4 flex-1">
-        <div class="space-y-3">
-          <p class="text-gray-600">{{ post.content.text }}</p>
-          <ul
-            v-if="post.content.list"
-            class="text-gray-600 list-disc pl-4 space-y-2"
-          >
-            <li v-for="item in post.content.list" :key="item">{{ item }}</li>
-          </ul>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
+    <!-- Content -->
+    <div class="flex flex-col">
+      <!-- Note Type -->
+      <div v-if="post.type === 'note'" class="p-4 flex-1">
+        <div class="space-y-4">
+          <!-- Text Content -->
+          <p class="text-gray-600 whitespace-pre-wrap">
+            {{ post.content.text }}
+          </p>
+
+          <!-- Poll if any -->
+          <div v-if="post.content.poll" class="space-y-2">
+            <div
+              v-for="option in post.content.poll.options"
+              :key="option.id"
+              class="relative bg-purple-50 rounded-lg p-3 cursor-pointer hover:bg-purple-100"
             >
-              {{ tag }}
-            </span>
+              <div class="flex justify-between items-center relative z-10">
+                <span>{{ option.text }}</span>
+                <span class="text-sm text-gray-500">
+                  {{
+                    Math.round(
+                      (option.votes / post.content.poll.totalVotes) * 100
+                    )
+                  }}%
+                </span>
+              </div>
+              <div
+                class="absolute left-0 top-0 h-full bg-purple-200 rounded-lg opacity-50"
+                :style="{
+                  width: `${
+                    (option.votes / post.content.poll.totalVotes) * 100
+                  }%`,
+                }"
+              />
+            </div>
+            <div class="text-sm text-gray-500">
+              {{ post.content.poll.totalVotes }} votes
+            </div>
+          </div>
+
+          <!-- Links if any -->
+          <div v-if="post.content.links" class="space-y-2">
+            <a
+              v-for="link in post.content.links"
+              :key="link.url"
+              :href="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block bg-gray-50 p-3 rounded-lg hover:bg-gray-100"
+            >
+              <div class="flex items-center gap-2">
+                <Icon name="ph:link" class="w-4 h-4 text-purple-600" />
+                <span class="text-purple-600">{{ link.title }}</span>
+              </div>
+              <p v-if="link.description" class="text-sm text-gray-600 mt-1">
+                {{ link.description }}
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- article Type -->
+      <div v-if="post.type === 'article'" class="flex-1 flex flex-col">
+        <div v-if="post.content.cover" class="relative aspect-video">
+          <img
+            :src="post.content.cover"
+            :alt="post.content.title"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="p-4 space-y-4">
+          <h2 class="text-xl font-bold">{{ post.content.title }}</h2>
+          <p class="text-gray-600">{{ post.content.description }}</p>
+          <div
+            v-if="post.content.html"
+            class="prose prose-purple max-w-none line-clamp-3"
+          >
+            <div v-html="post.content.html" />
           </div>
         </div>
       </div>
 
       <!-- Event Type -->
       <div v-if="post.type === 'event'" class="flex-1 flex flex-col">
-        <div class="relative aspect-video">
-          <img
-            :src="post.content.image"
-            :alt="post.content.title"
-            class="w-full h-full object-cover"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-          />
-          <div class="absolute top-4 right-4">
-            <div class="bg-white/90 px-3 py-1 rounded-full text-sm font-medium">
-              {{ post.content.price?.amount || "Free" }}
-              {{ post.content.price?.currency }}
-            </div>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 p-4">
-            <h3 class="text-lg font-semibold text-white drop-shadow">
-              {{ post.content.title }}
-            </h3>
-            <div class="flex items-center gap-3 mt-2 text-sm text-white/90">
-              <div class="flex items-center gap-1">
-                <Icon name="ph:calendar" class="h-4 w-4" />
-                <span>{{ post.content.date }}</span>
-              </div>
-              <div class="flex items-center gap-1">
-                <Icon name="ph:map-pin" class="h-4 w-4" />
-                <span>{{ post.content.location }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="p-4 space-y-4 flex-1">
-          <p class="text-gray-600 line-clamp-2">
-            {{ post.content.description }}
-          </p>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
-            >
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Video Type -->
-      <div v-if="post.type === 'video'" class="flex-1 flex flex-col">
-        <div class="relative aspect-video">
-          <img
-            :src="post.content.thumbnail"
-            :alt="post.content.title"
-            class="w-full h-full object-cover"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-          />
-          <div class="absolute inset-0 flex items-center justify-center">
-            <button
-              class="bg-white/90 w-12 h-12 rounded-full hover:bg-white transition-colors flex items-center justify-center"
-              @click="$emit('play')"
-            >
-              <Icon
-                name="ph:play-fill"
-                class="w-6 h-6 text-purple-600 ml-0.5"
-              />
-            </button>
-          </div>
-          <div class="absolute bottom-0 left-0 right-0 p-4">
-            <h3 class="text-lg font-semibold text-white drop-shadow">
-              {{ post.content.title }}
-            </h3>
-          </div>
-        </div>
-        <div class="p-4 space-y-4 flex-1">
-          <p class="text-gray-600">{{ post.content.description }}</p>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
-            >
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Question Type -->
-      <div v-if="post.type === 'question'" class="p-4 flex-1">
-        <div class="space-y-3">
-          <h3 class="font-bold mb-2">{{ post.content.title }}</h3>
-          <p class="text-gray-600">{{ post.content.text }}</p>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
-            >
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Review Type -->
-      <div v-if="post.type === 'review'" class="flex-1 flex flex-col">
-        <div class="p-4 space-y-3">
-          <h3 class="font-bold mb-2">{{ post.content.title }}</h3>
-          <div class="flex items-center mb-3">
-            <div class="flex text-yellow-400">
-              <Icon
-                v-for="i in post.content.rating"
-                :key="i"
-                name="ph:star-fill"
-                class="w-5 h-5"
-              />
-            </div>
-          </div>
-          <p class="text-gray-600">{{ post.content.description }}</p>
-        </div>
-      </div>
-
-      <!-- Project Type -->
-      <div v-if="post.type === 'project'" class="p-4 flex-1">
-        <div class="space-y-3">
-          <h3 class="font-bold mb-2">{{ post.content.title }}</h3>
-          <p class="text-gray-600">{{ post.content.text }}</p>
-          <div class="bg-purple-50 p-4 rounded-lg">
-            <div class="font-medium mb-2">Project Details:</div>
-            <ul class="text-sm text-gray-600 space-y-1">
-              <li v-for="detail in post.content.details" :key="detail">
-                {{ detail }}
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Travel Type -->
-      <div v-if="post.type === 'travel'" class="p-4 flex-1">
-        <div class="space-y-3">
-          <h3 class="font-bold mb-2">{{ post.content.title }}</h3>
-          <p class="text-gray-600">{{ post.content.text }}</p>
-          <div class="bg-purple-50 p-4 rounded-lg">
-            <div class="font-medium mb-2">Trip Details:</div>
-            <ul class="text-sm text-gray-600 space-y-1">
-              <li v-for="detail in post.content.details" :key="detail">
-                {{ detail }}
-              </li>
-            </ul>
-          </div>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
-            >
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Article Type -->
-      <div v-if="post.type === 'article'" class="flex-1 flex flex-col">
         <div v-if="post.content.image" class="relative aspect-video">
           <img
             :src="post.content.image"
             :alt="post.content.title"
             class="w-full h-full object-cover"
           />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+          />
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <h2 class="text-xl font-bold text-white">
+              {{ post.content.title }}
+            </h2>
+          </div>
         </div>
-        <div class="p-4 space-y-3">
-          <h3 class="text-xl font-bold">{{ post.content.title }}</h3>
+        <div class="p-4 space-y-4">
           <p class="text-gray-600">{{ post.content.description }}</p>
-          <p class="text-gray-600">{{ post.content.text }}</p>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
-            >
-              {{ tag }}
-            </span>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-2">
+              <Icon name="ph:calendar" class="w-5 h-5 text-purple-600" />
+              <span>{{ post.content.date }}</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <Icon name="ph:map-pin" class="w-5 h-5 text-purple-600" />
+              <span>{{ post.content.location }}</span>
+            </div>
+            <div v-if="post.content.price" class="flex items-center gap-2">
+              <Icon name="ph:ticket" class="w-5 h-5 text-green-600" />
+              <span class="text-green-600">
+                {{ post.content.price.amount }}
+                {{ post.content.price.currency }}
+              </span>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Find Partner Type -->
-      <div v-if="post.type === 'find_partner'" class="p-4 flex-1">
-        <div class="space-y-3">
-          <h3 class="font-bold mb-2">{{ post.content.title }}</h3>
-          <p class="text-gray-600">{{ post.content.text }}</p>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
+      <!-- Meet Type -->
+      <div v-if="post.type === 'meet'" class="p-4 flex-1">
+        <div class="space-y-4">
+          <h2 class="text-xl font-bold">{{ post.content.title }}</h2>
+          <p class="text-gray-600 whitespace-pre-wrap">
+            {{ post.content.text }}
+          </p>
+          <div class="bg-purple-50 rounded-lg p-4 space-y-2">
+            <div
+              v-for="(value, key) in post.content.details"
+              :key="key"
+              class="flex items-center gap-2"
             >
-              {{ tag }}
-            </span>
+              <Icon
+                :name="
+                  {
+                    type: 'ph:users',
+                    format: 'ph:layout',
+                    gender: 'ph:gender-intersex',
+                    when: 'ph:calendar',
+                    where: 'ph:map-pin',
+                    level: 'ph:chart-line',
+                    style: 'ph:music-notes',
+                    seats: 'ph:car',
+                    contribution: 'ph:money',
+                  }[key]
+                "
+                class="w-4 h-4 text-purple-600"
+              />
+              <span class="capitalize text-gray-600">{{ key }}:</span>
+              <span class="text-purple-600">{{ value }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Review Type -->
+      <div v-if="post.type === 'review'" class="p-4 flex-1">
+        <div class="space-y-4">
+          <h2 class="text-xl font-bold">{{ post.content.title }}</h2>
+          <div class="flex items-center gap-1">
+            <Icon
+              v-for="i in 5"
+              :key="i"
+              :name="i <= post.content.rating ? 'ph:star-fill' : 'ph:star'"
+              class="w-5 h-5"
+              :class="
+                i <= post.content.rating ? 'text-yellow-400' : 'text-gray-300'
+              "
+            />
+          </div>
+          <p class="text-gray-600">{{ post.content.description }}</p>
+        </div>
+      </div>
+
+      <!-- Gig Type -->
+      <div v-if="post.type === 'gig'" class="p-4 flex-1">
+        <div class="space-y-4">
+          <h2 class="text-xl font-bold">{{ post.content.title }}</h2>
+          <p class="text-gray-600">{{ post.content.description }}</p>
+          <div class="bg-purple-50 rounded-lg p-4 space-y-2">
+            <div
+              v-for="detail in post.content.details"
+              :key="detail.text"
+              class="flex items-center gap-2"
+            >
+              <Icon :name="detail.icon" class="w-4 h-4 text-purple-600" />
+              <span>{{ detail.text }}</span>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Ask Locals Type -->
       <div v-if="post.type === 'ask_locals'" class="p-4 flex-1">
-        <div class="space-y-3">
-          <h3 class="font-bold mb-2">{{ post.content.title }}</h3>
-          <p class="text-gray-600">{{ post.content.text }}</p>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
-            >
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Announcement Type -->
-      <div v-if="post.type === 'announcement'" class="p-4 flex-1">
-        <div class="space-y-3">
-          <div class="flex items-center gap-2">
-            <Icon name="ph:megaphone" class="w-5 h-5 text-purple-600" />
-            <h3 class="font-bold">{{ post.content.title }}</h3>
-          </div>
-          <p class="text-gray-600">{{ post.content.text }}</p>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
-            >
-              {{ tag }}
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Poll Type -->
-      <div v-if="post.type === 'poll'" class="p-4 flex-1">
         <div class="space-y-4">
-          <h3 class="font-bold">{{ post.content.title }}</h3>
-          <div class="space-y-2">
-            <div
-              v-for="option in post.content.options"
-              :key="option.id"
-              class="relative bg-purple-50 rounded-lg p-3 cursor-pointer hover:bg-purple-100"
-            >
-              <div class="flex justify-between items-center">
-                <span>{{ option.text }}</span>
-                <span class="text-sm text-gray-500">
-                  {{
-                    Math.round((option.votes / post.content.totalVotes) * 100)
-                  }}%
-                </span>
-              </div>
-              <div
-                class="absolute left-0 top-0 h-full bg-purple-200 rounded-lg"
-                :style="{
-                  width: `${(option.votes / post.content.totalVotes) * 100}%`,
-                  opacity: '0.5',
-                }"
-              ></div>
-            </div>
-          </div>
-          <div class="text-sm text-gray-500">
-            {{ post.content.totalVotes }} votes total
-          </div>
-        </div>
-      </div>
-
-      <!-- Gig Type -->
-      <div v-if="post.type === 'gig'" class="p-4 flex-1">
-        <div class="space-y-3">
-          <h3 class="font-bold mb-2">{{ post.content.title }}</h3>
-          <p class="text-gray-600">{{ post.content.description }}</p>
-          <div class="bg-purple-50 p-4 rounded-lg">
-            <div class="font-medium mb-2">Job Details:</div>
-            <ul class="text-sm text-gray-600 space-y-1">
-              <li
-                v-for="detail in post.content.details"
-                :key="detail.text"
-                class="flex items-center gap-2"
-              >
-                <Icon :name="detail.icon" class="w-4 h-4 text-purple-500" />
-                {{ detail.text }}
-              </li>
-            </ul>
-          </div>
-          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
-            <span
-              v-for="tag in post.content.tags"
-              :key="tag"
-              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
-            >
-              {{ tag }}
-            </span>
-          </div>
+          <h2 class="text-xl font-bold">{{ post.content.title }}</h2>
+          <p class="text-gray-600 whitespace-pre-wrap">
+            {{ post.content.text }}
+          </p>
         </div>
       </div>
 
@@ -401,85 +259,101 @@ defineProps({
             class="w-full h-full object-cover"
           />
         </div>
-        <div class="p-4 space-y-3">
-          <h3 class="font-bold mb-2">{{ post.content.title }}</h3>
+        <div class="p-4 space-y-4">
+          <h2 class="text-xl font-bold">{{ post.content.title }}</h2>
           <p class="text-gray-600">{{ post.content.description }}</p>
-          <p class="text-purple-600 font-medium">{{ post.content.cta }}</p>
         </div>
+      </div>
+
+      <!-- Tags -->
+      <div v-if="post.content.tags" class="px-4 pb-4 flex flex-wrap gap-2">
+        <span
+          v-for="tag in post.content.tags"
+          :key="tag"
+          class="bg-purple-50 text-purple-600 text-sm px-3 py-1 rounded-full"
+        >
+          {{ tag }}
+        </span>
       </div>
     </div>
 
     <!-- Footer -->
-    <div
-      class="p-4 border-t border-gray-100 flex items-center justify-between mt-auto"
-    >
-      <!-- Left side with engagement actions -->
-      <div class="flex items-center gap-4 text-sm text-gray-500">
-        <button
-          class="flex items-center gap-1 hover:text-purple-600"
-          @click="$emit('like')"
-        >
-          <Icon name="ph:heart" class="w-5 h-5" />
-          <span>{{
-            post.stats.likes || post.stats.interested || post.stats.responses
-          }}</span>
-        </button>
-        <button
-          class="flex items-center gap-1 hover:text-purple-600"
-          @click="$emit('bookmark')"
-        >
-          <Icon name="ph:bookmark-simple" class="w-5 h-5" />
-          <span>{{ post.stats.bookmarks || post.stats.saves || 0 }}</span>
-        </button>
-        <button
-          v-if="
-            [
-              'post',
-              'video',
-              'review',
-              'article',
-              'event',
-              'discussion',
-            ].includes(post.type)
-          "
-          class="flex items-center gap-1 hover:text-purple-600"
-        >
-          <Icon name="ph:chat-circle" class="w-5 h-5" />
-          <span>{{ post.stats.comments }} Comments</span>
-        </button>
-        <button
-          class="flex items-center gap-1 hover:text-purple-600"
-          @click="$emit('share')"
-        >
-          <Icon name="ph:share-network" class="w-5 h-5" />
-          <span>Share</span>
-        </button>
-      </div>
+    <div class="p-4 border-t border-gray-100">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <!-- Like -->
+          <button
+            class="flex items-center gap-1 text-gray-500 hover:text-purple-600"
+          >
+            <Icon name="ph:heart" class="w-5 h-5" />
+            <span v-if="post.stats.likes || post.stats.interested">{{
+              post.stats.likes || post.stats.interested
+            }}</span>
+          </button>
 
-      <!-- Right side with primary action -->
-      <div>
-        <Button v-if="post.type === 'event'" variant="default">
-          Book Now
-        </Button>
-        <Button v-if="post.type === 'find_partner'" variant="default">
-          Send Request
-        </Button>
-        <Button v-if="post.type === 'ask_locals'" variant="default">
-          Share Info
-        </Button>
-        <Button v-if="post.type === 'review'" variant="default"> Rate </Button>
-        <Button v-if="post.type === 'project'" variant="default">
-          Join Project
-        </Button>
-        <Button v-if="post.type === 'travel'" variant="default">
-          Send Request
-        </Button>
-        <Button v-if="post.type === 'gig'" variant="default"> Apply </Button>
-        <Button v-if="post.type === 'ad'" variant="default"> Contact </Button>
-        <Button v-if="post.type === 'article'" variant="default">
-          Read More
-        </Button>
+          <!-- Bookmark -->
+          <button
+            class="flex items-center gap-1 text-gray-500 hover:text-purple-600"
+          >
+            <Icon name="ph:bookmark-simple" class="w-5 h-5" />
+            <span v-if="post.stats.bookmarks">{{ post.stats.bookmarks }}</span>
+          </button>
+
+          <!-- Comment -->
+          <button
+            v-if="post.stats.comments !== undefined"
+            class="flex items-center gap-1 text-gray-500 hover:text-purple-600"
+          >
+            <Icon name="ph:chat-circle" class="w-5 h-5" />
+            <span>{{ post.stats.comments }}</span>
+          </button>
+
+          <button
+            class="flex items-center gap-1 text-gray-500 hover:text-purple-600"
+          >
+            <Icon name="ph:share-network" class="w-5 h-5" />
+          </button>
+        </div>
+
+        <!-- Primary Action -->
+        <div class="flex items-center gap-2">
+          <Button
+            v-if="
+              {
+                article: 'Read More',
+                event: 'Book Now',
+                meet: 'Send Request',
+                review: 'Rate',
+                gig: 'Apply',
+                ask_locals: 'Share Info',
+                ad: 'Contact',
+              }[post.type]
+            "
+            variant="default"
+          >
+            {{
+              {
+                article: "Read More",
+                event: "Book Now",
+                meet: "Send Request",
+                review: "Rate",
+                gig: "Apply",
+                ask_locals: "Share Info",
+                ad: "Contact",
+              }[post.type]
+            }}
+          </Button>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<script setup>
+defineProps({
+  post: {
+    type: Object,
+    required: true,
+  },
+});
+</script>

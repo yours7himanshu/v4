@@ -39,7 +39,7 @@
                 name="ph:article-medium"
                 class="w-5 h-5 text-purple-600 mr-2"
               />
-              <span class="flex-1">Write</span>
+              <span class="flex-1">Article</span>
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"

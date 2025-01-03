@@ -2,19 +2,19 @@
 
 All posts have likes, bookmarks and share.
 
-| Post Type   | Comments | Primary Action |
-| ----------- | -------- | -------------- |
-| Articles    | ✓        | Read More      |
-| Events      | ✓        | Book Now       |
-| Videos      | ✓        | -              |
-| Discussions | ✓        | -              |
-| Meet        | -        | Join           |
-| Ask Locals  | -        | Share Info     |
-| Reviews     | ✓        | Rate           |
-| Gigs        | -        | Apply          |
-| Ads         | -        | Contact        |
+| Post Type  | Comments | Primary Action |
+| ---------- | -------- | -------------- |
+| Article    | ✓        | Read More      |
+| Event      | ✓        | Book Now       |
+| Video      | ✓        | -              |
+| Note       | ✓        | -              |
+| Meet       | -        | Send Request   |
+| Ask Locals | -        | Share Info     |
+| Review     | ✓        | Rate           |
+| Gig        | -        | Apply          |
+| Ad         | -        | Contact        |
 
-## Articles
+## Article
 
 - Objective: Share structured, long-form knowledge and experiences
 - Examples:
@@ -33,7 +33,7 @@ All posts have likes, bookmarks and share.
 - Creation via:
   - "Write" (`ph:article-medium`): Share articles, tips, and experiences
 
-## Videos
+## Video
 
 - Objective: Provide educational content and showcase dance performances to inspire and teach
 - Types:
@@ -49,7 +49,7 @@ All posts have likes, bookmarks and share.
 - Creation via:
   - "Video" (`ph:youtube-logo`): Share dance videos and tutorials
 
-## Events
+## Event
 
 - Objective: Connect dancers with local and international dance events
 - Details to include:
@@ -68,7 +68,7 @@ All posts have likes, bookmarks and share.
 - Creation via:
   - "Event" (`ph:calendar-plus`): Create dance events, workshops, or socials
 
-## Discussions
+## Note
 
 - Objective: Start conversations and get community input
 - Types:
@@ -130,7 +130,7 @@ All posts have likes, bookmarks and share.
   - Share: Reach more people
   - Group chat (once connected)
 - Primary Action:
-  - Join: Express interest in meeting
+  - Send Request: Express interest in meeting
 - Creation via:
   - "Meet" (`ph:users`): Create social connections in the dance community
 
@@ -169,7 +169,7 @@ All posts have likes, bookmarks and share.
   - Events are recommended by locals who follow the scene
   - Platform gradually builds a verified database of local dance scenes
 
-## Reviews
+## Review
 
 - Objective: Help dancers make informed decisions
 - What to review:
@@ -186,7 +186,7 @@ All posts have likes, bookmarks and share.
 - Creation via:
   - "Review" (`ph:star`): Share experiences about venues, events, and instructors
 
-## Gigs
+## Gig
 
 - Objective: Share opportunities for work or collaboration
 - Examples:
@@ -210,7 +210,7 @@ All posts have likes, bookmarks and share.
 - Creation via:
   - "Gig" (`ph:briefcase`): Post work and collaboration opportunities
 
-## Ads
+## Ad
 
 - Objective: Promote dance-related products and services
 - Examples:
