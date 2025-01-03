@@ -23,7 +23,7 @@ const getAsyncComponent = (type: Post["type"]) => {
 </script>
 
 <template>
-  <div class="bg-white rounded-lg shadow-sm border border-gray-100">
+  <div class="bg-white rounded-lg shadow-sm border border-gray-200">
     <ErrorBoundary>
       <PostHeader
         :author="post.author"
