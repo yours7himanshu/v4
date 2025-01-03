@@ -28,14 +28,13 @@
           </p>
           <div class="space-y-2">
             <button
-              class="w-full text-left px-3 py-3 hover:bg-gray-50 rounded-lg flex items-center"
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
               <Icon
                 name="ph:article-medium"
                 class="w-5 h-5 text-purple-600 mr-2"
               />
               <span class="flex-1">Write Article</span>
-              <Icon name="ph:arrow-right" class="w-5 h-5 text-gray-400" />
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
@@ -51,6 +50,15 @@
             >
               <Icon name="ph:sparkle" class="w-5 h-5 text-purple-600 mr-2" />
               <span>Share Inspiration</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon
+                name="ph:graduation-cap"
+                class="w-5 h-5 text-purple-600 mr-2"
+              />
+              <span>Create Course</span>
             </button>
           </div>
         </div>
@@ -87,18 +95,38 @@
               <Icon name="ph:users" class="w-5 h-5 text-purple-600 mr-2" />
               <span>Find Partner</span>
             </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon
+                name="ph:users-three"
+                class="w-5 h-5 text-purple-600 mr-2"
+              />
+              <span>Create Project</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon name="ph:chart-bar" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Create Poll</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon name="ph:megaphone" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Make Announcement</span>
+            </button>
           </div>
         </div>
 
-        <!-- Support Others -->
+        <!-- Connect & Support -->
         <div>
           <div class="text-purple-600 mb-4">
             <Icon name="ph:handshake" class="w-8 h-8" />
           </div>
-          <h3 class="font-bold text-lg mb-2">Support Others</h3>
+          <h3 class="font-bold text-lg mb-2">Connect & Support</h3>
           <p class="text-gray-600 mb-4">
-            Answer questions, welcome newcomers, and help maintain a positive
-            community.
+            Share opportunities, help others, and strengthen the community.
           </p>
           <div class="space-y-2">
             <button
@@ -121,6 +149,30 @@
             >
               <Icon name="ph:star" class="w-5 h-5 text-purple-600 mr-2" />
               <span>Review Artist</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon name="ph:briefcase" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Post Gig</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon name="ph:storefront" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Post Ad</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon name="ph:car" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Share Travel</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon name="ph:info" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Ask Locals</span>
             </button>
           </div>
         </div>
