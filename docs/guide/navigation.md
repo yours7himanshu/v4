@@ -1,4 +1,4 @@
-# WeDance Navigation Structure
+# Navigation
 
 ## Core Features
 

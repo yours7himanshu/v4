@@ -1,6 +1,6 @@
 # Content
 
-## Post Types and Their Actions
+## Overview
 
 | Post Type     | Like | Bookmark | Comments | Share | Primary Action |
 | ------------- | ---- | -------- | -------- | ----- | -------------- |
@@ -16,6 +16,8 @@
 | Announcements | ✓    | ✓        | -        | ✓     | -              |
 | Polls         | ✓    | ✓        | -        | ✓     | Vote           |
 | Gigs          | ✓    | ✓        | -        | ✓     | Apply          |
+
+## Post Types
 
 The platform supports the following post types:
 

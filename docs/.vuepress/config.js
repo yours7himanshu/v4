@@ -8,7 +8,15 @@ export default defineUserConfig({
   description:
     "A participatory network transforming how dance communities connect, organize, and thrive together",
 
-  bundler: viteBundler(),
+  bundler: viteBundler({
+    viteOptions: {
+      resolve: {
+        alias: {
+          vue: "vue/dist/vue.runtime.esm-bundler.js",
+        },
+      },
+    },
+  }),
   theme: defaultTheme({
     repo: "WeDance/concept2",
     docsDir: "docs",
