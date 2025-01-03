@@ -27,7 +27,9 @@ export default defineUserConfig({
       {
         text: "Guide",
         children: [
-          { text: "Content", link: "/guide/content.md" },
+          { text: "Posts", link: "/guide/posts.md" },
+          { text: "Points", link: "/guide/points.md" },
+          { text: "Voting", link: "/guide/voting.md" },
           { text: "Profiles", link: "/guide/profiles.md" },
           { text: "Event Types", link: "/guide/event-types.md" },
           { text: "Levels", link: "/guide/levels.md" },
