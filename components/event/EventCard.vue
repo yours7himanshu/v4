@@ -22,101 +22,102 @@ const handleBook = (event: AnyEvent) => emit("book", event);
 
 <template>
   <article
-    class="group bg-white rounded-lg border border-gray-100 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full"
+    class="bg-white rounded-lg border border-gray-100 overflow-hidden flex flex-col h-full hover:border-purple-100 transition-all duration-300"
   >
-    <!-- Card Content Wrapper -->
-    <div class="flex-1 flex flex-col">
-      <!-- Card Header with Image -->
-      <div class="relative h-64 overflow-hidden">
-        <PostImage
-          :src="event.image || '/images/event-placeholder.jpg'"
-          :alt="event.name"
-          :width="800"
-          :height="400"
-          class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-        />
-        <!-- Type Badge -->
-        <div class="absolute top-4 left-4">
-          <Badge variant="secondary" class="capitalize">
-            {{ event.type }}
-          </Badge>
-        </div>
-        <!-- Price Tag -->
-        <div class="absolute top-4 right-4">
-          <div
-            class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium shadow-sm"
-            :class="{
-              'text-green-600': !event.price,
-              'text-purple-600': event.price,
-            }"
-          >
-            {{
-              event.price
-                ? formatCurrency(event.price.amount, event.price.currency)
-                : "Free"
-            }}
+    <!-- Image Section -->
+    <div class="relative aspect-[3/2]">
+      <PostImage
+        :src="event.image || '/images/event-placeholder.jpg'"
+        :alt="event.name"
+        :width="800"
+        :height="400"
+        class="w-full h-full object-cover"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+      />
+
+      <!-- Overlays -->
+      <div class="absolute inset-x-0 bottom-0 p-4 space-y-2">
+        <!-- Title and Meta -->
+        <h3 class="text-2xl font-bold text-white">
+          {{ event.name }}
+        </h3>
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2">
+            <Icon name="ph:calendar" />
+            <span>{{ formatDate(event.date.start) }}</span>
           </div>
-        </div>
-        <!-- Gradient Overlay -->
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
-        />
-        <!-- Event Info -->
-        <div class="absolute bottom-0 left-0 right-0 p-4">
-          <PostTitle
-            :title="event.name"
-            class="text-white drop-shadow-sm mb-3"
-          />
-          <div class="flex items-center gap-4 text-sm text-white/90">
-            <div
-              class="flex items-center gap-2 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1"
-            >
-              <Icon name="ph:calendar-duotone" class="h-4 w-4" />
-              <span>{{ formatDate(event.date.start) }}</span>
-            </div>
-            <div
-              class="flex items-center gap-2 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1"
-            >
-              <Icon name="ph:map-pin-duotone" class="h-4 w-4" />
-              <span>{{ event.location.name }}, {{ event.location.city }}</span>
-            </div>
+          <div class="flex items-center gap-2">
+            <Icon name="ph:map-pin" />
+            <span>{{ event.location.name }}, {{ event.location.city }}</span>
           </div>
         </div>
       </div>
 
-      <!-- Event Details -->
-      <div class="p-4 flex-1">
-        <p class="text-gray-600 line-clamp-2 mb-3">{{ event.description }}</p>
-        <div class="flex flex-wrap gap-2">
-          <Badge
-            v-for="tag in event.tags"
-            :key="tag"
-            variant="outline"
-            class="text-xs"
-          >
-            {{ tag }}
-          </Badge>
-        </div>
-      </div>
-
-      <!-- Card Footer -->
-      <div class="px-4 pb-4">
-        <PostActions
-          :stats="{
-            interested: event.stats?.interested || 0,
-            bookmarks: event.stats?.saves || 0,
-          }"
-          type="event"
-          @share="handleShare(event)"
-          @bookmark="handleBookmark(event)"
-        />
-        <Button
+      <!-- Top Badges -->
+      <div class="absolute top-4 left-4 flex gap-1">
+        <Badge
           variant="default"
-          class="w-full mt-3"
-          @click="handleBook(event)"
+          class="bg-white/90 backdrop-blur-sm text-black"
         >
-          Book Now
-        </Button>
+          {{ event.type }}
+        </Badge>
+        <Badge
+          variant="default"
+          class="bg-white/90 backdrop-blur-sm text-black"
+        >
+          {{ event.status }}
+        </Badge>
+      </div>
+
+      <!-- Price -->
+      <div class="absolute top-4 right-4">
+        <div
+          class="text-sm font-medium"
+          :class="!event.price ? 'text-green-500' : 'text-purple-500'"
+        >
+          {{
+            event.price
+              ? formatCurrency(event.price.amount, event.price.currency)
+              : "Free"
+          }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 p-4">
+      <p class="text-gray-600 text-sm line-clamp-2">{{ event.description }}</p>
+
+      <!-- Tags -->
+      <div class="mt-3 flex flex-wrap gap-2">
+        <Badge
+          v-for="tag in event.tags"
+          :key="tag"
+          variant="secondary"
+          class="text-xs"
+        >
+          {{ tag }}
+        </Badge>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="border-t border-gray-100 pt-2">
+      <div class="flex items-center justify-between px-4">
+        <div class="flex items-center gap-4">
+          <button class="hover:text-purple-600">
+            <Icon name="ph:heart" class="h-5 w-5" />
+          </button>
+          <button class="hover:text-purple-600">
+            <Icon name="ph:bookmark" class="h-5 w-5" />
+          </button>
+          <button class="hover:text-purple-600">
+            <Icon name="ph:share" class="h-5 w-5" />
+          </button>
+        </div>
+        <Button variant="default" @click="handleBook(event)"> Book Now </Button>
       </div>
     </div>
   </article>
