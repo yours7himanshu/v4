@@ -317,7 +317,7 @@ const loadMore = () => {
 <template>
   <div class="max-w-xl mx-auto">
     <div class="space-y-4">
-      <FeedCard v-for="post in filteredPosts" :key="post.id" :post="post" />
+      <Post v-for="post in filteredPosts" :key="post.id" :post="post" />
     </div>
 
     <div class="text-center mt-8">

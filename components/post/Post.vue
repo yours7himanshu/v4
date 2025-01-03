@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { Post } from "~/schemas/post";
-import PostNote from "./post/PostNote.vue";
-import PostArticle from "./post/PostArticle.vue";
-import PostEvent from "./post/PostEvent.vue";
-import PostMeet from "./post/PostMeet.vue";
-import PostReview from "./post/PostReview.vue";
-import PostGig from "./post/PostGig.vue";
-import PostAskLocals from "./post/PostAskLocals.vue";
-import PostAd from "./post/PostAd.vue";
+import PostNote from "./PostNote.vue";
+import PostArticle from "./PostArticle.vue";
+import PostEvent from "./PostEvent.vue";
+import PostMeet from "./PostMeet.vue";
+import PostReview from "./PostReview.vue";
+import PostGig from "./PostGig.vue";
+import PostAskLocals from "./PostAskLocals.vue";
+import PostAd from "./PostAd.vue";
 import { validateContent } from "~/utils/post";
 import { computed } from "vue";
 
@@ -20,14 +20,17 @@ const components = {
   PostGig,
   PostAskLocals,
   PostAd,
-};
+} as const;
 
 const props = defineProps<{
   post: Post;
 }>();
 
 const getComponentName = (type: Post["type"]) => {
-  return `Post${type.split("_").map(capitalize).join("")}`;
+  return `Post${type
+    .split("_")
+    .map(capitalize)
+    .join("")}` as keyof typeof components;
 };
 
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
