@@ -17,11 +17,15 @@ Points are a reward mechanism to encourage positive community contributions and 
 - Share Travel Plan: +2 points
 - Post Announcement: +2 points
 
+### Comments & Interactions
+
+- Comment upvoted: +1 point
+- Comment upvoted by post author: +3 points (considered as helpful answer)
+- Write a comment: +1 point
+
 ### Community Help
 
 - Share Local Info: +5 points
-- Answer marked as helpful: +3 points
-- Review verified by others: +2 points
 - Project contribution: +2 points
 - Event check-in confirmed: +1 point
 - Partner request accepted: +2 points
@@ -31,8 +35,6 @@ Points are a reward mechanism to encourage positive community contributions and 
 ### Engagement Quality
 
 - Content upvoted: +1 point
-- Comment upvoted: +1 point
-- Answer accepted as best: +5 points
 - Content featured by moderators: +10 points
 - Event successfully organized: +5 points
 - Review marked as helpful: +2 points

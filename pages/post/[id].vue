@@ -21,6 +21,7 @@ const post = computed(() => mockPosts.find((p) => p.id === id) as Post);
     </div>
 
     <Post v-if="post" :post="post" />
+    <PostComments v-if="post" />
     <div v-else class="text-center py-8">
       <p class="text-gray-500">Post not found</p>
     </div>
