@@ -24,10 +24,10 @@ defineProps({
 });
 
 const navigation = [
-  { label: "Feed", to: "/salsa", icon: "ph:newspaper" },
-  { label: "About", to: "/about", icon: "ph:info" },
-  { label: "Artists", to: "/artists", icon: "ph:star" },
-  { label: "Events", to: "/events", icon: "ph:calendar" },
+  { label: "Feed", to: "/dance/salsa", icon: "ph:newspaper" },
+  { label: "About", to: "/dance/salsa/about", icon: "ph:info" },
+  { label: "Artists", to: "/dance/salsa/artists", icon: "ph:star" },
+  { label: "Events", to: "/dance/salsa/events", icon: "ph:calendar" },
 ];
 </script>
 
@@ -109,7 +109,8 @@ const navigation = [
             :to="item.to"
             class="flex items-center gap-2 border-b-[3px] px-1 py-4 text-sm font-medium whitespace-nowrap -mb-[1px]"
             :class="[
-              $route.path === item.to || $route.path.includes(item.to)
+              $route.path === item.to ||
+              $route.path.endsWith(item.to.split('/').pop())
                 ? 'border-purple-600 text-purple-600'
                 : 'border-transparent text-gray-500 hover:text-gray-700',
             ]"
