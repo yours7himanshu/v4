@@ -17,25 +17,35 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div
-    class="bg-white rounded-lg border-0 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-all duration-200 overflow-hidden flex flex-col h-full"
+  <article
+    class="group bg-white rounded-lg border border-gray-100 hover:border-gray-200 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full"
   >
     <!-- Card Content Wrapper -->
     <div class="flex-1 flex flex-col">
       <!-- Card Header with Image -->
-      <div class="relative h-64 aspect-video">
+      <div class="relative h-64 overflow-hidden">
         <PostImage
           :src="event.image"
           :alt="event.name"
           :width="800"
           :height="400"
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
         />
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-        />
+        <!-- Type Badge -->
+        <div class="absolute top-4 left-4">
+          <Badge variant="secondary" class="capitalize">
+            {{ event.type }}
+          </Badge>
+        </div>
+        <!-- Price Tag -->
         <div class="absolute top-4 right-4">
-          <div class="bg-white/90 px-3 py-1 rounded-full text-sm font-medium">
+          <div
+            class="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium shadow-sm"
+            :class="{
+              'text-green-600': !event.price,
+              'text-purple-600': event.price,
+            }"
+          >
             {{
               event.price
                 ? formatCurrency(event.price.amount, event.price.currency)
@@ -43,15 +53,27 @@ const emit = defineEmits<{
             }}
           </div>
         </div>
+        <!-- Gradient Overlay -->
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"
+        />
+        <!-- Event Info -->
         <div class="absolute bottom-0 left-0 right-0 p-4">
-          <PostTitle :title="event.name" class="text-white drop-shadow" />
-          <div class="flex items-center gap-3 mt-2 text-sm text-white/90">
-            <div class="flex items-center gap-1">
-              <Icon name="ph:calendar" class="h-4 w-4" />
+          <PostTitle
+            :title="event.name"
+            class="text-white drop-shadow-sm mb-3"
+          />
+          <div class="flex items-center gap-4 text-sm text-white/90">
+            <div
+              class="flex items-center gap-2 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1"
+            >
+              <Icon name="ph:calendar-duotone" class="h-4 w-4" />
               <span>{{ formatDate(event.date.start) }}</span>
             </div>
-            <div class="flex items-center gap-1">
-              <Icon name="ph:map-pin" class="h-4 w-4" />
+            <div
+              class="flex items-center gap-2 bg-black/20 backdrop-blur-sm rounded-full px-3 py-1"
+            >
+              <Icon name="ph:map-pin-duotone" class="h-4 w-4" />
               <span>{{ event.location.name }}, {{ event.location.city }}</span>
             </div>
           </div>
@@ -60,19 +82,38 @@ const emit = defineEmits<{
 
       <!-- Event Details -->
       <div class="p-4 flex-1">
-        <p class="text-gray-600 line-clamp-2">{{ event.description }}</p>
+        <p class="text-gray-600 line-clamp-2 mb-3">{{ event.description }}</p>
+        <div class="flex flex-wrap gap-2">
+          <Badge
+            v-for="tag in event.tags"
+            :key="tag"
+            variant="outline"
+            class="text-xs"
+          >
+            {{ tag }}
+          </Badge>
+        </div>
       </div>
 
       <!-- Card Footer -->
-      <PostActions
-        :stats="{
-          interested: event.interested || 12,
-          bookmarks: event.saves || 0,
-        }"
-        type="event"
-        @share="$emit('share', event)"
-        @bookmark="$emit('bookmark', event)"
-      />
+      <div class="px-4 pb-4">
+        <PostActions
+          :stats="{
+            interested: event.interested || 12,
+            bookmarks: event.saves || 0,
+          }"
+          type="event"
+          @share="$emit('share', event)"
+          @bookmark="$emit('bookmark', event)"
+        />
+        <Button
+          variant="default"
+          class="w-full mt-3"
+          @click="$emit('book', event)"
+        >
+          Book Now
+        </Button>
+      </div>
     </div>
-  </div>
+  </article>
 </template>
