@@ -24,6 +24,5 @@ defineProps<{
         v-html="content.html"
       />
     </div>
-    <PostTags v-if="content.tags" :tags="content.tags" />
   </div>
 </template>

@@ -43,6 +43,7 @@ const getAsyncComponent = (type: Post["type"]) => {
         </template>
       </Suspense>
 
+      <PostTags v-if="post.content.tags" :tags="post.content.tags" />
       <PostActions :stats="post.stats" :type="post.type" />
     </ErrorBoundary>
   </div>

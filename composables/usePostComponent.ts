@@ -20,6 +20,8 @@ const components = {
     ),
   PostAd: () =>
     import("~/components/post/PostAd.vue").then((m) => markRaw(m.default)),
+  PostVideo: () =>
+    import("~/components/post/PostVideo.vue").then((m) => markRaw(m.default)),
   PostUnsupported: () =>
     import("~/components/post/PostUnsupported.vue").then((m) =>
       markRaw(m.default)

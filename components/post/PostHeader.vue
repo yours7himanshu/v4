@@ -26,7 +26,11 @@ defineProps<{
     </div>
     <div class="flex items-center gap-2">
       <div class="flex items-center gap-1 bg-purple-50 px-2 py-1 rounded-full">
-        <Icon :name="POST_TYPE_ICONS[type]" class="w-4 h-4 text-purple-600" />
+        <Icon
+          v-if="POST_TYPE_ICONS[type]"
+          :name="POST_TYPE_ICONS[type]"
+          class="w-4 h-4 text-purple-600"
+        />
         <span class="text-sm text-purple-600 capitalize">{{
           type.replace("_", " ")
         }}</span>

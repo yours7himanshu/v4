@@ -7,6 +7,7 @@ export const POST_TYPE_ICONS = {
   gig: "ph:briefcase",
   ask_locals: "ph:info",
   ad: "ph:storefront",
+  video: "ph:video-camera",
 } as const;
 
 export const POST_ACTIONS = {

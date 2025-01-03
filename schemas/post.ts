@@ -9,6 +9,7 @@ export const PostTypeSchema = z.enum([
   "gig",
   "ask_locals",
   "ad",
+  "video",
 ]);
 
 export const PostAuthorSchema = z.object({
@@ -121,6 +122,17 @@ export const AdContentSchema = z.object({
   tags: z.array(z.string()).optional(),
 });
 
+export const VideoContentSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  video: z.object({
+    url: z.string().url(),
+    thumbnail: z.string().url(),
+    duration: z.string(),
+  }),
+  tags: z.array(z.string()).optional(),
+});
+
 export const PostContentSchema = z.discriminatedUnion("type", [
   z.object({
     type: z.literal("note"),
@@ -154,6 +166,10 @@ export const PostContentSchema = z.discriminatedUnion("type", [
     type: z.literal("ad"),
     content: AdContentSchema,
   }),
+  z.object({
+    type: z.literal("video"),
+    content: VideoContentSchema,
+  }),
 ]);
 
 export const PostSchema = z.object({
@@ -182,3 +198,5 @@ export type PostAuthor = z.infer<typeof PostAuthorSchema>;
 
 export type Poll = z.infer<typeof PollSchema>;
 export type Link = z.infer<typeof LinkSchema>;
+
+export type VideoContent = z.infer<typeof VideoContentSchema>;

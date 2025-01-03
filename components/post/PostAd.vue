@@ -18,6 +18,5 @@ defineProps<{
       <PostTitle :title="content.title" />
       <p class="text-gray-600">{{ content.description }}</p>
     </div>
-    <PostTags v-if="content.tags" :tags="content.tags" />
   </div>
 </template>

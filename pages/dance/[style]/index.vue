@@ -78,6 +78,7 @@ const postTypeOptions = [
   { value: "review", label: "Reviews" },
   { value: "gig", label: "Gigs" },
   { value: "ask_locals", label: "Ask Locals" },
+  { value: "video", label: "Videos" },
 ];
 </script>
 
