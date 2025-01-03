@@ -8,7 +8,8 @@ const props = defineProps<{
 
 // Transform PostEvent content into AnyEvent format
 const eventData = computed<AnyEvent>(() => ({
-  type: "event",
+  id: crypto.randomUUID(),
+  type: "party",
   status: "upcoming", // You might want to compute this based on date
   name: props.content.title,
   description: props.content.description,
@@ -20,12 +21,25 @@ const eventData = computed<AnyEvent>(() => ({
   location: {
     name: props.content.location,
     city: "", // Add if available in your content
+    country: "", // Required by schema
   },
   price: props.content.price,
   tags: props.content.tags || [],
+  artists: [], // Required by schema
+  organizer: {
+    id: "", // Required by schema
+    name: "Unknown Organizer",
+    image: "",
+  },
+  schedule: [], // Required by schema
 }));
 </script>
 
 <template>
-  <EventCard :event="eventData" class="border-0 shadow-none" />
+  <div class="flex-1 flex flex-col">
+    <div class="px-4">
+      <p class="text-gray-600">{{ content.description }}</p>
+    </div>
+    <EventCard :event="eventData" class="m-4" />
+  </div>
 </template>

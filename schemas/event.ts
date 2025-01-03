@@ -119,7 +119,7 @@ export const eventToFeedPost = (event: AnyEvent): Post => ({
     },
     tags: event.tags,
   },
-  timestamp: new Date().toISOString(),
+  timestamp: "3 hours ago",
   stats: {
     interested: 0,
     comments: 0,

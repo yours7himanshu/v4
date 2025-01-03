@@ -80,36 +80,7 @@ export const mockPosts = [
       shares: 0,
     },
   },
-  {
-    id: 4,
-    type: "event",
-    author: {
-      id: "havana_club_1",
-      name: "Havana Club",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
-      location: "London",
-    },
-    timestamp: "1 day ago",
-    content: {
-      title: "Cuban Salsa Night with Live Band",
-      image:
-        "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=800&h=400&fit=crop",
-      description:
-        "Join us for a night of pure Cuban salsa! Live music by Son Cubano, pre-party workshop with Maria & Carlos, and social dancing until late.",
-      date: "Every Friday, 8 PM - 2 AM",
-      location: "Havana Club, 123 Soho St, London",
-      price: {
-        amount: 15,
-        currency: "GBP",
-      },
-      tags: ["Live Music", "Cuban Salsa", "Social Dancing"],
-    },
-    stats: {
-      interested: 89,
-      comments: 14,
-      shares: 0,
-    },
-  },
+  eventToFeedPost(mockEvents[2]),
   {
     id: 5,
     type: "article",

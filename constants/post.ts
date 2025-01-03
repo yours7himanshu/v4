@@ -11,7 +11,6 @@ export const POST_TYPE_ICONS = {
 
 export const POST_ACTIONS = {
   article: "Read More",
-  event: "Book Now",
   meet: "Send Request",
   review: "Rate",
   gig: "Apply",
