@@ -2,7 +2,7 @@
 
 ## Page Types
 
-### Dance Style Pages
+### Dance Style Pages (`/dance/[style]`)
 
 Style pages automatically aggregate and organize content for specific dance styles.
 
