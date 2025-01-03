@@ -116,10 +116,19 @@ defineProps({
             </div>
           </div>
         </div>
-        <div class="p-4 flex-1">
+        <div class="p-4 space-y-4 flex-1">
           <p class="text-gray-600 line-clamp-2">
             {{ post.content.description }}
           </p>
+          <div v-if="post.content.tags" class="flex flex-wrap gap-2">
+            <span
+              v-for="tag in post.content.tags"
+              :key="tag"
+              class="bg-purple-100 text-purple-600 text-sm px-3 py-1 rounded-full"
+            >
+              {{ tag }}
+            </span>
+          </div>
         </div>
       </div>
 

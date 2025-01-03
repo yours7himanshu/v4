@@ -84,6 +84,7 @@ const posts = ref([
       location: "Havana Club, Soho",
       date: "Every Friday",
       cta: "First-timers get a free welcome drink!",
+      tags: ["Social Dancing"],
     },
     stats: {
       interested: 89,
