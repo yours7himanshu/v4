@@ -7,16 +7,28 @@ const props = defineProps({
     type: String,
     default: "all",
   },
+  limit: {
+    type: Number,
+  },
 });
 
 const posts = ref(mockPosts);
 
 // Filter posts based on type
 const filteredPosts = computed(() => {
+  let postsToShow = posts.value;
+
   if (props.type === "all") {
-    return posts.value;
+    postsToShow = posts.value;
+  } else {
+    postsToShow = posts.value.filter((post) => post.type === props.type);
   }
-  return posts.value.filter((post) => post.type === props.type);
+
+  if (props.limit) {
+    postsToShow = postsToShow.slice(0, props.limit);
+  }
+
+  return postsToShow;
 });
 
 const loadMore = () => {

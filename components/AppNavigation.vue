@@ -21,14 +21,11 @@ const toggleMobileMenu = () => {
         </div>
         <!-- Desktop Navigation -->
         <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
-          <NuxtLink to="/cities" class="text-gray-700 hover:text-purple-600"
-            >Cities</NuxtLink
-          >
           <NuxtLink to="/events" class="text-gray-700 hover:text-purple-600"
             >Events</NuxtLink
           >
-          <NuxtLink to="/teachers" class="text-gray-700 hover:text-purple-600"
-            >Teachers</NuxtLink
+          <NuxtLink to="/artists" class="text-gray-700 hover:text-purple-600"
+            >Artists</NuxtLink
           >
           <NuxtLink to="/venues" class="text-gray-700 hover:text-purple-600"
             >Venues</NuxtLink
