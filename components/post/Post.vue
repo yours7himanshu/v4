@@ -23,6 +23,17 @@ const getAsyncComponent = (type: Post["type"]) => {
     errorComponent: ErrorBoundary,
   });
 };
+
+const router = useRouter();
+
+function openModal(event: MouseEvent) {
+  if (event.metaKey || event.ctrlKey) {
+    return;
+  }
+
+  event.preventDefault();
+  history.replaceState({}, "", `/post/${props.post.id}`);
+}
 </script>
 
 <template>
@@ -34,23 +45,30 @@ const getAsyncComponent = (type: Post["type"]) => {
         :type="post.type"
       />
 
-      <component
-        :is="!standalone ? NuxtLink : 'div'"
-        :to="!standalone ? `/post/${post.id}` : undefined"
-        class="block"
-      >
-        <Suspense>
-          <template #default>
+      <Suspense>
+        <template #default>
+          <a
+            v-if="!standalone"
+            :href="`/post/${post.id}`"
+            @click="openModal"
+            class="block"
+          >
             <component
               :is="getAsyncComponent(post.type)"
               :content="post.content"
             />
-          </template>
-          <template #fallback>
-            <PostSkeleton />
-          </template>
-        </Suspense>
-      </component>
+          </a>
+          <div v-else class="block">
+            <component
+              :is="getAsyncComponent(post.type)"
+              :content="post.content"
+            />
+          </div>
+        </template>
+        <template #fallback>
+          <PostSkeleton />
+        </template>
+      </Suspense>
 
       <PostTags v-if="post.content.tags" :tags="post.content.tags" />
       <PostActions :stats="post.stats" :type="post.type" />
