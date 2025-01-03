@@ -16,6 +16,34 @@ const danceStyles = computed(() => {
     style.name.toLowerCase().includes(query)
   )
 })
+
+// Featured events data
+const featuredEvents = [
+  {
+    id: 1,
+    name: 'Summer Salsa Festival',
+    date: 'Aug 15-17, 2024',
+    location: 'Miami, FL',
+    price: '$99',
+    image: 'https://images.unsplash.com/photo-1545959570-a94084071b5d?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 2,
+    name: 'Bachata Masters Workshop',
+    date: 'Sep 5, 2024',
+    location: 'New York, NY',
+    price: '$49',
+    image: 'https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    id: 3,
+    name: 'Latin Dance Congress',
+    date: 'Oct 1-3, 2024',
+    location: 'Los Angeles, CA',
+    price: '$149',
+    image: 'https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80'
+  }
+]
 </script>
 
 <template>
@@ -286,17 +314,288 @@ const danceStyles = computed(() => {
     </div>
   </section>
 
-  <!-- Call to Action -->
-  <section class="py-16 bg-gradient-to-br from-purple-600 to-purple-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-3xl font-bold text-white mb-6">Ready to join the community?</h2>
-      <Button size="lg" variant="secondary" as-child>
-        <NuxtLink to="/register" class="flex items-center gap-2">
-          Get Started
-          <Icon name="ph:arrow-right" class="w-5 h-5" />
-        </NuxtLink>
-      </Button>
+  <!-- How it Works -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-4">How WeDance Works</h2>
+        <p class="text-xl text-gray-600">Your journey in the dance community starts here</p>
+      </div>
+
+      <div class="relative">
+        <!-- Connection Line (Desktop) -->
+        <div class="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-100 via-purple-500 to-purple-100"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 relative">
+          <!-- Step 1 -->
+          <div class="relative">
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110">
+                <Icon name="ph:user-plus" class="w-10 h-10 text-white" />
+              </div>
+              <div class="text-center">
+                <div class="text-purple-600 font-medium mb-2">Step 1</div>
+                <h3 class="text-xl font-bold mb-3">Create Profile</h3>
+                <p class="text-gray-600">Share your dance journey and preferences to connect with like-minded dancers</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="relative">
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110">
+                <Icon name="ph:compass" class="w-10 h-10 text-white" />
+              </div>
+              <div class="text-center">
+                <div class="text-purple-600 font-medium mb-2">Step 2</div>
+                <h3 class="text-xl font-bold mb-3">Discover</h3>
+                <p class="text-gray-600">Find local events, dance partners, and artists that match your interests</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="relative">
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110">
+                <Icon name="ph:handshake" class="w-10 h-10 text-white" />
+              </div>
+              <div class="text-center">
+                <div class="text-purple-600 font-medium mb-2">Step 3</div>
+                <h3 class="text-xl font-bold mb-3">Connect</h3>
+                <p class="text-gray-600">Join dance communities, attend events, and make new friends</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="relative">
+            <div class="flex flex-col items-center">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110">
+                <Icon name="ph:star" class="w-10 h-10 text-white" />
+              </div>
+              <div class="text-center">
+                <div class="text-purple-600 font-medium mb-2">Step 4</div>
+                <h3 class="text-xl font-bold mb-3">Grow</h3>
+                <p class="text-gray-600">Improve your skills, share experiences, and become part of the community</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Featured Events -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between mb-12">
+        <div>
+          <h2 class="text-3xl font-bold">Featured Events</h2>
+          <p class="text-gray-600 mt-2">Don't miss these upcoming highlights</p>
+        </div>
+        <Button variant="outline" as-child>
+          <NuxtLink to="/events" class="flex items-center gap-2">
+            View All Events
+            <Icon name="ph:arrow-right" class="w-4 h-4" />
+          </NuxtLink>
+        </Button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div v-for="event in featuredEvents" :key="event.id" class="group bg-white rounded-xl shadow-sm overflow-hidden hover:shadow-md transition-shadow">
+          <div class="aspect-[16/9] bg-purple-100 relative overflow-hidden">
+            <img :src="event.image" :alt="event.name" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 text-white">
+              <div class="text-sm font-medium mb-1">{{ event.date }}</div>
+              <div class="font-bold truncate">{{ event.name }}</div>
+            </div>
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-2 text-sm text-gray-600 mb-2">
+              <Icon name="ph:map-pin" class="w-4 h-4" />
+              {{ event.location }}
+            </div>
+            <div class="flex items-center gap-2 text-sm text-gray-600">
+              <Icon name="ph:ticket" class="w-4 h-4" />
+              From {{ event.price }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enhanced CTA -->
+  <section class="py-24 bg-gradient-to-br from-purple-600 to-purple-900 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="text-center md:text-left">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Ready to join the community?</h2>
+          <p class="text-xl text-white/80 mb-8 max-w-lg">Start your dance journey today and connect with dancers worldwide</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+            <Button size="lg" variant="secondary" class="text-lg px-8" as-child>
+              <NuxtLink to="/register" class="flex items-center justify-center gap-2">
+                Get Started
+                <Icon name="ph:arrow-right" class="w-5 h-5" />
+              </NuxtLink>
+            </Button>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <div class="grid grid-cols-2 gap-4 relative">
+            <div class="space-y-4">
+              <div class="bg-white/10 backdrop-blur rounded-xl p-6 transform hover:-translate-y-1 transition-transform">
+                <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="ph:users-three" class="w-5 h-5 text-white" />
+                </div>
+                <div class="font-semibold text-white text-lg mb-1">For Dancers</div>
+                <p class="text-white/80">Find events & partners near you</p>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-xl p-6 transform hover:-translate-y-1 transition-transform">
+                <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="ph:microphone-stage" class="w-5 h-5 text-white" />
+                </div>
+                <div class="font-semibold text-white text-lg mb-1">For Artists</div>
+                <p class="text-white/80">Grow your audience & business</p>
+              </div>
+            </div>
+            <div class="space-y-4 mt-8">
+              <div class="bg-white/10 backdrop-blur rounded-xl p-6 transform hover:-translate-y-1 transition-transform">
+                <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="ph:buildings" class="w-5 h-5 text-white" />
+                </div>
+                <div class="font-semibold text-white text-lg mb-1">For Organizers</div>
+                <p class="text-white/80">Create & promote events easily</p>
+              </div>
+              <div class="bg-white/10 backdrop-blur rounded-xl p-6 transform hover:-translate-y-1 transition-transform">
+                <div class="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center mb-3">
+                  <Icon name="ph:users" class="w-5 h-5 text-white" />
+                </div>
+                <div class="font-semibold text-white text-lg mb-1">For Communities</div>
+                <p class="text-white/80">Connect & grow together</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300">
+    <!-- Main Footer -->
+    <div class="py-12 border-b border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <!-- Company -->
+          <div>
+            <h3 class="text-white font-semibold mb-4">Company</h3>
+            <ul class="space-y-2">
+              <li>
+                <NuxtLink to="/about" class="hover:text-white transition-colors">About</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/careers" class="hover:text-white transition-colors">Careers</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/blog" class="hover:text-white transition-colors">Blog</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/press" class="hover:text-white transition-colors">Press</NuxtLink>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Community -->
+          <div>
+            <h3 class="text-white font-semibold mb-4">Community</h3>
+            <ul class="space-y-2">
+              <li>
+                <NuxtLink to="/events" class="hover:text-white transition-colors">Events</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/artists" class="hover:text-white transition-colors">Artists</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/cities" class="hover:text-white transition-colors">Cities</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/styles" class="hover:text-white transition-colors">Dance Styles</NuxtLink>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <h3 class="text-white font-semibold mb-4">Support</h3>
+            <ul class="space-y-2">
+              <li>
+                <NuxtLink to="/help" class="hover:text-white transition-colors">Help Center</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/safety" class="hover:text-white transition-colors">Safety Center</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/community-guidelines" class="hover:text-white transition-colors">Community Guidelines</NuxtLink>
+              </li>
+              <li>
+                <NuxtLink to="/contact" class="hover:text-white transition-colors">Contact Us</NuxtLink>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Connect -->
+          <div>
+            <h3 class="text-white font-semibold mb-4">Connect</h3>
+            <div class="flex gap-4">
+              <a href="https://twitter.com/wedanceorg" target="_blank" rel="noopener" class="hover:text-white transition-colors">
+                <Icon name="ph:twitter-logo" class="w-6 h-6" />
+              </a>
+              <a href="https://instagram.com/wedanceorg" target="_blank" rel="noopener" class="hover:text-white transition-colors">
+                <Icon name="ph:instagram-logo" class="w-6 h-6" />
+              </a>
+              <a href="https://facebook.com/wedanceorg" target="_blank" rel="noopener" class="hover:text-white transition-colors">
+                <Icon name="ph:facebook-logo" class="w-6 h-6" />
+              </a>
+              <a href="https://youtube.com/wedanceorg" target="_blank" rel="noopener" class="hover:text-white transition-colors">
+                <Icon name="ph:youtube-logo" class="w-6 h-6" />
+              </a>
+            </div>
+            <div class="mt-4">
+              <Button variant="outline" class="border-white/20 hover:border-white/40 bg-white/5 hover:bg-black/10 hover:text-white" size="sm" as-child>
+                <a href="mailto:hello@wedance.vip" class="flex items-center gap-2">
+                  <Icon name="ph:envelope" class="w-4 h-4" />
+                  hello@wedance.vip
+                </a>
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Footer -->
+    <div class="py-6">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="md:flex md:items-center md:justify-between">
+          <div class="flex items-center gap-4">
+            <NuxtLink to="/" class="text-white font-bold text-xl">WeDance</NuxtLink>
+            <span class="text-sm">© 2024 WeDance. All rights reserved.</span>
+          </div>
+          <div class="mt-4 md:mt-0">
+            <div class="flex gap-6 text-sm">
+              <NuxtLink to="/terms" class="hover:text-white transition-colors">Terms</NuxtLink>
+              <NuxtLink to="/privacy" class="hover:text-white transition-colors">Privacy</NuxtLink>
+              <NuxtLink to="/cookies" class="hover:text-white transition-colors">Cookies</NuxtLink>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
