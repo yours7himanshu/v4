@@ -1,401 +1,232 @@
-# Events
+# Event System Architecture
 
-WeDance presents events to help users discover, share, and manage dance events effectively. Let's explore how different presentations serve specific user needs.
+This document describes the technical architecture of the event system.
 
-## Event Card
+## Data Models
 
-**Purpose**: Enable quick event discovery and decision-making.
+### Event Model
+- Core event data
+- Recurrence patterns
+- Pricing structures
+- Metadata schema
+- Relationship mappings
 
-**Key Features**:
-- Visual hierarchy emphasizing date, price, and type
-- Clear status indicators (Sold Out, Few Tickets Left, etc.)
-- Social proof (attending friends, total attendees)
-- Quick actions (Save, Share, Register)
-- Location distance from user
-- Price comparison with similar events
+### Event Types
+- Type definitions
+- Type-specific fields
+- Validation rules
+- Default values
 
-## Event Post
+### Event Series
+- Series relationships
+- Exception handling
+- Pattern definitions
+- Series-level metadata
 
-**Purpose**: Facilitate community discussion and social proof.
+## Components
 
-**Key Features**:
-- Community endorsements and reviews
-- Personal recommendations
-- Experience sharing
-- Partner finding
-- Carpooling coordination
-- Group discounts
+### Event Card (EventCard.vue)
+- Data requirements
+- State management
+- Prop interface
+- Event handling
 
-## Event Page
+### Event Post (PostEvent.vue)
+- Integration with post system
+- Social features
+- Engagement tracking
+- State synchronization
 
-**Purpose**: Provide comprehensive information and enable conversion.
+### Event Page
+- Dynamic sections
+- Data loading
+- State management
+- Route handling
 
-**Key Features**:
-- Sticky call-to-action for registration
-- Dynamic pricing (Early Bird, Group Rates)
-- Clear cancellation policies
-- Prerequisites and skill levels
-- Related events
-- Similar past events with reviews
-- Organizer reputation score
-- Venue accessibility information
-- Nearby accommodation options
+## Cross-Context System
 
-## Creation Flows
+### Context Management
+- Context detection
+- State persistence
+- Navigation handling
+- Data prefetching
 
-### Quick Share (for Community)
-- Share existing events in one click
-- Add personal note or recommendation
-- Tag relevant friends or groups
+### Context Types
+1. **Feed Context**
+   - Post integration
+   - Feed algorithms
+   - Engagement tracking
+   - Distribution rules
 
-### Full Event (for Organizers)
-- Structured form with smart defaults
-- Template selection based on event type
-- Pricing strategy recommendations
-- Automatic translation support
-- SEO optimization tools
-- Promotion planning
+2. **Discovery Context**
+   - Search indexing
+   - Filter system
+   - Sort algorithms
+   - View preferences
 
-## UX Principles
+3. **Profile Context**
+   - Role-based views
+   - History tracking
+   - Relationship mapping
+   - Permission system
 
-1. **Contextual Intelligence**
-   - Show relevant info based on user location
-   - Adapt to user preferences and history
-   - Surface timely notifications (price drops, deadline reminders)
+4. **Geographic Context**
+   - Location services
+   - Distance calculation
+   - Area clustering
+   - Map integration
 
-2. **Trust Building**
-   - Highlight verified organizers
-   - Show event history
-   - Display authentic reviews
-   - Transparent pricing
+5. **Style Context**
+   - Style categorization
+   - Level mapping
+   - Community features
+   - Content filtering
 
-3. **Mobile-First Actions**
-   - One-tap registration
-   - Easy sharing to dance groups
-   - Quick calendar sync
-   - Mobile payment integration
+### Context Switching
+- State preservation
+- Deep linking
+- History management
+- Cache handling
 
-4. **Community Engagement**
-   - Partner matching
-   - Group coordination
-   - Social sharing incentives
-   - Community Q&A
+### Cross-Context Features
+1. **Recurring Events**
+   - Pattern recognition
+   - Instance management
+   - Series grouping
+   - Exception handling
 
-## Technical Considerations
+2. **Navigation System**
+   - Context routing
+   - State management
+   - Link generation
+   - History tracking
 
-1. **Performance**
-   - Lazy loading for event lists
-   - Image optimization
-   - Offline support for saved events
-   - Real-time updates for changes
+3. **Filter System**
+   - Context-specific filters
+   - Filter persistence
+   - Sort algorithms
+   - Search integration
 
-2. **Accessibility**
-   - Screen reader optimization
-   - Keyboard navigation
-   - High contrast mode
-   - Clear error states
+## Technical Systems
 
-3. **Data Structure**
-   - Flexible schema for various event types
-   - Rich metadata for search
-   - Structured data for SEO
-   - Analytics tracking
+### Performance
+- Lazy loading implementation
+- Image optimization
+- Caching strategy
+- Real-time updates
 
-4. **Integration**
-   - Calendar APIs
-   - Payment providers
-   - Maps services
-   - Social platforms
+### Search & Discovery
+- Index structure
+- Search algorithms
+- Filtering system
+- Ranking factors
 
-## Feed Visibility & Distribution
+### Feed Integration
+- Distribution system
+- Visibility rules
+- Ranking algorithms
+- Update propagation
 
-### When Events Appear
+### Analytics
+- Event tracking
+- Performance metrics
+- User engagement
+- Conversion tracking
 
-1. **Immediate Appearance**
-   - When shared directly to feed by organizer or community member
-   - When boosted/promoted by organizers
-   - When reshared by community members
+## External Integrations
 
-2. **Algorithmic Distribution**
-   - Based on user's location preferences
-   - According to followed styles/interests
-   - Matching user's skill level
-   - Within relevant time window (usually next 3 months)
+### Calendar Systems
+- iCal generation
+- Calendar API integration
+- Sync protocols
+- Update handling
 
-3. **Contextual Triggers**
-   - When friends RSVP to event
-   - When similar events are selling out
-   - During early bird periods
-   - When price changes occur
-   - For last-minute ticket availability
+### Payment Systems
+- Provider integration
+- Transaction handling
+- Refund processing
+- Payment hooks
 
-### Feed Ranking Factors
+### Maps Services
+- Location validation
+- Distance calculation
+- Map rendering
+- Geocoding
 
+### Social Platforms
+- Share mechanisms
+- Social graph integration
+- Cross-posting
+- Engagement tracking
+
+## Feed System
+
+### Distribution Engine
+1. **Event Publication**
+   - Initial feed entry creation
+   - Automatic post generation
+   - Multi-feed distribution
+   - Visibility rules
+
+2. **Feed Types**
+   - Main feed (mixed content)
+   - Events-only listings
+   - Geographic feeds
+   - Style-specific feeds
+   - Profile-based feeds
+
+### Ranking System
 1. **Relevance Signals**
-   - Distance from user's preferred locations
-   - Match with user's dance styles
-   - Price range alignment
-   - Skill level compatibility
-   - Language preferences
+   - Location proximity
+   - Style matching
+   - Price alignment
+   - Level compatibility
+   - Language matching
 
 2. **Social Signals**
-   - Friends attending
+   - Friend attendance
    - Total RSVPs
-   - Community engagement (comments, shares)
+   - Engagement metrics
    - Organizer reputation
-   - Past attendance at similar events
+   - Historical attendance
 
-3. **Quality Signals**
-   - Event completeness score
-   - Image quality
-   - Description clarity
-   - Pricing transparency
+3. **Quality Metrics**
+   - Content completeness
+   - Image quality score
+   - Description quality
+   - Price transparency
    - Venue verification
 
 4. **Temporal Factors**
-   - Time until event
-   - Registration deadlines
-   - Early bird periods
-   - Recent updates
-   - Real-time availability
+   - Time to event
+   - Deadline proximity
+   - Pricing periods
+   - Update recency
+   - Availability status
 
-### Feed Types
+### Visibility Control
+1. **Organizer Controls**
+   - Visibility levels
+   - Audience targeting
+   - Timing controls
+   - Distribution scope
 
-1. **Main Feed**
-   - Personalized mix of events
-   - Social interactions
-   - Community discussions
-   - Priority for followed organizers
+2. **User Controls**
+   - Content preferences
+   - Filter persistence
+   - Notification settings
+   - Mute/hide options
 
-2. **Events-Only Feed**
-   - Pure event listings
-   - Advanced filtering options
-   - Map view available
-   - Calendar integration
+### Trigger System
+1. **Automatic Triggers**
+   - Friend RSVPs
+   - Availability changes
+   - Price updates
+   - Deadline approaches
+   - Related events
 
-3. **City/Local Feed**
-   - Geographically focused
-   - Local community emphasis
-   - Nearby venues
-   - Local organizers
-
-4. **Style-Specific Feeds**
-   - Dance style filtered
-   - Level-appropriate content
-   - Style-specific community
-   - Relevant workshops/courses
-
-### Visibility Controls
-
-1. **For Organizers**
-   - Boost event visibility
-   - Target specific audiences
-   - Schedule announcement timing
-   - Control sharing permissions
-
-2. **For Users**
-   - Hide/mute specific events
-   - Customize feed preferences
-   - Save searches/filters
-   - Set notification preferences
-
-### Event Creation & Publishing
-
-### Creation Path
-- Single unified form for all event creation
-- Progressive form that adapts to event complexity:
-  - Start with essentials (title, date, location)
-  - Expand to optional details (pricing, schedule, etc.)
-- Available to all verified users
-
-### Publishing Flow
-1. **Create Event**
-   - Fill required fields
-   - Add optional details
-   - Upload images
-   - Set pricing (if applicable)
-
-2. **Review & Publish**
-   - Preview event presentation
-   - Choose publishing timing:
-     - Publish now
-     - Schedule for later
-     - Save as draft
-   
-3. **Distribution**
-   - Events automatically appear in all relevant feeds:
-     - Main feed
-     - Events-only listings
-     - City/local feeds
-     - Style-specific feeds
-   - Visibility based on relevance to users
-
-4. **Post-Publishing**
-   - Share to specific communities
-   - Add personal notes when sharing
-   - Edit event details
-   - Manage registrations
-   - Track analytics
-
-### Maximizing Event Reach
-1. **Timing**
-   - Publish major events 2-3 months ahead
-   - Use early bird pricing
-   - Schedule reminder posts
-
-2. **Quality**
-   - Complete all recommended fields
-   - Add high-quality images
-   - Verify venue information
-   - Tag relevant styles and levels
-
-3. **Engagement**
-   - Respond to comments and questions
-   - Update with latest information
-   - Engage with interested attendees
-
-## Event Outcomes
-
-Events appear in different contexts, each serving specific user needs:
-
-### 1. Feed Presentation (PostEvent.vue)
-- **Purpose**: Social discovery and engagement
-- **Context**: Main feed, style feeds, city feeds
-- **Features**:
-  - Single social post per event
-  - Community discussion in comments
-  - Ability to boost (share with note)
-  - All engagement stays on original post
-
-### 2. Discovery View (EventCard.vue)
-- **Purpose**: Event browsing and booking
-- **Context**: Event listings, search results
-- **Features**:
-  - Quick event details
-  - Clear call-to-action
-  - Booking/registration focus
-  - Compact information display
-
-### 3. Profile Context
-- **Venue Profiles**:
-  - Regular schedule display
-  - Upcoming events
-  - Event history
-  - Venue-specific filtering
-
-- **Artist Profiles**:
-  - Teaching schedule
-  - Performance dates
-  - Workshop calendar
-  - Role-specific presentation
-
-- **Organizer Profiles**:
-  - Event series grouping
-  - Upcoming events
-  - Past events archive
-  - Organization patterns
-
-- **Dancer Profiles**:
-  - Attending events
-  - Past participation
-  - Saved events
-  - Interest indicators
-
-### 4. Geographic Context
-- **City Pages**:
-  - Local event focus
-  - Venue relationships
-  - Community context
-  - Location-based filtering
-
-### 5. Style Context
-- **Style Communities** (e.g., /salsa):
-  - Style-specific feed
-  - Mixed content types
-  - Community engagement
-  - Quick filtering
-
-- **Style Events** (e.g., /salsa/events):
-  - Style-focused discovery
-  - Level-based filtering
-  - Type categorization
-  - Style-specific features
-
-### Cross-Context Behavior
-1. **Recurring Events**:
-   - Next occurrence in feed
-   - Full schedule in venue view
-   - Series grouping in discovery
-   - Pattern display in organizer profile
-
-2. **Navigation**:
-   - Context-aware linking
-   - Related event discovery
-   - Profile exploration
-   - Series navigation
-
-3. **Filtering**:
-   - Context-specific options
-   - Relevant sort orders
-   - Appropriate grouping
-   - Local preferences
-
-## Publishing Behavior
-
-When an organizer publishes an event:
-
-1. **Automatic Distribution**
-   - Event appears in relevant event listings
-   - ONE social post is automatically created
-   - Post appears in relevant feeds based on:
-     - Style tags
-     - Location
-     - Organizer followers
-
-2. **Publishing Options**
-   - "Publish" - Full visibility immediately
-   - "Publish Quietly" - Only in event listings, no social post
-   - "Schedule Publishing" - Set future date for visibility
-
-3. **Update Propagation**
-   - Event detail updates reflect everywhere
-   - Price/date changes trigger notifications
-   - Updates can optionally create feed notifications
-   - Edit history maintained for transparency
-
-## Event Series & Recurring Events
-
-1. **Creation**
-   - Create series template
-   - Set recurrence pattern:
-     - Weekly/Monthly schedule
-     - Custom patterns
-     - Exception dates
-   - Manage series as unit or individual events
-
-2. **Presentation**
-   - **In Feed**: 
-     - Show next occurrence
-     - Indicate recurrence pattern
-     - Link to full series
-   
-   - **In Discovery**:
-     - Group series together
-     - Show pattern overview
-     - Allow expanding full schedule
-   
-   - **In Venue Profile**:
-     - Display full schedule
-     - Show pattern clearly
-     - Highlight next occurrence
-   
-   - **In Organizer Profile**:
-     - Group by series
-     - Show series stats
-     - Series management tools
-
-3. **Management**
-   - Update entire series or single occurrence
-   - Handle exception dates
-   - Cancel/modify individual dates
-   - Series-level analytics
+2. **Manual Triggers**
+   - Direct shares
+   - Promotions
+   - Reshares
+   - Updates
