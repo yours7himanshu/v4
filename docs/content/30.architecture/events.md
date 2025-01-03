@@ -2,33 +2,6 @@
 
 WeDance presents events to help users discover, share, and manage dance events effectively. Let's explore how different presentations serve specific user needs.
 
-## Core User Jobs (JTBD)
-
-1. **Discovery**
-   - Find relevant dance events nearby
-   - Explore events while traveling
-   - Discover new dance styles and teachers
-   - Get personalized event recommendations
-
-2. **Decision Making**
-   - Compare event options
-   - Check event details and requirements
-   - Verify event legitimacy and quality
-   - Assess if the event matches skill level
-
-3. **Planning & Booking**
-   - Register for events
-   - Purchase tickets
-   - Find dance partners
-   - Coordinate with friends
-   - Plan travel and accommodation
-
-4. **Organizing**
-   - Create and publish events
-   - Manage registrations
-   - Communicate with attendees
-   - Track attendance and revenue
-
 ## Event Card
 
 **Purpose**: Enable quick event discovery and decision-making.
