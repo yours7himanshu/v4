@@ -2,33 +2,27 @@
 
 All posts have likes, bookmarks and share.
 
-| Post Type     | Comments | Primary Action |
-| ------------- | -------- | -------------- |
-| Articles      | ✓        | Read More      |
-| Events        | ✓        | Book Now       |
-| Videos        | ✓        | -              |
-| Discussions   | ✓        | -              |
-| Find Partner  | -        | Send Request   |
-| Ask Locals    | -        | Share Info     |
-| Reviews       | ✓        | Rate           |
-| Projects      | -        | Join Project   |
-| Travel        | -        | Send Request   |
-| Announcements | -        | -              |
-| Polls         | -        | -              |
-| Gigs          | -        | Apply          |
-| Ads           | -        | Contact        |
+| Post Type   | Comments | Primary Action |
+| ----------- | -------- | -------------- |
+| Articles    | ✓        | Read More      |
+| Events      | ✓        | Book Now       |
+| Videos      | ✓        | -              |
+| Discussions | ✓        | -              |
+| Meet        | -        | Join           |
+| Ask Locals  | -        | Share Info     |
+| Reviews     | ✓        | Rate           |
+| Gigs        | -        | Apply          |
+| Ads         | -        | Contact        |
 
 ## Articles
 
 - Objective: Share structured, long-form knowledge and experiences
-- Original Content: Write your own articles
 - Examples:
   - Dance technique tutorials
   - Event reviews and recaps
   - Dance history pieces
   - Style guides
   - Training tips
-  - Interesting articles from other sites
 - Engagement Features:
   - Like: Shows appreciation for shared content
   - Bookmark: Save tips and advice for later
@@ -37,11 +31,33 @@ All posts have likes, bookmarks and share.
 - Primary Action:
   - Read More: Direct action to read the article
 - Creation via:
-  - "Write Article" (`ph:article-medium`): Original long-form content
+  - "Write" (`ph:article-medium`): Share articles, tips, and experiences
+
+## Videos
+
+- Objective: Provide educational content and showcase dance performances to inspire and teach
+- Types:
+  - Tutorial snippets
+  - Performance videos
+  - Tips and demos
+  - Workshop recordings
+- Engagement Features:
+  - Like: Appreciates tutorial content
+  - Bookmark: Save tutorials to watch later
+  - Comments: Ask questions about the tutorial
+  - Share: Share tutorials with dance partners
+- Creation via:
+  - "Video" (`ph:youtube-logo`): Share dance videos and tutorials
 
 ## Events
 
-- Objective: Connect dancers with local and international dance events, classes, and workshops
+- Objective: Connect dancers with local and international dance events
+- Details to include:
+  - Date and time
+  - Location
+  - Type (social, workshop, festival)
+  - Price
+  - Description
 - Engagement Features:
   - Like: Shows interest in attending
   - Bookmark: Save events to attend later
@@ -50,31 +66,7 @@ All posts have likes, bookmarks and share.
 - Primary Action:
   - Book Now: Direct action to purchase tickets or register
 - Creation via:
-  - "Create Event" (`ph:calendar-plus`): Classes, socials, festivals
-- [See Event Types](./event-types.md)
-
-## Videos
-
-- Objective: Provide educational content and showcase dance performances to inspire and teach
-- Types:
-  - Free Content:
-    - Tutorial snippets
-    - Performance videos
-    - Tips and demos
-  - Premium Content:
-    - Full course videos
-    - Workshop recordings
-    - Training programs
-    - Technique series
-- Engagement Features:
-  - Like: Appreciates tutorial content
-  - Bookmark: Save tutorials to watch later
-  - Comments: Ask questions about the tutorial
-  - Share: Share tutorials with dance partners
-- Creation via:
-  - "Share Tutorial" (`ph:video-camera`): Free tutorials and demos
-  - "Share Inspiration" (`ph:sparkle`): Performance videos
-  - "Create Course" (`ph:graduation-cap`): Premium video content
+  - "Event" (`ph:calendar-plus`): Create dance events, workshops, or socials
 
 ## Discussions
 
@@ -89,27 +81,58 @@ All posts have likes, bookmarks and share.
   - Practice tips requests
   - Equipment advice
   - Community polls
-  - Interesting videos/posts from social media
+  - Interesting posts from social media
 - Engagement Features:
   - Like: Shows agreement or support
   - Bookmark: Save to answer later
   - Share: Get more responses
   - Comments: Discuss and add to the conversation
 - Creation via:
-  - "Start Discussion" (`ph:chats`): Community conversations
+  - "Discussion" (`ph:chats`): Start conversations and polls
 
-## Find Partner
+## Meet
 
-- Objective: Find a practice or dance partner
+- Objective: Connect dancers for social activities, practice, or travel
+- Types:
+  - Social Meetup: Find company for parties or social dancing
+  - Practice Group: Form or join practice groups
+  - Travel Buddy: Share travel and accommodation for events
+  - Local Guide: Show visitors around the dance scene
+- Formats:
+  - Individual: One-on-one connections
+  - Group: Form or join groups (e.g., girls group for parties)
+  - Open Invite: Welcome anyone matching preferences
+- Details to include:
+  - Activity type (social, practice, travel)
+  - Individual/Group preference
+  - Gender preference (for safety/comfort)
+  - Local/Traveler status
+  - Temporal context:
+    - One-time (e.g., tonight's party)
+    - Event-specific (e.g., festival weekend)
+    - Regular (e.g., weekly practice)
+  - Dance styles and level
+  - Location or event
+  - Group size (min/max if applicable)
+  - Schedule/Availability
+  - For travel:
+    - Event details
+    - Travel dates
+    - Accommodation sharing
+- Safety Features:
+  - Verified profiles
+  - Gender filters
+  - Group settings
+  - Public meetup locations
 - Engagement Features:
-  - Like: Shows interest in partnering
-  - Bookmark: Save potential partners
-  - Share: Reach more potential partners
-  - Comments: Not available - responses are handled through the primary "Respond" action
+  - Like: Shows interest
+  - Bookmark: Save for later
+  - Share: Reach more people
+  - Group chat (once connected)
 - Primary Action:
-  - Send Request: Direct action to express interest in partnering
+  - Join: Express interest in meeting
 - Creation via:
-  - "Find Partner" (`ph:users`): Practice or dance partner search
+  - "Meet" (`ph:users`): Create social connections in the dance community
 
 ## Ask Locals
 
@@ -138,7 +161,7 @@ All posts have likes, bookmarks and share.
 - Primary Action:
   - Share Info: Share verified local information sources and venue details
 - Creation via:
-  - "Ask Locals" (`ph:users`): Ask locals for recommendations and advice
+  - "Ask Locals" (`ph:info`): Get information about local dance scenes
 - Information Flow:
   - Locals share WhatsApp groups and Instagram accounts
   - Venues are identified through local knowledge
@@ -148,118 +171,60 @@ All posts have likes, bookmarks and share.
 
 ## Reviews
 
-- Venue and event reviews
-- Objective: Help dancers make informed decisions about venues, events, and instructors
+- Objective: Help dancers make informed decisions
+- What to review:
+  - Dance venues
+  - Event organizers
+  - Instructors/performers
 - Engagement Features:
   - Like: Agrees with the review
-  - Bookmark: Save venue recommendations
-  - Comments: Share experiences or ask questions about the venue
-  - Share: Spread venue recommendations
-- Creation via:
-  - "Review Venue" (`ph:map-pin`): Dance venue experiences
-  - "Review Host" (`ph:user-circle`): Event organizer feedback
-  - "Review Artist" (`ph:star`): Instructor/performer reviews
+  - Bookmark: Save recommendations
+  - Comments: Share experiences
+  - Share: Spread recommendations
 - Primary Action:
-  - Rate: Add your rating to build trust score
-
-## Projects
-
-- Objective: Enable volunteer-driven community initiatives to strengthen the dance scene
-- Examples:
-  - Flash mobs
-  - Practice groups
-  - Dance videos
-  - Charity events
-  - Dance showcases
-  - Community content
-- Engagement Features:
-  - Like: Shows interest in initiative
-  - Bookmark: Save interesting projects
-  - Share: Reach potential participants
-  - Comments: Not available - project discussions happen in private project spaces
-- Primary Action:
-  - Join Project: Direct action to participate
+  - Rate: Add your rating
 - Creation via:
-  - "Create Project" (`ph:users-three`): Community initiatives
-
-## Travel
-
-- Objective: Share a ride or a place to stay for a dance event
-- Engagement Features:
-  - Like: Shows interest in travel plan
-  - Bookmark: Save travel opportunities
-  - Share: Find travel companions
-  - Comments: Not available - travel arrangements are handled through request system
-- Primary Action:
-  - Send Request: Direct action to express interest in travel arrangement
-- Creation via:
-  - "Travel" (`ph:car`): Share a ride or a place to stay for a dance event
-
-## Announcements
-
-- Objective: Share announcements and news about the dance community
-- Engagement Features:
-  - Like: Acknowledges the announcement
-  - Bookmark: Save for reference
-  - Share: Spread the news
-  - Comments: Not available - announcements are one-way communications
-- Creation via:
-  - "Announce" (`ph:megaphone`): Announcements and news
-
-## Polls
-
-- Objective: Create polls to gather community feedback
-- Engagement Features:
-  - Like: Shows agreement
-  - Bookmark: Save for later reference
-  - Share: Get more votes
-  - Comments: Not available - feedback is collected through voting
-- Content Action:
-  - Vote: Participate in the poll
-- Creation via:
-  - "Create Poll" (`ph:chart-bar`): Create polls to gather community feedback
+  - "Review" (`ph:star`): Share experiences about venues, events, and instructors
 
 ## Gigs
 
-- Objective: Connect dance professionals with paid opportunities
+- Objective: Share opportunities for work or collaboration
 - Examples:
   - Teaching positions
   - Performance bookings
   - DJ gigs
   - Event staff roles
   - Studio positions
+  - Community projects
+  - Practice groups
   - Media work
+  - Flash mobs
+  - Video projects
 - Engagement Features:
   - Like: Shows interest in opportunity
-  - Bookmark: Save for later application
+  - Bookmark: Save for later
   - Share: Reach potential candidates
   - Comments: Not available - job inquiries happen through application process
 - Primary Action:
-  - Apply: Submit application for the position
+  - Apply: Submit application
 - Creation via:
-  - "Post Gig" (`ph:briefcase`): Share paid opportunities
+  - "Gig" (`ph:briefcase`): Post work and collaboration opportunities
 
 ## Ads
 
-- Objective: Enable dance businesses to promote their services and products
-- Types:
-  - Dance Wear & Shoes
-  - Studio Rentals
+- Objective: Promote dance-related products and services
+- Examples:
+  - Dance wear & shoes
+  - Studio rentals
   - Equipment (Sound/Lights)
   - Photography/Videography
-  - Custom Dance Apparel
-  - Dance Accessories
-- Examples:
-  - "New dance shoes collection"
-  - "Dance studio space for rent"
-  - "Professional dance photography"
-  - "Custom-made dance dresses"
+  - Custom dance apparel
 - Engagement Features:
   - Like: Shows interest in product/service
   - Bookmark: Save for later reference
   - Share: Spread to interested dancers
   - Comments: Not available - inquiries handled through direct contact
 - Primary Action:
-  - Contact: Direct action to inquire about product/service
+  - Contact: Direct action to inquire
 - Creation via:
-  - "Post Ad" (`ph:storefront`): Share dance-related products and services
+  - "Ad" (`ph:storefront`): Promote dance-related products and services

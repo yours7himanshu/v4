@@ -29,6 +29,12 @@
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
+              <Icon name="ph:note" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Note</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
               <Icon
                 name="ph:article-medium"
                 class="w-5 h-5 text-purple-600 mr-2"
@@ -43,12 +49,6 @@
                 class="w-5 h-5 text-purple-600 mr-2"
               />
               <span>Video</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon name="ph:users" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Find Partner</span>
             </button>
           </div>
         </div>
@@ -75,14 +75,14 @@
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
-              <Icon name="ph:briefcase" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Gig</span>
+              <Icon name="ph:users" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Meet</span>
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
-              <Icon name="ph:chats" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Discussion</span>
+              <Icon name="ph:briefcase" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Gig</span>
             </button>
           </div>
         </div>
@@ -114,12 +114,6 @@
             >
               <Icon name="ph:storefront" class="w-5 h-5 text-purple-600 mr-2" />
               <span>Ad</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon name="ph:car" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Travel</span>
             </button>
           </div>
         </div>
