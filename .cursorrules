@@ -6,6 +6,23 @@
    - `<template>` section should follow the script
    - `<style>` section (if present) should be at the bottom
 
-2. Import Rules
+2. Code Style
 
-   - Don't import components that are auto-imported by Nuxt or shadcn
+   - Use components that are auto-imported by Nuxt or shadcn
+   - Use TailwindCSS classes for styling
+   - Use vue-shadcn for components
+
+3. Project Documentation
+
+   Important architectural decisions and workflows are documented in:
+   - Architecture: `/docs/content/30.architecture/`
+     - Pages structure
+     - Profiles
+     - Posts
+     - Events
+   - Flows: `/docs/content/40.flows/`
+     - Event discovery and presentation
+   - Business: `/docs/content/20.business/`
+     - User groups and benefits
+     - Jobs-to-be-done
+     - Features
