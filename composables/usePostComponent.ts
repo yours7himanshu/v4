@@ -20,7 +20,13 @@ const components = {
     ),
   PostAd: () =>
     import("~/components/post/PostAd.vue").then((m) => markRaw(m.default)),
+  PostUnsupported: () =>
+    import("~/components/post/PostUnsupported.vue").then((m) =>
+      markRaw(m.default)
+    ),
 } as const;
+
+type ComponentName = keyof typeof components;
 
 export function usePostComponent() {
   const isLoading = ref(false);
@@ -28,11 +34,17 @@ export function usePostComponent() {
 
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
-  const getComponentName = (type: Post["type"]) => {
-    return `Post${type
+  const getComponentName = (type: Post["type"]): ComponentName => {
+    if (!type || typeof type !== "string") {
+      return "PostUnsupported";
+    }
+
+    const name = `Post${type
       .split("_")
       .map(capitalize)
-      .join("")}` as keyof typeof components;
+      .join("")}` as ComponentName;
+
+    return name in components ? name : "PostUnsupported";
   };
 
   const loadComponent = async (type: Post["type"]) => {

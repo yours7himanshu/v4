@@ -5,6 +5,7 @@ const error = ref<Error | null>(null);
 const hasError = ref(false);
 
 onErrorCaptured((err) => {
+  console.error("Error details:", err);
   error.value = err as Error;
   hasError.value = true;
   return false; // Prevent error from propagating
@@ -15,10 +16,10 @@ onErrorCaptured((err) => {
   <template v-if="!hasError">
     <slot />
   </template>
-  <div v-else class="p-4 rounded-md bg-red-50 border border-red-200">
-    <div class="text-red-700 font-medium">Something went wrong</div>
-    <div class="text-red-600 text-sm mt-1">
-      {{ error?.message || "An unexpected error occurred" }}
+  <div v-else class="p-4">
+    <div class="flex items-center gap-2 text-amber-600">
+      <div class="i-ph-warning-circle text-xl" />
+      <div class="font-medium">This content is not available</div>
     </div>
   </div>
 </template>

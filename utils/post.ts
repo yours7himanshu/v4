@@ -1,4 +1,3 @@
-import { z } from "zod";
 import {
   NoteContentSchema,
   ArticleContentSchema,
@@ -12,7 +11,7 @@ import {
 import type { PostType } from "~/schemas/post";
 
 export function validateContent(type: PostType, content: unknown) {
-  const schema = {
+  const schemas = {
     note: NoteContentSchema,
     article: ArticleContentSchema,
     event: EventContentSchema,
@@ -21,7 +20,23 @@ export function validateContent(type: PostType, content: unknown) {
     gig: GigContentSchema,
     ask_locals: AskLocalsContentSchema,
     ad: AdContentSchema,
-  }[type];
+  } as const;
+
+  const schema = schemas[type as keyof typeof schemas];
+
+  if (!schema) {
+    return {
+      success: false,
+      error: {
+        issues: [
+          {
+            path: [],
+            message: `Unknown post type: ${type}`,
+          },
+        ],
+      },
+    };
+  }
 
   return schema.safeParse(content);
 }

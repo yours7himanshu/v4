@@ -22,6 +22,34 @@ export const mockPosts = [
       shares: 0,
     },
   },
+  {
+    id: 15,
+    type: "video",
+    author: {
+      id: "8",
+      name: "Juan Martinez",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+      location: "Barcelona",
+    },
+    timestamp: "5 hours ago",
+    content: {
+      title: "3 Essential Body Movement Exercises for Salsa",
+      video: {
+        url: "https://youtube.com/watch?v=example",
+        thumbnail:
+          "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4",
+        duration: "8:24",
+      },
+      description:
+        "Quick tutorial showing three fundamental exercises to improve your body movement in salsa. Perfect for beginners!",
+      tags: ["Tutorial", "Technique", "Body Movement"],
+    },
+    stats: {
+      likes: 156,
+      comments: 23,
+      shares: 45,
+    },
+  },
   eventToFeedPost(mockEvents[3]),
   {
     id: 2,
