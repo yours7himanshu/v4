@@ -1,5 +1,12 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
+
+const props = defineProps({
+  type: {
+    type: String,
+    default: "all",
+  },
+});
 
 const posts = ref([
   {
@@ -293,6 +300,14 @@ const posts = ref([
   },
 ]);
 
+// Filter posts based on type
+const filteredPosts = computed(() => {
+  if (props.type === "all") {
+    return posts.value;
+  }
+  return posts.value.filter((post) => post.type === props.type);
+});
+
 const loadMore = () => {
   // TODO: Implement load more functionality
   console.log("Load more clicked");
@@ -302,7 +317,7 @@ const loadMore = () => {
 <template>
   <div class="max-w-xl mx-auto">
     <div class="space-y-4">
-      <FeedCard v-for="post in posts" :key="post.id" :post="post" />
+      <FeedCard v-for="post in filteredPosts" :key="post.id" :post="post" />
     </div>
 
     <div class="text-center mt-8">

@@ -22,6 +22,13 @@ defineProps({
     default: "https://www.youtube.com/embed/R7E9cNydevg",
   },
 });
+
+const navigation = [
+  { label: "Feed", to: "/salsa", icon: "ph:newspaper" },
+  { label: "About", to: "/about", icon: "ph:info" },
+  { label: "Artists", to: "/artists", icon: "ph:star" },
+  { label: "Events", to: "/events", icon: "ph:calendar" },
+];
 </script>
 
 <template>
@@ -97,61 +104,19 @@ defineProps({
       <nav class="border-b border-gray-200">
         <div class="flex space-x-8 overflow-x-auto">
           <NuxtLink
-            to="/salsa"
-            class="border-b-[3px] px-1 py-4 text-sm font-medium whitespace-nowrap -mb-[1px]"
+            v-for="item in navigation"
+            :key="item.to"
+            :to="item.to"
+            class="flex items-center gap-2 border-b-[3px] px-1 py-4 text-sm font-medium whitespace-nowrap -mb-[1px]"
             :class="[
-              $route.path === '/salsa'
+              $route.path === item.to || $route.path.includes(item.to)
                 ? 'border-purple-600 text-purple-600'
                 : 'border-transparent text-gray-500 hover:text-gray-700',
             ]"
           >
-            Feed
+            <Icon v-if="item.icon" :name="item.icon" class="w-4 h-4" />
+            {{ item.label }}
           </NuxtLink>
-          <NuxtLink
-            to="/about"
-            class="border-b-[3px] px-1 py-4 text-sm font-medium whitespace-nowrap -mb-[1px]"
-            :class="[
-              $route.path.includes('/about')
-                ? 'border-purple-600 text-purple-600'
-                : 'border-transparent text-gray-500 hover:text-gray-700',
-            ]"
-          >
-            About
-          </NuxtLink>
-          <NuxtLink
-            to="/artists"
-            class="border-b-[3px] px-1 py-4 text-sm font-medium whitespace-nowrap -mb-[1px]"
-            :class="[
-              $route.path.includes('/artists')
-                ? 'border-purple-600 text-purple-600'
-                : 'border-transparent text-gray-500 hover:text-gray-700',
-            ]"
-          >
-            Artists
-          </NuxtLink>
-          <NuxtLink
-            to="/events"
-            class="border-b-[3px] px-1 py-4 text-sm font-medium whitespace-nowrap -mb-[1px]"
-            :class="[
-              $route.path.includes('/events')
-                ? 'border-purple-600 text-purple-600'
-                : 'border-transparent text-gray-500 hover:text-gray-700',
-            ]"
-          >
-            Events
-          </NuxtLink>
-          <a
-            href="#"
-            class="border-b-[3px] border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap -mb-[1px]"
-          >
-            Learning
-          </a>
-          <a
-            href="#"
-            class="border-b-[3px] border-transparent px-1 py-4 text-sm font-medium text-gray-500 hover:text-gray-700 whitespace-nowrap -mb-[1px]"
-          >
-            Community
-          </a>
         </div>
       </nav>
       <slot />

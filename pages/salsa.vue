@@ -65,6 +65,20 @@ const vClickOutside = {
     document.removeEventListener("click", el.clickOutsideEvent);
   },
 };
+
+// Add post type filter
+const selectedPostType = ref("all");
+
+const postTypeOptions = [
+  { value: "all", label: "All Posts" },
+  { value: "event", label: "Events" },
+  { value: "meet", label: "Meet" },
+  { value: "note", label: "Notes" },
+  { value: "article", label: "Articles" },
+  { value: "review", label: "Reviews" },
+  { value: "gig", label: "Gigs" },
+  { value: "ask_locals", label: "Ask Locals" },
+];
 </script>
 
 <template>
@@ -74,23 +88,38 @@ const vClickOutside = {
   >
     <div class="bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-end items-center gap-4 py-4">
-          <Button
-            variant="ghost"
-            @click="showLocationFilter = true"
-            class="flex items-center gap-2"
-          >
-            <Icon name="ph:map-pin" class="w-5 h-5" />
-            Filter by Location
-          </Button>
+        <div class="flex justify-between items-center py-4">
+          <!-- Post Type Filter -->
+          <div class="flex items-center gap-2 overflow-x-auto">
+            <Button
+              v-for="type in postTypeOptions"
+              :key="type.value"
+              :variant="selectedPostType === type.value ? 'default' : 'outline'"
+              @click="selectedPostType = type.value"
+              class="whitespace-nowrap"
+            >
+              {{ type.label }}
+            </Button>
+          </div>
 
-          <Create />
+          <div class="flex items-center gap-4">
+            <Button
+              variant="ghost"
+              @click="showLocationFilter = true"
+              class="flex items-center gap-2"
+            >
+              <Icon name="ph:map-pin" class="w-5 h-5" />
+              Filter by Location
+            </Button>
+
+            <Create />
+          </div>
         </div>
       </div>
     </div>
 
     <div class="my-4">
-      <Feed />
+      <Feed :type="selectedPostType" />
     </div>
 
     <Dialog
