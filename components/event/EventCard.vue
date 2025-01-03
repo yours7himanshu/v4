@@ -14,6 +14,10 @@ const emit = defineEmits<{
   bookmark: [event: AnyEvent];
   book: [event: AnyEvent];
 }>();
+
+const handleShare = (event: AnyEvent) => emit("share", event);
+const handleBookmark = (event: AnyEvent) => emit("bookmark", event);
+const handleBook = (event: AnyEvent) => emit("book", event);
 </script>
 
 <template>
@@ -25,7 +29,7 @@ const emit = defineEmits<{
       <!-- Card Header with Image -->
       <div class="relative h-64 overflow-hidden">
         <PostImage
-          :src="event.image"
+          :src="event.image || '/images/event-placeholder.jpg'"
           :alt="event.name"
           :width="800"
           :height="400"
@@ -99,17 +103,17 @@ const emit = defineEmits<{
       <div class="px-4 pb-4">
         <PostActions
           :stats="{
-            interested: event.interested || 12,
-            bookmarks: event.saves || 0,
+            interested: event.stats?.interested || 0,
+            bookmarks: event.stats?.saves || 0,
           }"
           type="event"
-          @share="$emit('share', event)"
-          @bookmark="$emit('bookmark', event)"
+          @share="handleShare(event)"
+          @bookmark="handleBookmark(event)"
         />
         <Button
           variant="default"
           class="w-full mt-3"
-          @click="$emit('book', event)"
+          @click="handleBook(event)"
         >
           Book Now
         </Button>

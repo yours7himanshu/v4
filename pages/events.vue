@@ -1,7 +1,8 @@
-<script setup>
+<script setup lang="ts">
 import { ref, computed } from "vue";
 import { mockEvents } from "~/data/mockEvents";
 import { formatDate } from "~/utils/format";
+import type { AnyEvent } from "~/schemas/event";
 import EventCard from "~/components/event/EventCard.vue";
 
 const events = ref(mockEvents);
@@ -155,17 +156,17 @@ const sortedEvents = computed(() => {
 });
 
 // Add these functions after other functions
-function handleShare(event) {
+const handleShare = (event: AnyEvent) => {
   console.log("Share event:", event.name);
-}
+};
 
-function handleStar(event) {
-  console.log("Star event:", event.name);
-}
-
-function handleBookmark(event) {
+const handleBookmark = (event: AnyEvent) => {
   console.log("Bookmark event:", event.name);
-}
+};
+
+const handleBook = (event: AnyEvent) => {
+  console.log("Book event:", event.name);
+};
 </script>
 
 <template>

@@ -51,6 +51,12 @@ export const BaseEventSchema = z.object({
   artists: z.array(z.string()),
   organizer: EventOrganizerSchema,
   schedule: z.array(EventScheduleItemSchema),
+  stats: z
+    .object({
+      interested: z.number().default(0),
+      saves: z.number().default(0),
+    })
+    .optional(),
 });
 
 // Specific event types
