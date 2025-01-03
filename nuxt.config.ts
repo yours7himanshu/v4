@@ -11,7 +11,14 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-01-02",
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "shadcn-nuxt", "@nuxt/image"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/icon",
+    "shadcn-nuxt",
+    "@nuxt/image",
+    "@nuxtjs/color-mode",
+    "@pinia/nuxt",
+  ],
   shadcn: {
     prefix: "",
     componentDir: "./components/ui",
