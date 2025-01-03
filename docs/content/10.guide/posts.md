@@ -4,7 +4,7 @@ All posts have likes, bookmarks and share.
 
 | Post Type     | Comments | Primary Action |
 | ------------- | -------- | -------------- |
-| Articles      | ✓        | -              |
+| Articles      | ✓        | Read More      |
 | Events        | ✓        | Book Now       |
 | Videos        | ✓        | -              |
 | Discussions   | ✓        | -              |
@@ -14,7 +14,7 @@ All posts have likes, bookmarks and share.
 | Projects      | -        | Join Project   |
 | Travel        | -        | Send Request   |
 | Announcements | -        | -              |
-| Polls         | -        | Vote           |
+| Polls         | -        | -              |
 | Gigs          | -        | Apply          |
 | Ads           | -        | Contact        |
 
@@ -34,6 +34,8 @@ All posts have likes, bookmarks and share.
   - Bookmark: Save tips and advice for later
   - Comments: Discuss and add to the conversation
   - Share: Share valuable tips with others
+- Primary Action:
+  - Read More: Direct action to read the article
 - Creation via:
   - "Write Article" (`ph:article-medium`): Original long-form content
 
@@ -212,7 +214,7 @@ All posts have likes, bookmarks and share.
   - Bookmark: Save for later reference
   - Share: Get more votes
   - Comments: Not available - feedback is collected through voting
-- Primary Action:
+- Content Action:
   - Vote: Participate in the poll
 - Creation via:
   - "Create Poll" (`ph:chart-bar`): Create polls to gather community feedback
