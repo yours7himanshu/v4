@@ -1,4 +1,4 @@
-# Content Creation Actions
+# Actions
 
 This document describes all available actions for creating content on WeDance platform.
 

@@ -29,10 +29,6 @@
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/tailwindcss": "^6.12.2",
-    "shadcn-vue": "0.10.4",
-    "@vuepress/bundler-vite": "^2.0.0-rc.19",
-    "@vuepress/theme-default": "^2.0.0-rc.68",
-    "sass-embedded": "^1.83.0",
-    "vuepress": "^2.0.0-rc.19"
+    "shadcn-vue": "0.10.4"
   }
 }

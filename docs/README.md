@@ -1,41 +1,57 @@
-# WeDance
+# Docus Starter
 
-WeDance is a participatory network transforming how dance communities connect, organize, and thrive together. We're building tools for self-organization, connection, and collaboration that put community first.
+Starter template for [Docus](https://docus.dev).
 
-## 🎯 Mission
+## Clone
 
-To empower dance communities by providing an inclusive platform where every member can be both creator and participant, moving beyond traditional social networks to create a truly collaborative ecosystem.
+Clone the repository (using `nuxi`):
 
-## 🌟 Key Features
+```bash
+npx nuxi init -t themes/docus
+```
 
-- 🎭 **Smart Event Organization**  
-  Collaborative tools for planning, sharing, and managing dance events
+## Setup
 
-- 💃 **Intelligent Partner Matching**  
-  Connect with dance partners based on style, skill level, and goals
+Install dependencies:
 
-- 💡 **Community-Driven Growth**  
-  Tools for collective decision making and resource sharing
+```bash
+yarn install
+```
 
-- 🤝 **Fair Dance Marketplace**  
-  Direct connections between teachers, venues, and students
+## Development
 
-## 📊 Current Status
+```bash
+yarn dev
+```
 
-🚧 **Project Stage**: Concept Development
+## Edge Side Rendering
 
-- Gathering community feedback
-- Building initial prototypes
-- Forming partnerships
-- Seeking contributors
+Can be deployed to Vercel Functions, Netlify Functions, AWS, and most Node-compatible environments.
 
-## Sitemap
+Look at all the available presets [here](https://v3.nuxtjs.org/guide/deploy/presets).
 
-- [Homepage](sitemap/homepage.md) - Main landing page design and structure
+```bash
+yarn build
+```
 
-## Landing Pages
+## Static Generation
 
-- [Dancers](landing/dancers.md) - Landing page for dance enthusiasts
-- [Artists](landing/artists.md) - Landing page for dance teachers and performers
-- [Hosts](landing/hosts.md) - Landing page for event organizers
-- [Venues](landing/venues.md) - Landing page for dance venues
+Use the `generate` command to build your application.
+
+The HTML files will be generated in the .output/public directory and ready to be deployed to any static compatible hosting.
+
+```bash
+yarn generate
+```
+
+## Preview build
+
+You might want to preview the result of your build locally, to do so, run the following command:
+
+```bash
+yarn preview
+```
+
+---
+
+For a detailed explanation of how things work, check out [Docus](https://docus.dev).
