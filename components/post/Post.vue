@@ -12,6 +12,7 @@ const props = defineProps<{
 }>();
 
 const { components, getComponentName } = usePostComponent();
+const route = useRoute();
 
 const getAsyncComponent = (type: Post["type"]) => {
   const componentName = getComponentName(type);
@@ -24,7 +25,7 @@ const getAsyncComponent = (type: Post["type"]) => {
   });
 };
 
-const router = useRouter();
+const isModalOpen = ref(false);
 
 function openModal(event: MouseEvent) {
   if (event.metaKey || event.ctrlKey) {
@@ -32,7 +33,13 @@ function openModal(event: MouseEvent) {
   }
 
   event.preventDefault();
-  history.replaceState({}, "", `/post/${props.post.id}`);
+  isModalOpen.value = true;
+  history.pushState({}, "", `/post/${props.post.id}`);
+}
+
+function closeModal() {
+  isModalOpen.value = false;
+  history.back();
 }
 </script>
 
@@ -74,4 +81,19 @@ function openModal(event: MouseEvent) {
       <PostActions :stats="post.stats" :type="post.type" />
     </ErrorBoundary>
   </div>
+
+  <Dialog :open="isModalOpen" @update:open="closeModal">
+    <DialogContent
+      class="container max-w-xl grid-rows-[auto_minmax(0,1fr)_auto] p-0 max-h-[90dvh]"
+    >
+      <DialogHeader class="p-6 pb-0">
+        <DialogTitle>Post</DialogTitle>
+      </DialogHeader>
+      <div class="grid gap-4 py-4 overflow-y-auto px-6">
+        <div class="flex flex-col justify-between">
+          <PostView :post="post" />
+        </div>
+      </div>
+    </DialogContent>
+  </Dialog>
 </template>
