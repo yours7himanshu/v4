@@ -11,9 +11,14 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: "2025-01-02",
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "shadcn-nuxt"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "shadcn-nuxt", "@nuxt/image"],
   shadcn: {
     prefix: "",
     componentDir: "./components/ui",
+  },
+  image: {
+    provider: "ipx",
+    quality: 80,
+    format: ["webp", "jpeg"],
   },
 });

@@ -1,61 +1,68 @@
 <script setup lang="ts">
 import type { Post } from "~/schemas/post";
-import PostNote from "./PostNote.vue";
-import PostArticle from "./PostArticle.vue";
-import PostEvent from "./PostEvent.vue";
-import PostMeet from "./PostMeet.vue";
-import PostReview from "./PostReview.vue";
-import PostGig from "./PostGig.vue";
-import PostAskLocals from "./PostAskLocals.vue";
-import PostAd from "./PostAd.vue";
-import { validateContent } from "~/utils/post";
-import { computed } from "vue";
+import { z } from "zod";
+import { defineAsyncComponent } from "vue";
+import PostSkeleton from "../common/PostSkeleton.vue";
+import ErrorBoundary from "../common/ErrorBoundary.vue";
 
-const components = {
-  PostNote,
-  PostArticle,
-  PostEvent,
-  PostMeet,
-  PostReview,
-  PostGig,
-  PostAskLocals,
-  PostAd,
-} as const;
+// Prop validation schema
+const postSchema = z.object({
+  type: z.string(),
+  content: z.any(),
+  author: z.object({
+    id: z.string(),
+    name: z.string(),
+    avatar: z.string().optional(),
+  }),
+  timestamp: z.string().or(z.date()),
+  stats: z.object({
+    likes: z.number().optional(),
+    comments: z.number().optional(),
+    shares: z.number().optional(),
+    interested: z.number().optional(),
+    bookmarks: z.number().optional(),
+  }),
+});
 
+// Props with runtime validation
 const props = defineProps<{
   post: Post;
 }>();
 
-const getComponentName = (type: Post["type"]) => {
-  return `Post${type
-    .split("_")
-    .map(capitalize)
-    .join("")}` as keyof typeof components;
-};
+// Validate props at runtime
+try {
+  postSchema.parse(props.post);
+} catch (error) {
+  console.error("Invalid post props:", error);
+}
 
-const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+const { components, getComponentName, isLoading, loadError, loadComponent } =
+  usePostComponent();
 
-const validationResult = computed(() => {
-  return validateContent(props.post.type, props.post.content);
-});
+const getAsyncComponent = (type: Post["type"]) =>
+  defineAsyncComponent({
+    loader: () => components[getComponentName(type)](),
+    loadingComponent: PostSkeleton,
+    errorComponent: ErrorBoundary,
+  });
 
-const hasError = computed(() => !validationResult.value.success);
+const { hasError, validationError } = usePostValidation(props.post);
 
-const validationError = computed(() => {
-  if (validationResult.value.success) return null;
-  return validationResult.value.error.issues
-    .map((issue) => `${issue.path.join(".")}: ${issue.message}`)
-    .join(", ");
+// Preload the component
+onMounted(() => {
+  loadComponent(props.post.type);
 });
 </script>
 
 <template>
   <div class="bg-white rounded-lg shadow-sm border border-gray-100">
-    <PostHeader
-      :author="post.author"
-      :timestamp="post.timestamp"
-      :type="post.type"
-    />
+    <ErrorBoundary>
+      <PostHeader
+        :author="post.author"
+        :timestamp="post.timestamp"
+        :type="post.type"
+      />
+    </ErrorBoundary>
 
     <div v-if="hasError" class="p-4 text-red-600">
       <div class="font-medium">
@@ -65,12 +72,32 @@ const validationError = computed(() => {
         {{ validationError }}
       </div>
     </div>
-    <component
-      v-else
-      :is="components[getComponentName(post.type)]"
-      :content="post.content"
-    />
 
-    <PostActions :stats="post.stats" :type="post.type" />
+    <ErrorBoundary v-else-if="loadError" v-slot="{ error }">
+      <div class="p-4 text-red-600">
+        <div class="font-medium">Failed to load post content</div>
+        <div class="text-sm mt-1">{{ error?.message }}</div>
+      </div>
+    </ErrorBoundary>
+
+    <template v-else>
+      <Suspense>
+        <template #default>
+          <ErrorBoundary>
+            <component
+              :is="getAsyncComponent(post.type)"
+              :content="post.content"
+            />
+          </ErrorBoundary>
+        </template>
+        <template #fallback>
+          <PostSkeleton />
+        </template>
+      </Suspense>
+    </template>
+
+    <ErrorBoundary>
+      <PostActions :stats="post.stats" :type="post.type" />
+    </ErrorBoundary>
   </div>
 </template>

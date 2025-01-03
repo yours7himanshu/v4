@@ -13,6 +13,7 @@ const posts = ref([
     id: 1,
     type: "note",
     author: {
+      id: "1",
       name: "Maria Rodriguez",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
       location: "Madrid",
@@ -25,12 +26,14 @@ const posts = ref([
     stats: {
       likes: 42,
       comments: 12,
+      shares: 0,
     },
   },
   {
     id: 2,
     type: "note",
     author: {
+      id: "2",
       name: "David Chen",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       location: "London",
@@ -52,12 +55,14 @@ const posts = ref([
     stats: {
       likes: 25,
       comments: 18,
+      shares: 0,
     },
   },
   {
     id: 3,
     type: "note",
     author: {
+      id: "3",
       name: "Sophie Laurent",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
       location: "Paris",
@@ -78,12 +83,14 @@ const posts = ref([
     stats: {
       likes: 45,
       comments: 8,
+      shares: 0,
     },
   },
   {
     id: 4,
     type: "event",
     author: {
+      id: "havana_club_1",
       name: "Havana Club",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       location: "London",
@@ -106,6 +113,7 @@ const posts = ref([
     stats: {
       interested: 89,
       comments: 14,
+      shares: 0,
     },
   },
   {
@@ -115,6 +123,7 @@ const posts = ref([
       name: "Sophie Laurent",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
       location: "Paris",
+      id: "4",
     },
     timestamp: "1 day ago",
     content: {
@@ -136,6 +145,7 @@ const posts = ref([
     id: 6,
     type: "meet",
     author: {
+      id: "5",
       name: "Anna Schmidt",
       image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
       location: "Berlin",
@@ -156,12 +166,15 @@ const posts = ref([
     },
     stats: {
       interested: 5,
+      shares: 0,
+      comments: 0,
     },
   },
   {
     id: 7,
     type: "review",
     author: {
+      id: "2",
       name: "David Chen",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       location: "London",
@@ -177,12 +190,14 @@ const posts = ref([
     stats: {
       likes: 35,
       comments: 15,
+      shares: 0,
     },
   },
   {
     id: 8,
     type: "gig",
     author: {
+      id: "salsa_mania_1",
       name: "Salsa Mania",
       image: "https://images.unsplash.com/photo-1560439514-4e9645039924",
       location: "London",
@@ -202,12 +217,15 @@ const posts = ref([
     },
     stats: {
       interested: 12,
+      shares: 0,
+      comments: 0,
     },
   },
   {
     id: 9,
     type: "ask_locals",
     author: {
+      id: "6",
       name: "Lisa Wong",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
       location: "Tokyo",
@@ -221,12 +239,14 @@ const posts = ref([
     stats: {
       likes: 8,
       comments: 15,
+      shares: 0,
     },
   },
   {
     id: 10,
     type: "ad",
     author: {
+      id: "dance_shoes_pro_1",
       name: "Dance Shoes Pro",
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
       location: "Online Store",
@@ -243,12 +263,15 @@ const posts = ref([
     stats: {
       likes: 34,
       bookmarks: 12,
+      shares: 0,
+      comments: 0,
     },
   },
   {
     id: 11,
     type: "meet",
     author: {
+      id: "7",
       name: "Thomas Weber",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
       location: "Stuttgart",
@@ -269,12 +292,15 @@ const posts = ref([
     },
     stats: {
       interested: 3,
+      shares: 0,
+      comments: 0,
     },
   },
   {
     id: 12,
     type: "meet",
     author: {
+      id: "8",
       name: "Carlos Mendoza",
       image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
       location: "Berlin",
@@ -296,6 +322,8 @@ const posts = ref([
     },
     stats: {
       interested: 2,
+      shares: 0,
+      comments: 0,
     },
   },
 ]);
