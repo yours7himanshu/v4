@@ -139,14 +139,14 @@ All posts have likes, bookmarks and share.
 - Objective: Discover local dance scenes and connect with information sources
 - Use Cases:
   - Find local WhatsApp groups and Instagram accounts for dance events
-  - Discover active venues that host dance events
-  - Connect with local event hosts and organizers
+  - Discover active venues that organize dance events
+  - Connect with local event organizers
   - Get recommendations for local dance classes and socials
   - Learn about the local dance community structure
 - Examples:
   - "Where can I dance bachata in Berlin?"
   - "Looking for salsa WhatsApp groups in London"
-  - "Which venues host kizomba parties in Paris?"
+  - "Which venues organize kizomba parties in Paris?"
   - "Who organizes zouk events in New York?"
   - "Main Instagram accounts to follow for bachata in Madrid?"
   - "Best salsa venues in Rome?"
@@ -165,7 +165,7 @@ All posts have likes, bookmarks and share.
 - Information Flow:
   - Locals share WhatsApp groups and Instagram accounts
   - Venues are identified through local knowledge
-  - Hosts are discovered through venues and shared events
+  - Organizers are discovered through venues and shared events
   - Events are recommended by locals who follow the scene
   - Platform gradually builds a verified database of local dance scenes
 

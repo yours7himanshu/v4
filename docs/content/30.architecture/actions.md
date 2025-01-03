@@ -119,7 +119,7 @@ This document describes all available actions for creating content on WeDance pl
     - Photos and ratings
   - Example: Review of Havana Club in London
 
-- **Review Host**
+- **Review Organizer**
 
   - Purpose: Provide feedback about event organizers
   - Features:

@@ -60,7 +60,7 @@ Points are a reward mechanism to encourage positive community contributions and 
 - Successful event organization: +5 points
 - Positive partner feedback: +3 points
 - Venue verification: +5 points
-- Host verification: +5 points
+- Organizer verification: +5 points
 
 ## Point Levels
 
