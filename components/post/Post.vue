@@ -4,8 +4,11 @@ import { defineAsyncComponent } from "vue";
 import PostSkeleton from "../common/PostSkeleton.vue";
 import ErrorBoundary from "../common/ErrorBoundary.vue";
 
+const NuxtLink = resolveComponent("NuxtLink");
+
 const props = defineProps<{
   post: Post;
+  standalone?: boolean;
 }>();
 
 const { components, getComponentName } = usePostComponent();
@@ -31,7 +34,11 @@ const getAsyncComponent = (type: Post["type"]) => {
         :type="post.type"
       />
 
-      <NuxtLink :to="`/post/${post.id}`" class="block">
+      <component
+        :is="!standalone ? NuxtLink : 'div'"
+        :to="!standalone ? `/post/${post.id}` : undefined"
+        class="block"
+      >
         <Suspense>
           <template #default>
             <component
@@ -43,7 +50,7 @@ const getAsyncComponent = (type: Post["type"]) => {
             <PostSkeleton />
           </template>
         </Suspense>
-      </NuxtLink>
+      </component>
 
       <PostTags v-if="post.content.tags" :tags="post.content.tags" />
       <PostActions :stats="post.stats" :type="post.type" />

@@ -1,6 +1,6 @@
 export const mockEvents = [
   {
-    id: "1",
+    id: 100,
     name: "Havana D'Primera Live in Munich",
     type: "concert",
     date: {
@@ -52,7 +52,7 @@ export const mockEvents = [
     status: "upcoming",
   },
   {
-    id: "2",
+    id: 200,
     name: "Cuban Weekend with Maykel Fonts",
     type: "festival",
     date: {
@@ -124,7 +124,7 @@ export const mockEvents = [
     status: "upcoming",
   },
   {
-    id: "3",
+    id: 300,
     name: "Los Van Van European Tour",
     type: "concert",
     date: {
@@ -153,7 +153,7 @@ export const mockEvents = [
     status: "upcoming",
   },
   {
-    id: "4",
+    id: 400,
     name: "Cuban Salsa Night with Live Band",
     type: "party",
     date: {

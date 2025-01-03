@@ -100,6 +100,7 @@ export type AnyEvent = PartyEvent | WorkshopEvent | ConcertEvent;
 
 // Conversion to feed post
 export const eventToFeedPost = (event: AnyEvent): Post => ({
+  id: event.id,
   type: "event",
   author: {
     id: event.organizer.id,
