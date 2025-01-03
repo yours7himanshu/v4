@@ -28,6 +28,7 @@ export default defineUserConfig({
         text: "Guide",
         children: [
           { text: "Content", link: "/guide/content.md" },
+          { text: "Profiles", link: "/guide/profiles.md" },
           { text: "Event Types", link: "/guide/event-types.md" },
           { text: "Levels", link: "/guide/levels.md" },
           { text: "Navigation", link: "/guide/navigation.md" },
@@ -101,6 +102,7 @@ export default defineUserConfig({
             "/guide/event-types.md",
             "/guide/levels.md",
             "/guide/navigation.md",
+            "/guide/profiles.md",
           ],
         },
       ],
