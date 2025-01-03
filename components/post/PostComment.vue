@@ -1,0 +1,107 @@
+<script setup lang="ts">
+interface Comment {
+  id: number;
+  author: {
+    id: string;
+    name: string;
+    image: string;
+    points?: number;
+  };
+  text: string;
+  timestamp: string;
+  stats: {
+    likes: number;
+    isHelpful?: boolean;
+  };
+  isLiked?: boolean;
+  replies?: Comment[];
+  parentId?: number;
+}
+
+const props = defineProps<{
+  comment: Comment;
+  currentUserId: string;
+  isPostAuthor: boolean;
+}>();
+
+const emit = defineEmits<{
+  (e: "reply", comment: Comment): void;
+}>();
+
+const likeComment = (comment: Comment) => {
+  comment.isLiked = !comment.isLiked;
+  comment.stats.likes += comment.isLiked ? 1 : -1;
+
+  // Internal helpful status when post author likes
+  if (props.isPostAuthor && comment.author.id !== props.currentUserId) {
+    comment.stats.isHelpful = comment.isLiked;
+  }
+};
+</script>
+
+<template>
+  <div>
+    <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+      <div class="flex gap-4">
+        <img
+          :src="comment.author.image"
+          :alt="comment.author.name"
+          class="w-10 h-10 rounded-full object-cover"
+        />
+        <div class="flex-1">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <h3 class="font-semibold">{{ comment.author.name }}</h3>
+              <span class="text-sm text-gray-500"
+                >{{ comment.author.points }} points</span
+              >
+            </div>
+            <span class="text-sm text-gray-500">{{ comment.timestamp }}</span>
+          </div>
+          <p class="mt-1 text-gray-700">{{ comment.text }}</p>
+          <div class="mt-2 flex items-center gap-4">
+            <button
+              @click="likeComment(comment)"
+              class="flex items-center gap-1 text-sm"
+              :class="
+                comment.isLiked
+                  ? 'text-blue-500'
+                  : 'text-gray-500 hover:text-gray-700'
+              "
+            >
+              <Icon
+                :name="
+                  comment.isLiked ? 'heroicons:heart-solid' : 'heroicons:heart'
+                "
+                class="w-5 h-5"
+              />
+              {{ comment.stats.likes }}
+            </button>
+            <button
+              @click="emit('reply', comment)"
+              class="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700"
+            >
+              <Icon
+                name="heroicons:chat-bubble-left-ellipsis"
+                class="w-5 h-5"
+              />
+              Reply
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nested Replies -->
+    <div v-if="comment.replies?.length" class="ml-8 space-y-4 mt-4">
+      <PostComment
+        v-for="reply in comment.replies"
+        :key="reply.id"
+        :comment="reply"
+        :current-user-id="currentUserId"
+        :is-post-author="isPostAuthor"
+        @reply="emit('reply', $event)"
+      />
+    </div>
+  </div>
+</template>

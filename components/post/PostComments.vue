@@ -11,9 +11,13 @@ interface Comment {
   timestamp: string;
   stats: {
     likes: number;
-    isHelpful?: boolean; // internal state for points calculation
+    isHelpful?: boolean;
   };
   isLiked?: boolean;
+  replyTo?: {
+    id: number;
+    authorName: string;
+  };
 }
 
 const currentUserId = "4"; // Mock current user ID
@@ -38,6 +42,42 @@ const comments = ref<Comment[]>([
   {
     id: 2,
     author: {
+      id: "5",
+      name: "Emma Davis",
+      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
+      points: 210,
+    },
+    text: "@Alex Chen Agreed! The connection in the turn makes all the difference.",
+    timestamp: "30 minutes ago",
+    stats: {
+      likes: 2,
+    },
+    replyTo: {
+      id: 1,
+      authorName: "Alex Chen",
+    },
+  },
+  {
+    id: 3,
+    author: {
+      id: "6",
+      name: "John Smith",
+      image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+      points: 180,
+    },
+    text: "@Emma Davis Any tips for leaders to help create that connection?",
+    timestamp: "15 minutes ago",
+    stats: {
+      likes: 1,
+    },
+    replyTo: {
+      id: 2,
+      authorName: "Emma Davis",
+    },
+  },
+  {
+    id: 4,
+    author: {
       id: "3",
       name: "Sophie Williams",
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
@@ -52,25 +92,37 @@ const comments = ref<Comment[]>([
 ]);
 
 const newComment = ref("");
+const replyingTo = ref<Comment | null>(null);
 
 const addComment = () => {
   if (!newComment.value.trim()) return;
 
-  comments.value.unshift({
-    id: comments.value.length + 1,
+  const comment: Comment = {
+    id: Date.now(),
     author: {
       id: currentUserId,
       name: "Current User",
       image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
       points: 50,
     },
-    text: newComment.value,
+    text: replyingTo.value
+      ? `@${replyingTo.value.author.name} ${newComment.value}`
+      : newComment.value,
     timestamp: "Just now",
     stats: {
       likes: 0,
     },
-  });
+  };
 
+  if (replyingTo.value) {
+    comment.replyTo = {
+      id: replyingTo.value.id,
+      authorName: replyingTo.value.author.name,
+    };
+    replyingTo.value = null;
+  }
+
+  comments.value.push(comment);
   newComment.value = "";
 };
 
@@ -81,6 +133,30 @@ const likeComment = (comment: Comment) => {
   // Internal helpful status when post author likes
   if (isPostAuthor && comment.author.id !== currentUserId) {
     comment.stats.isHelpful = comment.isLiked;
+  }
+};
+
+const startReply = (comment: Comment) => {
+  replyingTo.value = comment;
+  nextTick(() => {
+    const textarea = document.querySelector("textarea");
+    if (textarea) {
+      textarea.focus();
+    }
+  });
+};
+
+const cancelReply = () => {
+  replyingTo.value = null;
+  newComment.value = "";
+};
+
+const scrollToComment = (commentId: number) => {
+  const element = document.getElementById(`comment-${commentId}`);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+    element.classList.add("bg-blue-50");
+    setTimeout(() => element.classList.remove("bg-blue-50"), 2000);
   }
 };
 </script>
@@ -95,16 +171,32 @@ const likeComment = (comment: Comment) => {
           class="w-10 h-10 rounded-full object-cover"
         />
         <div class="flex-1">
+          <div v-if="replyingTo" class="mb-2 flex items-center justify-between">
+            <span class="text-sm text-gray-500">
+              Replying to
+              <span class="font-medium text-gray-700">{{
+                replyingTo.author.name
+              }}</span>
+            </span>
+            <button
+              @click="cancelReply"
+              class="text-sm text-gray-500 hover:text-gray-700"
+            >
+              Cancel
+            </button>
+          </div>
           <textarea
             v-model="newComment"
             rows="2"
-            placeholder="Write a comment..."
+            :placeholder="
+              replyingTo ? 'Write a reply...' : 'Write a comment...'
+            "
             class="w-full px-3 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
           />
           <div class="mt-2 flex justify-end">
-            <Button type="submit" :disabled="!newComment.trim()"
-              >Comment</Button
-            >
+            <Button type="submit" :disabled="!newComment.trim()">
+              {{ replyingTo ? "Reply" : "Comment" }}
+            </Button>
           </div>
         </div>
       </form>
@@ -114,7 +206,8 @@ const likeComment = (comment: Comment) => {
       <div
         v-for="comment in comments"
         :key="comment.id"
-        class="bg-white rounded-lg shadow-sm border border-gray-200 p-4"
+        :id="'comment-' + comment.id"
+        class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 transition-colors duration-500"
       >
         <div class="flex gap-4">
           <img
@@ -132,7 +225,17 @@ const likeComment = (comment: Comment) => {
               </div>
               <span class="text-sm text-gray-500">{{ comment.timestamp }}</span>
             </div>
-            <p class="mt-1 text-gray-700">{{ comment.text }}</p>
+            <div v-if="comment.replyTo" class="mt-1">
+              <button
+                @click="scrollToComment(comment.replyTo.id)"
+                class="text-sm text-gray-500 hover:text-gray-700"
+              >
+                Replying to {{ comment.replyTo.authorName }}
+              </button>
+            </div>
+            <p class="mt-1 text-gray-700 whitespace-pre-wrap">
+              {{ comment.text }}
+            </p>
             <div class="mt-2 flex items-center gap-4">
               <button
                 @click="likeComment(comment)"
@@ -152,6 +255,16 @@ const likeComment = (comment: Comment) => {
                   class="w-5 h-5"
                 />
                 {{ comment.stats.likes }}
+              </button>
+              <button
+                @click="startReply(comment)"
+                class="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700"
+              >
+                <Icon
+                  name="heroicons:chat-bubble-left-ellipsis"
+                  class="w-5 h-5"
+                />
+                Reply
               </button>
             </div>
           </div>
