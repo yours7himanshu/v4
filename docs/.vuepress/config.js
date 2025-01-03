@@ -17,6 +17,15 @@ export default defineUserConfig({
     navbar: [
       { text: "Vision", link: "/VISION.md" },
       {
+        text: "Guide",
+        children: [
+          { text: "Content", link: "/guide/content.md" },
+          { text: "Event Types", link: "/guide/event-types.md" },
+          { text: "Levels", link: "/guide/levels.md" },
+          { text: "Navigation", link: "/guide/navigation.md" },
+        ],
+      },
+      {
         text: "Strategy",
         children: [
           { text: "Dance Style First", link: "/strategy/dance-style-first.md" },
@@ -75,6 +84,18 @@ export default defineUserConfig({
     ],
 
     sidebar: {
+      "/guide/": [
+        {
+          text: "Guide",
+          collapsible: true,
+          children: [
+            "/guide/content.md",
+            "/guide/event-types.md",
+            "/guide/levels.md",
+            "/guide/navigation.md",
+          ],
+        },
+      ],
       "/source/": [
         {
           text: "Sources",
