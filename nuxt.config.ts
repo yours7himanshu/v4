@@ -21,4 +21,11 @@ export default defineNuxtConfig({
     quality: 80,
     format: ["webp", "jpeg"],
   },
+  typescript: {
+    tsConfig: {
+      compilerOptions: {
+        baseUrl: ".",
+      },
+    },
+  },
 });
