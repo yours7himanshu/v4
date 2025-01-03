@@ -118,29 +118,43 @@ The platform supports different types of profiles, each with specific purposes a
 
 ### Communities
 
-**Purpose**: Connect local dancers and grow the dance scene
+**Purpose**: Create and manage local dance groups and initiatives
 
-**Roles**:
-- City Community: Local dance scene organization
-- Dance Style Community: Style-specific groups
-- Practice Group: Regular practice sessions
+**Types**:
+- Local Community: City or area-specific dance groups
+- Practice Group: Regular practice sessions and meetups
 - Student Group: University/school dance clubs
+- Special Interest: Specific focus groups within a style
+
+**Note**: Different from platform's Style Communities (/dance/[style]), which are automatic aggregations of style-specific content.
 
 **Components**:
-- Members directory
-- Community events
-- Discussion boards
+- Group description and mission
+- Organizers/admins list
+- Membership rules
+- Local guidelines
+- Meeting schedule
 - Resources and guides
-- Local news and updates
-- Event calendar
-- Photos/videos
-- Guidelines
+- Group photos/videos
+- Member directory
+- Local announcements
+- Discussion board
 
 **Primary Actions**:
-- Join
-- View Events
-- Post
-- Contact Admin
+- Join/Leave Group
+- Contact Admins
+- Post to Group
+- View Members
+
+**Features**:
+- Member management
+- Group discussions
+- Event organization
+- Resource sharing
+- Local announcements
+- Member roles/permissions
+- Activity tracking
+- Group chat/messaging
 
 ## Common Features
 

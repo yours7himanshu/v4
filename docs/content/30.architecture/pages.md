@@ -1,5 +1,87 @@
 # Pages
 
+## Page Types
+
+### Dance Style Pages
+
+Style pages automatically aggregate and organize content for specific dance styles.
+
+1. **Community Feed** (`/dance/[style]`)
+   **Components**:
+   - Style header with description
+   - Mixed content feed (events, posts, discussions)
+   - Post type filters
+   - Location filter
+   - Create content button
+   - Community stats
+
+2. **Events** (`/dance/[style]/events`)
+   **Components**:
+   - Event type filters
+   - Advanced search
+   - Grid/List/Map views
+   - Sorting options
+   - Series grouping
+
+3. **About** (`/dance/[style]/about`)
+   **Components**:
+
+   - Style description and history
+   - Learning resources
+   - Common terminology
+   - Music information
+   - Level descriptions
+   - Community guidelines
+   - Featured content
+
+4. **Artists** (`/dance/[style]/artists`)
+   **Components**:
+
+   - Artist directory
+   - Teaching schedules
+   - Workshop listings
+   - Performance videos
+   - Booking options
+
+### City Pages (`/cities/[city]`)
+
+**Components**:
+- City overview
+- Local feed
+- Venue listings
+- Local events
+- Community organizers
+
+### Profile Pages (`/@[username]`)
+
+**Purpose**: Display user profiles and their content
+**Components**:
+- Profile header
+- Role-specific sections
+- Content tabs
+- Activity feed
+- Action buttons
+
+**Features**:
+- Adapts based on profile type (see [Profiles](/guide/profiles))
+- Role-specific actions
+- Content filtering
+- Social interactions
+
+### Global Pages
+
+1. **Home** (`/`)
+   - Personalized feed
+   - Quick access to communities
+   - Trending content
+   - Getting started guide
+
+2. **Explore** (`/explore`)
+   - Dance style directory
+   - Popular communities
+   - Featured content
+   - Global events
+
 ## URL Structure
 
 ### Core Routes
@@ -39,83 +121,6 @@
 - `/find-dance-partner` → `/partners`
 - `/dance-practice` → `/partners/groups`
 
-## Page Types
-
-### Dance Style Pages
-
-1. **Community Feed** (`/dance/[style]`)
-   **Components**:
-   - Style header with description
-   - Post type filters
-   - Location filter
-   - Mixed content feed
-   - Create content button
-   - Community stats
-
-2. **Events** (`/dance/[style]/events`)
-   **Components**:
-   - Event type filters
-   - Advanced search
-   - Grid/List/Map views
-   - Sorting options
-   - Series grouping
-
-3. **About** (`/dance/[style]/about`)
-   **Components**:
-   - Style description
-   - History & background
-   - Learning resources
-   - Community guidelines
-   - Featured content
-
-4. **Artists** (`/dance/[style]/artists`)
-   **Components**:
-   - Artist directory
-   - Teaching schedules
-   - Workshop listings
-   - Performance videos
-   - Booking options
-
-### City Pages (`/cities/[city]`)
-**Components**:
-- City overview
-- Local feed
-- Venue listings
-- Local events
-- Community organizers
-
-### Profile Pages (`/@[username]`)
-
-**Purpose**: Display user profiles and their content
-
-**Components**:
-- Profile header
-- Role-specific sections (based on profile type)
-- Content tabs
-- Activity feed
-- Action buttons
-
-**Features**:
-- Adapts based on profile type (see [Profiles](/guide/profiles))
-- Role-specific actions
-- Content filtering
-- Social interactions
-
-### Global Pages
-
-1. **Home** (`/`)
-   **Components**:
-   - Personalized feed
-   - Quick access to communities
-   - Trending content
-   - Getting started guide
-
-2. **Explore** (`/explore`)
-   **Components**:
-   - Dance style directory
-   - Popular communities
-   - Featured content
-   - Global events
 
 ## Common Features
 
