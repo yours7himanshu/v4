@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import { mockEvents } from "~/data/mockEvents";
 import { formatDate } from "~/utils/format";
+import EventCard from "~/components/event/EventCard.vue";
 
 const events = ref(mockEvents);
 
@@ -272,89 +273,14 @@ function handleBookmark(event) {
 
     <!-- Events Grid -->
     <div class="p-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Event Card -->
-      <div
+      <EventCard
         v-for="event in sortedEvents"
         :key="event.id"
-        class="bg-white rounded-lg border-0 shadow-[0_2px_8px_rgba(0,0,0,0.08)] hover:shadow-[0_4px_12px_rgba(0,0,0,0.12)] transition-all duration-200 overflow-hidden flex flex-col h-full"
-      >
-        <!-- Card Content Wrapper -->
-        <div class="flex-1 flex flex-col">
-          <!-- Card Header with Image -->
-          <div class="relative h-64 aspect-video">
-            <img
-              class="w-full h-full object-cover"
-              :src="event.image"
-              :alt="event.name"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
-            />
-            <div class="absolute top-4 right-4">
-              <div
-                class="bg-white/90 px-3 py-1 rounded-full text-sm font-medium"
-              >
-                {{
-                  event.price?.amount ||
-                  `From ${Math.min(...event.prices.map((p) => p.amount))}`
-                }}
-                {{ event.price?.currency || event.prices[0].currency }}
-              </div>
-            </div>
-            <div class="absolute bottom-0 left-0 right-0 p-4">
-              <h3 class="text-lg font-semibold text-white drop-shadow">
-                {{ event.name }}
-              </h3>
-              <div class="flex items-center gap-3 mt-2 text-sm text-white/90">
-                <div class="flex items-center gap-1">
-                  <Icon name="ph:calendar" class="h-4 w-4" />
-                  <span>{{ formatDate(event.date.start) }}</span>
-                </div>
-                <div class="flex items-center gap-1">
-                  <Icon name="ph:map-pin" class="h-4 w-4" />
-                  <span
-                    >{{ event.location.name }}, {{ event.location.city }}</span
-                  >
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Event Details -->
-          <div class="p-4 flex-1">
-            <p class="text-gray-600 line-clamp-2">{{ event.description }}</p>
-          </div>
-
-          <!-- Card Footer -->
-          <div
-            class="p-4 border-t border-gray-100 flex items-center justify-between mt-auto"
-          >
-            <div class="flex items-center gap-4 text-sm text-gray-500">
-              <div class="flex items-center gap-1">
-                <Icon name="ph:heart" class="w-5 h-5" />
-                <span>{{ event.interested || "12" }}</span>
-              </div>
-              <button
-                class="flex items-center gap-1 hover:text-purple-600"
-                @click="handleBookmark(event)"
-              >
-                <Icon name="ph:bookmark-simple" class="w-5 h-5" />
-                <span>{{ event.saves || 0 }}</span>
-              </button>
-              <button
-                class="flex items-center gap-1 hover:text-purple-600"
-                @click="handleShare(event)"
-              >
-                <Icon name="ph:share-network" class="w-5 h-5" />
-                <span>Share</span>
-              </button>
-            </div>
-            <NuxtLink :to="`/events/${event.id}`">
-              <Button variant="default">Book Now</Button>
-            </NuxtLink>
-          </div>
-        </div>
-      </div>
+        :event="event"
+        @share="handleShare"
+        @bookmark="handleBookmark"
+        @book="handleBook"
+      />
 
       <!-- Empty State -->
       <div

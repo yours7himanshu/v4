@@ -1,7 +1,39 @@
 import { z } from "zod";
 import type { Post } from "./post";
 
-// Base event fields that both feed posts and full events share
+// Common schemas
+export const EventPriceSchema = z.object({
+  amount: z.number(),
+  currency: z.string(),
+  type: z.enum(["per-person", "per-couple", "group"]).optional(),
+});
+
+export const EventScheduleItemSchema = z.object({
+  time: z.string(),
+  activity: z.string(),
+  description: z.string().optional(),
+});
+
+export const EventLocationSchema = z.object({
+  name: z.string(),
+  city: z.string(),
+  country: z.string(),
+  address: z.string().optional(),
+  coordinates: z
+    .object({
+      lat: z.number(),
+      lng: z.number(),
+    })
+    .optional(),
+});
+
+export const EventOrganizerSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  image: z.string(),
+});
+
+// Base event schema
 export const BaseEventSchema = z.object({
   id: z.string(),
   name: z.string(),
@@ -10,56 +42,58 @@ export const BaseEventSchema = z.object({
     start: z.string(),
     end: z.string(),
   }),
-  location: z.object({
-    name: z.string(),
-    city: z.string(),
-    country: z.string(),
-  }),
+  location: EventLocationSchema,
   description: z.string(),
   image: z.string().optional(),
-  price: z
-    .object({
-      amount: z.number(),
-      currency: z.string(),
-    })
-    .optional(),
+  price: EventPriceSchema.optional(),
   tags: z.array(z.string()),
-});
-
-// Additional fields for full event listings
-export const FullEventSchema = BaseEventSchema.extend({
   status: z.enum(["upcoming", "ongoing", "past"]),
   artists: z.array(z.string()),
-  organizer: z.object({
-    id: z.string(),
-    name: z.string(),
-    image: z.string(),
-  }),
-  schedule: z.array(
+  organizer: EventOrganizerSchema,
+  schedule: z.array(EventScheduleItemSchema),
+});
+
+// Specific event types
+export const PartyEventSchema = BaseEventSchema.extend({
+  type: z.literal("party"),
+});
+
+export const WorkshopEventSchema = BaseEventSchema.extend({
+  type: z.literal("workshop"),
+  level: z.enum(["beginner", "intermediate", "advanced", "all"]),
+  prices: z.array(
     z.object({
-      time: z.string(),
-      activity: z.string(),
-      description: z.string().optional(),
+      name: z.string(),
+      amount: z.number(),
+      currency: z.string(),
+      description: z.string(),
     })
   ),
-  prices: z
-    .array(
-      z.object({
-        name: z.string(),
-        amount: z.number(),
-        currency: z.string(),
-        description: z.string(),
-      })
-    )
+});
+
+export const ConcertEventSchema = BaseEventSchema.extend({
+  type: z.literal("concert"),
+  venue: z
+    .object({
+      capacity: z.number(),
+      seating: z.boolean(),
+    })
     .optional(),
 });
 
 // Export types
+export type EventPrice = z.infer<typeof EventPriceSchema>;
+export type EventLocation = z.infer<typeof EventLocationSchema>;
+export type EventOrganizer = z.infer<typeof EventOrganizerSchema>;
 export type BaseEvent = z.infer<typeof BaseEventSchema>;
-export type FullEvent = z.infer<typeof FullEventSchema>;
+export type PartyEvent = z.infer<typeof PartyEventSchema>;
+export type WorkshopEvent = z.infer<typeof WorkshopEventSchema>;
+export type ConcertEvent = z.infer<typeof ConcertEventSchema>;
 
-// For feed posts, convert the full event to a simpler format
-export const eventToFeedPost = (event: FullEvent): Post => ({
+export type AnyEvent = PartyEvent | WorkshopEvent | ConcertEvent;
+
+// Conversion to feed post
+export const eventToFeedPost = (event: AnyEvent): Post => ({
   type: "event",
   author: {
     id: event.organizer.id,
