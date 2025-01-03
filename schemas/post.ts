@@ -12,6 +12,7 @@ export const PostTypeSchema = z.enum([
 ]);
 
 export const PostAuthorSchema = z.object({
+  id: z.string(),
   name: z.string(),
   image: z.string(),
   location: z.string(),

@@ -1,170 +1,9 @@
 <script setup>
 import { ref, computed } from "vue";
+import { mockEvents } from "~/data/mockEvents";
+import { formatDate } from "~/utils/format";
 
-function formatDate(dateString) {
-  const date = new Date(dateString);
-  return date.toLocaleDateString("de-DE", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
-}
-
-const events = [
-  {
-    id: "1",
-    name: "Havana D'Primera Live in Munich",
-    type: "concert",
-    date: {
-      start: "2024-05-15T20:00:00",
-      end: "2024-05-16T02:00:00",
-    },
-    location: {
-      name: "Backstage",
-      city: "Munich",
-      country: "Germany",
-      coordinates: {
-        lat: 48.1351,
-        lng: 11.582,
-      },
-    },
-    artists: ["12"], // Havana D'Primera ID
-    organizer: {
-      name: "Munich Salsa Social",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=munich",
-    },
-    description:
-      "Experience the legendary Havana D'Primera live in Munich! A night of pure Cuban music and dance.",
-    image:
-      "https://res.cloudinary.com/djumxevsm/image/upload/v1732373003/a1zosu7n7luzj25tsr1l.jpg",
-    price: {
-      amount: 35,
-      currency: "EUR",
-      type: "per-person",
-    },
-    schedule: [
-      {
-        time: "20:00",
-        activity: "Doors Open",
-      },
-      {
-        time: "21:00",
-        activity: "DJ Warm-up",
-      },
-      {
-        time: "22:00",
-        activity: "Havana D'Primera Live",
-      },
-      {
-        time: "00:00",
-        activity: "Social Dancing",
-      },
-    ],
-    tags: ["timba", "live music", "social dancing"],
-    status: "upcoming",
-  },
-  {
-    id: "2",
-    name: "Cuban Weekend with Maykel Fonts",
-    type: "festival",
-    date: {
-      start: "2024-06-01T10:00:00",
-      end: "2024-06-02T18:00:00",
-    },
-    location: {
-      name: "TanzZentrum",
-      city: "Munich",
-      country: "Germany",
-    },
-    artists: ["1"], // Maykel Fonts ID
-    organizer: {
-      name: "Munich Casino",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=casino",
-    },
-    description:
-      "Two days of intensive Cuban salsa workshops with Maykel Fonts. All levels welcome!",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=workshop1",
-    prices: [
-      {
-        name: "Full Pass",
-        amount: 120,
-        currency: "EUR",
-        description: "All workshops and parties",
-      },
-      {
-        name: "Saturday Pass",
-        amount: 70,
-        currency: "EUR",
-        description: "All Saturday activities",
-      },
-      {
-        name: "Sunday Pass",
-        amount: 70,
-        currency: "EUR",
-        description: "All Sunday activities",
-      },
-      {
-        name: "Single Workshop",
-        amount: 25,
-        currency: "EUR",
-        description: "Per workshop",
-      },
-    ],
-    schedule: [
-      {
-        time: "10:00-11:30",
-        activity: "Basic Footwork & Body Movement",
-        description: "Level: Beginner",
-      },
-      {
-        time: "11:45-13:15",
-        activity: "Partner Work Fundamentals",
-        description: "Level: Beginner/Intermediate",
-      },
-      {
-        time: "14:30-16:00",
-        activity: "Advanced Combinations",
-        description: "Level: Intermediate/Advanced",
-      },
-      {
-        time: "16:15-17:45",
-        activity: "Rueda de Casino",
-        description: "All Levels",
-      },
-    ],
-    tags: ["workshop", "casino", "rueda"],
-    status: "upcoming",
-  },
-  {
-    id: "3",
-    name: "Los Van Van European Tour",
-    type: "concert",
-    date: {
-      start: "2024-07-20T21:00:00",
-      end: "2024-07-21T03:00:00",
-    },
-    location: {
-      name: "Muffathalle",
-      city: "Munich",
-      country: "Germany",
-    },
-    artists: ["13"], // Los Van Van ID
-    organizer: {
-      name: "Timba Productions",
-      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=timba",
-    },
-    description:
-      "The legendary Los Van Van returns to Munich as part of their European tour!",
-    image: "https://api.dicebear.com/7.x/avataaars/svg?seed=concert2",
-    price: {
-      amount: 45,
-      currency: "EUR",
-      type: "per-person",
-    },
-    tags: ["timba", "live music", "songo"],
-    status: "upcoming",
-  },
-];
+const events = ref(mockEvents);
 
 // Primary filter states
 const searchQuery = ref("");
@@ -200,7 +39,7 @@ const priceRangeOptions = [
 
 // Get unique locations from events
 const locationOptions = computed(() => {
-  const locations = new Set(events.map((event) => event.location.city));
+  const locations = new Set(events.value.map((event) => event.location.city));
   return [
     { value: "all", label: "All Locations" },
     ...Array.from(locations).map((loc) => ({ value: loc, label: loc })),
@@ -233,7 +72,7 @@ function clearFilters() {
 
 // Filter events
 const filteredEvents = computed(() => {
-  let filtered = events;
+  let filtered = events.value;
 
   // Search filter
   if (searchQuery.value) {
