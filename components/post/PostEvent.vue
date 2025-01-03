@@ -13,11 +13,9 @@ defineProps<{
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
       />
-      <div class="absolute bottom-0 left-0 right-0 p-4">
-        <PostTitle :title="content.title" white />
-      </div>
     </div>
     <div class="p-4 space-y-4">
+      <PostTitle :title="content.title" />
       <p class="text-gray-600">{{ content.description }}</p>
       <div class="flex flex-col gap-2">
         <div class="flex items-center gap-2">

@@ -176,3 +176,8 @@ export type ReviewContent = z.infer<typeof ReviewContentSchema>;
 export type GigContent = z.infer<typeof GigContentSchema>;
 export type AskLocalsContent = z.infer<typeof AskLocalsContentSchema>;
 export type AdContent = z.infer<typeof AdContentSchema>;
+
+export type PostAuthor = z.infer<typeof PostAuthorSchema>;
+
+export type Poll = z.infer<typeof PollSchema>;
+export type Link = z.infer<typeof LinkSchema>;
