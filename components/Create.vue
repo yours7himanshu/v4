@@ -16,15 +16,14 @@
         >
       </DialogHeader>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
-        <!-- Share Knowledge -->
+        <!-- Share -->
         <div>
           <div class="text-purple-600 mb-4">
             <Icon name="ph:pencil-line" class="w-8 h-8" />
           </div>
-          <h3 class="font-bold text-lg mb-2">Share Your Knowledge</h3>
+          <h3 class="font-bold text-lg mb-2">Share</h3>
           <p class="text-gray-600 mb-4">
-            Write articles, share tips, or create video tutorials to help others
-            learn.
+            Share your knowledge and experiences with the community.
           </p>
           <div class="space-y-2">
             <button
@@ -34,44 +33,34 @@
                 name="ph:article-medium"
                 class="w-5 h-5 text-purple-600 mr-2"
               />
-              <span class="flex-1">Write Article</span>
+              <span class="flex-1">Article</span>
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
               <Icon
-                name="ph:video-camera"
+                name="ph:youtube-logo"
                 class="w-5 h-5 text-purple-600 mr-2"
               />
-              <span>Share Tutorial</span>
+              <span>Video</span>
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
-              <Icon name="ph:sparkle" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Share Inspiration</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon
-                name="ph:graduation-cap"
-                class="w-5 h-5 text-purple-600 mr-2"
-              />
-              <span>Create Course</span>
+              <Icon name="ph:users" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Find Partner</span>
             </button>
           </div>
         </div>
 
-        <!-- Lead Community -->
+        <!-- Organize -->
         <div>
           <div class="text-purple-600 mb-4">
-            <Icon name="ph:users-three" class="w-8 h-8" />
+            <Icon name="ph:calendar-plus" class="w-8 h-8" />
           </div>
-          <h3 class="font-bold text-lg mb-2">Lead Community</h3>
+          <h3 class="font-bold text-lg mb-2">Organize</h3>
           <p class="text-gray-600 mb-4">
-            Start or join community initiatives, organize events, or lead
-            practice groups.
+            Create events and bring the community together.
           </p>
           <div class="space-y-2">
             <button
@@ -81,19 +70,7 @@
                 name="ph:calendar-plus"
                 class="w-5 h-5 text-purple-600 mr-2"
               />
-              <span>Create Event</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon name="ph:chats" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Start Discussion</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon name="ph:users" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Find Partner</span>
+              <span>Event</span>
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
@@ -102,77 +79,44 @@
                 name="ph:users-three"
                 class="w-5 h-5 text-purple-600 mr-2"
               />
-              <span>Create Project</span>
+              <span>Project</span>
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
-              <Icon name="ph:chart-bar" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Create Poll</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon name="ph:megaphone" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Make Announcement</span>
+              <Icon name="ph:chats" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Discussion</span>
             </button>
           </div>
         </div>
 
-        <!-- Connect & Support -->
+        <!-- Support -->
         <div>
           <div class="text-purple-600 mb-4">
             <Icon name="ph:handshake" class="w-8 h-8" />
           </div>
-          <h3 class="font-bold text-lg mb-2">Connect & Support</h3>
+          <h3 class="font-bold text-lg mb-2">Support</h3>
           <p class="text-gray-600 mb-4">
-            Share opportunities, help others, and strengthen the community.
+            Help others and improve the community.
           </p>
           <div class="space-y-2">
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
-              <Icon name="ph:map-pin" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Review Venue</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon
-                name="ph:user-circle"
-                class="w-5 h-5 text-purple-600 mr-2"
-              />
-              <span>Review Host</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
               <Icon name="ph:star" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Review Artist</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon name="ph:briefcase" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Post Gig</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon name="ph:storefront" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Post Ad</span>
-            </button>
-            <button
-              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
-            >
-              <Icon name="ph:car" class="w-5 h-5 text-purple-600 mr-2" />
-              <span>Share Travel</span>
+              <span>Review</span>
             </button>
             <button
               class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
             >
               <Icon name="ph:info" class="w-5 h-5 text-purple-600 mr-2" />
               <span>Ask Locals</span>
+            </button>
+            <button
+              class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
+            >
+              <Icon name="ph:briefcase" class="w-5 h-5 text-purple-600 mr-2" />
+              <span>Post Job</span>
             </button>
           </div>
         </div>
