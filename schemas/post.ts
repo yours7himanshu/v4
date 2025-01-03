@@ -173,6 +173,7 @@ export const PostContentSchema = z.discriminatedUnion("type", [
 ]);
 
 export const PostSchema = z.object({
+  id: z.number(),
   type: PostTypeSchema,
   author: PostAuthorSchema,
   timestamp: z.string(),

@@ -31,17 +31,19 @@ const getAsyncComponent = (type: Post["type"]) => {
         :type="post.type"
       />
 
-      <Suspense>
-        <template #default>
-          <component
-            :is="getAsyncComponent(post.type)"
-            :content="post.content"
-          />
-        </template>
-        <template #fallback>
-          <PostSkeleton />
-        </template>
-      </Suspense>
+      <NuxtLink :to="`/post/${post.id}`" class="block">
+        <Suspense>
+          <template #default>
+            <component
+              :is="getAsyncComponent(post.type)"
+              :content="post.content"
+            />
+          </template>
+          <template #fallback>
+            <PostSkeleton />
+          </template>
+        </Suspense>
+      </NuxtLink>
 
       <PostTags v-if="post.content.tags" :tags="post.content.tags" />
       <PostActions :stats="post.stats" :type="post.type" />
