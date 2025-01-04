@@ -31,6 +31,56 @@ const getPrice = (event: AnyEvent) => {
   return event.price ? `${event.price.amount} ${event.price.currency}` : "Free";
 };
 
+// Related events
+const relatedEvents = computed(() => {
+  if (!event.value) return [];
+
+  return mockEvents
+    .filter(
+      (e) =>
+        String(e.id) !== String(event.value?.id) &&
+        (e.type === event.value?.type ||
+          e.tags.some((t) => event.value?.tags.includes(t)))
+    )
+    .map((e) => {
+      const base = {
+        ...e,
+        id: String(e.id),
+        schedule: e.schedule || [],
+        type: e.type as "party" | "workshop" | "concert",
+      };
+
+      // Add required properties based on type
+      if (base.type === "workshop") {
+        return {
+          ...base,
+          prices: [],
+          level: "all" as const,
+        };
+      }
+
+      if (base.type === "concert") {
+        return {
+          ...base,
+          venue: { capacity: 0, seating: false },
+        };
+      }
+
+      return base;
+    })
+    .slice(0, 2) as unknown as AnyEvent[];
+});
+
+// Event availability status
+const availability = computed(() => {
+  if (!event.value) return null;
+  const capacity = 100; // This should come from the event data
+  const interested = event.value.stats?.interested || 0;
+  if (interested >= capacity) return "sold-out";
+  if (interested >= capacity * 0.8) return "few-left";
+  return "available";
+});
+
 // Actions
 const handleShare = () => {
   if (!event.value) return;
@@ -82,19 +132,43 @@ const handleBook = () => {
                     <Icon name="ph:ticket" class="w-5 h-5" />
                     <span>{{ getPrice(event) }}</span>
                   </div>
+                  <div
+                    v-if="event.type === 'workshop'"
+                    class="flex items-center gap-2"
+                  >
+                    <Icon name="ph:chart-line" class="w-5 h-5" />
+                    <span>{{ event.level }}</span>
+                  </div>
                 </div>
-                <div
-                  class="flex flex-wrap gap-4 justify-center md:justify-start"
-                >
+
+                <!-- Status & Social Proof -->
+                <div class="flex items-center gap-4 text-white/80 mb-6">
+                  <Badge
+                    v-if="availability === 'sold-out'"
+                    variant="destructive"
+                  >
+                    Sold Out
+                  </Badge>
+                  <Badge
+                    v-else-if="availability === 'few-left'"
+                    variant="destructive"
+                    class="bg-yellow-500"
+                  >
+                    Few Spots Left
+                  </Badge>
+                  <Badge v-else variant="secondary" class="bg-white/20">
+                    {{ event.stats?.interested || 0 }} interested
+                  </Badge>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex justify-center md:justify-start">
                   <Button
                     size="lg"
                     variant="default"
                     class="bg-white text-purple-600 hover:bg-white/90"
-                    >Book Now</Button
                   >
-                  <Button size="lg" variant="ghost" class="text-white/80">
-                    <Icon name="ph:share" class="w-5 h-5 mr-2" />
-                    Share
+                    Book Now
                   </Button>
                 </div>
               </div>
@@ -117,9 +191,21 @@ const handleBook = () => {
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid lg:grid-cols-3 gap-8">
+      <div class="flex justify-center gap-8 max-w-7xl mx-auto">
         <!-- Left Column: Details -->
-        <div class="lg:col-span-2 space-y-8">
+        <div class="space-y-8 max-w-xl">
+          <!-- Quick Actions -->
+          <div class="flex gap-2 pb-6 border-b">
+            <Button variant="outline" class="flex-1" @click="handleBookmark">
+              <Icon name="ph:bookmark-simple" class="w-5 h-5 mr-2" />
+              Save
+            </Button>
+            <Button variant="outline" class="flex-1" @click="handleShare">
+              <Icon name="ph:share-network" class="w-5 h-5 mr-2" />
+              Share
+            </Button>
+          </div>
+
           <!-- Description -->
           <div class="prose max-w-none">
             <h2 class="text-2xl font-bold mb-4">About This Event</h2>
@@ -175,6 +261,88 @@ const handleBook = () => {
                   <div class="text-sm text-gray-600">Artist</div>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <!-- Prerequisites & Policies -->
+          <div v-if="event.type === 'workshop'" class="space-y-8">
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Prerequisites</h2>
+              <div class="bg-white rounded-lg border p-4">
+                <div class="flex items-start gap-4">
+                  <div
+                    class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
+                  >
+                    <Icon name="ph:info" class="w-5 h-5 text-purple-600" />
+                  </div>
+                  <div>
+                    <div class="font-medium">Required Level</div>
+                    <p class="text-gray-600">
+                      This workshop is suitable for {{ event.level }} level
+                      dancers. Previous experience with
+                      {{ event.tags.join(" or ") }} is recommended.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-bold mb-4">Policies</h2>
+              <div class="space-y-4">
+                <div class="bg-white rounded-lg border p-4">
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
+                    >
+                      <Icon name="ph:scroll" class="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <div class="font-medium">Cancellation Policy</div>
+                      <p class="text-gray-600">
+                        Full refund up to 7 days before the event. 50% refund up
+                        to 48 hours before the event. No refunds within 48 hours
+                        of the event.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-white rounded-lg border p-4">
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
+                    >
+                      <Icon name="ph:users" class="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <div class="font-medium">Partner Requirements</div>
+                      <p class="text-gray-600">
+                        No partner required. We will rotate partners during the
+                        workshop to ensure everyone gets to practice with
+                        different dancers.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Community Q&A -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4">Community Q&A</h2>
+            <PostComments />
+          </div>
+
+          <!-- Related Events -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4">Related Events</h2>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <EventCard
+                v-for="relatedEvent in relatedEvents"
+                :key="relatedEvent.id"
+                :event="relatedEvent"
+              />
             </div>
           </div>
         </div>
