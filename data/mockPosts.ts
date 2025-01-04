@@ -1,8 +1,7 @@
-import type { Post } from "~/schemas/post";
 import { mockEvents } from "./mockEvents";
 import { eventToFeedPost } from "~/schemas/event";
 
-export const mockPosts: Post[] = [
+export const mockPosts = [
   {
     id: 1,
     type: "note",
@@ -51,6 +50,7 @@ export const mockPosts: Post[] = [
       shares: 45,
     },
   },
+  eventToFeedPost(mockEvents[3]),
   {
     id: 2,
     type: "note",
@@ -108,14 +108,15 @@ export const mockPosts: Post[] = [
       shares: 0,
     },
   },
+  eventToFeedPost(mockEvents[2]),
   {
     id: 5,
     type: "article",
     author: {
-      id: "4",
       name: "Sophie Laurent",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
       location: "Paris",
+      id: "4",
     },
     timestamp: "1 day ago",
     content: {
@@ -158,6 +159,162 @@ export const mockPosts: Post[] = [
     },
     stats: {
       interested: 5,
+      shares: 0,
+      comments: 0,
+    },
+  },
+  {
+    id: 7,
+    type: "review",
+    author: {
+      id: "2",
+      name: "David Chen",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+      location: "London",
+    },
+    timestamp: "1 day ago",
+    content: {
+      title: "Salsa Mania - Best Floor in Town!",
+      rating: 5,
+      description:
+        "Finally checked out the new Salsa Mania venue and wow! Spacious dance floor with perfect grip, great sound system, and friendly crowd. The pre-party class was excellent too. Definitely my new favorite Thursday spot!",
+      tags: ["Venue Review", "London", "Social Dancing"],
+    },
+    stats: {
+      likes: 35,
+      comments: 15,
+      shares: 0,
+    },
+  },
+  {
+    id: 8,
+    type: "gig",
+    author: {
+      id: "salsa_mania_1",
+      name: "Salsa Mania",
+      image: "https://images.unsplash.com/photo-1560439514-4e9645039924",
+      location: "London",
+    },
+    timestamp: "1 day ago",
+    content: {
+      title: "Seeking Salsa Instructor for Group Classes",
+      description:
+        "Looking for an experienced salsa instructor to teach beginner and intermediate levels. Must have at least 3 years of teaching experience and be comfortable with both leading and following.",
+      details: [
+        { icon: "ph:calendar", text: "Tuesday & Thursday evenings" },
+        { icon: "ph:clock", text: "7 PM - 9 PM" },
+        { icon: "ph:map-pin", text: "East London" },
+        { icon: "ph:graduation-cap", text: "Min. 3 years teaching exp." },
+      ],
+      tags: ["Teaching", "Job Opening", "London"],
+    },
+    stats: {
+      interested: 12,
+      shares: 0,
+      comments: 0,
+    },
+  },
+  {
+    id: 9,
+    type: "ask_locals",
+    author: {
+      id: "6",
+      name: "Lisa Wong",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
+      location: "Tokyo",
+    },
+    timestamp: "12 hours ago",
+    content: {
+      title: "New in Berlin - Where to dance salsa?",
+      text: "Just moved to Berlin and looking to connect with the salsa scene! Particularly interested in Cuban style socials and weekday practice sessions. Any recommendations for venues, WhatsApp groups, or regular events?",
+      tags: ["Berlin", "Local Scene", "Cuban Salsa"],
+    },
+    stats: {
+      likes: 8,
+      comments: 15,
+      shares: 0,
+    },
+  },
+  {
+    id: 10,
+    type: "ad",
+    author: {
+      id: "dance_shoes_pro_1",
+      name: "Dance Shoes Pro",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
+      location: "Online Store",
+    },
+    timestamp: "5 hours ago",
+    content: {
+      title: "New Collection: Professional Dance Shoes",
+      image:
+        "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800&h=400&fit=crop",
+      description:
+        "Just launched our new collection of professional dance shoes! Italian leather, perfect heel height, and superior comfort. Use code SUMMER20 for 20% off.",
+      tags: ["Dance Shoes", "New Collection", "Special Offer"],
+    },
+    stats: {
+      likes: 34,
+      bookmarks: 12,
+      shares: 0,
+      comments: 0,
+    },
+  },
+  {
+    id: 11,
+    type: "meet",
+    author: {
+      id: "7",
+      name: "Thomas Weber",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
+      location: "Stuttgart",
+    },
+    timestamp: "4 hours ago",
+    content: {
+      title: "Looking for ride share to Freiburg Salsa Festival! 🚗",
+      text: "Hey dancers! Anyone driving to Freiburg Salsa Festival next weekend? Happy to share fuel costs and good vibes! I'm flexible with departure times.",
+      details: {
+        type: "travel",
+        format: "carpool",
+        when: "Sept 15-17",
+        where: "Stuttgart → Freiburg",
+        seats: "1 seat needed",
+        contribution: "Will share fuel costs",
+      },
+      tags: ["Festival", "Ride Share", "Freiburg"],
+    },
+    stats: {
+      interested: 3,
+      shares: 0,
+      comments: 0,
+    },
+  },
+  {
+    id: 12,
+    type: "meet",
+    author: {
+      id: "8",
+      name: "Carlos Mendoza",
+      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
+      location: "Berlin",
+    },
+    timestamp: "1 hour ago",
+    content: {
+      title: "Casino style practice partner needed 🕺",
+      text: "Hola! I'm looking for a follow to practice casino style salsa. I'm a beginner (3 months experience) and would love to work on basic figures and rueda combinations. I have access to a practice room near Alexanderplatz.",
+      details: {
+        type: "practice",
+        format: "individual",
+        gender: "female",
+        when: "Weekday evenings",
+        where: "Berlin, Alexanderplatz area",
+        level: "Beginner",
+        style: "Casino/Cuban",
+      },
+      tags: ["Practice Partner", "Casino", "Berlin", "Beginner"],
+    },
+    stats: {
+      interested: 2,
       shares: 0,
       comments: 0,
     },

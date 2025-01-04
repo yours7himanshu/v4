@@ -19,7 +19,6 @@ const selectedLocation = ref(null);
             v-model:type="selectedPostType"
             v-model:location="selectedLocation"
           />
-          <Create />
         </div>
       </div>
     </div>
@@ -33,16 +32,15 @@ const selectedLocation = ref(null);
       />
 
       <!-- Main Content -->
-      <div class="flex-1">
-        <div class="flex justify-end mb-4">
-          <Create />
-        </div>
+      <div class="hidden flex-1 md:flex flex-col gap-4 max-w-xl mx-auto">
+        <Create />
         <Feed :type="selectedPostType" />
       </div>
     </div>
 
     <!-- Mobile Content -->
-    <div class="md:hidden my-4">
+    <div class="md:hidden flex flex-col my-4 gap-4">
+      <Create />
       <Feed :type="selectedPostType" />
     </div>
   </DanceStyleLayout>
