@@ -14,20 +14,26 @@
           <p class="text-xl text-white/80 mb-8 max-w-lg">
             Start your dance journey today and connect with dancers worldwide
           </p>
+
           <div
-            class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+            class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8"
           >
             <Button size="lg" variant="secondary" class="text-lg px-8" as-child>
               <NuxtLink
                 to="/register"
                 class="flex items-center justify-center gap-2"
               >
-                Get Started
+                Get Started Free
                 <Icon name="ph:arrow-right" class="w-5 h-5" />
               </NuxtLink>
             </Button>
           </div>
+
+          <div class="text-sm text-white/60">
+            ⚡️ 2-minute setup • No credit card required
+          </div>
         </div>
+
         <div class="hidden md:block">
           <div class="grid grid-cols-2 gap-4 relative">
             <div class="space-y-4">
