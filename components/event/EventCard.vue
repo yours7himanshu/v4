@@ -50,8 +50,8 @@ const getPrice = (event: AnyEvent) => {
             <span class="truncate">{{ getPrice(event) }}</span>
           </div>
         </div>
-        <Button :to="`/events/${event.id}`" size="sm" class="flex-shrink-0">
-          Details
+        <Button size="sm" class="flex-shrink-0" as-child>
+          <NuxtLink :to="`/events/${event.id}`">Details</NuxtLink>
         </Button>
       </div>
     </div>
