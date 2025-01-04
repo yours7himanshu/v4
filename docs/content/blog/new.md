@@ -36,12 +36,14 @@ It's like having a dedicated space for your dance style, where everyone speaks y
 
 We're conducting a series of focused prototype tests to validate our style-first approach. Each 20-minute session will be recorded as you try out our prototype and share your thoughts.
 
-### We're Looking For 5 People Who:
+### We're Looking For 5 Dance Teachers Who:
 
-- 💃 Are active in the dance scene (social dancing, teaching, or organizing)
-- 🌍 Have experience with multiple dance communities
-- 🎯 Want to help shape the future of online dance communities
-- 🗣️ Can think out loud while testing
+- 💃 Teach internationally or in multiple cities
+- 🌍 Have experience with different dance communities
+- 🎯 Organize workshops or festivals
+- 🗣️ Are active on social media or community platforms
+
+Why teachers? They are the bridges between different dance communities, understand both local and international dynamics, and often face the challenges of managing events, students, and community growth across different locations.
 
 ### What to Expect:
 
