@@ -2,9 +2,9 @@
   <section class="py-24 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
-        <h2 class="text-4xl font-bold mb-4">How WeDance Works</h2>
+        <h2 class="text-4xl font-bold mb-4">Start Dancing Today</h2>
         <p class="text-xl text-gray-600">
-          Your journey in the dance community starts here
+          Join 10,000+ dancers who found their dance community with WeDance
         </p>
       </div>
 
@@ -21,14 +21,14 @@
               <div
                 class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110"
               >
-                <Icon name="ph:user-plus" class="w-10 h-10 text-white" />
+                <Icon name="ph:compass" class="w-10 h-10 text-white" />
               </div>
               <div class="text-center">
                 <div class="text-purple-600 font-medium mb-2">Step 1</div>
-                <h3 class="text-xl font-bold mb-3">Create Profile</h3>
+                <h3 class="text-xl font-bold mb-3">Find Your Scene</h3>
                 <p class="text-gray-600">
-                  Share your dance journey and preferences to connect with
-                  like-minded dancers
+                  Choose your city and dance styles - we'll show you what's
+                  happening tonight
                 </p>
               </div>
             </div>
@@ -40,14 +40,14 @@
               <div
                 class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110"
               >
-                <Icon name="ph:compass" class="w-10 h-10 text-white" />
+                <Icon name="ph:users-three" class="w-10 h-10 text-white" />
               </div>
               <div class="text-center">
                 <div class="text-purple-600 font-medium mb-2">Step 2</div>
-                <h3 class="text-xl font-bold mb-3">Discover</h3>
+                <h3 class="text-xl font-bold mb-3">Meet Dancers</h3>
                 <p class="text-gray-600">
-                  Find local events, dance partners, and artists that match your
-                  interests
+                  Join local groups, find dance buddies, and plan festival trips
+                  together
                 </p>
               </div>
             </div>
@@ -59,13 +59,13 @@
               <div
                 class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110"
               >
-                <Icon name="ph:handshake" class="w-10 h-10 text-white" />
+                <Icon name="ph:calendar-check" class="w-10 h-10 text-white" />
               </div>
               <div class="text-center">
                 <div class="text-purple-600 font-medium mb-2">Step 3</div>
-                <h3 class="text-xl font-bold mb-3">Connect</h3>
+                <h3 class="text-xl font-bold mb-3">Join Events</h3>
                 <p class="text-gray-600">
-                  Join dance communities, attend events, and make new friends
+                  Book classes, attend socials, and experience amazing festivals
                 </p>
               </div>
             </div>
@@ -77,14 +77,13 @@
               <div
                 class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110"
               >
-                <Icon name="ph:star" class="w-10 h-10 text-white" />
+                <Icon name="ph:heart-fill" class="w-10 h-10 text-white" />
               </div>
               <div class="text-center">
                 <div class="text-purple-600 font-medium mb-2">Step 4</div>
-                <h3 class="text-xl font-bold mb-3">Grow</h3>
+                <h3 class="text-xl font-bold mb-3">Fall in Love</h3>
                 <p class="text-gray-600">
-                  Improve your skills, share experiences, and become part of the
-                  community
+                  With the dance, the music, the community, and the lifestyle
                 </p>
               </div>
             </div>
