@@ -70,7 +70,19 @@
                 <div class="font-semibold text-white text-lg mb-1">
                   For Artists
                 </div>
-                <p class="text-white/80">Grow your audience & business</p>
+                <p class="text-white/80">
+                  Grow your audience & business
+                  <NuxtLink
+                    to="/for/artists"
+                    class="text-white hover:text-purple-200 font-medium ml-1"
+                  >
+                    Learn more
+                    <Icon
+                      name="ph:arrow-right"
+                      class="inline-block w-4 h-4 ml-0.5"
+                    />
+                  </NuxtLink>
+                </p>
               </div>
             </div>
             <div class="space-y-4 mt-8">
@@ -83,9 +95,21 @@
                   <Icon name="ph:buildings" class="w-5 h-5 text-white" />
                 </div>
                 <div class="font-semibold text-white text-lg mb-1">
-                  For Organizers
+                  For Venues
                 </div>
-                <p class="text-white/80">Create & promote events easily</p>
+                <p class="text-white/80">
+                  Fill your space with amazing events
+                  <NuxtLink
+                    to="/for/venues"
+                    class="text-white hover:text-purple-200 font-medium ml-1"
+                  >
+                    Learn more
+                    <Icon
+                      name="ph:arrow-right"
+                      class="inline-block w-4 h-4 ml-0.5"
+                    />
+                  </NuxtLink>
+                </p>
               </div>
               <div
                 class="bg-white/10 backdrop-blur rounded-xl p-6 transform hover:-translate-y-1 transition-transform"
@@ -96,9 +120,21 @@
                   <Icon name="ph:users" class="w-5 h-5 text-white" />
                 </div>
                 <div class="font-semibold text-white text-lg mb-1">
-                  For Communities
+                  For Organizers
                 </div>
-                <p class="text-white/80">Connect & grow together</p>
+                <p class="text-white/80">
+                  Create & promote events easily
+                  <NuxtLink
+                    to="/for/organizers"
+                    class="text-white hover:text-purple-200 font-medium ml-1"
+                  >
+                    Learn more
+                    <Icon
+                      name="ph:arrow-right"
+                      class="inline-block w-4 h-4 ml-0.5"
+                    />
+                  </NuxtLink>
+                </p>
               </div>
             </div>
           </div>

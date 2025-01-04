@@ -250,7 +250,7 @@
           Join organizers worldwide who trust WeDance to create successful dance
           events
         </p>
-        <div class="flex justify-center gap-4">
+        <div class="flex flex-col items-center gap-4">
           <Button size="lg" variant="secondary" class="text-lg px-12" as-child>
             <NuxtLink
               to="/register"
@@ -260,6 +260,16 @@
               <Icon name="ph:arrow-right" class="w-5 h-5" />
             </NuxtLink>
           </Button>
+          <p class="text-gray-600">
+            Do you own a dance venue?
+            <NuxtLink
+              to="/for/venues"
+              class="text-purple-600 hover:text-purple-700 font-medium"
+            >
+              Check out our venue solutions
+              <Icon name="ph:arrow-right" class="inline-block w-4 h-4 ml-0.5" />
+            </NuxtLink>
+          </p>
         </div>
       </div>
     </section>

@@ -87,6 +87,16 @@
             <h3 class="text-xl font-bold mb-2">For Artists</h3>
             <p class="text-gray-600 text-sm">
               Focus on your art - we'll handle the business side
+              <NuxtLink
+                to="/for/artists"
+                class="text-purple-600 hover:text-purple-700 font-medium ml-1"
+              >
+                Learn more
+                <Icon
+                  name="ph:arrow-right"
+                  class="inline-block w-4 h-4 ml-0.5"
+                />
+              </NuxtLink>
             </p>
           </div>
 
@@ -152,6 +162,16 @@
             <h3 class="text-xl font-bold mb-2">For Organizers</h3>
             <p class="text-gray-600 text-sm">
               Create, promote, and sell out your events with ease
+              <NuxtLink
+                to="/for/organizers"
+                class="text-purple-600 hover:text-purple-700 font-medium ml-1"
+              >
+                Learn more
+                <Icon
+                  name="ph:arrow-right"
+                  class="inline-block w-4 h-4 ml-0.5"
+                />
+              </NuxtLink>
             </p>
           </div>
 
