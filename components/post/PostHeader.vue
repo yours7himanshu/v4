@@ -12,14 +12,21 @@ defineProps<{
 
 <template>
   <div class="p-4 flex items-center gap-3">
-    <img
-      :src="author.image"
-      :alt="author.name"
-      class="w-10 h-10 rounded-full object-cover"
-    />
+    <NuxtLink :to="`/artists/${author.id}`">
+      <img
+        :src="author.image"
+        :alt="author.name"
+        class="w-10 h-10 rounded-full object-cover hover:ring-2 hover:ring-purple-500 transition-all"
+      />
+    </NuxtLink>
     <div class="flex-1">
       <div class="flex items-center gap-2">
-        <span class="font-medium">{{ author.name }}</span>
+        <NuxtLink
+          :to="`/artists/${author.id}`"
+          class="font-medium hover:text-purple-600 transition-colors"
+        >
+          {{ author.name }}
+        </NuxtLink>
         <UserPoints :points="author.points" />
       </div>
       <div class="text-sm text-gray-500 flex items-center gap-1">
