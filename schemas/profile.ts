@@ -99,7 +99,7 @@ export const artistProfileSchema = profileSchema.extend({
   portfolio: z
     .array(
       z.object({
-        type: z.enum(["video", "image"]),
+        type: z.enum(["video", "image", "achievement"]),
         url: z.string().url(),
         description: z.string().optional(),
       })
