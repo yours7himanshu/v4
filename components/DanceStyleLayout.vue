@@ -35,8 +35,10 @@ defineProps({
 
 <template>
   <!-- Hero Section -->
-  <div class="h-[calc(100vh-64px)]">
-    <div class="relative flex items-center overflow-hidden h-full">
+  <div class="pt-16 relative min-h-[60vh]">
+    <div
+      class="relative flex items-center overflow-hidden min-h-[60vh] md:h-full py-20 md:py-0"
+    >
       <GradientBackground />
 
       <!-- Content -->
