@@ -1,20 +1,20 @@
 <template>
   <LandingHero />
   <LandingCities
-    title="Your Local Dance Scene, All in One Place"
-    description="Plan festival trips together, join local dance groups, get insider tips, and find dance buddies in any city"
+    title="Dance Anywhere Like a Local"
+    description="Get insider tips from locals, find active WhatsApp groups, and discover the best spots in any city's dance scene"
   />
   <LandingEvents
-    title="Dance Events Near You"
-    description="From social parties to workshops - find the perfect events for your style and level"
+    title="Never Miss a Dance"
+    description="Find events, share festival rides and accommodation, see who's going - make dance trips easier and more social"
   />
   <LandingArtists
     title="Connect with Dance Artists"
     description="Find instructors, performers, DJs, musicians and more - all the talent you need for your dance journey"
   />
   <LandingVenues
-    title="Perfect Dance Spaces"
-    description="Discover studios, social venues, and event spaces equipped for your dance needs"
+    title="The Perfect Space to Dance"
+    description="Find and book dance spaces - from practice rooms to event venues, with schedules and instant booking"
   />
   <LandingBenefits />
   <LandingTestimonials />
