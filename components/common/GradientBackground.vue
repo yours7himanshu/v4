@@ -1,30 +1,19 @@
-<script setup lang="ts">
-withDefaults(
-  defineProps<{
-    baseColor?: string;
-  }>(),
-  {
-    baseColor: "purple-950",
-  }
-);
-</script>
-
 <template>
   <!-- Animated background -->
   <div class="absolute inset-0">
     <!-- Base background -->
-    <div class="absolute inset-0" :class="`bg-${baseColor}`"></div>
+    <div class="absolute inset-0 bg-purple-950"></div>
 
     <!-- Animated blobs -->
     <div class="absolute inset-0">
       <div
-        class="absolute w-[1000px] h-[1000px] -top-[400px] -left-[200px] rounded-full bg-purple-500/50 mix-blend-soft-light blur-[128px] animate-blob"
+        class="absolute w-[1000px] h-[1000px] -top-[400px] -left-[200px] rounded-full bg-primary/50 mix-blend-soft-light blur-[128px] animate-blob"
       ></div>
       <div
-        class="absolute w-[800px] h-[800px] top-[20%] right-[0px] rounded-full bg-pink-500/50 mix-blend-soft-light blur-[128px] animate-blob animation-delay-2000"
+        class="absolute w-[800px] h-[800px] top-[20%] right-[0px] rounded-full bg-accent/50 mix-blend-soft-light blur-[128px] animate-blob animation-delay-2000"
       ></div>
       <div
-        class="absolute w-[600px] h-[600px] bottom-[-10%] left-[20%] rounded-full bg-blue-500/50 mix-blend-soft-light blur-[128px] animate-blob animation-delay-4000"
+        class="absolute w-[600px] h-[600px] bottom-[-10%] left-[20%] rounded-full bg-secondary/50 mix-blend-soft-light blur-[128px] animate-blob animation-delay-4000"
       ></div>
     </div>
 
