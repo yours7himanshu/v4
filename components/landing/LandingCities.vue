@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-6 mb-12">
         <div>
-          <h2 class="text-3xl font-bold">50 Cities</h2>
+          <h2 class="text-3xl font-bold">Popular Cities</h2>
           <p class="text-gray-600 mt-2">Explore dance communities worldwide</p>
         </div>
         <div class="flex flex-col sm:flex-row gap-4">
