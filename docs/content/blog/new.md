@@ -16,6 +16,26 @@ I am planning to shoot a series of YouTube videos about my newly discovered way 
 
 ---
 
+## Help Shape the Future of WeDance! 🌟
+
+Calling international dance teachers for quick 20min feedback sessions.
+
+You're perfect if you:
+• Teach in multiple cities
+• Run workshops/festivals
+• Active in dance community
+
+When: Jan 15-19
+Reward: Early access + insights report
+
+DM "WeDance Test" with:
+• Your teaching experience
+• Preferred time slot
+
+First 5 qualified teachers only! 🎯
+
+---
+
 # Introducing the New WeDance: Building Global Dance Communities 🌍💃
 
 Let me share what makes the new WeDance concept exciting:
@@ -31,41 +51,3 @@ This new approach means:
 - Participate in both local and global dance opportunities
 
 It's like having a dedicated space for your dance style, where everyone speaks your language - both literally and in dance terms! And as these style-specific communities grow stronger, we'll naturally expand into city-specific features and cross-style connections.
-
-## Join Our Design Sprint: Quick & Impactful User Tests 🌟
-
-We're conducting a series of focused prototype tests to validate our style-first approach. Each 20-minute session will be recorded as you try out our prototype and share your thoughts.
-
-### We're Looking For 5 Dance Teachers Who:
-
-- 💃 Teach internationally or in multiple cities
-- 🌍 Have experience with different dance communities
-- 🎯 Organize workshops or festivals
-- 🗣️ Are active on social media or community platforms
-
-Why teachers? They are the bridges between different dance communities, understand both local and international dynamics, and often face the challenges of managing events, students, and community growth across different locations.
-
-### What to Expect:
-
-- Quick 20-minute recorded video session
-- Try out our prototype with simple tasks
-- Share your honest thoughts and reactions
-- No right or wrong answers - we want your genuine feedback
-- Questions about potential pricing and features
-
-### Timeline:
-
-- Tests: January 15-19, 2024 (flexible slots available)
-- Your slot will be confirmed within 24 hours
-- Each participant gets a summary of insights by January 31
-
-### How to Participate:
-
-1. DM me with "WeDance Test"
-2. Tell us your main role in the dance community:
-   - Social dancer
-   - Teacher/Artist
-   - Event organizer
-3. Share your preferred time slot (Jan 15-19)
-
-Your candid feedback will help us avoid common pitfalls and create a product that truly serves the dance community.
