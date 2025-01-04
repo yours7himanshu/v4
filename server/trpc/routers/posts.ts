@@ -15,18 +15,20 @@ export const postsRouter = router({
         type: z.string(),
         limit: z.number(),
         cursor: z.number().optional(),
+        authorId: z.string().optional(),
       })
     )
     .query(async ({ input }) => {
-      const { type, limit, cursor = 0 } = input;
+      const { type, limit, cursor = 0, authorId } = input;
       const start = cursor * limit;
       const end = start + limit;
 
-      // Filter posts by type
-      const filtered =
-        type === "all"
-          ? mockPosts
-          : mockPosts.filter((post) => post.type === type);
+      // Filter posts by type and author
+      const filtered = mockPosts.filter((post) => {
+        const typeMatch = type === "all" || post.type === type;
+        const authorMatch = !authorId || post.author.id === authorId;
+        return typeMatch && authorMatch;
+      });
 
       return {
         items: filtered.slice(start, end),

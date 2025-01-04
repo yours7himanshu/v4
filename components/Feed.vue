@@ -2,6 +2,7 @@
 import { usePostsList, useUpdateStats } from "~/composables/trpc";
 import { useQueryClient } from "vue-query";
 import type { Post } from "~/server/trpc/schemas/post";
+import type { PropType } from "vue";
 
 const props = defineProps({
   type: {
@@ -12,19 +13,27 @@ const props = defineProps({
     type: Number,
     default: 10,
   },
+  authorId: {
+    type: String as PropType<string | undefined>,
+    default: undefined,
+  },
 });
 
 // Query params with ref to make it reactive
 const queryParams = ref({
-  type: props.type,
+  type: props.type || "all",
   limit: props.limit,
+  authorId: props.authorId,
+  cursor: 0,
 });
 
 // Watch for type changes
 watch(
-  () => props.type,
-  (newType) => {
-    queryParams.value.type = newType;
+  () => [props.type, props.authorId],
+  ([newType, newAuthorId]) => {
+    queryParams.value.type = newType || "all";
+    queryParams.value.authorId = newAuthorId;
+    queryParams.value.cursor = 0;
   }
 );
 
@@ -53,15 +62,16 @@ const posts = computed(() => {
 
 // Watch for type changes and refetch
 watchEffect(() => {
-  if (props.type) {
-    // Clear cache and refetch when type changes
+  if (props.type || props.authorId) {
+    // Clear cache and refetch when type or authorId changes
     queryClient.invalidateQueries(["posts.list"]);
   }
 });
 
 // Load more posts
 const loadMore = async () => {
-  if (hasNextPage?.value && !isLoading.value && fetchNextPage.value) {
+  if (hasNextPage?.value && !isLoading.value && fetchNextPage?.value) {
+    queryParams.value.cursor += 1;
     await fetchNextPage.value();
   }
 };
@@ -80,12 +90,17 @@ const handleShare = (postId: number) => {
 const handleComment = (postId: number) => {
   updateStats({ postId, action: "comment" });
 };
+
+// Computed states
+const showLoadMore = computed(
+  () => posts.value.length > 0 && hasNextPage?.value
+);
 </script>
 
 <template>
   <!-- Error state -->
   <div v-if="error" class="p-4 mb-4 text-red-500 bg-red-50 rounded-lg">
-    {{ error.message }}
+    {{ (error as Error).message }}
   </div>
 
   <!-- Loading state -->
@@ -109,21 +124,20 @@ const handleComment = (postId: number) => {
       <Icon name="ph:note" class="mx-auto h-12 w-12 text-gray-400" />
       <h3 class="mt-2 text-sm font-medium text-gray-900">No posts</h3>
       <p class="mt-1 text-sm text-gray-500">
-        Get started by creating a new post.
+        {{
+          props.authorId
+            ? "This artist hasn't posted anything yet."
+            : "Get started by creating a new post."
+        }}
       </p>
     </div>
   </div>
 
   <!-- Load more button -->
-  <div class="text-center mt-8">
-    <Button
-      variant="link"
-      @click="loadMore"
-      :disabled="isLoading || !hasNextPage?.value"
-    >
+  <div v-if="showLoadMore" class="text-center mt-8">
+    <Button variant="link" @click="loadMore" :disabled="isLoading">
       <span v-if="isLoading">Loading...</span>
-      <span v-else-if="hasNextPage?.value">Load More Posts</span>
-      <span v-else>No more posts</span>
+      <span v-else>Load More Posts</span>
     </Button>
   </div>
 </template>

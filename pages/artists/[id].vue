@@ -3,6 +3,7 @@ import { mockArtists } from "@/data/mockArtists";
 import GradientBackground from "~/components/common/GradientBackground.vue";
 import type { ArtistProfile } from "~/schemas/profile";
 import Post from "~/components/post/Post.vue";
+import Feed from "~/components/Feed.vue";
 
 const route = useRoute();
 const artist = computed(() =>
@@ -250,6 +251,12 @@ const handleFollow = () => {
                 {{ language }}
               </Badge>
             </div>
+          </div>
+
+          <!-- Posts -->
+          <div>
+            <h2 class="text-2xl font-bold mb-4">Posts</h2>
+            <Feed :type="'all'" :limit="5" :author-id="String(artist.id)" />
           </div>
         </div>
 
