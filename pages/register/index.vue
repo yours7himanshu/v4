@@ -8,9 +8,12 @@ const form = reactive({
   terms: false,
 });
 
+const router = useRouter();
+
 const handleSubmit = () => {
   // TODO: Handle form submission
   console.log("Form submitted:", { ...form, type: selectedType.value });
+  router.push("/register/success");
 };
 </script>
 
