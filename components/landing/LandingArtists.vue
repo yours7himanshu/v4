@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import { mockArtists } from "@/data/mockArtists";
 
+defineProps({
+  title: {
+    type: String,
+    default: "Dance Artists",
+  },
+  description: {
+    type: String,
+    default: "Connect with talented dance artists and instructors",
+  },
+});
+
 const featuredArtists = computed(() => mockArtists.slice(0, 3));
 </script>
 
@@ -9,10 +20,8 @@ const featuredArtists = computed(() => mockArtists.slice(0, 3));
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-6 mb-12">
         <div>
-          <h2 class="text-3xl font-bold">Dance Artists</h2>
-          <p class="text-gray-600 mt-2">
-            Connect with talented dance artists and instructors
-          </p>
+          <h2 class="text-3xl font-bold">{{ title }}</h2>
+          <p class="text-gray-600 mt-2">{{ description }}</p>
         </div>
         <div class="flex flex-col sm:flex-row gap-4">
           <div class="relative flex-1">

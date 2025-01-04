@@ -2,6 +2,17 @@
 import { mockEvents } from "@/data/mockEvents";
 import type { AnyEvent } from "~/schemas/event";
 
+defineProps({
+  title: {
+    type: String,
+    default: "Dance Events",
+  },
+  description: {
+    type: String,
+    default: "Discover amazing dance events happening near you",
+  },
+});
+
 const featuredEvents = computed(
   () =>
     mockEvents
@@ -15,10 +26,8 @@ const featuredEvents = computed(
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-6 mb-12">
         <div>
-          <h2 class="text-3xl font-bold">Dance Events</h2>
-          <p class="text-gray-600 mt-2">
-            Discover amazing dance events happening near you
-          </p>
+          <h2 class="text-3xl font-bold">{{ title }}</h2>
+          <p class="text-gray-600 mt-2">{{ description }}</p>
         </div>
         <div class="flex flex-col sm:flex-row gap-4">
           <div class="relative flex-1">
