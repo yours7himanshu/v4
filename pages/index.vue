@@ -1,20 +1,20 @@
 <template>
   <LandingHero />
   <LandingCities
-    title="Popular Cities"
-    description="Explore dance communities worldwide"
+    title="Your Local Dance Scene, All in One Place"
+    description="Plan festival trips together, join local dance groups, get insider tips, and find dance buddies in any city"
   />
   <LandingEvents
-    title="Dance Events"
-    description="Discover amazing dance events happening near you"
+    title="Dance Events Near You"
+    description="From social parties to workshops - find the perfect events for your style and level"
   />
   <LandingArtists
-    title="Dance Artists"
-    description="Connect with talented dance artists and instructors"
+    title="Connect with Dance Artists"
+    description="Find instructors, performers, DJs, musicians and more - all the talent you need for your dance journey"
   />
   <LandingVenues
-    title="Dance Venues"
-    description="Discover the best dance studios, clubs, and event spaces"
+    title="Perfect Dance Spaces"
+    description="Discover studios, social venues, and event spaces equipped for your dance needs"
   />
   <LandingBenefits />
   <LandingTestimonials />
