@@ -5,6 +5,8 @@ import type { AnyEvent } from "~/schemas/event";
 import GradientBackground from "~/components/common/GradientBackground.vue";
 import { formatDate } from "~/utils/format";
 import UserPoints from "~/components/common/UserPoints.vue";
+import Post from "~/components/post/Post.vue";
+import { eventToFeedPost } from "~/schemas/event";
 
 const route = useRoute();
 const event = computed(
@@ -233,10 +235,7 @@ const eventArtists = computed(() => {
         <!-- Left Column: Details -->
         <div class="space-y-8 max-w-xl">
           <!-- Description -->
-          <div class="prose max-w-none">
-            <h2 class="text-2xl font-bold mb-4">About This Event</h2>
-            <p class="whitespace-pre-wrap">{{ event.description }}</p>
-          </div>
+          <Post v-if="event" :post="eventToFeedPost(event)" />
 
           <!-- Schedule -->
           <div v-if="event.schedule.length > 0">
@@ -358,12 +357,6 @@ const eventArtists = computed(() => {
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Community Q&A -->
-          <div>
-            <h2 class="text-2xl font-bold mb-4">Community Q&A</h2>
-            <PostComments />
           </div>
 
           <!-- Related Events -->
