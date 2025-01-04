@@ -9,20 +9,20 @@ const steps = [
     to: "/settings/profile",
   },
   {
-    title: "Join Your Local Community",
+    title: "Discover Local Events",
     description:
-      "Find and connect with dancers in your city to stay updated on local events.",
-    icon: "ph:map-pin",
-    action: "Find City",
-    to: "/cities",
-  },
-  {
-    title: "Explore Events",
-    description:
-      "Discover dance events, workshops, and socials happening near you.",
+      "Find dance events, workshops, and socials happening in your city.",
     icon: "ph:calendar",
     action: "Browse Events",
     to: "/events",
+  },
+  {
+    title: "Connect with Dancers",
+    description:
+      "Meet dance partners, teachers, and join local dance communities.",
+    icon: "ph:users",
+    action: "Meet Dancers",
+    to: "/feed",
   },
 ];
 </script>
