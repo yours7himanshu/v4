@@ -151,7 +151,7 @@
             </div>
             <h3 class="text-xl font-bold mb-2">For Organizers</h3>
             <p class="text-gray-600 text-sm">
-              Create unforgettable events with less hassle
+              Create, promote, and sell out your events with ease
             </p>
           </div>
 
@@ -160,16 +160,13 @@
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-purple-100 flex-shrink-0 mt-0.5"
               >
-                <Icon
-                  name="ph:calendar-plus"
-                  class="w-3.5 h-3.5 text-purple-600"
-                />
+                <Icon name="ph:star" class="w-3.5 h-3.5 text-purple-600" />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Streamlined Event Management</h4>
+                <h4 class="font-medium mb-1">Find Perfect Talent & Venues</h4>
                 <p class="text-sm text-gray-600">
-                  Create events, sell tickets, and manage check-ins - all with
-                  just a few clicks
+                  Book artists, musicians, and spaces - all vetted by the dance
+                  community
                 </p>
               </div>
             </div>
@@ -178,16 +175,13 @@
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-purple-100 flex-shrink-0 mt-0.5"
               >
-                <Icon
-                  name="ph:chart-line-up"
-                  class="w-3.5 h-3.5 text-purple-600"
-                />
+                <Icon name="ph:ticket" class="w-3.5 h-3.5 text-purple-600" />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Smart Growth Insights</h4>
+                <h4 class="font-medium mb-1">Smart Ticket Sales</h4>
                 <p class="text-sm text-gray-600">
-                  Track what works, understand your audience, and make
-                  data-driven decisions
+                  Set early bird prices, create promo codes, and track sales in
+                  real-time
                 </p>
               </div>
             </div>
@@ -199,10 +193,10 @@
                 <Icon name="ph:megaphone" class="w-3.5 h-3.5 text-purple-600" />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Targeted Promotion</h4>
+                <h4 class="font-medium mb-1">Powerful Marketing Tools</h4>
                 <p class="text-sm text-gray-600">
-                  Reach the right dancers, fill your events, and build a
-                  thriving dance community
+                  Run referral campaigns, reward ambassadors, and reach the
+                  right audience
                 </p>
               </div>
             </div>
