@@ -2,9 +2,10 @@
   <section class="py-16 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold">One Platform for Everyone</h2>
+        <h2 class="text-3xl font-bold">Your Dance Community Awaits</h2>
         <p class="text-gray-600 mt-2">
-          Discover how WeDance helps different members of the dance community
+          Join thousands of dancers, artists, and organizers making dance more
+          accessible and connected
         </p>
       </div>
 
@@ -19,7 +20,8 @@
             </div>
             <h3 class="text-xl font-bold mb-2">For Dancers</h3>
             <p class="text-gray-600 text-sm">
-              Everything you need to grow in your dance journey
+              Never dance alone - find your perfect partners, events, and
+              community
             </p>
           </div>
 
@@ -28,13 +30,13 @@
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-purple-100 flex-shrink-0 mt-0.5"
               >
-                <Icon name="ph:calendar" class="w-3.5 h-3.5 text-purple-600" />
+                <Icon name="ph:users" class="w-3.5 h-3.5 text-purple-600" />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Event Discovery</h4>
+                <h4 class="font-medium mb-1">Dance Partners & Hangouts</h4>
                 <p class="text-sm text-gray-600">
-                  Find relevant dance events easily, filter by style and
-                  location, and see who's going
+                  Find practice partners that match your style and level, join
+                  social dance meetups
                 </p>
               </div>
             </div>
@@ -43,13 +45,13 @@
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-purple-100 flex-shrink-0 mt-0.5"
               >
-                <Icon name="ph:users" class="w-3.5 h-3.5 text-purple-600" />
+                <Icon name="ph:calendar" class="w-3.5 h-3.5 text-purple-600" />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Partner Finding</h4>
+                <h4 class="font-medium mb-1">Festival & Event Planning</h4>
                 <p class="text-sm text-gray-600">
-                  Find dance partners for practice, match based on level and
-                  goals
+                  Share rides, split accommodation costs, and coordinate
+                  festival trips with other dancers
                 </p>
               </div>
             </div>
@@ -61,10 +63,10 @@
                 <Icon name="ph:star" class="w-3.5 h-3.5 text-purple-600" />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Learning Journey</h4>
+                <h4 class="font-medium mb-1">Local Scene Integration</h4>
                 <p class="text-sm text-gray-600">
-                  Track your progress, get recommendations, and connect with
-                  experienced dancers
+                  Get insider tips, join active groups, and feel at home in any
+                  city's dance scene
                 </p>
               </div>
             </div>
@@ -84,7 +86,7 @@
             </div>
             <h3 class="text-xl font-bold mb-2">For Artists</h3>
             <p class="text-gray-600 text-sm">
-              Tools to grow your teaching business and reach more students
+              Focus on your art - we'll handle the business side
             </p>
           </div>
 
@@ -96,10 +98,10 @@
                 <Icon name="ph:book" class="w-3.5 h-3.5 text-purple-600" />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Class Management</h4>
+                <h4 class="font-medium mb-1">Effortless Business Growth</h4>
                 <p class="text-sm text-gray-600">
-                  Manage your schedule, handle bookings, and track student
-                  progress
+                  Accept bookings, manage classes, and get discovered by new
+                  students - all in one place
                 </p>
               </div>
             </div>
@@ -114,10 +116,10 @@
                 />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Content Sharing</h4>
+                <h4 class="font-medium mb-1">Showcase Your Talent</h4>
                 <p class="text-sm text-gray-600">
-                  Share your knowledge through tutorials, performances, and
-                  class content
+                  Share performances, tutorials, and updates - build your brand
+                  and attract opportunities
                 </p>
               </div>
             </div>
@@ -129,10 +131,10 @@
                 <Icon name="ph:users" class="w-3.5 h-3.5 text-purple-600" />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Student Community</h4>
+                <h4 class="font-medium mb-1">Engaged Community</h4>
                 <p class="text-sm text-gray-600">
-                  Build your student base, maintain relationships, and foster
-                  connections
+                  Keep students motivated, share resources, and build a loyal
+                  following that grows with you
                 </p>
               </div>
             </div>
@@ -149,7 +151,7 @@
             </div>
             <h3 class="text-xl font-bold mb-2">For Organizers</h3>
             <p class="text-gray-600 text-sm">
-              Everything you need to create successful dance events
+              Create unforgettable events with less hassle
             </p>
           </div>
 
@@ -164,9 +166,10 @@
                 />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Event Creation</h4>
+                <h4 class="font-medium mb-1">Streamlined Event Management</h4>
                 <p class="text-sm text-gray-600">
-                  Create and publish events easily, manage tickets and check-ins
+                  Create events, sell tickets, and manage check-ins - all with
+                  just a few clicks
                 </p>
               </div>
             </div>
@@ -181,9 +184,10 @@
                 />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Analytics & Growth</h4>
+                <h4 class="font-medium mb-1">Smart Growth Insights</h4>
                 <p class="text-sm text-gray-600">
-                  Track attendance, analyze trends, and grow your community
+                  Track what works, understand your audience, and make
+                  data-driven decisions
                 </p>
               </div>
             </div>
@@ -195,9 +199,10 @@
                 <Icon name="ph:megaphone" class="w-3.5 h-3.5 text-purple-600" />
               </div>
               <div>
-                <h4 class="font-medium mb-1">Community Building</h4>
+                <h4 class="font-medium mb-1">Targeted Promotion</h4>
                 <p class="text-sm text-gray-600">
-                  Foster connections, maintain quality, and drive engagement
+                  Reach the right dancers, fill your events, and build a
+                  thriving dance community
                 </p>
               </div>
             </div>
