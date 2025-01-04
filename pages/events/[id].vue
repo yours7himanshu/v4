@@ -144,31 +144,39 @@ const eventArtists = computed(() => {
             <div class="grid md:grid-cols-2 gap-8 items-center">
               <!-- Left: Content -->
               <div class="text-center md:text-left">
-                <div class="flex items-center gap-2 text-white/80 mb-4">
-                  <Icon name="ph:calendar" class="w-5 h-5" />
-                  <span>{{ formattedDate }}</span>
+                <div
+                  class="flex items-center justify-center md:justify-start gap-2 text-white/80 mb-2 md:mb-4"
+                >
+                  <Icon name="ph:calendar" class="w-4 h-4 md:w-5 md:h-5" />
+                  <span class="text-sm md:text-base">{{ formattedDate }}</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+                <h1
+                  class="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-4"
+                >
                   {{ event.name }}
                 </h1>
-                <div class="flex items-center gap-4 text-white/80 mb-6">
+                <div
+                  class="flex flex-wrap items-center justify-center md:justify-start gap-2 md:gap-4 text-white/80 mb-4 md:mb-6"
+                >
                   <div class="flex items-center gap-2">
-                    <Icon name="ph:map-pin" class="w-5 h-5" />
-                    <span
+                    <Icon name="ph:map-pin" class="w-4 h-4 md:w-5 md:h-5" />
+                    <span class="text-sm md:text-base"
                       >{{ event.location.name }},
                       {{ event.location.city }}</span
                     >
                   </div>
                   <div class="flex items-center gap-2">
-                    <Icon name="ph:ticket" class="w-5 h-5" />
-                    <span>{{ getPrice(event) }}</span>
+                    <Icon name="ph:ticket" class="w-4 h-4 md:w-5 md:h-5" />
+                    <span class="text-sm md:text-base">{{
+                      getPrice(event)
+                    }}</span>
                   </div>
                   <div
                     v-if="event.type === 'workshop'"
                     class="flex items-center gap-2"
                   >
-                    <Icon name="ph:chart-line" class="w-5 h-5" />
-                    <span>{{ event.level }}</span>
+                    <Icon name="ph:chart-line" class="w-4 h-4 md:w-5 md:h-5" />
+                    <span class="text-sm md:text-base">{{ event.level }}</span>
                   </div>
                 </div>
 
@@ -243,7 +251,9 @@ const eventArtists = computed(() => {
 
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="flex justify-center gap-8 max-w-7xl mx-auto">
+      <div
+        class="flex flex-col md:flex-row justify-center gap-8 max-w-7xl mx-auto"
+      >
         <!-- Left Column: Details -->
         <div class="space-y-8 max-w-xl">
           <!-- Description -->
