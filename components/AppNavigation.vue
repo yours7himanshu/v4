@@ -16,7 +16,7 @@ const toggleMobileMenu = () => {
       <div class="flex justify-between h-16">
         <div class="flex">
           <div class="flex-shrink-0 flex items-center">
-            <NuxtLink to="/" class="text-2xl font-bold text-purple-600"
+            <NuxtLink to="/" class="text-2xl font-bold text-foreground"
               >WeDance</NuxtLink
             >
           </div>
