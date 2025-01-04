@@ -31,6 +31,7 @@ export const EventOrganizerSchema = z.object({
   id: z.string(),
   name: z.string(),
   image: z.string(),
+  points: z.number().optional(),
 });
 
 // Base event schema
@@ -100,13 +101,14 @@ export type AnyEvent = PartyEvent | WorkshopEvent | ConcertEvent;
 
 // Conversion to feed post
 export const eventToFeedPost = (event: AnyEvent): Post => ({
-  id: event.id,
+  id: parseInt(event.id),
   type: "event",
   author: {
     id: event.organizer.id,
     name: event.organizer.name,
     image: event.organizer.image,
     location: event.location.city,
+    points: event.organizer.points,
   },
   content: {
     title: event.name,
@@ -122,8 +124,8 @@ export const eventToFeedPost = (event: AnyEvent): Post => ({
   },
   timestamp: "3 hours ago",
   stats: {
-    interested: 0,
+    interested: event.stats?.interested || 0,
     comments: 0,
-    bookmarks: 0,
+    bookmarks: event.stats?.saves || 0,
   },
 });

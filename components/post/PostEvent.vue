@@ -30,6 +30,7 @@ const eventData = computed<AnyEvent>(() => ({
     id: "", // Required by schema
     name: "Unknown Organizer",
     image: "",
+    points: 0,
   },
   schedule: [], // Required by schema
 }));

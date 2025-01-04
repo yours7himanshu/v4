@@ -35,9 +35,7 @@ const likeComment = (comment: CommentWithReplies) => {
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
               <h3 class="font-semibold">{{ comment.author.name }}</h3>
-              <span class="text-sm text-gray-500"
-                >{{ comment.author.points }} points</span
-              >
+              <UserPoints :points="comment.author.points" />
             </div>
             <span class="text-sm text-gray-500">{{ comment.timestamp }}</span>
           </div>

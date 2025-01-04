@@ -10,6 +10,7 @@ export const mockPosts = [
       name: "Maria Rodriguez",
       image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb",
       location: "Madrid",
+      points: 1250,
     },
     timestamp: "2 hours ago",
     content: {
@@ -30,6 +31,7 @@ export const mockPosts = [
       name: "Juan Martinez",
       image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
       location: "Barcelona",
+      points: 890,
     },
     timestamp: "5 hours ago",
     content: {
@@ -59,6 +61,7 @@ export const mockPosts = [
       name: "David Chen",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       location: "London",
+      points: 670,
     },
     timestamp: "3 hours ago",
     content: {
@@ -88,6 +91,7 @@ export const mockPosts = [
       name: "Sophie Laurent",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
       location: "Paris",
+      points: 1480,
     },
     timestamp: "6 hours ago",
     content: {
@@ -117,6 +121,7 @@ export const mockPosts = [
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
       location: "Paris",
       id: "4",
+      points: 1480,
     },
     timestamp: "1 day ago",
     content: {
@@ -142,6 +147,7 @@ export const mockPosts = [
       name: "Anna Schmidt",
       image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
       location: "Berlin",
+      points: 520,
     },
     timestamp: "2 hours ago",
     content: {
@@ -171,6 +177,7 @@ export const mockPosts = [
       name: "David Chen",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       location: "London",
+      points: 670,
     },
     timestamp: "1 day ago",
     content: {
@@ -194,6 +201,7 @@ export const mockPosts = [
       name: "Salsa Mania",
       image: "https://images.unsplash.com/photo-1560439514-4e9645039924",
       location: "London",
+      points: 2100,
     },
     timestamp: "1 day ago",
     content: {
@@ -222,6 +230,7 @@ export const mockPosts = [
       name: "Lisa Wong",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
       location: "Tokyo",
+      points: 180,
     },
     timestamp: "12 hours ago",
     content: {
@@ -243,6 +252,7 @@ export const mockPosts = [
       name: "Dance Shoes Pro",
       image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
       location: "Online Store",
+      points: 950,
     },
     timestamp: "5 hours ago",
     content: {
@@ -268,6 +278,7 @@ export const mockPosts = [
       name: "Thomas Weber",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
       location: "Stuttgart",
+      points: 340,
     },
     timestamp: "4 hours ago",
     content: {
@@ -297,6 +308,7 @@ export const mockPosts = [
       name: "Carlos Mendoza",
       image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d",
       location: "Berlin",
+      points: 120,
     },
     timestamp: "1 hour ago",
     content: {

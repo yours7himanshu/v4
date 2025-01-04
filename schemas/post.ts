@@ -6,6 +6,7 @@ export const authorSchema = z.object({
   name: z.string(),
   image: z.string(),
   location: z.string(),
+  points: z.number().optional(),
 });
 
 export type PostAuthor = z.infer<typeof authorSchema>;
@@ -17,7 +18,8 @@ export type PostType =
   | "review"
   | "gig"
   | "ask_locals"
-  | "ad";
+  | "ad"
+  | "event";
 
 export const pollSchema = z.object({
   options: z.array(
@@ -210,6 +212,14 @@ export const postSchema = z.discriminatedUnion("type", [
     author: authorSchema,
     timestamp: z.string(),
     content: adContentSchema,
+    stats: statsSchema,
+  }),
+  z.object({
+    type: z.literal("event"),
+    id: z.number(),
+    author: authorSchema,
+    timestamp: z.string(),
+    content: eventContentSchema,
     stats: statsSchema,
   }),
 ]);

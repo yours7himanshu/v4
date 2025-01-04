@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { CommentWithReplies } from "~/schemas/comment";
 import { mockComments } from "~/data/mockComments";
+import UserPoints from "~/components/common/UserPoints.vue";
 
 const currentUserId = "4"; // Mock current user ID
 const isPostAuthor = true; // Mock post author status
@@ -136,9 +137,7 @@ const scrollToComment = (commentId: number) => {
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2">
                 <h3 class="font-semibold">{{ comment.author.name }}</h3>
-                <span class="text-sm text-gray-500"
-                  >{{ comment.author.points }} points</span
-                >
+                <UserPoints :points="comment.author.points" />
               </div>
               <span class="text-sm text-gray-500">{{ comment.timestamp }}</span>
             </div>

@@ -18,8 +18,10 @@ export const mockEvents = [
     },
     artists: ["12"], // Havana D'Primera ID
     organizer: {
+      id: "munich_salsa_social",
       name: "Munich Salsa Social",
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=munich",
+      points: 3200,
     },
     description:
       "Experience the legendary Havana D'Primera live in Munich! A night of pure Cuban music and dance.",
@@ -66,8 +68,10 @@ export const mockEvents = [
     },
     artists: ["1"], // Maykel Fonts ID
     organizer: {
+      id: "munich_casino",
       name: "Munich Casino",
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=casino",
+      points: 2800,
     },
     description:
       "Two days of intensive Cuban salsa workshops with Maykel Fonts. All levels welcome!",
@@ -138,8 +142,10 @@ export const mockEvents = [
     },
     artists: ["13"], // Los Van Van ID
     organizer: {
+      id: "timba_productions",
       name: "Timba Productions",
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=timba",
+      points: 4100,
     },
     description:
       "The legendary Los Van Van returns to Munich as part of their European tour!",
@@ -182,6 +188,7 @@ export const mockEvents = [
       id: "havana_club_1",
       name: "Havana Club",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
+      points: 3500,
     },
     schedule: [
       { time: "20:00", activity: "Doors Open" },

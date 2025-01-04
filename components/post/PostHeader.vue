@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { PostAuthor, PostType } from "~/schemas/post";
 import { POST_TYPE_ICONS } from "~/constants/post";
+import UserPoints from "~/components/common/UserPoints.vue";
 
 defineProps<{
   author: PostAuthor;
@@ -17,7 +18,10 @@ defineProps<{
       class="w-10 h-10 rounded-full object-cover"
     />
     <div class="flex-1">
-      <div class="font-medium">{{ author.name }}</div>
+      <div class="flex items-center gap-2">
+        <span class="font-medium">{{ author.name }}</span>
+        <UserPoints :points="author.points" />
+      </div>
       <div class="text-sm text-gray-500 flex items-center gap-1">
         <span>{{ timestamp }}</span>
         <span>·</span>
