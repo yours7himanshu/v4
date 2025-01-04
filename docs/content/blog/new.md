@@ -12,6 +12,12 @@ I am an expert in code, but not an expert in a lot of areas. Now it's not a prob
 
 I am planning to shoot a series of YouTube videos about my newly discovered way of working with AI. You can either send me a list of your questions and I will make a video answer, or we have a recorded video call and do it live together. All videos I will post in my new telegram channel. Send me your requests in DM.
 
+[AI Agents Insider](https://t.me/AIAgentsInsider)
+
+---
+
+# Introducing the New WeDance: Building Global Dance Communities 🌍💃
+
 Let me share what makes the new WeDance concept exciting:
 
 Instead of trying to connect dancers city by city, we're building vibrant communities around specific dance styles first. Think about it - when you're passionate about Salsa, Bachata, or any other dance style, you're part of a global family that shares the same passion, vocabulary, and culture.
@@ -26,4 +32,35 @@ This new approach means:
 
 It's like having a dedicated space for your dance style, where everyone speaks your language - both literally and in dance terms! And as these style-specific communities grow stronger, we'll naturally expand into city-specific features and cross-style connections.
 
-Now back to WeDance. A team of AI expert agents in Cursor AI and me as a decision maker created a new concept of WeDance and now it's time for user testing. We are looking for dancers, organizers, and artists for interviews. Drop a comment below if you are interested.
+## Help Shape the Future of WeDance 🌟
+
+We're looking for passionate dance community members to participate in our user testing program this January. Your insights will directly influence how we build the next generation of WeDance.
+
+### Who We're Looking For:
+
+- 🎓 Dance Teachers & Studio Owners
+- 🎪 Event Organizers & Festival Producers
+- 💃 Active Dancers (all levels welcome)
+- 🌱 Community Leaders & Dance Influencers
+
+### What's Involved:
+
+- 30-minute video interview
+- Early access to new features
+- Opportunity to shape core functionality
+- Direct communication channel with the development team
+
+### Timeline:
+
+- Interviews: January 15-31, 2024
+- Feature Testing: February 2024
+- Platform Launch: March 2024
+
+### How to Join:
+
+1. DM me with "WeDance Testing"
+2. Mention your role in the dance community
+3. Share your primary dance style(s)
+4. Tell us your city/country
+
+Your voice matters in building this global dance community. Join us in revolutionizing how dancers connect and grow together! 🚀
