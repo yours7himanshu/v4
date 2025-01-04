@@ -32,39 +32,38 @@ This new approach means:
 
 It's like having a dedicated space for your dance style, where everyone speaks your language - both literally and in dance terms! And as these style-specific communities grow stronger, we'll naturally expand into city-specific features and cross-style connections.
 
-## Join Our Design Sprint: Shape the Future of WeDance 🌟
+## Join Our Design Sprint: Quick & Impactful User Tests 🌟
 
-We're conducting a series of focused one-on-one interviews to deeply understand your dance journey and validate our solutions. Following Google Ventures' proven methodology, each session will be a meaningful exploration of specific scenarios you face in the dance community.
+We're conducting a series of focused prototype tests to validate our style-first approach. Each 20-minute session will be recorded as you try out our prototype and share your thoughts.
 
 ### We're Looking For 5 People Who:
 
-- 💃 Actively participate in dance events (at least 2-3 times per month)
-- 🌍 Have experience with multiple dance communities or cities
-- 🎯 Face challenges in discovering events or connecting with dancers
-- 🗣️ Are comfortable sharing detailed stories about their experiences
+- 💃 Are active in the dance scene (social dancing, teaching, or organizing)
+- 🌍 Have experience with multiple dance communities
+- 🎯 Want to help shape the future of online dance communities
+- 🗣️ Can think out loud while testing
 
 ### What to Expect:
 
-- 60-minute one-on-one video session
-- Focused discussion about your real experiences
-- Interactive prototype testing
-- No preparation needed - we want your authentic perspective
+- Quick 20-minute recorded video session
+- Try out our prototype with simple tasks
+- Share your honest thoughts and reactions
+- No right or wrong answers - we want your genuine feedback
+- Questions about potential pricing and features
 
 ### Timeline:
 
-- Interviews: January 15-19, 2024 (one per day)
-- Your time slot will be confirmed within 24 hours
-- Results and insights shared with participants by January 31
+- Tests: January 15-19, 2024 (flexible slots available)
+- Your slot will be confirmed within 24 hours
+- Each participant gets a summary of insights by January 31
 
 ### How to Participate:
 
-1. DM me with "WeDance Sprint"
-2. Share a brief story about a recent challenge you faced in:
-   - Finding dance events
-   - Connecting with other dancers
-   - Or organizing dance activities
-3. Tell us your availability between Jan 15-19
+1. DM me with "WeDance Test"
+2. Tell us your main role in the dance community:
+   - Social dancer
+   - Teacher/Artist
+   - Event organizer
+3. Share your preferred time slot (Jan 15-19)
 
-We'll select participants who represent different aspects of the dance journey. Your experiences will directly shape how we build WeDance's style-first approach.
-
-#WeDance #DesignSprint #DanceCommunity #UserResearch
+Your candid feedback will help us avoid common pitfalls and create a product that truly serves the dance community.
