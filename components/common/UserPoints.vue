@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  points?: number;
+  points?: number | string;
 }>();
 
 const formatNumber = (num: number) => {
@@ -17,6 +17,11 @@ const formatNumber = (num: number) => {
 <template>
   <span v-if="points" class="text-sm text-orange-500 flex items-center gap-0.5">
     <Icon name="heroicons:fire" class="w-4 h-4" />
-    {{ formatNumber(points) }}
+    <template v-if="typeof points === 'number'">
+      {{ formatNumber(points) }}
+    </template>
+    <template v-else>
+      {{ points }}
+    </template>
   </span>
 </template>

@@ -1,4 +1,6 @@
 <script setup>
+import UserPoints from "~/components/common/UserPoints.vue";
+
 const steps = [
   {
     title: "Complete Your Profile",
@@ -7,6 +9,8 @@ const steps = [
     icon: "ph:user-circle",
     action: "Edit Profile",
     to: "/settings/profile",
+    energy: "+5",
+    energyLabel: "",
   },
   {
     title: "Discover Local Events",
@@ -15,6 +19,8 @@ const steps = [
     icon: "ph:calendar",
     action: "Browse Events",
     to: "/events",
+    energy: "+1",
+    energyLabel: "each check-in",
   },
   {
     title: "Connect with Dancers",
@@ -23,6 +29,8 @@ const steps = [
     icon: "ph:users",
     action: "Meet Dancers",
     to: "/feed",
+    energy: "+2",
+    energyLabel: "each connection",
   },
 ];
 </script>
@@ -56,7 +64,15 @@ const steps = [
               </div>
             </div>
             <div class="flex-1 min-w-0">
-              <h3 class="text-lg font-medium mb-1">{{ step.title }}</h3>
+              <div class="flex items-center justify-between gap-4 mb-1">
+                <h3 class="text-lg font-medium">{{ step.title }}</h3>
+                <div class="flex items-center gap-1">
+                  <span class="text-sm text-gray-500">{{
+                    step.energyLabel
+                  }}</span>
+                  <UserPoints :points="step.energy" />
+                </div>
+              </div>
               <p class="text-gray-600 mb-4">{{ step.description }}</p>
               <Button variant="outline" as-child>
                 <NuxtLink :to="step.to" class="flex items-center gap-2">
@@ -66,6 +82,26 @@ const steps = [
               </Button>
             </div>
           </div>
+        </div>
+
+        <!-- Dance Energy Explanation -->
+        <div class="mt-8 pt-8 border-t">
+          <div class="flex items-center gap-2 text-sm text-orange-500 mb-2">
+            <Icon name="heroicons:fire" class="w-4 h-4" />
+            <span class="font-medium">Dance Energy</span>
+          </div>
+          <p class="text-sm text-gray-600">
+            Dance Energy is our community reward system. Earn energy by
+            completing actions, participating in events, and connecting with
+            other dancers. Higher energy levels unlock special features and show
+            your active contribution to the dance community.
+            <NuxtLink
+              to="/energy"
+              class="text-orange-500 hover:text-orange-600 ml-1"
+            >
+              Learn more →
+            </NuxtLink>
+          </p>
         </div>
       </div>
 
