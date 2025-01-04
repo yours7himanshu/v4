@@ -1,7 +1,8 @@
 <template>
   <LandingHero />
-  <LandingEvents />
   <LandingCities />
+  <LandingEvents />
+  <LandingArtists />
   <LandingBenefits />
   <LandingTestimonials />
   <LandingHowItWorks />
