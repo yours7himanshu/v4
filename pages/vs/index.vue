@@ -103,20 +103,6 @@
             </div>
           </NuxtLink>
 
-          <NuxtLink to="/vs/vdanceclub" class="group">
-            <div
-              class="bg-gray-50 rounded-xl p-8 hover:bg-purple-50 transition-colors"
-            >
-              <div class="flex items-center gap-4 mb-4">
-                <Icon name="ph:chat-circle" class="w-8 h-8 text-purple-600" />
-                <h3 class="text-2xl font-semibold">vs VDanceClub</h3>
-              </div>
-              <p class="text-gray-600">
-                Complete dance ecosystem vs social network
-              </p>
-            </div>
-          </NuxtLink>
-
           <NuxtLink to="/vs/salsaforums" class="group">
             <div
               class="bg-gray-50 rounded-xl p-8 hover:bg-purple-50 transition-colors"
