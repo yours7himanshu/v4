@@ -1,34 +1,17 @@
 <script setup lang="ts">
-interface Comment {
-  id: number;
-  author: {
-    id: string;
-    name: string;
-    image: string;
-    points?: number;
-  };
-  text: string;
-  timestamp: string;
-  stats: {
-    likes: number;
-    isHelpful?: boolean;
-  };
-  isLiked?: boolean;
-  replies?: Comment[];
-  parentId?: number;
-}
+import type { CommentWithReplies } from "~/schemas/comment";
 
 const props = defineProps<{
-  comment: Comment;
+  comment: CommentWithReplies;
   currentUserId: string;
   isPostAuthor: boolean;
 }>();
 
 const emit = defineEmits<{
-  (e: "reply", comment: Comment): void;
+  (e: "reply", comment: CommentWithReplies): void;
 }>();
 
-const likeComment = (comment: Comment) => {
+const likeComment = (comment: CommentWithReplies) => {
   comment.isLiked = !comment.isLiked;
   comment.stats.likes += comment.isLiked ? 1 : -1;
 

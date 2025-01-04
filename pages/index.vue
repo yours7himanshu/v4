@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { mockArtists } from "@/data/mockArtists";
 import { mockEvents } from "@/data/mockEvents";
 import { getDanceStyles } from "@/data/mockStyles";
 import EventCard from "~/components/event/EventCard.vue";

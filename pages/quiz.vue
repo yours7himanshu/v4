@@ -1,46 +1,51 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { getDanceStyles } from '@/data/mockStyles'
+import { ref, computed } from "vue";
 
 interface QuizVideo {
-  style: string
-  videoId: string
+  style: string;
+  videoId: string;
 }
 
 // Quiz state
-const currentRound = ref(1)
-const totalRounds = 3
-const selectedStyles = ref<string[]>([])
+const currentRound = ref(1);
+const totalRounds = 3;
+const selectedStyles = ref<string[]>([]);
 
 // Videos for comparison
 const videos: QuizVideo[] = [
-  { style: 'Salsa', videoId: 'R7E9cNydevg' },
-  { style: 'Bachata', videoId: '4nJfpQ3kCbw' },
-  { style: 'Kizomba', videoId: 'jcW7Z9y5twQ' },
-]
+  { style: "Salsa", videoId: "R7E9cNydevg" },
+  { style: "Bachata", videoId: "4nJfpQ3kCbw" },
+  { style: "Kizomba", videoId: "jcW7Z9y5twQ" },
+];
 
 // Get random pair of videos
 const getCurrentPair = computed(() => {
-  const available = videos.filter(v => !selectedStyles.value.includes(v.style))
-  const shuffled = [...available].sort(() => Math.random() - 0.5)
-  return shuffled.slice(0, 2)
-})
+  const available = videos.filter(
+    (v) => !selectedStyles.value.includes(v.style)
+  );
+  const shuffled = [...available].sort(() => Math.random() - 0.5);
+  return shuffled.slice(0, 2);
+});
 
 // Handle video selection
 const selectVideo = (style: string) => {
-  selectedStyles.value.push(style)
-  
+  selectedStyles.value.push(style);
+
   if (currentRound.value < totalRounds) {
-    currentRound.value++
+    currentRound.value++;
   } else {
     // Navigate to the winning style
-    navigateTo(`/dance/${selectedStyles.value[selectedStyles.value.length - 1].toLowerCase()}`)
+    navigateTo(
+      `/dance/${selectedStyles.value[selectedStyles.value.length - 1].toLowerCase()}`
+    );
   }
-}
+};
 </script>
 
 <template>
-  <div class="min-h-screen bg-gradient-to-br from-purple-600 to-purple-900 py-16">
+  <div
+    class="min-h-screen bg-gradient-to-br from-purple-600 to-purple-900 py-16"
+  >
     <div class="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-12">
@@ -48,7 +53,8 @@ const selectVideo = (style: string) => {
           Find Your Dance Style
         </h1>
         <p class="text-xl text-white/80">
-          Round {{ currentRound }} of {{ totalRounds }}: Watch and choose the style that moves you
+          Round {{ currentRound }} of {{ totalRounds }}: Watch and choose the
+          style that moves you
         </p>
       </div>
 
@@ -69,12 +75,10 @@ const selectVideo = (style: string) => {
             ></iframe>
           </div>
           <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-900 mb-2">{{ video.style }}</h3>
-            <Button 
-              class="w-full" 
-              size="lg"
-              @click="selectVideo(video.style)"
-            >
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">
+              {{ video.style }}
+            </h3>
+            <Button class="w-full" size="lg" @click="selectVideo(video.style)">
               Choose {{ video.style }}
             </Button>
           </div>
@@ -83,8 +87,8 @@ const selectVideo = (style: string) => {
 
       <!-- Skip Option -->
       <div class="text-center mt-8">
-        <NuxtLink 
-          to="/explore" 
+        <NuxtLink
+          to="/explore"
           class="text-white/70 hover:text-white inline-flex items-center gap-1"
         >
           Skip quiz
@@ -93,4 +97,4 @@ const selectVideo = (style: string) => {
       </div>
     </div>
   </div>
-</template> 
+</template>

@@ -1,11 +1,9 @@
 <script setup lang="ts">
 import type { Post } from "~/schemas/post";
 
-const props = defineProps<{
+defineProps<{
   post: Post;
 }>();
-
-const router = useRouter();
 </script>
 
 <template>

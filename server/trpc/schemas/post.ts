@@ -197,3 +197,13 @@ export const updateStatsSchema = z.object({
 export type Post = z.infer<typeof postSchema>;
 export type CreatePost = z.infer<typeof createPostSchema>;
 export type UpdateStats = z.infer<typeof updateStatsSchema>;
+
+// Content type exports
+export type NoteContent = z.infer<typeof noteContentSchema>;
+export type VideoContent = z.infer<typeof videoContentSchema>;
+export type ArticleContent = z.infer<typeof articleContentSchema>;
+export type MeetContent = z.infer<typeof meetContentSchema>;
+export type ReviewContent = z.infer<typeof reviewContentSchema>;
+export type GigContent = z.infer<typeof gigContentSchema>;
+export type AskLocalsContent = z.infer<typeof askLocalsContentSchema>;
+export type AdContent = z.infer<typeof adContentSchema>;

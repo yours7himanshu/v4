@@ -1,14 +1,45 @@
 import { z } from "zod";
 
 // Common schemas
-const authorSchema = z.object({
+export const authorSchema = z.object({
   id: z.string(),
   name: z.string(),
   image: z.string(),
   location: z.string(),
 });
 
-const statsSchema = z.object({
+export type PostAuthor = z.infer<typeof authorSchema>;
+export type PostType =
+  | "note"
+  | "video"
+  | "article"
+  | "meet"
+  | "review"
+  | "gig"
+  | "ask_locals"
+  | "ad";
+
+export const pollSchema = z.object({
+  options: z.array(
+    z.object({
+      id: z.number(),
+      text: z.string(),
+      votes: z.number(),
+    })
+  ),
+  totalVotes: z.number(),
+});
+
+export const linkSchema = z.object({
+  url: z.string(),
+  title: z.string(),
+  description: z.string().optional(),
+});
+
+export type Poll = z.infer<typeof pollSchema>;
+export type Link = z.infer<typeof linkSchema>;
+
+export const statsSchema = z.object({
   likes: z.number().optional(),
   comments: z.number().optional(),
   shares: z.number().optional(),
@@ -16,53 +47,34 @@ const statsSchema = z.object({
   interested: z.number().optional(),
 });
 
-// Post type-specific content schemas
-const noteContentSchema = z.object({
+export type PostStats = z.infer<typeof statsSchema>;
+
+// Content schemas
+export const noteContentSchema = z.object({
   text: z.string(),
-  poll: z
-    .object({
-      options: z.array(
-        z.object({
-          id: z.number(),
-          text: z.string(),
-          votes: z.number(),
-        })
-      ),
-      totalVotes: z.number(),
-    })
-    .optional(),
-  links: z
-    .array(
-      z.object({
-        url: z.string(),
-        title: z.string(),
-        description: z.string().optional(),
-      })
-    )
-    .optional(),
   tags: z.array(z.string()).optional(),
 });
 
-const videoContentSchema = z.object({
+export const videoContentSchema = z.object({
   title: z.string(),
+  description: z.string(),
   video: z.object({
     url: z.string(),
     thumbnail: z.string(),
     duration: z.string(),
   }),
-  description: z.string(),
   tags: z.array(z.string()).optional(),
 });
 
-const articleContentSchema = z.object({
+export const articleContentSchema = z.object({
   title: z.string(),
-  cover: z.string(),
   description: z.string(),
+  cover: z.string(),
   html: z.string(),
   tags: z.array(z.string()).optional(),
 });
 
-const meetContentSchema = z.object({
+export const meetContentSchema = z.object({
   title: z.string(),
   text: z.string(),
   details: z.object({
@@ -76,14 +88,14 @@ const meetContentSchema = z.object({
   tags: z.array(z.string()).optional(),
 });
 
-const reviewContentSchema = z.object({
+export const reviewContentSchema = z.object({
   title: z.string(),
   rating: z.number(),
   description: z.string(),
   tags: z.array(z.string()).optional(),
 });
 
-const gigContentSchema = z.object({
+export const gigContentSchema = z.object({
   title: z.string(),
   description: z.string(),
   details: z.array(
@@ -95,18 +107,44 @@ const gigContentSchema = z.object({
   tags: z.array(z.string()).optional(),
 });
 
-const askLocalsContentSchema = z.object({
+export const askLocalsContentSchema = z.object({
   title: z.string(),
   text: z.string(),
   tags: z.array(z.string()).optional(),
 });
 
-const adContentSchema = z.object({
+export const adContentSchema = z.object({
   title: z.string(),
   image: z.string().optional(),
   description: z.string().optional(),
   tags: z.array(z.string()).optional(),
 });
+
+export const eventContentSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  image: z.string().optional(),
+  date: z.string(),
+  location: z.string(),
+  price: z
+    .object({
+      amount: z.number(),
+      currency: z.string(),
+    })
+    .optional(),
+  tags: z.array(z.string()).optional(),
+});
+
+// Export content types
+export type NoteContent = z.infer<typeof noteContentSchema>;
+export type VideoContent = z.infer<typeof videoContentSchema>;
+export type ArticleContent = z.infer<typeof articleContentSchema>;
+export type MeetContent = z.infer<typeof meetContentSchema>;
+export type ReviewContent = z.infer<typeof reviewContentSchema>;
+export type GigContent = z.infer<typeof gigContentSchema>;
+export type AskLocalsContent = z.infer<typeof askLocalsContentSchema>;
+export type AdContent = z.infer<typeof adContentSchema>;
+export type EventContent = z.infer<typeof eventContentSchema>;
 
 // Post schema
 export const postSchema = z.discriminatedUnion("type", [

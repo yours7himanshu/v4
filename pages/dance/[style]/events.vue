@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { mockEvents } from "~/data/mockEvents";
-import { formatDate } from "~/utils/format";
 import type { AnyEvent } from "~/schemas/event";
 import EventCard from "~/components/event/EventCard.vue";
 

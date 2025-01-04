@@ -1,103 +1,20 @@
 <script setup lang="ts">
-interface Comment {
-  id: number;
-  author: {
-    id: string;
-    name: string;
-    image: string;
-    points?: number;
-  };
-  text: string;
-  timestamp: string;
-  stats: {
-    likes: number;
-    isHelpful?: boolean;
-  };
-  isLiked?: boolean;
-  replyTo?: {
-    id: number;
-    authorName: string;
-  };
-}
+import type { CommentWithReplies } from "~/schemas/comment";
+import { mockComments } from "~/data/mockComments";
 
 const currentUserId = "4"; // Mock current user ID
 const isPostAuthor = true; // Mock post author status
 
-// Mock comments data
-const comments = ref<Comment[]>([
-  {
-    id: 1,
-    author: {
-      id: "2",
-      name: "Alex Chen",
-      image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
-      points: 320,
-    },
-    text: "Great tip! This really helped me improve my following technique.",
-    timestamp: "1 hour ago",
-    stats: {
-      likes: 5,
-    },
-  },
-  {
-    id: 2,
-    author: {
-      id: "5",
-      name: "Emma Davis",
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9",
-      points: 210,
-    },
-    text: "@Alex Chen Agreed! The connection in the turn makes all the difference.",
-    timestamp: "30 minutes ago",
-    stats: {
-      likes: 2,
-    },
-    replyTo: {
-      id: 1,
-      authorName: "Alex Chen",
-    },
-  },
-  {
-    id: 3,
-    author: {
-      id: "6",
-      name: "John Smith",
-      image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
-      points: 180,
-    },
-    text: "@Emma Davis Any tips for leaders to help create that connection?",
-    timestamp: "15 minutes ago",
-    stats: {
-      likes: 1,
-    },
-    replyTo: {
-      id: 2,
-      authorName: "Emma Davis",
-    },
-  },
-  {
-    id: 4,
-    author: {
-      id: "3",
-      name: "Sophie Williams",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
-      points: 150,
-    },
-    text: "I've been struggling with this. Will definitely try it in my next class!",
-    timestamp: "30 minutes ago",
-    stats: {
-      likes: 2,
-    },
-  },
-]);
+// Comments data
+const comments = ref<CommentWithReplies[]>(mockComments);
 
 const newComment = ref("");
-const replyingTo = ref<Comment | null>(null);
+const replyingTo = ref<CommentWithReplies | null>(null);
 
 const addComment = () => {
   if (!newComment.value.trim()) return;
 
-  const comment: Comment = {
+  const comment: CommentWithReplies = {
     id: Date.now(),
     author: {
       id: currentUserId,
@@ -126,7 +43,7 @@ const addComment = () => {
   newComment.value = "";
 };
 
-const likeComment = (comment: Comment) => {
+const likeComment = (comment: CommentWithReplies) => {
   comment.isLiked = !comment.isLiked;
   comment.stats.likes += comment.isLiked ? 1 : -1;
 
@@ -136,7 +53,7 @@ const likeComment = (comment: Comment) => {
   }
 };
 
-const startReply = (comment: Comment) => {
+const startReply = (comment: CommentWithReplies) => {
   replyingTo.value = comment;
   nextTick(() => {
     const textarea = document.querySelector("textarea");

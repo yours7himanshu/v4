@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ReviewContent } from "~/types/post";
+import type { ReviewContent } from "~/schemas/post";
 
 defineProps<{
   content: ReviewContent;
