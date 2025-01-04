@@ -214,14 +214,6 @@ export const postSchema = z.discriminatedUnion("type", [
     content: adContentSchema,
     stats: statsSchema,
   }),
-  z.object({
-    type: z.literal("event"),
-    id: z.number(),
-    author: authorSchema,
-    timestamp: z.string(),
-    content: eventContentSchema,
-    stats: statsSchema,
-  }),
 ]);
 
 export type Post = z.infer<typeof postSchema>;

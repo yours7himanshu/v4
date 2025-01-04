@@ -18,7 +18,24 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@nuxtjs/color-mode",
     "@pinia/nuxt",
+    "@nuxtjs/google-fonts",
   ],
+  app: {
+    head: {
+      htmlAttrs: {
+        class: "font-sans",
+      },
+    },
+  },
+  googleFonts: {
+    download: true,
+    families: {
+      "Noto+Sans": [300, 400, 500, 600, 700, 800],
+    },
+    display: "swap",
+    prefetch: true,
+    preconnect: true,
+  },
   shadcn: {
     prefix: "",
     componentDir: "./components/ui",

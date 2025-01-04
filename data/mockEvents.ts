@@ -68,7 +68,6 @@ export const mockEvents = [
     },
     artists: ["1"], // Maykel Fonts ID
     organizer: {
-      id: "munich_casino",
       name: "Munich Casino",
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=casino",
       points: 2800,
@@ -142,7 +141,6 @@ export const mockEvents = [
     },
     artists: ["13"], // Los Van Van ID
     organizer: {
-      id: "timba_productions",
       name: "Timba Productions",
       image: "https://api.dicebear.com/7.x/avataaars/svg?seed=timba",
       points: 4100,
