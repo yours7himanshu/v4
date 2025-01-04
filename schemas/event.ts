@@ -56,6 +56,8 @@ export const BaseEventSchema = z.object({
     .object({
       interested: z.number().default(0),
       saves: z.number().default(0),
+      views: z.number().default(0),
+      shares: z.number().default(0),
     })
     .optional(),
 });

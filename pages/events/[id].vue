@@ -3,6 +3,7 @@ import { mockEvents } from "@/data/mockEvents";
 import type { AnyEvent } from "~/schemas/event";
 import GradientBackground from "~/components/common/GradientBackground.vue";
 import { formatDate } from "~/utils/format";
+import UserPoints from "~/components/common/UserPoints.vue";
 
 const route = useRoute();
 const event = computed(
@@ -156,20 +157,41 @@ const handleBook = () => {
                   >
                     Few Spots Left
                   </Badge>
-                  <Badge v-else variant="secondary" class="bg-white/20">
-                    {{ event.stats?.interested || 0 }} interested
-                  </Badge>
                 </div>
 
                 <!-- Action Buttons -->
-                <div class="flex justify-center md:justify-start">
-                  <Button
-                    size="lg"
-                    variant="default"
-                    class="bg-white text-purple-600 hover:bg-white/90"
-                  >
-                    Book Now
-                  </Button>
+                <div class="flex justify-center md:justify-start gap-4 mb-8">
+                  <Button variant="secondary" size="lg"> Book Now </Button>
+                </div>
+
+                <!-- Event Stats -->
+                <div
+                  class="flex justify-center md:justify-start gap-8 text-white/80"
+                >
+                  <div>
+                    <div class="text-xl font-bold text-white">
+                      {{ event.stats?.interested || 0 }}
+                    </div>
+                    <div class="text-sm">guests</div>
+                  </div>
+                  <div>
+                    <div class="text-xl font-bold text-white">
+                      {{ event.stats?.saves || 0 }}
+                    </div>
+                    <div class="text-sm">saves</div>
+                  </div>
+                  <div>
+                    <div class="text-xl font-bold text-white">
+                      {{ event.stats?.views || 20 }}
+                    </div>
+                    <div class="text-sm">views</div>
+                  </div>
+                  <div>
+                    <div class="text-xl font-bold text-white">
+                      {{ event.stats?.shares || 1 }}
+                    </div>
+                    <div class="text-sm">shares</div>
+                  </div>
                 </div>
               </div>
 
@@ -194,18 +216,6 @@ const handleBook = () => {
       <div class="flex justify-center gap-8 max-w-7xl mx-auto">
         <!-- Left Column: Details -->
         <div class="space-y-8 max-w-xl">
-          <!-- Quick Actions -->
-          <div class="flex gap-2 pb-6 border-b">
-            <Button variant="outline" class="flex-1" @click="handleBookmark">
-              <Icon name="ph:bookmark-simple" class="w-5 h-5 mr-2" />
-              Save
-            </Button>
-            <Button variant="outline" class="flex-1" @click="handleShare">
-              <Icon name="ph:share-network" class="w-5 h-5 mr-2" />
-              Share
-            </Button>
-          </div>
-
           <!-- Description -->
           <div class="prose max-w-none">
             <h2 class="text-2xl font-bold mb-4">About This Event</h2>
@@ -349,6 +359,20 @@ const handleBook = () => {
 
         <!-- Right Column: Sidebar -->
         <div class="space-y-6">
+          <!-- Quick Actions -->
+          <div class="bg-white rounded-xl border p-6">
+            <div class="flex flex-col gap-2">
+              <Button class="w-full" variant="default" @click="handleBookmark">
+                <Icon name="ph:bookmark-simple" class="w-5 h-5 mr-2" />
+                Save
+              </Button>
+              <Button class="w-full" variant="outline" @click="handleShare">
+                <Icon name="ph:share-network" class="w-5 h-5 mr-2" />
+                Share
+              </Button>
+            </div>
+          </div>
+
           <!-- Organizer -->
           <div class="bg-white rounded-xl border p-6">
             <h3 class="text-lg font-bold mb-4">Organizer</h3>
@@ -367,12 +391,10 @@ const handleBook = () => {
               <div>
                 <div class="font-medium">{{ event.organizer.name }}</div>
                 <div class="text-sm text-gray-600">Event Organizer</div>
-                <div
+                <UserPoints
                   v-if="event.organizer.points"
-                  class="text-sm text-purple-600 mt-1"
-                >
-                  {{ event.organizer.points }} points
-                </div>
+                  :points="event.organizer.points"
+                />
               </div>
             </div>
           </div>
@@ -447,15 +469,15 @@ const handleBook = () => {
           <!-- Stats -->
           <div v-if="event.stats" class="bg-white rounded-xl border p-6">
             <h3 class="text-lg font-bold mb-4">Event Stats</h3>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="text-center">
-                <div class="text-2xl font-bold text-purple-600">
+            <div class="flex justify-between gap-8 text-center">
+              <div>
+                <div class="text-2xl font-bold">
                   {{ event.stats.interested }}
                 </div>
                 <div class="text-sm text-gray-600">Interested</div>
               </div>
-              <div class="text-center">
-                <div class="text-2xl font-bold text-purple-600">
+              <div>
+                <div class="text-2xl font-bold">
                   {{ event.stats.saves }}
                 </div>
                 <div class="text-sm text-gray-600">Saves</div>

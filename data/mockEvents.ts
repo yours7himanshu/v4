@@ -52,6 +52,12 @@ export const mockEvents = [
     ],
     tags: ["timba", "live music", "social dancing"],
     status: "upcoming",
+    stats: {
+      interested: 45,
+      saves: 12,
+      views: 120,
+      shares: 8,
+    },
   },
   {
     id: 200,
