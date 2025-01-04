@@ -1,3 +1,8 @@
+---
+tags: ai, productivity, startup, webdev
+description: Discover how working with AI agents transformed my development process. From feeling overwhelmed to having a team of tireless experts at my fingertips, this is a story of how AI became my ultimate productivity multiplier. No more analysis paralysis - just rapid iterations and 10x faster decision-making.
+---
+
 # My Journey with AI Agents: Revolutionizing WeDance Development 🚀
 
 I have worked every day since the musicality festival with Anichi Perez in Freiburg on the new concept of WeDance.
