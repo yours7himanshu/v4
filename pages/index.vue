@@ -3,6 +3,7 @@
   <LandingCities />
   <LandingEvents />
   <LandingArtists />
+  <LandingVenues />
   <LandingBenefits />
   <LandingTestimonials />
   <LandingHowItWorks />
