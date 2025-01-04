@@ -85,6 +85,9 @@ const availability = computed(() => {
   return "available";
 });
 
+// Going state
+const isGoing = ref(false);
+
 // Actions
 const handleShare = () => {
   if (!event.value) return;
@@ -94,6 +97,15 @@ const handleShare = () => {
 const handleBookmark = () => {
   if (!event.value) return;
   console.log("Bookmark event:", event.value.name);
+};
+
+const handleGoing = () => {
+  if (!event.value) return;
+  isGoing.value = !isGoing.value;
+  console.log(
+    isGoing.value ? "Going to event" : "Not going to event",
+    event.value.name
+  );
 };
 
 const handleBook = () => {
@@ -374,42 +386,34 @@ const eventArtists = computed(() => {
 
         <!-- Right Column: Sidebar -->
         <div class="space-y-6">
-          <!-- Quick Actions -->
+          <!-- Guests section -->
           <div class="bg-white rounded-xl border p-6">
-            <div class="flex flex-col gap-2">
-              <Button class="w-full" variant="default" @click="handleBookmark">
-                <Icon name="ph:bookmark-simple" class="w-5 h-5 mr-2" />
-                Save
-              </Button>
-              <Button class="w-full" variant="outline" @click="handleShare">
-                <Icon name="ph:share-network" class="w-5 h-5 mr-2" />
-                Share
-              </Button>
-            </div>
-          </div>
-
-          <!-- Organizer -->
-          <div class="bg-white rounded-xl border p-6">
-            <h3 class="text-lg font-bold mb-4">Organizer</h3>
-            <div class="flex items-center gap-4">
-              <div
-                class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center"
-              >
-                <img
-                  v-if="event.organizer.image"
-                  :src="event.organizer.image"
-                  :alt="event.organizer.name"
-                  class="w-full h-full object-cover rounded-full"
-                />
-                <Icon v-else name="ph:user" class="w-8 h-8 text-purple-600" />
+            <h3 class="text-lg font-bold mb-4">Guests</h3>
+            <Button class="w-full mb-6" variant="outline" @click="handleGoing">
+              <Icon name="ph:users" class="w-5 h-5 mr-2" />
+              {{ isGoing ? "Leave Guest List" : "Join Guest List" }}
+            </Button>
+            <div class="space-y-3">
+              <div v-for="i in 5" :key="i" class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-full border-2 border-white overflow-hidden"
+                >
+                  <img
+                    :src="`https://api.dicebear.com/7.x/avataaars/svg?seed=guest${i}`"
+                    :alt="'Guest ' + i"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <div class="font-medium">Guest {{ i }}</div>
+                  <div class="text-sm text-gray-600">Going</div>
+                </div>
               </div>
-              <div>
-                <div class="font-medium">{{ event.organizer.name }}</div>
-                <div class="text-sm text-gray-600">Event Organizer</div>
-                <UserPoints
-                  v-if="event.organizer.points"
-                  :points="event.organizer.points"
-                />
+              <div
+                v-if="(event.stats?.interested || 0) > 5"
+                class="text-sm text-gray-600 mt-2"
+              >
+                and {{ (event.stats?.interested || 0) - 5 }} more guests
               </div>
             </div>
           </div>
@@ -478,25 +482,6 @@ const eventArtists = computed(() => {
               >
                 {{ tag }}
               </Badge>
-            </div>
-          </div>
-
-          <!-- Stats -->
-          <div v-if="event.stats" class="bg-white rounded-xl border p-6">
-            <h3 class="text-lg font-bold mb-4">Event Stats</h3>
-            <div class="flex justify-between gap-8 text-center">
-              <div>
-                <div class="text-2xl font-bold">
-                  {{ event.stats.interested }}
-                </div>
-                <div class="text-sm text-gray-600">Interested</div>
-              </div>
-              <div>
-                <div class="text-2xl font-bold">
-                  {{ event.stats.saves }}
-                </div>
-                <div class="text-sm text-gray-600">Saves</div>
-              </div>
             </div>
           </div>
         </div>
