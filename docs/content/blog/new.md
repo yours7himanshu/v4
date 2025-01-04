@@ -1,4 +1,4 @@
-# Blog Post
+# My Journey with AI Agents: Revolutionizing WeDance Development 🚀
 
 I have worked every day since the musicality festival with Anichi Perez in Freiburg on the new concept of WeDance.
 
@@ -13,7 +13,3 @@ I am an expert in code, but not an expert in a lot of areas. Now it's not a prob
 I am planning to shoot a series of YouTube videos about my newly discovered way of working with AI. You can either send me a list of your questions and I will make a video answer, or we have a recorded video call and do it live together. All videos I will post in my new telegram channel. Send me your requests in DM.
 
 Now back to WeDance. A team of AI expert agents in Cursor AI and me as a decision maker created a new concept of WeDance and now it's time for user testing. We are looking for dancers, organizers, and artists for interviews. Drop a comment below if you are interested.
-
-# Next Steps
-
-- Publish this post on Telegram WeDance News Channel
