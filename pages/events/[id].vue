@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { mockEvents } from "@/data/mockEvents";
+import { mockArtists } from "@/data/mockArtists";
 import type { AnyEvent } from "~/schemas/event";
 import GradientBackground from "~/components/common/GradientBackground.vue";
 import { formatDate } from "~/utils/format";
@@ -97,6 +98,21 @@ const handleBook = () => {
   if (!event.value) return;
   console.log("Book event:", event.value.name);
 };
+
+interface Artist {
+  id: number;
+  name: string;
+  roles: string[];
+  image: string;
+}
+
+// Get artists for the event
+const eventArtists = computed(() => {
+  if (!event.value?.artists) return [];
+  return event.value.artists
+    .map((id) => mockArtists.find((artist) => String(artist.id) === String(id)))
+    .filter((artist) => artist !== undefined);
+});
 </script>
 
 <template>
@@ -253,22 +269,28 @@ const handleBook = () => {
           </div>
 
           <!-- Artists -->
-          <div v-if="event.artists.length > 0">
+          <div v-if="eventArtists.length > 0">
             <h2 class="text-2xl font-bold mb-4">Featured Artists</h2>
             <div class="grid sm:grid-cols-2 gap-4">
               <div
-                v-for="artist in event.artists"
-                :key="artist"
+                v-for="artist in eventArtists"
+                :key="artist?.id"
                 class="bg-white rounded-lg border p-4 flex items-center gap-4"
               >
                 <div
-                  class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0"
+                  class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0"
                 >
-                  <Icon name="ph:user" class="w-6 h-6 text-purple-600" />
+                  <img
+                    :src="artist?.image"
+                    :alt="artist?.name"
+                    class="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
-                  <div class="font-medium">{{ artist }}</div>
-                  <div class="text-sm text-gray-600">Artist</div>
+                  <div class="font-medium">{{ artist?.name }}</div>
+                  <div class="text-sm text-gray-600">
+                    {{ artist?.roles?.join(", ") }}
+                  </div>
                 </div>
               </div>
             </div>

@@ -16,7 +16,7 @@ export const mockEvents = [
         lng: 11.582,
       },
     },
-    artists: ["12"], // Havana D'Primera ID
+    artists: [12, 1], // Havana D'Primera ID
     organizer: {
       id: "munich_salsa_social",
       name: "Munich Salsa Social",
