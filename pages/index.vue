@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { mockEvents } from "@/data/mockEvents";
 import { getDanceStyles } from "@/data/mockStyles";
-import EventCard from "~/components/event/EventCard.vue";
 import type { AnyEvent } from "~/schemas/event";
-import Post from "~/components/post/Post.vue";
 
 // Search state
 const searchQuery = ref("");
@@ -18,29 +16,12 @@ const danceStyles = computed(() => {
 });
 
 // Featured events
-const featuredEvents = computed(() => {
-  const upcomingEvents = mockEvents
-    .filter((event) => event.status === "upcoming")
-    .slice(0, 3)
-    .map((event) => {
-      if (event.type === "workshop") {
-        return {
-          ...event,
-          level: "all",
-          prices: event.prices || [
-            {
-              name: "Standard",
-              amount: event.price?.amount || 0,
-              currency: event.price?.currency || "EUR",
-              description: "Workshop entry",
-            },
-          ],
-        };
-      }
-      return event;
-    }) as AnyEvent[];
-  return upcomingEvents;
-});
+const featuredEvents = computed(
+  () =>
+    mockEvents
+      .filter((event) => event.status === "upcoming")
+      .slice(0, 3) as unknown as AnyEvent[]
+);
 </script>
 
 <template>
