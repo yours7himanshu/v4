@@ -37,13 +37,13 @@ module.exports = {
             transform: "translate(0px, 0px) scale(1)",
           },
           "33%": {
-            transform: "translate(100px, -100px) scale(1.3)",
+            transform: "translate(30px, -50px) scale(1.1)",
           },
           "66%": {
-            transform: "translate(-20px, 20px) scale(0.8)",
+            transform: "translate(-20px, 20px) scale(0.9)",
           },
           "100%": {
-            transform: "tranlate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1)",
           },
         },
       },
@@ -51,6 +51,14 @@ module.exports = {
         blob: "blob 7s infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      utilities: {
+        ".animation-delay-2000": {
+          "animation-delay": "2s",
+        },
+        ".animation-delay-4000": {
+          "animation-delay": "4s",
+        },
       },
     },
   },

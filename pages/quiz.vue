@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import GradientBackground from "~/components/common/GradientBackground.vue";
 
 interface QuizVideo {
   style: string;
@@ -43,10 +44,9 @@ const selectVideo = (style: string) => {
 </script>
 
 <template>
-  <div
-    class="min-h-screen bg-gradient-to-br from-purple-600 to-purple-900 py-16"
-  >
-    <div class="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="min-h-screen relative py-16">
+    <GradientBackground />
+    <div class="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <!-- Header -->
       <div class="text-center mb-12">
         <h1 class="text-4xl font-bold text-white mb-4">

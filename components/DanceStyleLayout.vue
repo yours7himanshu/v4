@@ -1,4 +1,6 @@
 <script setup>
+import GradientBackground from "~/components/common/GradientBackground.vue";
+
 defineProps({
   title: {
     type: String,
@@ -33,66 +35,79 @@ const navigation = [
 
 <template>
   <!-- Hero Section -->
-  <div class="pt-32 pb-12 bg-gradient-to-b from-purple-50 to-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
-        <!-- Left: Content -->
-        <div class="text-center md:text-left">
-          <h1 class="text-4xl md:text-5xl font-bold mb-6">{{ title }}</h1>
-          <p class="text-xl text-gray-600 mb-8 max-w-2xl md:max-w-none mx-auto">
-            {{ description }}
-          </p>
-          <div class="flex justify-center md:justify-start gap-4">
-            <slot name="actions">
-              <Button variant="default" size="lg">Join Community</Button>
+  <div class="relative min-h-[60vh] py-20 flex items-center overflow-hidden">
+    <GradientBackground />
+
+    <!-- Content -->
+    <div class="relative w-full py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <!-- Left: Content -->
+          <div class="text-center md:text-left">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
+              {{ title }}
+            </h1>
+            <p
+              class="text-xl text-white/80 mb-8 max-w-2xl md:max-w-none mx-auto"
+            >
+              {{ description }}
+            </p>
+            <div class="flex justify-center md:justify-start gap-4">
+              <slot name="actions">
+                <Button variant="secondary" size="lg">Join Community</Button>
+              </slot>
+            </div>
+
+            <div
+              class="flex justify-center md:justify-start gap-8 mt-8 text-white/80"
+            >
+              <div v-for="stat in stats" :key="stat.label">
+                <div class="text-xl font-bold text-white">
+                  {{ stat.value }}
+                </div>
+                <div class="text-sm">
+                  {{
+                    stat.label === "Members" ? "community members" : stat.label
+                  }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Video -->
+          <div class="space-y-4">
+            <div
+              class="aspect-video rounded-xl overflow-hidden shadow-xl bg-black/20 backdrop-blur"
+            >
+              <iframe
+                class="w-full h-full"
+                :src="videoUrl"
+                :title="`${title} Video`"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <slot name="video-extra">
+              <!-- Video Game Invitation -->
+              <div class="bg-white/10 backdrop-blur rounded-lg p-4">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <p class="text-sm font-medium text-white">
+                      Help choose the best inspiration
+                    </p>
+                    <p class="text-xs text-white/80">
+                      Vote between pairs of videos
+                    </p>
+                  </div>
+                  <Button variant="secondary" size="sm">
+                    Play Video Game
+                  </Button>
+                </div>
+              </div>
             </slot>
           </div>
-
-          <div
-            class="flex justify-center md:justify-start gap-8 mt-8 text-gray-500"
-          >
-            <div v-for="stat in stats" :key="stat.label">
-              <div class="text-xl font-bold text-gray-900">
-                {{ stat.value }}
-              </div>
-              <div class="text-sm">
-                {{
-                  stat.label === "Members" ? "community members" : stat.label
-                }}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Video -->
-        <div class="space-y-4">
-          <div class="aspect-video rounded-xl overflow-hidden shadow-xl">
-            <iframe
-              class="w-full h-full"
-              :src="videoUrl"
-              :title="`${title} Video`"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
-          </div>
-
-          <slot name="video-extra">
-            <!-- Video Game Invitation -->
-            <div class="bg-purple-50 rounded-lg p-4">
-              <div class="flex items-center justify-between">
-                <div>
-                  <p class="text-sm font-medium text-purple-900">
-                    Help choose the best inspiration
-                  </p>
-                  <p class="text-xs text-purple-700">
-                    Vote between pairs of videos
-                  </p>
-                </div>
-                <Button variant="default" size="sm"> Play Video Game </Button>
-              </div>
-            </div>
-          </slot>
         </div>
       </div>
     </div>
