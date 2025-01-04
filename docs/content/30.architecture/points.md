@@ -1,72 +1,72 @@
-# Points
+# Dance Energy
 
-Points are a reward mechanism to encourage positive community contributions and recognize active members.
+Dance Energy is a reward mechanism to encourage positive community contributions and recognize active members. It represents the vibrancy and passion each member brings to the dance community.
 
-## Earning Points
+## Earning Dance Energy
 
 ### Content Creation
 
-- Create Article: +10 points
-- Share Video: +5 points
-- Start Discussion: +3 points
-- Create Project: +5 points
-- Post Event: +5 points
-- Write Review: +3 points
-- Create Poll: +2 points
-- Post Gig: +3 points
-- Share Travel Plan: +2 points
-- Post Announcement: +2 points
+- Create Article: +10 energy
+- Share Video: +5 energy
+- Start Discussion: +3 energy
+- Create Project: +5 energy
+- Post Event: +5 energy
+- Write Review: +3 energy
+- Create Poll: +2 energy
+- Post Gig: +3 energy
+- Share Travel Plan: +2 energy
+- Post Announcement: +2 energy
 
 ### Comments & Interactions
 
-- Comment upvoted: +1 point
-- Comment upvoted by post author: +3 points (considered as helpful answer)
-- Write a comment: +1 point
+- Comment upvoted: +1 energy
+- Comment upvoted by post author: +3 energy (considered as helpful answer)
+- Write a comment: +1 energy
 
 ### Community Help
 
-- Share Local Info: +5 points
-- Project contribution: +2 points
-- Event check-in confirmed: +1 point
-- Partner request accepted: +2 points
-- Travel request accepted: +2 points
-- Project member contribution: +2 points
+- Share Local Info: +5 energy
+- Project contribution: +2 energy
+- Event check-in confirmed: +1 energy
+- Partner request accepted: +2 energy
+- Travel request accepted: +2 energy
+- Project member contribution: +2 energy
 
 ### Engagement Quality
 
-- Content upvoted: +1 point
-- Content featured by moderators: +10 points
-- Event successfully organized: +5 points
-- Review marked as helpful: +2 points
-- Local info verified by others: +3 points
+- Content upvoted: +1 energy
+- Content featured by moderators: +10 energy
+- Event successfully organized: +5 energy
+- Review marked as helpful: +2 energy
+- Local info verified by others: +3 energy
 
 ### Profile Completion
 
-- Add profile photo: +2 points
-- Add dance styles: +1 point
-- Add bio: +2 points
-- Phone verified: +3 points
-- Email verified: +2 points
-- Connect social accounts: +1 point each
-- Add dance videos: +2 points
-- Add teaching experience: +2 points
-- Add performance experience: +2 points
-- Add venue/event photos: +1 point
+- Add profile photo: +2 energy
+- Add dance styles: +1 energy
+- Add bio: +2 energy
+- Phone verified: +3 energy
+- Email verified: +2 energy
+- Connect social accounts: +1 energy each
+- Add dance videos: +2 energy
+- Add teaching experience: +2 energy
+- Add performance experience: +2 energy
+- Add venue/event photos: +1 energy
 
 ### Community Trust
 
-- Account age (per month): +1 point
-- No violations: +2 points per month
-- Reported content found valid: +2 points
-- Helpful flags on spam/abuse: +1 point
-- Successful event organization: +5 points
-- Positive partner feedback: +3 points
-- Venue verification: +5 points
-- Organizer verification: +5 points
+- Account age (per month): +1 energy
+- No violations: +2 energy per month
+- Reported content found valid: +2 energy
+- Helpful flags on spam/abuse: +1 energy
+- Successful event organization: +5 energy
+- Positive partner feedback: +3 energy
+- Venue verification: +5 energy
+- Organizer verification: +5 energy
 
-## Point Levels
+## Energy Levels
 
-| Level       | Points | Benefits                              |
+| Level       | Energy | Benefits                              |
 | ----------- | ------ | ------------------------------------- |
 | Newcomer    | 0      | Basic posting and interaction         |
 | Regular     | 50     | Create events, reviews                |
@@ -75,9 +75,9 @@ Points are a reward mechanism to encourage positive community contributions and 
 | Expert      | 1000   | Content curation, mentor new users    |
 | Guardian    | 2000   | Community moderation, feature content |
 
-## Using Points
+## Using Dance Energy
 
-Points unlock features and privileges:
+Dance Energy unlocks features and privileges:
 
 - Create certain post types
 - Moderate community content
@@ -85,12 +85,12 @@ Points unlock features and privileges:
 - Access special features
 - Earn badges and recognition
 
-## Point Decay
+## Energy Decay
 
 To maintain active community participation:
 
-- Points start decaying after 3 months of inactivity
-- 10% of points lost per month of inactivity
+- Energy starts decaying after 3 months of inactivity
+- 10% of energy lost per month of inactivity
 - Core achievements (badges, verified status) remain
 - Activity immediately stops decay
 
@@ -107,8 +107,8 @@ Special achievements earn permanent badges:
 
 ## Guidelines
 
-- Points cannot be transferred
-- Spam or low-quality content earns no points
-- Violation of community guidelines may result in point penalties
-- Moderators can adjust points for special circumstances
-- Point system may be adjusted for community health
+- Dance Energy cannot be transferred
+- Spam or low-quality content earns no energy
+- Violation of community guidelines may result in energy penalties
+- Moderators can adjust energy for special circumstances
+- Energy system may be adjusted for community health
