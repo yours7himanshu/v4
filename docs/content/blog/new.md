@@ -32,35 +32,39 @@ This new approach means:
 
 It's like having a dedicated space for your dance style, where everyone speaks your language - both literally and in dance terms! And as these style-specific communities grow stronger, we'll naturally expand into city-specific features and cross-style connections.
 
-## Help Shape the Future of WeDance 🌟
+## Join Our Design Sprint: Shape the Future of WeDance 🌟
 
-We're looking for passionate dance community members to participate in our user testing program this January. Your insights will directly influence how we build the next generation of WeDance.
+We're conducting a series of focused one-on-one interviews to deeply understand your dance journey and validate our solutions. Following Google Ventures' proven methodology, each session will be a meaningful exploration of specific scenarios you face in the dance community.
 
-### Who We're Looking For:
+### We're Looking For 5 People Who:
 
-- 🎓 Dance Teachers & Studio Owners
-- 🎪 Event Organizers & Festival Producers
-- 💃 Active Dancers (all levels welcome)
-- 🌱 Community Leaders & Dance Influencers
+- 💃 Actively participate in dance events (at least 2-3 times per month)
+- 🌍 Have experience with multiple dance communities or cities
+- 🎯 Face challenges in discovering events or connecting with dancers
+- 🗣️ Are comfortable sharing detailed stories about their experiences
 
-### What's Involved:
+### What to Expect:
 
-- 30-minute video interview
-- Early access to new features
-- Opportunity to shape core functionality
-- Direct communication channel with the development team
+- 60-minute one-on-one video session
+- Focused discussion about your real experiences
+- Interactive prototype testing
+- No preparation needed - we want your authentic perspective
 
 ### Timeline:
 
-- Interviews: January 15-31, 2024
-- Feature Testing: February 2024
-- Platform Launch: March 2024
+- Interviews: January 15-19, 2024 (one per day)
+- Your time slot will be confirmed within 24 hours
+- Results and insights shared with participants by January 31
 
-### How to Join:
+### How to Participate:
 
-1. DM me with "WeDance Testing"
-2. Mention your role in the dance community
-3. Share your primary dance style(s)
-4. Tell us your city/country
+1. DM me with "WeDance Sprint"
+2. Share a brief story about a recent challenge you faced in:
+   - Finding dance events
+   - Connecting with other dancers
+   - Or organizing dance activities
+3. Tell us your availability between Jan 15-19
 
-Your voice matters in building this global dance community. Join us in revolutionizing how dancers connect and grow together! 🚀
+We'll select participants who represent different aspects of the dance journey. Your experiences will directly shape how we build WeDance's style-first approach.
+
+#WeDance #DesignSprint #DanceCommunity #UserResearch
