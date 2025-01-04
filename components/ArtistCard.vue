@@ -1,17 +1,16 @@
 <script setup>
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-
 defineProps({
   artist: {
     type: Object,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 </script>
 
 <template>
-  <div class="relative rounded-lg border border-gray-300 bg-white shadow-sm hover:border-gray-400 transition-all duration-200 flex flex-col h-full">
+  <div
+    class="relative rounded-lg border border-gray-300 bg-white shadow-sm hover:border-gray-400 transition-all duration-200 flex flex-col h-full"
+  >
     <!-- Card Content Wrapper -->
     <div class="flex-1 flex flex-col">
       <!-- Card Header with Image and Basic Info -->
@@ -34,14 +33,18 @@ defineProps({
               <h3 class="text-sm font-medium text-gray-900 truncate">
                 {{ artist.name }}
               </h3>
-              <Badge v-if="artist.level === 'master'" variant="secondary" class="bg-amber-50 text-amber-700 border-amber-200">
+              <Badge
+                v-if="artist.level === 'master'"
+                variant="secondary"
+                class="bg-amber-50 text-amber-700 border-amber-200"
+              >
                 Master
               </Badge>
             </div>
 
             <!-- Roles -->
             <div class="flex flex-wrap gap-1.5 mt-2">
-              <Badge 
+              <Badge
                 v-for="role in artist.roles"
                 :key="role"
                 variant="secondary"
@@ -53,13 +56,20 @@ defineProps({
 
             <!-- Languages -->
             <div class="flex flex-wrap items-center gap-1.5 mt-2">
-              <span v-for="lang in artist.languages" :key="lang" class="text-xs text-gray-500">
+              <span
+                v-for="lang in artist.languages"
+                :key="lang"
+                class="text-xs text-gray-500"
+              >
                 {{ lang }}
               </span>
             </div>
 
             <!-- Specialties -->
-            <p v-if="artist.specialties?.length" class="mt-2 text-sm text-gray-600 line-clamp-2">
+            <p
+              v-if="artist.specialties?.length"
+              class="mt-2 text-sm text-gray-600 line-clamp-2"
+            >
               {{ artist.specialties.join(" • ") }}
             </p>
 
@@ -78,12 +88,18 @@ defineProps({
       <div v-if="artist.availability" class="px-4 pb-4 mt-auto space-y-3">
         <!-- Services and Pricing -->
         <div class="flex flex-col gap-2">
-          <div v-if="artist.availability.privateClasses" class="flex items-center justify-between text-sm">
+          <div
+            v-if="artist.availability.privateClasses"
+            class="flex items-center justify-between text-sm"
+          >
             <span class="flex items-center gap-1 text-gray-600">
               <Icon name="ph:check-circle" class="h-3.5 w-3.5 text-green-500" />
               Private Classes
             </span>
-            <span v-if="artist.availability.pricing?.privateClass" class="text-gray-900">
+            <span
+              v-if="artist.availability.pricing?.privateClass"
+              class="text-gray-900"
+            >
               <span class="font-medium">
                 {{ artist.availability.pricing.privateClass.amount }}€
               </span>
@@ -92,18 +108,26 @@ defineProps({
               </span>
             </span>
           </div>
-          <div v-if="artist.availability.workshops" class="flex items-center justify-between text-sm">
+          <div
+            v-if="artist.availability.workshops"
+            class="flex items-center justify-between text-sm"
+          >
             <span class="flex items-center gap-1 text-gray-600">
               <Icon name="ph:check-circle" class="h-3.5 w-3.5 text-green-500" />
               Workshops
             </span>
-            <span v-if="artist.availability.pricing?.workshop" class="text-gray-900">
+            <span
+              v-if="artist.availability.pricing?.workshop"
+              class="text-gray-900"
+            >
               <span class="font-medium">
                 {{ artist.availability.pricing.workshop.amount }}€
               </span>
               <span class="text-gray-500">
                 /{{ artist.availability.pricing.workshop.duration }}min
-                <span class="text-xs">({{ artist.availability.pricing.workshop.note }})</span>
+                <span class="text-xs"
+                  >({{ artist.availability.pricing.workshop.note }})</span
+                >
               </span>
             </span>
           </div>
@@ -112,12 +136,17 @@ defineProps({
     </div>
 
     <!-- Card Footer -->
-    <div class="px-4 py-3 bg-gray-50 border-t border-gray-100 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 rounded-b-lg">
+    <div
+      class="px-4 py-3 bg-gray-50 border-t border-gray-100 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm text-gray-500 rounded-b-lg"
+    >
       <div class="flex items-center gap-1.5 shrink-0">
         <Icon name="ph:map-pin" class="h-4 w-4" />
         <span>
           {{ artist.availability?.currentLocation || artist.location }}
-          <span v-if="artist.availability?.currentLocation" class="text-xs text-gray-400">
+          <span
+            v-if="artist.availability?.currentLocation"
+            class="text-xs text-gray-400"
+          >
             (from {{ artist.location }})
           </span>
         </span>
@@ -138,4 +167,4 @@ defineProps({
       </div>
     </div>
   </div>
-</template> 
+</template>
