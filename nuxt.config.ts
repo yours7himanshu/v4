@@ -20,6 +20,13 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/google-fonts",
   ],
+  colorMode: {
+    classSuffix: "",
+    preference: "system",
+    fallback: "light",
+    classPrefix: "",
+    storageKey: "nuxt-color-mode",
+  },
   app: {
     head: {
       htmlAttrs: {
