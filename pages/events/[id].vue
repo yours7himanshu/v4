@@ -372,7 +372,7 @@ const eventArtists = computed(() => {
           </div>
 
           <!-- Related Events -->
-          <div>
+          <div v-if="relatedEvents.length > 0">
             <h2 class="text-2xl font-bold mb-4">Related Events</h2>
             <div class="grid sm:grid-cols-2 gap-4">
               <EventCard
@@ -443,10 +443,7 @@ const eventArtists = computed(() => {
           </div>
 
           <!-- Price Details -->
-          <div
-            v-if="event.type === 'workshop' && event.prices"
-            class="bg-white rounded-xl border p-6"
-          >
+          <div v-if="event.prices" class="bg-white rounded-xl border p-6">
             <h3 class="text-lg font-bold mb-4">Pricing Options</h3>
             <div class="space-y-4">
               <div
@@ -465,24 +462,10 @@ const eventArtists = computed(() => {
                 </div>
               </div>
             </div>
-          </div>
-
-          <!-- Tags -->
-          <div
-            v-if="event.tags.length > 0"
-            class="bg-white rounded-xl border p-6"
-          >
-            <h3 class="text-lg font-bold mb-4">Tags</h3>
-            <div class="flex flex-wrap gap-2">
-              <Badge
-                v-for="tag in event.tags"
-                :key="tag"
-                variant="secondary"
-                class="bg-purple-100 text-purple-600"
-              >
-                {{ tag }}
-              </Badge>
-            </div>
+            <Button class="w-full mt-6" variant="default" @click="handleGoing">
+              <Icon name="ph:ticket" class="w-5 h-5 mr-2" />
+              Book Now
+            </Button>
           </div>
         </div>
       </div>
