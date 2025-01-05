@@ -1,3 +1,3 @@
 <template>
-  <FeedList />
+  <Feed />
 </template>

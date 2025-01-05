@@ -51,6 +51,6 @@ const selectedLocation = ref(null);
     :stats="cityData.stats"
     :videoUrl="cityData.videoUrl"
   >
-    <FeedList />
+    <Feed />
   </DanceStyleLayout>
 </template>
