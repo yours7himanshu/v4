@@ -3,16 +3,26 @@ import type { Post } from "~/schemas/post";
 import { mockPosts } from "~/data/mockPosts";
 
 const route = useRoute();
+const router = useRouter();
 const id = parseInt(route.params.id as string);
 
 const post = computed(() => mockPosts.find((p) => p.id === id) as Post);
+
+const goBack = () => {
+  if (window.history.length > 2) {
+    router.back();
+  } else {
+    // If opened directly (e.g. from bookmarks), go to feed
+    router.push("/feed");
+  }
+};
 </script>
 
 <template>
-  <div class="container max-w-xl mx-auto px-4 py-20">
+  <div class="container max-w-xl mx-auto px-4 py-4">
     <div class="flex items-center gap-2 mb-4">
       <button
-        @click="router.back()"
+        @click="goBack"
         class="flex items-center text-gray-500 hover:text-gray-700"
       >
         <Icon name="heroicons:arrow-left" class="w-6 h-6" />
