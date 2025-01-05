@@ -9,11 +9,13 @@ The platform supports different types of profiles, each with specific purposes a
 **Purpose**: Personal dance journey and social connections
 
 **Roles**:
+
 - Lead: Leading in partner dances
 - Follow: Following in partner dances
 - Both: Can dance both roles
 
 **Components**:
+
 - Basic profile info
 - Dance styles & levels
 - Learning goals
@@ -26,6 +28,7 @@ The platform supports different types of profiles, each with specific purposes a
 - Saved events
 
 **Primary Actions**:
+
 - Connect (follow/add as friend)
 - Message (direct message)
 - Share Profile (share with others)
@@ -36,6 +39,7 @@ The platform supports different types of profiles, each with specific purposes a
 **Purpose**: Professional presence and booking
 
 **Roles**:
+
 - Instructor: Teaching classes and workshops
 - Performer: Stage and show performances
 - Choreographer: Creating and teaching routines
@@ -44,6 +48,7 @@ The platform supports different types of profiles, each with specific purposes a
 - Videographer: Dance documentation and promotion
 
 **Components**:
+
 - Professional bio
 - Teaching expertise
 - Class schedule
@@ -57,6 +62,7 @@ The platform supports different types of profiles, each with specific purposes a
 - Past events
 
 **Primary Actions**:
+
 - Book Class
 - Contact
 - Follow
@@ -67,12 +73,14 @@ The platform supports different types of profiles, each with specific purposes a
 **Purpose**: Event management and community trust
 
 **Roles**:
+
 - Festival Organizer: Multi-day dance events
 - Social Organizer: Regular dance socials
 - School Owner: Dance academy/studio management
 - Workshop Organizer: Special workshops and bootcamps
 
 **Components**:
+
 - Organization info
 - Event series
 - Upcoming events
@@ -84,6 +92,7 @@ The platform supports different types of profiles, each with specific purposes a
 - Event photos/videos
 
 **Primary Actions**:
+
 - Follow
 - Contact
 - View Events
@@ -94,12 +103,14 @@ The platform supports different types of profiles, each with specific purposes a
 **Purpose**: Space discovery and booking
 
 **Roles**:
+
 - Dance Studio: Dedicated dance spaces
 - Social Venue: Bars and clubs with dance events
 - Event Space: Rentable spaces for dance events
 - Cultural Center: Community spaces with dance programs
 
 **Components**:
+
 - Location & access
 - Space details
 - Regular schedule
@@ -111,6 +122,7 @@ The platform supports different types of profiles, each with specific purposes a
 - Contact options
 
 **Primary Actions**:
+
 - View Events
 - Get Directions
 - Book Space
@@ -118,47 +130,204 @@ The platform supports different types of profiles, each with specific purposes a
 
 ### Communities
 
-**Purpose**: Create and manage local dance groups and initiatives
+**Purpose**: Connect and organize groups of dancers with shared interests or goals
 
 **Types**:
-- Local Community: City or area-specific dance groups
-- Practice Group: Regular practice sessions and meetups
-- Student Group: University/school dance clubs
-- Special Interest: Specific focus groups within a style
 
-**Note**: Different from platform's Style Communities (/dance/[style]), which are automatic aggregations of style-specific content.
+1. **Style-Based Communities**
+
+   ```yaml
+   Example - Salsa Cubana Munich:
+     Focus: Cuban Salsa / Timba
+     Scope: Local (Munich)
+     Regular Events:
+       Summer:
+         - Wednesdays: Open Air at Pinakothek der Moderne
+         - Fridays: Open Air at Pinakothek der Moderne
+       Winter:
+         - Wednesdays: Kult Dance Studio
+     Music: Timba
+     Social Media:
+       - Instagram
+       - Facebook Page
+     Communication:
+       - WhatsApp Groups
+     Activities:
+       - Regular socials
+       - Open air parties
+       - Music sharing
+       - Community updates
+     Venues:
+       - Pinakothek der Moderne (Summer)
+       - Kult Dance Studio (Winter)
+     Discovery:
+       - City: /munich
+       - Style: /dance/salsa/cuban
+       - Community: /communities/salsa-cubana-munich
+   ```
+
+2. **Cross-Location Communities**
+
+   ```yaml
+   Example - Afro-Cuban Festivals:
+     Focus: Festival Travel
+     Scope: International
+     Activities:
+       - Festival planning
+       - Travel coordination
+       - Experience sharing
+     Communication:
+       - WhatsApp groups
+       - Event updates
+   ```
+
+3. **Local Scene Communities**
+
+   ```yaml
+   Example - Berlin Salseros:
+     Focus: City Scene
+     Scope: Local Area
+     Activities:
+       - Scene updates
+       - Local events
+       - Venue information
+     Communication:
+       - WhatsApp/Telegram
+       - Local forums
+   ```
+
+4. **Special Interest Groups**
+   ```yaml
+   Example - Timba Music Lovers:
+     Focus: Specific Aspect
+     Scope: Mixed
+     Activities:
+       - Music sharing
+       - DJ sessions
+       - Discussion
+     Communication:
+       - Spotify playlists
+       - Group chat
+   ```
 
 **Components**:
-- Group description and mission
-- Organizers/admins list
-- Membership rules
-- Local guidelines
-- Meeting schedule
-- Resources and guides
-- Group photos/videos
-- Member directory
-- Local announcements
-- Discussion board
 
-**Primary Actions**:
-- Join/Leave Group
-- Contact Admins
-- Post to Group
-- View Members
+- Group description and purpose
+- Membership information
+- Communication channels
+- Regular activities
+- Related organizers/venues
+- Event calendar
+- Photo/video gallery
+- Discussion space
+- Resource sharing
 
 **Features**:
-- Member management
-- Group discussions
-- Event organization
-- Resource sharing
-- Local announcements
-- Member roles/permissions
-- Activity tracking
-- Group chat/messaging
+
+1. **Membership Management**
+
+   ```yaml
+   - Join requests
+   - Member roles
+   - Activity tracking
+   - Communication preferences
+   ```
+
+2. **Content Sharing**
+
+   ```yaml
+   - Event announcements
+   - Photos/videos
+   - Discussions
+   - Resources
+   ```
+
+3. **Communication**
+
+   ```yaml
+   - Group chat links
+   - Announcements
+   - Event coordination
+   - Member messaging
+   ```
+
+4. **Discovery**
+   ```yaml
+   - Style pages
+   - Event pages
+   - City pages
+   - Search results
+   ```
+
+**Primary Actions**:
+
+- Join Community
+- Contact Admins
+- Share Community
+- View Activities
+
+**Integration**:
+
+```yaml
+Related Entities:
+  Organizers:
+    - Event producers
+    - Venues
+    - Schools
+    - Teachers
+
+  Events:
+    - Regular socials
+    - Festivals
+    - Workshops
+    - Practice sessions
+
+  Venues:
+    - Regular locations
+    - Meeting points
+    - Practice spaces
+```
+
+**Privacy Options**:
+
+```yaml
+Visibility:
+  - Public (anyone can see)
+  - Semi-private (approval needed)
+  - Private (invitation only)
+
+Communication:
+  - Open chat
+  - Moderated chat
+  - Admin-only announcements
+```
+
+**Best Practices**:
+
+1. **Community Health**
+
+   - Clear guidelines
+   - Active moderation
+   - Regular updates
+   - Engaged leadership
+
+2. **Growth**
+
+   - Welcoming environment
+   - Easy discovery
+   - Clear value proposition
+   - Regular activities
+
+3. **Content**
+   - Relevant updates
+   - Quality control
+   - Member contributions
+   - Resource sharing
 
 ## Common Features
 
 ### Profile Header
+
 - Profile photo
 - Cover image
 - Name/Title
@@ -167,6 +336,7 @@ The platform supports different types of profiles, each with specific purposes a
 - Primary action buttons
 
 ### Content Tabs
+
 - Posts
 - Events
 - Media
@@ -175,6 +345,7 @@ The platform supports different types of profiles, each with specific purposes a
 - Role-specific tabs
 
 ### Activity Feed
+
 - Posts
 - Events
 - Media
@@ -182,18 +353,21 @@ The platform supports different types of profiles, each with specific purposes a
 - Updates
 
 ### Social Features
+
 - Follow/Connect
 - Message
 - Share
 - Report
 
 ### Verification
+
 - Identity verification
 - Role verification
 - Skill level verification
 - Reviews & ratings
 
 ### Privacy Controls
+
 - Profile visibility
 - Contact preferences
 - Information sharing
