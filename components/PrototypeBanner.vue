@@ -19,14 +19,13 @@ const hide = () => {
         <p class="text-sm text-gray-600 mt-1">
           Be among the first to shape the future of dance community
         </p>
-        <a
-          href="https://t.me/WeDancePlatform"
-          target="_blank"
+        <NuxtLink
+          to="/status"
           class="inline-flex items-center gap-1 text-purple-600 hover:text-purple-700 text-sm mt-2"
         >
-          <Icon name="ph:telegram-logo" class="w-4 h-4" />
-          Join Development Updates
-        </a>
+          See What's Coming
+          <Icon name="ph:arrow-right" class="w-4 h-4" />
+        </NuxtLink>
       </div>
       <button
         @click="hide"

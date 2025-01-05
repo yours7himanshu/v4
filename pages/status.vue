@@ -37,7 +37,7 @@ const inProgress = [
 
 const roadmap = [
   {
-    quarter: "Q1 2024",
+    quarter: "Q1 2025",
     features: [
       "Event Discovery Improvements",
       "Community Profiles Enhancement",
@@ -45,7 +45,7 @@ const roadmap = [
     ],
   },
   {
-    quarter: "Q2 2024",
+    quarter: "Q2 2025",
     features: [
       "Event Management Tools",
       "Partner Finding System",
@@ -53,7 +53,7 @@ const roadmap = [
     ],
   },
   {
-    quarter: "Q3 2024",
+    quarter: "Q3 2025",
     features: [
       "Artist Profiles and Booking",
       "Venue Management",
@@ -61,7 +61,7 @@ const roadmap = [
     ],
   },
   {
-    quarter: "Q4 2024",
+    quarter: "Q4 2025",
     features: [
       "Event Ticketing System",
       "Trust and Safety Features",
@@ -77,10 +77,17 @@ const roadmap = [
       <!-- Header -->
       <div class="text-center mb-12">
         <h1 class="text-4xl font-bold text-gray-900 mb-4">Project Status</h1>
-        <p class="text-lg text-gray-600">
+        <p class="text-lg text-gray-600 mb-4">
           WeDance is a participatory network transforming how dance communities
           connect, organize, and thrive together.
         </p>
+        <NuxtLink
+          to="/about"
+          class="inline-flex items-center gap-1 text-purple-600 hover:text-purple-700"
+        >
+          Learn About Our Vision
+          <Icon name="ph:arrow-right" class="w-4 h-4" />
+        </NuxtLink>
       </div>
 
       <!-- Stats -->
