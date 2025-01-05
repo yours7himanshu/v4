@@ -1,11 +1,24 @@
 <script setup>
-import { ref } from "vue";
-
+const route = useRoute();
 const isMobileMenuOpen = ref(false);
+
+const navigationItems = [
+  { to: "/feed", label: "Feed" },
+  { to: "/events", label: "Events" },
+  { to: "/artists", label: "Artists" },
+  { to: "/venues", label: "Venues" },
+];
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
+
+watch(
+  () => route.path,
+  () => {
+    isMobileMenuOpen.value = false;
+  }
+);
 </script>
 
 <template>
@@ -24,24 +37,12 @@ const toggleMobileMenu = () => {
         <!-- Desktop Navigation -->
         <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
           <NuxtLink
-            to="/feed"
+            v-for="item in navigationItems"
+            :key="item.to"
+            :to="item.to"
             class="text-gray-700 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400"
-            >Feed</NuxtLink
-          >
-          <NuxtLink
-            to="/events"
-            class="text-gray-700 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400"
-            >Events</NuxtLink
-          >
-          <NuxtLink
-            to="/artists"
-            class="text-gray-700 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400"
-            >Artists</NuxtLink
-          >
-          <NuxtLink
-            to="/venues"
-            class="text-gray-700 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400"
-            >Venues</NuxtLink
+            active-class="text-purple-600 dark:text-purple-400"
+            >{{ item.label }}</NuxtLink
           >
           <ThemeToggle />
           <Button variant="default">Sign In</Button>
@@ -61,24 +62,12 @@ const toggleMobileMenu = () => {
     <div v-show="isMobileMenuOpen" class="sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <NuxtLink
-          to="/feed"
+          v-for="item in navigationItems"
+          :key="item.to"
+          :to="item.to"
           class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-purple-400 dark:hover:bg-gray-800"
-          >Feed</NuxtLink
-        >
-        <NuxtLink
-          to="/events"
-          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-purple-400 dark:hover:bg-gray-800"
-          >Events</NuxtLink
-        >
-        <NuxtLink
-          to="/artists"
-          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-purple-400 dark:hover:bg-gray-800"
-          >Artists</NuxtLink
-        >
-        <NuxtLink
-          to="/venues"
-          class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-purple-400 dark:hover:bg-gray-800"
-          >Venues</NuxtLink
+          active-class="text-purple-600 bg-gray-50 dark:text-purple-400 dark:bg-gray-800"
+          >{{ item.label }}</NuxtLink
         >
         <div class="flex items-center gap-2 px-3 py-2">
           <ThemeToggle />
