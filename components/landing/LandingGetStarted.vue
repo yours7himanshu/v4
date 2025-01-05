@@ -27,10 +27,15 @@
                 <Icon name="ph:arrow-right" class="w-5 h-5" />
               </NuxtLink>
             </Button>
-            <Button size="lg" variant="outline" class="text-lg px-8" as-child>
+            <Button
+              size="lg"
+              variant="outline"
+              class="text-lg px-8 bg-transparent"
+              as-child
+            >
               <NuxtLink
                 to="/vs"
-                class="flex items-center justify-center gap-2 bg-transparent text-white hover:text-purple-200"
+                class="flex items-center justify-center gap-2 text-white hover:text-purple-200"
               >
                 Compare Platforms
                 <Icon name="ph:arrow-right" class="w-5 h-5" />
