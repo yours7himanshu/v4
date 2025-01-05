@@ -80,7 +80,10 @@ watch(
       leave-from-class="transform translate-y-0 opacity-100"
       leave-to-class="transform -translate-y-2 opacity-0"
     >
-      <div v-show="isMobileMenuOpen" class="sm:hidden">
+      <div
+        v-show="isMobileMenuOpen"
+        class="sm:hidden bg-white dark:bg-slate-950 shadow-lg border-t dark:border-slate-800"
+      >
         <div class="px-2 pt-2 pb-3 space-y-1">
           <NuxtLink
             v-for="item in navigationItems"
