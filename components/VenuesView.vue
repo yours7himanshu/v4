@@ -111,8 +111,8 @@ const clearLocationFilter = () => {
 </script>
 
 <template>
-  <!-- Search and Filters -->
-  <div class="flex flex-col sm:flex-row gap-4">
+  <!-- Search and Filters Row -->
+  <div class="flex flex-col sm:flex-row gap-4 mb-4">
     <div class="relative flex-1">
       <Input
         v-model="search"
@@ -154,104 +154,104 @@ const clearLocationFilter = () => {
         Filters
       </Button>
     </div>
+  </div>
 
-    <!-- Filters Section -->
-    <div
-      v-if="showFilters"
-      class="bg-card border border-border rounded-lg p-6 space-y-6"
-    >
-      <!-- Dance Styles -->
-      <div>
-        <h3 class="font-medium mb-3">Dance Styles</h3>
-        <div class="flex flex-wrap gap-2">
-          <Button
-            v-for="style in allStyles"
-            :key="style"
-            variant="outline"
-            size="sm"
-            :class="[
-              selectedStyles.includes(style)
-                ? 'bg-primary text-primary-foreground'
-                : '',
-            ]"
-            @click="
-              selectedStyles.includes(style)
-                ? (selectedStyles = selectedStyles.filter((s) => s !== style))
-                : selectedStyles.push(style)
-            "
-          >
-            {{ style }}
-          </Button>
-        </div>
+  <!-- Filters Section -->
+  <div
+    v-if="showFilters"
+    class="bg-card border border-border rounded-lg p-6 space-y-6 mb-6"
+  >
+    <!-- Dance Styles -->
+    <div>
+      <h3 class="font-medium mb-3">Dance Styles</h3>
+      <div class="flex flex-wrap gap-2">
+        <Button
+          v-for="style in allStyles"
+          :key="style"
+          variant="outline"
+          size="sm"
+          :class="[
+            selectedStyles.includes(style)
+              ? 'bg-primary text-primary-foreground'
+              : '',
+          ]"
+          @click="
+            selectedStyles.includes(style)
+              ? (selectedStyles = selectedStyles.filter((s) => s !== style))
+              : selectedStyles.push(style)
+          "
+        >
+          {{ style }}
+        </Button>
       </div>
+    </div>
 
-      <!-- Features -->
-      <div>
-        <h3 class="font-medium mb-3">Features</h3>
-        <div class="flex flex-wrap gap-2">
-          <Button
-            v-for="feature in allFeatures"
-            :key="feature"
-            variant="outline"
-            size="sm"
-            :class="[
-              selectedFeatures.includes(feature)
-                ? 'bg-primary text-primary-foreground'
-                : '',
-            ]"
-            @click="
-              selectedFeatures.includes(feature)
-                ? (selectedFeatures = selectedFeatures.filter(
-                    (f) => f !== feature
-                  ))
-                : selectedFeatures.push(feature)
-            "
-          >
-            {{ feature }}
-          </Button>
-        </div>
+    <!-- Features -->
+    <div>
+      <h3 class="font-medium mb-3">Features</h3>
+      <div class="flex flex-wrap gap-2">
+        <Button
+          v-for="feature in allFeatures"
+          :key="feature"
+          variant="outline"
+          size="sm"
+          :class="[
+            selectedFeatures.includes(feature)
+              ? 'bg-primary text-primary-foreground'
+              : '',
+          ]"
+          @click="
+            selectedFeatures.includes(feature)
+              ? (selectedFeatures = selectedFeatures.filter(
+                  (f) => f !== feature
+                ))
+              : selectedFeatures.push(feature)
+          "
+        >
+          {{ feature }}
+        </Button>
       </div>
+    </div>
 
-      <!-- Price Range -->
-      <div>
-        <h3 class="font-medium mb-3">Price per Hour</h3>
-        <div class="flex items-center gap-4">
-          <Input
-            v-model="selectedPriceRange[0]"
-            type="number"
-            placeholder="Min"
-            class="w-24"
-          />
-          <span>to</span>
-          <Input
-            v-model="selectedPriceRange[1]"
-            type="number"
-            placeholder="Max"
-            class="w-24"
-          />
-          <span>€</span>
-        </div>
+    <!-- Price Range -->
+    <div>
+      <h3 class="font-medium mb-3">Price per Hour</h3>
+      <div class="flex items-center gap-4">
+        <Input
+          v-model="selectedPriceRange[0]"
+          type="number"
+          placeholder="Min"
+          class="w-24"
+        />
+        <span>to</span>
+        <Input
+          v-model="selectedPriceRange[1]"
+          type="number"
+          placeholder="Max"
+          class="w-24"
+        />
+        <span>€</span>
       </div>
+    </div>
 
-      <!-- Capacity -->
-      <div>
-        <h3 class="font-medium mb-3">Capacity</h3>
-        <div class="flex items-center gap-4">
-          <Input
-            v-model="selectedCapacityRange[0]"
-            type="number"
-            placeholder="Min"
-            class="w-24"
-          />
-          <span>to</span>
-          <Input
-            v-model="selectedCapacityRange[1]"
-            type="number"
-            placeholder="Max"
-            class="w-24"
-          />
-          <span>people</span>
-        </div>
+    <!-- Capacity -->
+    <div>
+      <h3 class="font-medium mb-3">Capacity</h3>
+      <div class="flex items-center gap-4">
+        <Input
+          v-model="selectedCapacityRange[0]"
+          type="number"
+          placeholder="Min"
+          class="w-24"
+        />
+        <span>to</span>
+        <Input
+          v-model="selectedCapacityRange[1]"
+          type="number"
+          placeholder="Max"
+          class="w-24"
+        />
+        <span>people</span>
       </div>
     </div>
   </div>
