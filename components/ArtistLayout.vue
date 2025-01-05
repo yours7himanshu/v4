@@ -147,7 +147,7 @@ const handleFollow = () => {
   <!-- Navigation and Content Wrapper -->
   <div class="relative">
     <!-- Navigation -->
-    <div class="sticky top-[64px] bg-white z-10">
+    <div class="bg-white z-10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="border-b border-gray-200">
           <div class="flex space-x-8 overflow-x-auto">
@@ -181,7 +181,7 @@ const handleFollow = () => {
 
           <!-- Right Column: Sidebar -->
           <div class="flex-shrink-0 space-y-6 md:w-[320px]">
-            <div class="sticky top-0">
+            <div>
               <ArtistCard :artist="artist" />
             </div>
 
