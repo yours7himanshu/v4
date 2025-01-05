@@ -11,10 +11,12 @@
    - Use components that are auto-imported by Nuxt or shadcn
    - Use TailwindCSS classes for styling
    - Use vue-shadcn for components
+   - For form validation, use VeeValidate and Zod. See docs/content/resources/2.dev/form.md
 
 3. Project Documentation
 
    Important architectural decisions and workflows are documented in:
+
    - Architecture: `/docs/content/30.architecture/`
      - Pages structure
      - Profiles

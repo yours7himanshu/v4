@@ -57,7 +57,9 @@ defineProps({
               </p>
               <div class="flex justify-center md:justify-start gap-4">
                 <slot name="actions">
-                  <Button variant="secondary" size="lg">Join Community</Button>
+                  <Button variant="secondary" size="lg" as-child>
+                    <NuxtLink to="/register">Join Community</NuxtLink>
+                  </Button>
                 </slot>
               </div>
 
