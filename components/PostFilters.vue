@@ -127,12 +127,39 @@ const selectedLocation = computed({
       </Button>
     </div>
 
-    <div>
-      <div class="font-medium text-sm text-gray-500 mb-2">Location</div>
-      <LocationPanel
-        :location="selectedLocation"
-        @update:location="selectedLocation = $event"
-      />
+    <div class="flex items-center gap-2">
+      <Button
+        variant="ghost"
+        @click="showLocationFilter = true"
+        class="flex-1 justify-start"
+        :class="{ 'text-primary': selectedLocation }"
+      >
+        <Icon name="ph:map-pin" class="w-5 h-5 mr-2" />
+        <span>{{ selectedLocation || "Location" }}</span>
+      </Button>
+      <Button
+        v-if="selectedLocation"
+        variant="ghost"
+        size="icon"
+        @click="clearLocationFilter"
+      >
+        <Icon name="ph:x" class="w-4 h-4" />
+      </Button>
     </div>
   </div>
+
+  <!-- Location Sheet (shared between mobile and desktop) -->
+  <Sheet :open="showLocationFilter" @update:open="showLocationFilter = false">
+    <SheetContent side="bottom" class="h-[80vh]">
+      <SheetHeader>
+        <SheetTitle>Filter by Location</SheetTitle>
+      </SheetHeader>
+      <div class="mt-4">
+        <LocationPanel
+          :location="selectedLocation"
+          @update:location="selectedLocation = $event"
+        />
+      </div>
+    </SheetContent>
+  </Sheet>
 </template>
