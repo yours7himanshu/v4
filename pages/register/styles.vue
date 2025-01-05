@@ -148,6 +148,7 @@ const removeStyle = (id: string) => {
             <div class="relative flex-1">
               <Input
                 v-model="searchQuery"
+                variant="on-dark"
                 type="search"
                 placeholder="Search dance styles..."
                 class="pl-10"
@@ -157,7 +158,11 @@ const removeStyle = (id: string) => {
                 class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground"
               />
             </div>
-            <Button type="button" variant="outline" @click="showAll = !showAll">
+            <Button
+              type="button"
+              variant="secondary"
+              @click="showAll = !showAll"
+            >
               {{ showAll ? "Show Popular" : "Show All" }}
             </Button>
           </div>
@@ -202,24 +207,21 @@ const removeStyle = (id: string) => {
                 {{ category.category }}
               </h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                <button
+                <Button
                   v-for="style in category.styles"
                   :key="style.id"
                   type="button"
+                  variant="outline"
                   @click="toggleCommunity(style.id)"
-                  class="flex items-center gap-3 p-4 h-[60px] rounded-lg border-2 transition-all duration-200 hover:border-primary hover:bg-primary/10 hover:text-primary"
                   :class="[
                     selectedCommunities.includes(style.id)
-                      ? 'border-primary bg-primary/10 text-primary'
-                      : 'border-border text-card-foreground',
+                      ? 'bg-primary/10'
+                      : '',
                   ]"
                 >
-                  <Icon
-                    :name="style.icon"
-                    class="w-6 h-6 flex-shrink-0 text-primary"
-                  />
+                  <Icon :name="style.icon" class="text-primary" />
                   <span class="font-medium truncate">{{ style.label }}</span>
-                </button>
+                </Button>
               </div>
             </div>
           </div>

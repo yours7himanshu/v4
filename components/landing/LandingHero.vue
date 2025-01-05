@@ -41,8 +41,9 @@ const danceStyles = computed(() => {
               <div class="relative group">
                 <Input
                   v-model="searchQuery"
+                  variant="on-dark"
                   placeholder="Search dance styles..."
-                  class="h-14 pl-12 pr-4 bg-white text-gray-900 placeholder:text-gray-500 text-lg font-medium rounded-2xl shadow-xl ring-1 ring-purple-300/50 hover:ring-purple-400 focus:ring-2 focus:ring-purple-500 border-transparent transition-all duration-200"
+                  class="h-14 pl-12 pr-4 text-lg font-medium rounded-2xl"
                 />
                 <Icon
                   name="ph:magnifying-glass"
