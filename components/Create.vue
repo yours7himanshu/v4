@@ -14,7 +14,7 @@
         <DialogHeader>
           <DialogTitle>Build the Community Together</DialogTitle>
           <DialogDescription
-            >Join other dancers in making the salsa community even
+            >Join other dancers in making the dance community even
             better</DialogDescription
           >
         </DialogHeader>
