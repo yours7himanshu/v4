@@ -77,12 +77,8 @@ const danceStyles = computed<CategoryGroup[]>(() => {
     if (styles.length > 0) {
       result.push({
         category,
-        styles: styles.filter(
-          (style) =>
-            // In regular categories, don't show dances that are already in popular section
-            // unless we're searching
-            searchQuery.value || !popularDanceIds.value.includes(style.id)
-        ),
+        // Show all styles in their categories, regardless of popularity
+        styles,
       });
     }
   });
