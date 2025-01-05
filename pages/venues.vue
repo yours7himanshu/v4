@@ -1,7 +1,8 @@
 <template>
-  <div class="relative w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <VenuesView />
-    </div>
-  </div>
+  <PageSimple
+    title="Dance Venues"
+    description="Find and book the perfect space for dancing"
+  >
+    <VenuesView />
+  </PageSimple>
 </template>

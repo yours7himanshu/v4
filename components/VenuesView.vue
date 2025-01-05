@@ -111,57 +111,48 @@ const clearLocationFilter = () => {
 </script>
 
 <template>
-  <div class="space-y-6 mb-12">
-    <div>
-      <h1 class="text-4xl font-bold text-foreground">Dance Venues</h1>
-      <p class="text-muted-foreground mt-2">
-        Find and book the perfect space for dancing
-      </p>
+  <!-- Search and Filters -->
+  <div class="flex flex-col sm:flex-row gap-4">
+    <div class="relative flex-1">
+      <Input
+        v-model="search"
+        type="search"
+        placeholder="Find dance venues..."
+        class="w-full pl-9"
+      />
+      <Icon
+        name="ph:magnifying-glass"
+        class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground"
+      />
     </div>
-
-    <!-- Search and Filters -->
-    <div class="flex flex-col sm:flex-row gap-4">
-      <div class="relative flex-1">
-        <Input
-          v-model="search"
-          type="search"
-          placeholder="Find dance venues..."
-          class="w-full pl-9"
-        />
-        <Icon
-          name="ph:magnifying-glass"
-          class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground"
-        />
-      </div>
-      <div class="flex gap-2">
-        <div class="flex items-center gap-2">
-          <Button
-            variant="ghost"
-            @click="showLocationFilter = true"
-            class="flex items-center gap-2"
-            :class="{ 'text-primary': selectedLocation }"
-          >
-            <Icon name="ph:map-pin" class="w-5 h-5" />
-            <span>{{ selectedLocation || "Location" }}</span>
-          </Button>
-          <Button
-            v-if="selectedLocation"
-            variant="ghost"
-            size="icon"
-            @click="clearLocationFilter"
-          >
-            <Icon name="ph:x" class="w-4 h-4" />
-          </Button>
-        </div>
+    <div class="flex gap-2">
+      <div class="flex items-center gap-2">
         <Button
-          variant="outline"
-          class="gap-2"
-          @click="showFilters = !showFilters"
+          variant="ghost"
+          @click="showLocationFilter = true"
+          class="flex items-center gap-2"
+          :class="{ 'text-primary': selectedLocation }"
         >
-          <Icon name="ph:funnel" class="w-4 h-4" />
-          Filters
+          <Icon name="ph:map-pin" class="w-5 h-5" />
+          <span>{{ selectedLocation || "Location" }}</span>
+        </Button>
+        <Button
+          v-if="selectedLocation"
+          variant="ghost"
+          size="icon"
+          @click="clearLocationFilter"
+        >
+          <Icon name="ph:x" class="w-4 h-4" />
         </Button>
       </div>
+      <Button
+        variant="outline"
+        class="gap-2"
+        @click="showFilters = !showFilters"
+      >
+        <Icon name="ph:funnel" class="w-4 h-4" />
+        Filters
+      </Button>
     </div>
 
     <!-- Filters Section -->
