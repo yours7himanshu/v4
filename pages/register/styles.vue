@@ -132,7 +132,9 @@ const removeStyle = (id: string) => {
   <div class="bg-background min-h-screen">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
       <div class="text-center mb-12">
-        <h1 class="text-4xl font-bold mb-4">Choose Your Dance Styles</h1>
+        <h1 class="text-4xl font-bold mb-4 text-card-foreground">
+          Choose Your Dance Styles
+        </h1>
         <p class="text-muted-foreground text-lg">
           Select the dance styles you're interested in to personalize your
           experience
@@ -162,7 +164,7 @@ const removeStyle = (id: string) => {
 
           <!-- Selected Styles -->
           <div v-if="selectedCommunities.length > 0" class="space-y-3">
-            <label class="block text-sm font-medium text-foreground">
+            <label class="block text-sm font-medium text-card-foreground">
               Selected Styles
             </label>
             <div class="flex flex-wrap gap-2">
@@ -196,7 +198,7 @@ const removeStyle = (id: string) => {
               :key="category.category"
               class="space-y-4"
             >
-              <h3 class="text-lg font-semibold text-foreground">
+              <h3 class="text-lg font-semibold text-card-foreground">
                 {{ category.category }}
               </h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -205,11 +207,11 @@ const removeStyle = (id: string) => {
                   :key="style.id"
                   type="button"
                   @click="toggleCommunity(style.id)"
-                  class="flex items-center gap-3 p-4 h-[60px] rounded-lg border-2 transition-all duration-200 hover:border-primary hover:bg-primary/10"
+                  class="flex items-center gap-3 p-4 h-[60px] rounded-lg border-2 transition-all duration-200 hover:border-primary hover:bg-primary/10 hover:text-primary"
                   :class="[
                     selectedCommunities.includes(style.id)
-                      ? 'border-primary bg-primary/10'
-                      : 'border-border',
+                      ? 'border-primary bg-primary/10 text-primary'
+                      : 'border-border text-card-foreground',
                   ]"
                 >
                   <Icon
