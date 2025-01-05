@@ -260,7 +260,7 @@ const eventArtists = computed(() => {
           <Post v-if="event" :post="eventToFeedPost(event)" />
 
           <!-- Schedule -->
-          <div v-if="event.schedule.length > 0">
+          <div v-if="event.schedule?.length">
             <h2 class="text-2xl font-bold mb-4">Schedule</h2>
             <div class="space-y-4">
               <div
@@ -290,7 +290,7 @@ const eventArtists = computed(() => {
           </div>
 
           <!-- Artists -->
-          <div v-if="eventArtists.length > 0">
+          <div v-if="event.artists?.length && eventArtists.length > 0">
             <h2 class="text-2xl font-bold mb-4">Featured Artists</h2>
             <div class="grid sm:grid-cols-2 gap-4">
               <div
@@ -453,7 +453,10 @@ const eventArtists = computed(() => {
           </div>
 
           <!-- Price Details -->
-          <div v-if="event.prices" class="bg-white rounded-xl border p-6">
+          <div
+            v-if="event.type === 'workshop' && event.prices?.length"
+            class="bg-white rounded-xl border p-6"
+          >
             <h3 class="text-lg font-bold mb-4">Pricing Options</h3>
             <div class="space-y-4">
               <div
