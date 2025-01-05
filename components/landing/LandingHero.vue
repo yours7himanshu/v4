@@ -8,10 +8,25 @@ const searchQuery = ref("");
 // Dance styles with filter
 const danceStyles = computed(() => {
   const styles = getDanceStyles();
-  if (!searchQuery.value) return styles;
+  if (!searchQuery.value) return styles.slice(0, 3);
 
   const query = searchQuery.value.toLowerCase();
-  return styles.filter((style) => style.name.toLowerCase().includes(query));
+  const filtered = styles.filter((style) =>
+    style.name.toLowerCase().includes(query)
+  );
+
+  if (filtered.length === 0) {
+    return [
+      {
+        name: "Can't find your style?",
+        image: "/images/dance-styles/not-found.jpg",
+        to: "/contact",
+        members: 0,
+      },
+    ];
+  }
+
+  return filtered.slice(0, 3);
 });
 </script>
 
@@ -67,7 +82,7 @@ const danceStyles = computed(() => {
               </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full">
+            <div class="grid grid-cols-3 gap-6 w-full max-w-3xl mx-auto">
               <StyleCard
                 v-for="style in danceStyles"
                 :key="style.name"

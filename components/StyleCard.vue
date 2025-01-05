@@ -27,7 +27,7 @@ defineProps<{
     ></div>
     <div class="relative h-full p-4 flex flex-col justify-end text-left">
       <h3 class="font-bold text-xl text-white">{{ style.name }}</h3>
-      <div class="text-sm text-white/80">
+      <div v-if="style.members > 0" class="text-sm text-white/80">
         <p class="flex items-center gap-1">{{ style.members }} members</p>
       </div>
     </div>
