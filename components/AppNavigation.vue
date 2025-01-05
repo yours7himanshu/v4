@@ -24,6 +24,11 @@ const toggleMobileMenu = () => {
         <!-- Desktop Navigation -->
         <div class="hidden sm:ml-6 sm:flex sm:items-center space-x-8">
           <NuxtLink
+            to="/feed"
+            class="text-gray-700 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400"
+            >Feed</NuxtLink
+          >
+          <NuxtLink
             to="/events"
             class="text-gray-700 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400"
             >Events</NuxtLink
@@ -56,9 +61,9 @@ const toggleMobileMenu = () => {
     <div v-show="isMobileMenuOpen" class="sm:hidden">
       <div class="px-2 pt-2 pb-3 space-y-1">
         <NuxtLink
-          to="/cities"
+          to="/feed"
           class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-purple-400 dark:hover:bg-gray-800"
-          >Cities</NuxtLink
+          >Feed</NuxtLink
         >
         <NuxtLink
           to="/events"
@@ -66,9 +71,9 @@ const toggleMobileMenu = () => {
           >Events</NuxtLink
         >
         <NuxtLink
-          to="/teachers"
+          to="/artists"
           class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-gray-50 dark:text-gray-300 dark:hover:text-purple-400 dark:hover:bg-gray-800"
-          >Teachers</NuxtLink
+          >Artists</NuxtLink
         >
         <NuxtLink
           to="/venues"

@@ -1,7 +1,8 @@
 <template>
-  <div class="relative w-full">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <ArtistsView />
-    </div>
-  </div>
+  <PageSimple
+    title="Dance Artists"
+    description="Find and book the perfect space for dancing"
+  >
+    <ArtistsView />
+  </PageSimple>
 </template>
