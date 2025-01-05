@@ -104,8 +104,8 @@ defineProps({
                         Vote between pairs of videos
                       </p>
                     </div>
-                    <Button variant="secondary-on-dark" size="sm">
-                      Play Video Game
+                    <Button variant="secondary-on-dark" size="sm" as-child>
+                      <NuxtLink to="/quiz">Play Video Game</NuxtLink>
                     </Button>
                   </div>
                 </div>
