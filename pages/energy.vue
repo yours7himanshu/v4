@@ -5,40 +5,32 @@ const energyLevels = [
   {
     name: "Newcomer",
     energy: 0,
-    benefits: [
-      "Basic posting and interaction",
-      "Join events",
-      "Connect with dancers",
-    ],
+    benefits: ["Basic posting and interaction"],
   },
   {
     name: "Regular",
     energy: 50,
-    benefits: ["Create events", "Write reviews", "Share dance videos"],
+    benefits: ["Create events, reviews"],
   },
   {
     name: "Established",
     energy: 200,
-    benefits: [
-      "Create projects",
-      "Moderate comments",
-      "Early access to features",
-    ],
+    benefits: ["Create projects, moderate comments"],
   },
   {
     name: "Trusted",
     energy: 500,
-    benefits: ["Edit tags", "Verify reviews", "Special community badge"],
+    benefits: ["Edit tags, verify reviews"],
   },
   {
     name: "Expert",
     energy: 1000,
-    benefits: ["Content curation", "Mentor new users", "Featured profile"],
+    benefits: ["Content curation, mentor new users"],
   },
   {
     name: "Guardian",
     energy: 2000,
-    benefits: ["Community moderation", "Feature content", "Exclusive events"],
+    benefits: ["Community moderation, feature content"],
   },
 ];
 
@@ -49,29 +41,86 @@ const earnEnergy = [
       { action: "Create Article", energy: "+10" },
       { action: "Share Video", energy: "+5" },
       { action: "Start Discussion", energy: "+3" },
+      { action: "Create Project", energy: "+5" },
       { action: "Post Event", energy: "+5" },
       { action: "Write Review", energy: "+3" },
+      { action: "Create Poll", energy: "+2" },
+      { action: "Post Gig", energy: "+3" },
+      { action: "Share Travel Plan", energy: "+2" },
+      { action: "Post Announcement", energy: "+2" },
+    ],
+  },
+  {
+    category: "Comments & Interactions",
+    items: [
+      { action: "Comment upvoted", energy: "+1" },
+      { action: "Comment upvoted by author", energy: "+3" },
+      { action: "Write a comment", energy: "+1" },
     ],
   },
   {
     category: "Community Help",
     items: [
       { action: "Share Local Info", energy: "+5" },
-      { action: "Event check-in", energy: "+1" },
-      { action: "Partner Connection", energy: "+2" },
-      { action: "Project Contribution", energy: "+2" },
-      { action: "Help Newcomers", energy: "+3" },
+      { action: "Project contribution", energy: "+2" },
+      { action: "Event check-in confirmed", energy: "+1" },
+      { action: "Partner request accepted", energy: "+2" },
+      { action: "Travel request accepted", energy: "+2" },
     ],
   },
   {
-    category: "Profile & Trust",
+    category: "Profile Completion",
     items: [
-      { action: "Complete Profile", energy: "+5" },
-      { action: "Phone Verification", energy: "+3" },
-      { action: "Email Verification", energy: "+2" },
-      { action: "Add Dance Videos", energy: "+2" },
-      { action: "Monthly Activity", energy: "+1" },
+      { action: "Add profile photo", energy: "+2" },
+      { action: "Add dance styles", energy: "+1" },
+      { action: "Add bio", energy: "+2" },
+      { action: "Phone verified", energy: "+3" },
+      { action: "Email verified", energy: "+2" },
+      { action: "Add dance videos", energy: "+2" },
     ],
+  },
+  {
+    category: "Community Trust",
+    items: [
+      { action: "Account age (monthly)", energy: "+1" },
+      { action: "No violations (monthly)", energy: "+2" },
+      { action: "Valid content report", energy: "+2" },
+      { action: "Successful event", energy: "+5" },
+      { action: "Venue verification", energy: "+5" },
+    ],
+  },
+];
+
+const badges = [
+  {
+    name: "Local Guide",
+    description: "Helped 50+ people with local info",
+    icon: "ph:map-pin",
+  },
+  {
+    name: "Event Master",
+    description: "Successfully organized 20+ events",
+    icon: "ph:calendar-check",
+  },
+  {
+    name: "Mentor",
+    description: "Helped 100+ newcomers",
+    icon: "ph:student",
+  },
+  {
+    name: "Creator",
+    description: "Published 50+ quality articles/videos",
+    icon: "ph:pen",
+  },
+  {
+    name: "Guardian",
+    description: "1 year of active moderation",
+    icon: "ph:shield",
+  },
+  {
+    name: "Pioneer",
+    description: "Early community member",
+    icon: "ph:flag",
   },
 ];
 </script>
@@ -88,9 +137,9 @@ const earnEnergy = [
           <h1 class="text-3xl font-bold">Dance Energy</h1>
         </div>
         <p class="text-xl text-gray-600">
-          Your active contribution to the dance community is measured in Dance
-          Energy. The more you participate and help others, the more energy you
-          earn.
+          Dance Energy is a reward mechanism to encourage positive community
+          contributions and recognize active members. It represents the vibrancy
+          and passion each member brings to the dance community.
         </p>
       </div>
 
@@ -107,29 +156,17 @@ const earnEnergy = [
               <h3 class="text-lg font-medium">{{ level.name }}</h3>
               <UserPoints :points="level.energy" />
             </div>
-            <ul class="space-y-2">
-              <li
-                v-for="benefit in level.benefits"
-                :key="benefit"
-                class="flex items-start gap-2 text-gray-600"
-              >
-                <Icon
-                  name="ph:check"
-                  class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"
-                />
-                <span>{{ benefit }}</span>
-              </li>
-            </ul>
+            <div class="text-gray-600">{{ level.benefits.join(", ") }}</div>
           </div>
         </div>
       </div>
 
       <!-- How to Earn -->
-      <div>
+      <div class="mb-24">
         <h2 class="text-2xl font-semibold text-center mb-12">
           How to Earn Energy
         </h2>
-        <div class="grid md:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div
             v-for="category in earnEnergy"
             :key="category.category"
@@ -150,14 +187,87 @@ const earnEnergy = [
         </div>
       </div>
 
-      <!-- Tips -->
-      <div class="mt-24 max-w-3xl mx-auto text-center">
-        <h2 class="text-2xl font-semibold mb-4">Tips for Success</h2>
-        <p class="text-gray-600 mb-8">
-          Stay active in the community, help others, and create quality content
-          to maintain and increase your energy level. Energy starts decaying
-          after 3 months of inactivity, so keep dancing and contributing!
-        </p>
+      <!-- Badges -->
+      <div class="mb-24">
+        <h2 class="text-2xl font-semibold text-center mb-12">
+          Achievement Badges
+        </h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            v-for="badge in badges"
+            :key="badge.name"
+            class="bg-white rounded-xl shadow-sm border p-6 hover:border-orange-200 transition-colors"
+          >
+            <div class="flex items-center gap-3 mb-2">
+              <div
+                class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center"
+              >
+                <Icon :name="badge.icon" class="w-5 h-5 text-orange-500" />
+              </div>
+              <h3 class="text-lg font-medium">{{ badge.name }}</h3>
+            </div>
+            <p class="text-gray-600">{{ badge.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Energy Decay -->
+      <div class="mb-24 max-w-3xl mx-auto">
+        <h2 class="text-2xl font-semibold text-center mb-8">Energy Decay</h2>
+        <div class="bg-white rounded-xl shadow-sm border p-6">
+          <ul class="space-y-4">
+            <li class="flex items-start gap-2">
+              <Icon
+                name="ph:warning"
+                class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"
+              />
+              <span class="text-gray-600"
+                >Energy starts decaying after 3 months of inactivity</span
+              >
+            </li>
+            <li class="flex items-start gap-2">
+              <Icon
+                name="ph:chart-line-down"
+                class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"
+              />
+              <span class="text-gray-600"
+                >10% of energy lost per month of inactivity</span
+              >
+            </li>
+            <li class="flex items-start gap-2">
+              <Icon
+                name="ph:medal"
+                class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"
+              />
+              <span class="text-gray-600"
+                >Core achievements (badges, verified status) remain</span
+              >
+            </li>
+            <li class="flex items-start gap-2">
+              <Icon
+                name="ph:play"
+                class="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5"
+              />
+              <span class="text-gray-600"
+                >Activity immediately stops decay</span
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Guidelines -->
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-2xl font-semibold mb-8">Guidelines</h2>
+        <ul class="text-gray-600 space-y-2 text-left mb-8">
+          <li>• Dance Energy cannot be transferred</li>
+          <li>• Spam or low-quality content earns no energy</li>
+          <li>
+            • Violation of community guidelines may result in energy penalties
+          </li>
+          <li>• Moderators can adjust energy for special circumstances</li>
+          <li>• Energy system may be adjusted for community health</li>
+        </ul>
         <Button variant="outline" as-child>
           <NuxtLink to="/feed" class="flex items-center justify-center gap-2">
             Start Contributing

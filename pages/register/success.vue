@@ -10,7 +10,7 @@ const steps = [
     action: "Edit Profile",
     to: "/settings/profile",
     energy: "+5",
-    energyLabel: "",
+    energyLabel: "for completion",
   },
   {
     title: "Discover Local Events",
@@ -20,7 +20,7 @@ const steps = [
     action: "Browse Events",
     to: "/events",
     energy: "+1",
-    energyLabel: "each check-in",
+    energyLabel: "per check-in",
   },
   {
     title: "Connect with Dancers",
@@ -30,7 +30,7 @@ const steps = [
     action: "Meet Dancers",
     to: "/feed",
     energy: "+2",
-    energyLabel: "each connection",
+    energyLabel: "per connection",
   },
 ];
 </script>
