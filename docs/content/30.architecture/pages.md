@@ -8,6 +8,7 @@ Style pages automatically aggregate and organize content for specific dance styl
 
 1. **Community Feed** (`/dance/[style]`)
    **Components**:
+
    - Style header with description
    - Mixed content feed (events, posts, discussions)
    - Post type filters
@@ -17,6 +18,7 @@ Style pages automatically aggregate and organize content for specific dance styl
 
 2. **Events** (`/dance/[style]/events`)
    **Components**:
+
    - Event type filters
    - Advanced search
    - Grid/List/Map views
@@ -46,6 +48,7 @@ Style pages automatically aggregate and organize content for specific dance styl
 ### City Pages (`/cities/[city]`)
 
 **Components**:
+
 - City overview
 - Local feed
 - Venue listings
@@ -56,6 +59,7 @@ Style pages automatically aggregate and organize content for specific dance styl
 
 **Purpose**: Display user profiles and their content
 **Components**:
+
 - Profile header
 - Role-specific sections
 - Content tabs
@@ -63,6 +67,7 @@ Style pages automatically aggregate and organize content for specific dance styl
 - Action buttons
 
 **Features**:
+
 - Adapts based on profile type (see [Profiles](/guide/profiles))
 - Role-specific actions
 - Content filtering
@@ -71,6 +76,7 @@ Style pages automatically aggregate and organize content for specific dance styl
 ### Global Pages
 
 1. **Home** (`/`)
+
    - Personalized feed
    - Quick access to communities
    - Trending content
@@ -85,6 +91,7 @@ Style pages automatically aggregate and organize content for specific dance styl
 ## URL Structure
 
 ### Core Routes
+
 - `/dance/[style]` - Style community (e.g., `/dance/salsa`)
 - `/dance/[style]/events` - Style events
 - `/dance/[style]/about` - Style info
@@ -92,10 +99,11 @@ Style pages automatically aggregate and organize content for specific dance styl
 - `/cities/[city]` - City community
 - `/@[username]` - Profiles
 - `/events` - Global events
-- `/` - Home/Feed
-- `/explore` - Discover
+- `/` - Home
+- `/feed` - Discover
 
 ### User Routes (Auth Required)
+
 - `/dashboard` - Universal dashboard
   - `/dashboard/teaching` - Teaching features
   - `/dashboard/organizing` - Organizing features
@@ -107,12 +115,14 @@ Style pages automatically aggregate and organize content for specific dance styl
 - `/calendar` - Personal calendar
 
 ### Static Routes
+
 - `/about` - About WeDance
 - `/mission` - Mission & Vision
 - `/help` - Help Center
 - `/legal/*` - Legal pages
 
 ### SEO-Friendly Routes
+
 - `/:styleSlug` → `/dance/:styleSlug`
 - `/:citySlug` → `/cities/:citySlug`
 - `/dance-events` → `/events`
@@ -121,10 +131,10 @@ Style pages automatically aggregate and organize content for specific dance styl
 - `/find-dance-partner` → `/partners`
 - `/dance-practice` → `/partners/groups`
 
-
 ## Common Features
 
 ### URL Parameters
+
 - `city`: Filter by city
 - `style`: Filter by dance style
 - `type`: Content type filter
@@ -135,17 +145,20 @@ Style pages automatically aggregate and organize content for specific dance styl
 - `q`: Search query
 
 ### Navigation
+
 - Context-aware breadcrumbs
 - Related content links
 - Quick filters
 - Search integration
 
 ### Content Creation
+
 - Context-aware create button
 - Relevant post types
 - Pre-filled fields based on context
 
 ### Mobile Optimization
+
 - Responsive layouts
 - Touch-friendly filters
 - Quick actions
@@ -160,4 +173,3 @@ Style pages automatically aggregate and organize content for specific dance styl
 5. Implement canonical URLs
 6. Add structured data
 7. Use dynamic meta tags
-

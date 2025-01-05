@@ -88,7 +88,7 @@ const selectVideo = (style: string) => {
       <!-- Skip Option -->
       <div class="text-center mt-8">
         <NuxtLink
-          to="/explore"
+          to="/feed"
           class="text-white/70 hover:text-white inline-flex items-center gap-1"
         >
           Skip quiz
