@@ -1,99 +1,43 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { getMockCommunities } from "~/data/mockCommunities";
+import { mockEvents } from "~/data/mockEvents";
+import { mockPosts } from "~/data/mockPosts";
+import type { ArticlePost } from "~/schemas/post";
+import type { AnyEvent } from "~/schemas/event";
 
-interface Community {
-  id: string;
-  name: string;
-  description: string;
-  image: string;
-  memberCount: number;
-  city: string;
-  style?: string;
-  schedule?: {
-    summer: string[];
-    winter: string[];
-  };
-  links?: {
-    whatsapp?: string;
-  };
-}
+const communities = ref(
+  getMockCommunities().filter((c) => c.style === "Cuban")
+);
 
-const communities = ref<Community[]>([
-  {
-    id: "afro-cuban-festivals",
-    name: "Afro Cuban Festivals",
-    description:
-      "International community coordinating festival trips across Germany and Europe",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    memberCount: 2500,
-    city: "International",
-    style: "Cuban",
-    links: {
-      whatsapp: "https://chat.whatsapp.com/xyz",
-    },
-  },
-  {
-    id: "salsa-cubana-munich",
-    name: "Salsa Cubana Munich",
-    description:
-      "Munich's vibrant Cuban Salsa community, focused on Timba music and social dancing",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    schedule: {
-      summer: ["Wednesdays & Fridays: Open Air at Pinakothek der Moderne"],
-      winter: ["Wednesdays: Kult Dance Studio"],
-    },
-    memberCount: 500,
-    city: "Munich",
-  },
-]);
+// Filter events and ensure they match the AnyEvent type
+const events = ref(
+  mockEvents.filter((e) => {
+    const tags = e.tags || [];
+    return tags.includes("cuban-salsa") || tags.includes("casino");
+  })
+);
 
-const events = ref([
-  {
-    id: "cuban-open-air",
-    name: "Cuban Open Air",
-    description: "Weekly outdoor social dancing with Timba music",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    date: "2023-10-18",
-    time: "19:00 - 23:00",
-    location: "Pinakothek der Moderne",
-    city: "Munich",
-    style: "Cuban",
-    price: "Free",
-    organizer: "Salsa Cubana Munich",
-  },
-  {
-    id: "timba-night",
-    name: "Timba Night",
-    description: "Special night dedicated to Timba music with live band",
-    image:
-      "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
-    date: "2023-10-21",
-    time: "21:00 - 03:00",
-    location: "Kult Dance Studio",
-    city: "Munich",
-    style: "Cuban",
-    price: "15€",
-    organizer: "Salsa Cubana Munich",
-  },
-  {
-    id: "rueda-workshop",
-    name: "Rueda de Casino Workshop",
-    description:
-      "Learn the basics of Rueda de Casino with experienced instructors",
-    image:
-      "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
-    date: "2023-10-22",
-    time: "14:00 - 17:00",
-    location: "Tanzstudio München",
-    city: "Munich",
-    style: "Cuban",
-    price: "30€",
-    organizer: "Salsa Cubana Munich",
-  },
-]);
+// Filter for article posts only
+const learningPosts = ref(
+  mockPosts.filter((p) => {
+    if (p.type !== "article") return false;
+    const tags = p.content.tags || [];
+    return tags.some((tag) =>
+      ["cuban-salsa", "basics", "tutorial", "casino", "rueda"].includes(tag)
+    );
+  }) as ArticlePost[]
+);
+
+const culturePosts = ref(
+  mockPosts.filter((p) => {
+    if (p.type !== "article") return false;
+    const tags = p.content.tags || [];
+    return tags.some((tag) =>
+      ["cuban-culture", "history", "timba", "music"].includes(tag)
+    );
+  }) as ArticlePost[]
+);
 
 const musicStyles = [
   {
@@ -114,50 +58,6 @@ const characteristics = [
   "Complex turn patterns (ruedas)",
   "Emphasis on musicality and improvisation",
   "Social dance focus",
-];
-
-const learningPosts = [
-  {
-    id: "cuban-salsa-basics",
-    title: "Basic Steps and Movements",
-    description:
-      "Learn the foundational steps and body movement of Cuban style salsa",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    author: "Pedro Gonzalez",
-    date: "2023-10-14",
-  },
-  {
-    id: "casino-rueda-guide",
-    title: "Introduction to Rueda de Casino",
-    description:
-      "Get started with the exciting world of Cuban salsa circle dancing",
-    image:
-      "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
-    author: "Rosa Martinez",
-    date: "2023-10-12",
-  },
-];
-
-const culturePosts = [
-  {
-    id: "timba-music-guide",
-    title: "Understanding Timba Music",
-    description: "Deep dive into the complex rhythms and structure of Timba",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    author: "DJ Timba",
-    date: "2023-10-10",
-  },
-  {
-    id: "cuban-dance-culture",
-    title: "Cuban Dance Culture",
-    description: "Explore the rich history and cultural context of Cuban salsa",
-    image:
-      "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
-    author: "Maria Sanchez",
-    date: "2023-10-08",
-  },
 ];
 
 const handleImageError = (event: Event) => {
@@ -327,29 +227,38 @@ const handleImageError = (event: Event) => {
               <span
                 class="text-sm bg-purple-50 text-purple-600 px-2 py-1 rounded-full"
               >
-                {{ event.style }}
+                {{ event.tags[0] }}
               </span>
             </div>
             <p class="text-gray-600 text-sm mb-4">{{ event.description }}</p>
             <div class="space-y-2 text-sm">
               <div class="flex items-center text-gray-500">
                 <span class="w-20">When:</span>
+                <span>{{
+                  new Date(event.date.start).toLocaleDateString()
+                }}</span>
                 <span
-                  >{{ new Date(event.date).toLocaleDateString() }},
-                  {{ event.time }}</span
+                  >{{ event.date.start.split("T")[1].slice(0, 5) }} -
+                  {{ event.date.end.split("T")[1].slice(0, 5) }}</span
                 >
               </div>
               <div class="flex items-center text-gray-500">
                 <span class="w-20">Where:</span>
-                <span>{{ event.location }}, {{ event.city }}</span>
+                <span
+                  >{{ event.location.name }}, {{ event.location.city }}</span
+                >
               </div>
               <div class="flex items-center text-gray-500">
                 <span class="w-20">Price:</span>
-                <span>{{ event.price }}</span>
+                <span>{{
+                  event.price?.amount === 0
+                    ? "Free"
+                    : `${event.price?.amount}${event.price?.currency}`
+                }}</span>
               </div>
               <div class="flex items-center text-gray-500">
                 <span class="w-20">By:</span>
-                <span>{{ event.organizer }}</span>
+                <span>{{ event.organizer.name }}</span>
               </div>
             </div>
           </div>
@@ -368,23 +277,28 @@ const handleImageError = (event: Event) => {
               v-for="post in learningPosts"
               :key="post.id"
               :to="`/posts/${post.id}`"
-              class="block hover:bg-gray-50 rounded-lg transition-colors"
+              class="group block"
             >
-              <div
-                class="aspect-video rounded-lg overflow-hidden mb-3 bg-gray-100"
-              >
-                <NuxtImg
-                  :src="post.image"
-                  :alt="post.title"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <h4 class="font-medium text-lg mb-1">{{ post.title }}</h4>
-              <p class="text-sm text-gray-600 mb-2">{{ post.description }}</p>
-              <div class="flex items-center text-sm text-gray-500">
-                <span>{{ post.author }}</span>
-                <span class="mx-2">•</span>
-                <span>{{ new Date(post.date).toLocaleDateString() }}</span>
+              <div class="flex gap-4">
+                <div class="w-24 h-16 rounded overflow-hidden bg-gray-100">
+                  <NuxtImg
+                    :src="post.content.cover"
+                    :alt="post.content.title"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-medium group-hover:text-purple-600">
+                    {{ post.content.title }}
+                  </h4>
+                  <p class="text-sm text-gray-600 line-clamp-1">
+                    {{ post.content.description }}
+                  </p>
+                  <div class="text-xs text-gray-500 mt-1">
+                    {{ post.author.name }} •
+                    {{ new Date(post.timestamp).toLocaleDateString() }}
+                  </div>
+                </div>
               </div>
             </NuxtLink>
           </div>
@@ -396,23 +310,28 @@ const handleImageError = (event: Event) => {
               v-for="post in culturePosts"
               :key="post.id"
               :to="`/posts/${post.id}`"
-              class="block hover:bg-gray-50 rounded-lg transition-colors"
+              class="group block"
             >
-              <div
-                class="aspect-video rounded-lg overflow-hidden mb-3 bg-gray-100"
-              >
-                <NuxtImg
-                  :src="post.image"
-                  :alt="post.title"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <h4 class="font-medium text-lg mb-1">{{ post.title }}</h4>
-              <p class="text-sm text-gray-600 mb-2">{{ post.description }}</p>
-              <div class="flex items-center text-sm text-gray-500">
-                <span>{{ post.author }}</span>
-                <span class="mx-2">•</span>
-                <span>{{ new Date(post.date).toLocaleDateString() }}</span>
+              <div class="flex gap-4">
+                <div class="w-24 h-16 rounded overflow-hidden bg-gray-100">
+                  <NuxtImg
+                    :src="post.content.cover"
+                    :alt="post.content.title"
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="flex-1">
+                  <h4 class="font-medium group-hover:text-purple-600">
+                    {{ post.content.title }}
+                  </h4>
+                  <p class="text-sm text-gray-600 line-clamp-1">
+                    {{ post.content.description }}
+                  </p>
+                  <div class="text-xs text-gray-500 mt-1">
+                    {{ post.author.name }} •
+                    {{ new Date(post.timestamp).toLocaleDateString() }}
+                  </div>
+                </div>
               </div>
             </NuxtLink>
           </div>

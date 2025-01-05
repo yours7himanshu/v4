@@ -201,4 +201,95 @@ export const mockEvents = [
       { time: "02:00", activity: "Event End" },
     ],
   },
+  {
+    id: 500,
+    name: "Cuban Open Air",
+    type: "party",
+    date: {
+      start: "2023-10-18T19:00:00",
+      end: "2023-10-18T23:00:00",
+    },
+    location: {
+      name: "Pinakothek der Moderne",
+      city: "Munich",
+      country: "Germany",
+    },
+    description: "Weekly outdoor social dancing with Timba music",
+    image:
+      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
+    price: {
+      amount: 0,
+      currency: "EUR",
+      type: "free",
+    },
+    tags: ["cuban-salsa", "timba", "open-air"],
+    status: "upcoming",
+    organizer: {
+      id: "salsa_cubana_munich",
+      name: "Salsa Cubana Munich",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=munich_cuban",
+      points: 2800,
+    },
+  },
+  {
+    id: 501,
+    name: "Timba Night",
+    type: "party",
+    date: {
+      start: "2023-10-21T21:00:00",
+      end: "2023-10-22T03:00:00",
+    },
+    location: {
+      name: "Kult Dance Studio",
+      city: "Munich",
+      country: "Germany",
+    },
+    description: "Special night dedicated to Timba music with live band",
+    image:
+      "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
+    price: {
+      amount: 15,
+      currency: "EUR",
+      type: "per-person",
+    },
+    tags: ["cuban-salsa", "timba", "live-music"],
+    status: "upcoming",
+    organizer: {
+      id: "salsa_cubana_munich",
+      name: "Salsa Cubana Munich",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=munich_cuban",
+      points: 2800,
+    },
+  },
+  {
+    id: 502,
+    name: "Rueda de Casino Workshop",
+    type: "workshop",
+    date: {
+      start: "2023-10-22T14:00:00",
+      end: "2023-10-22T17:00:00",
+    },
+    location: {
+      name: "Tanzstudio München",
+      city: "Munich",
+      country: "Germany",
+    },
+    description:
+      "Learn the basics of Rueda de Casino with experienced instructors",
+    image:
+      "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
+    price: {
+      amount: 30,
+      currency: "EUR",
+      type: "per-person",
+    },
+    tags: ["cuban-salsa", "rueda", "workshop"],
+    status: "upcoming",
+    organizer: {
+      id: "salsa_cubana_munich",
+      name: "Salsa Cubana Munich",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=munich_cuban",
+      points: 2800,
+    },
+  },
 ];

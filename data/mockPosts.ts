@@ -331,4 +331,103 @@ export const mockPosts = [
       comments: 0,
     },
   },
+  {
+    id: "cuban-salsa-basics",
+    type: "article",
+    author: {
+      id: "pedro_1",
+      name: "Pedro Gonzalez",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=pedro",
+      location: "Havana",
+      points: 3200,
+    },
+    timestamp: "2023-10-14",
+    content: {
+      title: "Basic Steps and Movements",
+      description:
+        "Learn the foundational steps and body movement of Cuban style salsa",
+      cover:
+        "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
+      tags: ["cuban-salsa", "basics", "tutorial"],
+    },
+    stats: {
+      likes: 45,
+      comments: 12,
+      shares: 8,
+    },
+  },
+  {
+    id: "casino-rueda-guide",
+    type: "article",
+    author: {
+      id: "rosa_1",
+      name: "Rosa Martinez",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=rosa",
+      location: "Miami",
+      points: 2800,
+    },
+    timestamp: "2023-10-12",
+    content: {
+      title: "Introduction to Rueda de Casino",
+      description:
+        "Get started with the exciting world of Cuban salsa circle dancing",
+      cover:
+        "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
+      tags: ["rueda", "casino", "tutorial"],
+    },
+    stats: {
+      likes: 38,
+      comments: 15,
+      shares: 10,
+    },
+  },
+  {
+    id: "timba-music-guide",
+    type: "article",
+    author: {
+      id: "dj_timba_1",
+      name: "DJ Timba",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=djtimba",
+      location: "Munich",
+      points: 4100,
+    },
+    timestamp: "2023-10-10",
+    content: {
+      title: "Understanding Timba Music",
+      description: "Deep dive into the complex rhythms and structure of Timba",
+      cover:
+        "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
+      tags: ["timba", "music", "musicality"],
+    },
+    stats: {
+      likes: 62,
+      comments: 20,
+      shares: 15,
+    },
+  },
+  {
+    id: "cuban-dance-culture",
+    type: "article",
+    author: {
+      id: "maria_1",
+      name: "Maria Sanchez",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=maria",
+      location: "Havana",
+      points: 3800,
+    },
+    timestamp: "2023-10-08",
+    content: {
+      title: "Cuban Dance Culture",
+      description:
+        "Explore the rich history and cultural context of Cuban salsa",
+      cover:
+        "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
+      tags: ["cuban-culture", "history", "dance"],
+    },
+    stats: {
+      likes: 55,
+      comments: 18,
+      shares: 12,
+    },
+  },
 ];
