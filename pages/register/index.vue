@@ -13,7 +13,10 @@ const router = useRouter();
 const handleSubmit = () => {
   // TODO: Handle form submission
   console.log("Form submitted:", { ...form, type: selectedType.value });
-  router.push("/register/success");
+  router.push({
+    path: "/register/styles",
+    query: { type: selectedType.value },
+  });
 };
 </script>
 
