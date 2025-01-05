@@ -132,7 +132,7 @@ const eventArtists = computed(() => {
 <template>
   <div v-if="event">
     <!-- Hero Section -->
-    <div class="pt-16 relative min-h-[50vh]">
+    <div class="relative min-h-[50vh]">
       <div
         class="relative flex items-center overflow-hidden min-h-[50vh] py-12"
       >
