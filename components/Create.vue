@@ -26,14 +26,15 @@
             </div>
             <h3 class="font-bold text-lg mb-2">Share</h3>
             <p class="text-gray-600 mb-4">
-              Share your knowledge and experiences with the community.
+              Start conversations, share knowledge, and inspire others with your
+              dance journey
             </p>
             <div class="space-y-2">
               <button
                 class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
               >
                 <Icon name="ph:note" class="w-5 h-5 text-purple-600 mr-2" />
-                <span>Note</span>
+                <span>Message</span>
               </button>
               <button
                 class="w-full text-left px-3 py-2 hover:bg-gray-50 rounded-lg flex items-center"
@@ -63,7 +64,7 @@
             </div>
             <h3 class="font-bold text-lg mb-2">Organize</h3>
             <p class="text-gray-600 mb-4">
-              Create events and bring the community together.
+              Create events, connect with dancers, and share opportunities
             </p>
             <div class="space-y-2">
               <button
@@ -100,7 +101,7 @@
             </div>
             <h3 class="font-bold text-lg mb-2">Support</h3>
             <p class="text-gray-600 mb-4">
-              Help others and improve the community.
+              Help others discover the local scene and dance community
             </p>
             <div class="space-y-2">
               <button
