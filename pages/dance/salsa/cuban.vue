@@ -5,6 +5,7 @@ import { mockEvents } from "~/data/mockEvents";
 import { mockPosts } from "~/data/mockPosts";
 import type { ArticlePost } from "~/schemas/post";
 import type { AnyEvent } from "~/schemas/event";
+import CommunityCard from "~/components/community/CommunityCard.vue";
 
 const communities = ref(
   getMockCommunities().filter((c) => c.style === "Cuban")
@@ -129,70 +130,11 @@ const handleImageError = (event: Event) => {
         </NuxtLink>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
-        <NuxtLink
+        <CommunityCard
           v-for="community in communities"
           :key="community.id"
-          :to="`/communities/${community.id}`"
-          class="block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div class="aspect-video rounded-t-lg overflow-hidden bg-gray-100">
-            <NuxtImg
-              :src="community.image"
-              :alt="community.name"
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div class="p-4">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-semibold text-lg">{{ community.name }}</h3>
-              <span
-                v-if="community.style"
-                class="text-sm bg-purple-50 text-purple-600 px-2 py-1 rounded-full"
-              >
-                {{ community.style }}
-              </span>
-            </div>
-            <p class="text-gray-600 text-sm mb-4">
-              {{ community.description }}
-            </p>
-            <div v-if="community.schedule" class="space-y-2 text-sm mb-4">
-              <div v-if="community.schedule.summer.length" class="text-sm">
-                <strong class="text-purple-600">Summer:</strong>
-                <ul class="ml-4">
-                  <li v-for="time in community.schedule.summer" :key="time">
-                    {{ time }}
-                  </li>
-                </ul>
-              </div>
-              <div v-if="community.schedule.winter.length" class="text-sm">
-                <strong class="text-purple-600">Winter:</strong>
-                <ul class="ml-4">
-                  <li v-for="time in community.schedule.winter" :key="time">
-                    {{ time }}
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div
-              class="flex items-center justify-between text-sm text-gray-500"
-            >
-              <div class="flex items-center">
-                <span class="mr-4">{{ community.memberCount }}+ members</span>
-                <span>{{ community.city }}</span>
-              </div>
-              <a
-                v-if="community.links?.whatsapp"
-                :href="community.links.whatsapp"
-                target="_blank"
-                rel="noopener"
-                class="text-green-600 hover:text-green-700"
-                @click.stop
-              >
-                Join WhatsApp
-              </a>
-            </div>
-          </div>
-        </NuxtLink>
+          :community="community"
+        />
       </div>
     </section>
 

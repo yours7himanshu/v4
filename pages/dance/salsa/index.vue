@@ -1,6 +1,11 @@
 # Create the main salsa page
 <script setup lang="ts">
 import { ref } from "vue";
+import { getMockCommunities } from "~/data/mockCommunities";
+import { mockEvents } from "~/data/mockEvents";
+import { mockPosts } from "~/data/mockPosts";
+import CommunityCard from "~/components/community/CommunityCard.vue";
+import type { ArticlePost } from "~/schemas/post";
 
 const styles = [
   {
@@ -30,140 +35,28 @@ const styles = [
   },
 ];
 
-const communities = ref([
-  {
-    id: "afro-cuban-festivals",
-    name: "Afro Cuban Festivals",
-    description:
-      "International community coordinating festival trips across Germany and Europe",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    memberCount: 2500,
-    city: "International",
-    style: "Cuban",
-    links: {
-      whatsapp: "https://chat.whatsapp.com/xyz",
-    },
-  },
-  {
-    id: "salsa-cubana-munich",
-    name: "Salsa Cubana Munich",
-    description:
-      "Munich's vibrant Cuban Salsa community, focused on Timba music",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    memberCount: 500,
-    city: "Munich",
-    style: "Cuban",
-  },
-  {
-    id: "on2-munich",
-    name: "Munich On2 Community",
-    description: "NY Style (On2) dancers in Munich",
-    image:
-      "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
-    memberCount: 200,
-    city: "Munich",
-    style: "Linear",
-  },
-  {
-    id: "salsa-berlin",
-    name: "Salsa Berlin",
-    description: "Berlin's largest salsa community for all styles",
-    image:
-      "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
-    memberCount: 1200,
-    city: "Berlin",
-    style: "All",
-  },
-]);
+const communities = ref(getMockCommunities());
+const events = ref(mockEvents);
 
-const events = ref([
-  {
-    id: "cuban-open-air",
-    name: "Cuban Open Air",
-    description: "Weekly outdoor social dancing with Timba music",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    date: "2023-10-18",
-    time: "19:00 - 23:00",
-    location: "Pinakothek der Moderne",
-    city: "Munich",
-    style: "Cuban",
-    price: "Free",
-    organizer: "Salsa Cubana Munich",
-  },
-  {
-    id: "on2-social",
-    name: "On2 Social",
-    description: "Weekly NY Style social with guest DJs",
-    image:
-      "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
-    date: "2023-10-19",
-    time: "20:00 - 01:00",
-    location: "Tanzstudio München",
-    city: "Munich",
-    style: "Linear",
-    price: "10€",
-    organizer: "Munich On2 Community",
-  },
-  {
-    id: "berlin-salsa-congress",
-    name: "Berlin Salsa Congress",
-    description: "3 days of workshops, shows and parties",
-    image:
-      "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
-    date: "2023-11-24",
-    time: "All day",
-    location: "Maritim Hotel Berlin",
-    city: "Berlin",
-    style: "All",
-    price: "from 99€",
-    organizer: "Salsa Berlin",
-  },
-]);
+const beginnerPosts = ref(
+  mockPosts.filter((p) => {
+    if (p.type !== "article") return false;
+    const tags = p.content.tags || [];
+    return tags.some((tag) =>
+      ["beginner-guide", "salsa-basics", "salsa-styles"].includes(tag)
+    );
+  }) as ArticlePost[]
+);
 
-const beginnerPosts = [
-  {
-    id: "getting-started-with-salsa",
-    title: "Getting Started with Salsa",
-    description: "A complete beginner's guide to salsa dancing",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    author: "Maria Rodriguez",
-    date: "2023-10-15",
-  },
-  {
-    id: "choosing-salsa-style",
-    title: "How to Choose Your Salsa Style",
-    description: "Compare different salsa styles and find your perfect match",
-    image:
-      "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
-    author: "Carlos Mendoza",
-    date: "2023-10-10",
-  },
-];
-
-const teacherPosts = [
-  {
-    id: "teaching-salsa",
-    title: "Teaching Resources",
-    description: "Essential tools and methods for salsa instructors",
-    image:
-      "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
-    author: "Juan Martinez",
-    date: "2023-10-12",
-  },
-  {
-    id: "salsa-music-guide",
-    title: "Salsa Music Guide",
-    description: "Understanding salsa music structure and rhythms",
-    image:
-      "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    author: "Ana Sofia",
-    date: "2023-10-08",
-  },
-];
+const teacherPosts = ref(
+  mockPosts.filter((p) => {
+    if (p.type !== "article") return false;
+    const tags = p.content.tags || [];
+    return tags.some((tag) =>
+      ["teaching", "instruction", "methodology"].includes(tag)
+    );
+  }) as ArticlePost[]
+);
 
 const handleImageError = (event: Event) => {
   const img = event.target as HTMLImageElement;
@@ -231,52 +124,11 @@ const handleImageError = (event: Event) => {
         </NuxtLink>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
-        <NuxtLink
+        <CommunityCard
           v-for="community in communities"
           :key="community.id"
-          :to="`/communities/${community.id}`"
-          class="block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-        >
-          <div class="aspect-video rounded-t-lg overflow-hidden bg-gray-100">
-            <NuxtImg
-              :src="community.image"
-              :alt="community.name"
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div class="p-4">
-            <div class="flex items-center justify-between mb-2">
-              <h3 class="font-semibold text-lg">{{ community.name }}</h3>
-              <span
-                class="text-sm bg-purple-50 text-purple-600 px-2 py-1 rounded-full"
-              >
-                {{ community.style }}
-              </span>
-            </div>
-            <p class="text-gray-600 text-sm mb-4">
-              {{ community.description }}
-            </p>
-            <div
-              class="flex items-center justify-between text-sm text-gray-500"
-            >
-              <div class="flex items-center">
-                <span class="mr-4">{{ community.memberCount }}+ members</span>
-                <span>{{ community.city }}</span>
-              </div>
-              <a
-                v-if="community.links?.whatsapp"
-                :href="community.links.whatsapp"
-                target="_blank"
-                rel="noopener"
-                class="text-green-600 hover:text-green-700"
-                @click.stop
-              >
-                Join WhatsApp
-              </a>
-            </div>
-          </div>
-        </NuxtLink>
+          :community="community"
+        />
       </div>
     </section>
 
@@ -312,29 +164,47 @@ const handleImageError = (event: Event) => {
               <span
                 class="text-sm bg-purple-50 text-purple-600 px-2 py-1 rounded-full"
               >
-                {{ event.style }}
+                {{ event.tags[0] }}
               </span>
             </div>
             <p class="text-gray-600 text-sm mb-4">{{ event.description }}</p>
             <div class="space-y-2 text-sm">
               <div class="flex items-center text-gray-500">
                 <span class="w-20">When:</span>
-                <span
-                  >{{ new Date(event.date).toLocaleDateString() }},
-                  {{ event.time }}</span
-                >
+                <span>
+                  {{ new Date(event.date.start).toLocaleDateString() }},
+                  {{
+                    new Date(event.date.start).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })
+                  }}
+                  -
+                  {{
+                    new Date(event.date.end).toLocaleTimeString([], {
+                      hour: "2-digit",
+                      minute: "2-digit",
+                    })
+                  }}
+                </span>
               </div>
               <div class="flex items-center text-gray-500">
                 <span class="w-20">Where:</span>
-                <span>{{ event.location }}, {{ event.city }}</span>
+                <span
+                  >{{ event.location.name }}, {{ event.location.city }}</span
+                >
               </div>
               <div class="flex items-center text-gray-500">
                 <span class="w-20">Price:</span>
-                <span>{{ event.price }}</span>
+                <span>{{
+                  event.price.amount === 0
+                    ? "Free"
+                    : `${event.price.amount}${event.price.currency}`
+                }}</span>
               </div>
               <div class="flex items-center text-gray-500">
                 <span class="w-20">By:</span>
-                <span>{{ event.organizer }}</span>
+                <span>{{ event.organizer.name }}</span>
               </div>
             </div>
           </div>
@@ -358,21 +228,21 @@ const handleImageError = (event: Event) => {
               <div class="flex gap-4">
                 <div class="w-24 h-16 rounded overflow-hidden bg-gray-100">
                   <NuxtImg
-                    :src="post.image"
-                    :alt="post.title"
+                    :src="post.content.cover"
+                    :alt="post.content.title"
                     class="w-full h-full object-cover"
                   />
                 </div>
                 <div class="flex-1">
                   <h4 class="font-medium group-hover:text-purple-600">
-                    {{ post.title }}
+                    {{ post.content.title }}
                   </h4>
                   <p class="text-sm text-gray-600 line-clamp-1">
-                    {{ post.description }}
+                    {{ post.content.description }}
                   </p>
                   <div class="text-xs text-gray-500 mt-1">
-                    {{ post.author }} •
-                    {{ new Date(post.date).toLocaleDateString() }}
+                    {{ post.author.name }} •
+                    {{ new Date(post.timestamp).toLocaleDateString() }}
                   </div>
                 </div>
               </div>

@@ -430,4 +430,100 @@ export const mockPosts = [
       shares: 12,
     },
   },
+  {
+    id: "getting-started-with-salsa",
+    type: "article",
+    author: {
+      id: "maria_1",
+      name: "Maria Rodriguez",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=maria",
+      location: "Madrid",
+      points: 3200,
+    },
+    timestamp: "2023-10-15",
+    content: {
+      title: "Getting Started with Salsa",
+      description: "A complete beginner's guide to salsa dancing",
+      cover:
+        "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
+      tags: ["beginner-guide", "salsa-basics"],
+    },
+    stats: {
+      likes: 85,
+      comments: 22,
+      shares: 18,
+    },
+  },
+  {
+    id: "choosing-salsa-style",
+    type: "article",
+    author: {
+      id: "carlos_1",
+      name: "Carlos Mendoza",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=carlos",
+      location: "Barcelona",
+      points: 2800,
+    },
+    timestamp: "2023-10-10",
+    content: {
+      title: "How to Choose Your Salsa Style",
+      description: "Compare different salsa styles and find your perfect match",
+      cover:
+        "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
+      tags: ["salsa-styles", "beginner-guide"],
+    },
+    stats: {
+      likes: 72,
+      comments: 18,
+      shares: 15,
+    },
+  },
+  {
+    id: "teaching-salsa",
+    type: "article",
+    author: {
+      id: "juan_1",
+      name: "Juan Martinez",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=juan",
+      location: "Miami",
+      points: 4100,
+    },
+    timestamp: "2023-10-12",
+    content: {
+      title: "Teaching Resources",
+      description: "Essential tools and methods for salsa instructors",
+      cover:
+        "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
+      tags: ["teaching", "instruction", "methodology"],
+    },
+    stats: {
+      likes: 65,
+      comments: 20,
+      shares: 25,
+    },
+  },
+  {
+    id: "salsa-music-guide",
+    type: "article",
+    author: {
+      id: "ana_1",
+      name: "Ana Sofia",
+      image: "https://api.dicebear.com/7.x/avataaars/svg?seed=ana",
+      location: "Havana",
+      points: 3800,
+    },
+    timestamp: "2023-10-08",
+    content: {
+      title: "Salsa Music Guide",
+      description: "Understanding salsa music structure and rhythms",
+      cover:
+        "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
+      tags: ["music", "musicality", "rhythm"],
+    },
+    stats: {
+      likes: 92,
+      comments: 28,
+      shares: 32,
+    },
+  },
 ];
