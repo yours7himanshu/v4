@@ -35,7 +35,7 @@ defineProps({
 
 <template>
   <!-- Hero Section -->
-  <div class="pt-16 relative min-h-[60vh]">
+  <div class="relative min-h-[60vh]">
     <div
       class="relative flex items-center overflow-hidden min-h-[60vh] md:h-full py-20 md:py-0"
     >

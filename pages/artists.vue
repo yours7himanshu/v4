@@ -1,0 +1,7 @@
+<template>
+  <div class="relative w-full">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ArtistsView />
+    </div>
+  </div>
+</template>

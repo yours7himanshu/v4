@@ -22,7 +22,7 @@ const handleSubmit = () => {
 
 <template>
   <div class="bg-gray-50">
-    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+    <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div class="text-center mb-8">
         <h1 class="text-3xl font-bold mb-3">Join WeDance</h1>
         <p class="text-gray-600">
