@@ -20,5 +20,4 @@
   <LandingTestimonials />
   <LandingHowItWorks />
   <LandingGetStarted />
-  <LandingFooter />
 </template>
