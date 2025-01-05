@@ -33,11 +33,12 @@
         <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
           <div>
             <Label>Dance Styles</Label>
-            <Select v-model="filters.styles" multiple>
+            <Select v-model="selectedStyle">
               <SelectTrigger>
                 <SelectValue :placeholder="getStylesLabel(filters.styles)" />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="any">Any Style</SelectItem>
                 <SelectItem
                   v-for="style in danceStyles"
                   :key="style.value"
@@ -54,13 +55,14 @@
           </div>
           <div>
             <Label>Event Types</Label>
-            <Select v-model="filters.eventTypes" multiple>
+            <Select v-model="selectedEventType">
               <SelectTrigger>
                 <SelectValue
                   :placeholder="getEventTypesLabel(filters.eventTypes)"
                 />
               </SelectTrigger>
               <SelectContent>
+                <SelectItem value="any">Any Event Type</SelectItem>
                 <SelectItem
                   v-for="type in eventTypes"
                   :key="type.value"
@@ -186,10 +188,30 @@ interface Filters {
 }
 
 const filters = ref<Filters>({
-  styles: [] as string[],
+  styles: ["any"],
   location: "",
-  eventTypes: [] as string[],
+  eventTypes: ["any"],
 });
+
+watch(
+  () => filters.value.styles,
+  (newStyles) => {
+    if (!Array.isArray(newStyles)) {
+      filters.value.styles = ["any"];
+    }
+  },
+  { deep: true }
+);
+
+watch(
+  () => filters.value.eventTypes,
+  (newTypes) => {
+    if (!Array.isArray(newTypes)) {
+      filters.value.eventTypes = ["any"];
+    }
+  },
+  { deep: true }
+);
 
 const danceStyles = [
   { value: "salsa", label: "Salsa" },
@@ -299,25 +321,29 @@ function getStyleLabel(value: string) {
 
 const filteredOrganizers = computed(() => {
   return organizers.value.filter((organizer) => {
+    // Search by name or location
     const matchesSearch =
       !search.value ||
       organizer.name.toLowerCase().includes(search.value.toLowerCase()) ||
       organizer.location.toLowerCase().includes(search.value.toLowerCase());
 
+    // Filter by styles
     const matchesStyles =
-      !filters.value.styles?.length ||
-      organizer.styles.some((style) => filters.value.styles.includes(style));
+      filters.value.styles.includes("any") ||
+      filters.value.styles.some((style) => organizer.styles.includes(style));
 
+    // Filter by location
     const matchesLocation =
       !filters.value.location ||
       organizer.location
         .toLowerCase()
         .includes(filters.value.location.toLowerCase());
 
+    // Filter by event types
     const matchesEventTypes =
-      !filters.value.eventTypes?.length ||
-      organizer.eventTypes.some((type) =>
-        filters.value.eventTypes.includes(type)
+      filters.value.eventTypes.includes("any") ||
+      filters.value.eventTypes.some((type) =>
+        organizer.eventTypes.includes(type)
       );
 
     return (
@@ -332,7 +358,7 @@ function toggleView() {
 
 // Helper functions to get labels
 function getStylesLabel(selectedStyles: string[]) {
-  if (!selectedStyles?.length) return "Select styles";
+  if (selectedStyles.includes("any")) return "Any Style";
   if (selectedStyles.length === 1) {
     return getStyleLabel(selectedStyles[0]);
   }
@@ -340,7 +366,7 @@ function getStylesLabel(selectedStyles: string[]) {
 }
 
 function getEventTypesLabel(selectedTypes: string[]) {
-  if (!selectedTypes?.length) return "Select event types";
+  if (selectedTypes.includes("any")) return "Any Event Type";
   if (selectedTypes.length === 1) {
     return (
       eventTypes.find((type) => type.value === selectedTypes[0])?.label ||
@@ -349,4 +375,57 @@ function getEventTypesLabel(selectedTypes: string[]) {
   }
   return `${selectedTypes.length} types selected`;
 }
+
+function resetFilters() {
+  filters.value = {
+    styles: [],
+    location: "",
+    eventTypes: [],
+  };
+  search.value = "";
+}
+
+const hasActiveFilters = computed(() => {
+  return (
+    filters.value.styles.length > 0 ||
+    filters.value.location.length > 0 ||
+    filters.value.eventTypes.length > 0 ||
+    search.value.length > 0
+  );
+});
+
+const selectedStyle = ref("any");
+const selectedEventType = ref("any");
+
+watch(selectedStyle, (newValue) => {
+  if (newValue === "any") {
+    filters.value.styles = ["any"];
+  } else {
+    const currentStyles = filters.value.styles.filter((s) => s !== "any");
+    if (currentStyles.includes(newValue)) {
+      filters.value.styles = currentStyles.filter((s) => s !== newValue);
+      if (filters.value.styles.length === 0) {
+        filters.value.styles = ["any"];
+      }
+    } else {
+      filters.value.styles = [...currentStyles, newValue];
+    }
+  }
+});
+
+watch(selectedEventType, (newValue) => {
+  if (newValue === "any") {
+    filters.value.eventTypes = ["any"];
+  } else {
+    const currentTypes = filters.value.eventTypes.filter((t) => t !== "any");
+    if (currentTypes.includes(newValue)) {
+      filters.value.eventTypes = currentTypes.filter((t) => t !== newValue);
+      if (filters.value.eventTypes.length === 0) {
+        filters.value.eventTypes = ["any"];
+      }
+    } else {
+      filters.value.eventTypes = [...currentTypes, newValue];
+    }
+  }
+});
 </script>
