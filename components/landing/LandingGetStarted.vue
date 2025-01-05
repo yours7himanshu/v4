@@ -18,7 +18,12 @@
           <div
             class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mb-8"
           >
-            <Button size="lg" variant="secondary" class="text-lg px-8" as-child>
+            <Button
+              size="lg"
+              variant="secondary-on-dark"
+              class="text-lg px-8"
+              as-child
+            >
               <NuxtLink
                 to="/register"
                 class="flex items-center justify-center gap-2"
@@ -29,13 +34,13 @@
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              class="text-lg px-8 bg-transparent"
+              variant="secondary-on-dark"
+              class="text-lg px-8 !bg-transparent"
               as-child
             >
               <NuxtLink
                 to="/vs"
-                class="flex items-center justify-center gap-2 text-white hover:text-purple-200"
+                class="flex items-center justify-center gap-2 text-white hover:text-white/90"
               >
                 Compare Platforms
                 <Icon name="ph:arrow-right" class="w-5 h-5" />
