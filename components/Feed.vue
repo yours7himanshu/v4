@@ -14,7 +14,7 @@ const energyRewards = [
 </script>
 
 <template>
-  <div class="flex gap-8">
+  <div class="flex gap-8 mt-6">
     <!-- Left Sidebar -->
     <div class="hidden md:block w-60 flex-shrink-0">
       <PostFilters v-model:type="selectedType" />

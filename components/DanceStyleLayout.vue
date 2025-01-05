@@ -145,8 +145,8 @@ defineProps({
     </div>
 
     <!-- Content -->
-    <div id="content" class="scroll-mt-[88px]">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+    <div id="content" class="scroll-mt-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <slot />
       </div>
     </div>
