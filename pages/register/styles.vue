@@ -1,58 +1,108 @@
 <script setup lang="ts">
+import { getDanceStyles, type DanceStyle } from "@/data/mockStyles";
+
 const route = useRoute();
 const router = useRouter();
 
 const preselectedType = ref((route.query.type as string) || "");
 const selectedCommunities = ref<string[]>([]);
 const searchQuery = ref("");
+const showAll = ref(false);
 
-// Simulated large list of dance styles (replace with actual data)
-const allDanceStyles = [
-  // Latin
-  { id: "salsa", label: "Salsa", category: "Latin", popular: true },
-  { id: "bachata", label: "Bachata", category: "Latin", popular: true },
-  { id: "merengue", label: "Merengue", category: "Latin" },
-  { id: "cha-cha", label: "Cha Cha", category: "Latin" },
-  { id: "samba", label: "Samba", category: "Latin" },
-  { id: "rumba", label: "Rumba", category: "Latin" },
-  // Ballroom
-  { id: "waltz", label: "Waltz", category: "Ballroom", popular: true },
-  { id: "tango", label: "Tango", category: "Ballroom", popular: true },
-  { id: "foxtrot", label: "Foxtrot", category: "Ballroom" },
-  // Urban
-  { id: "hiphop", label: "Hip Hop", category: "Urban", popular: true },
-  { id: "breakdance", label: "Breakdance", category: "Urban" },
-  { id: "house", label: "House", category: "Urban" },
-  { id: "popping", label: "Popping", category: "Urban" },
-  { id: "locking", label: "Locking", category: "Urban" },
-  // And many more... (this is just a sample)
-];
+interface DanceStyleItem {
+  id: string;
+  label: string;
+  icon: string;
+}
 
-// Popular styles shown first
-const popularStyles = computed(() =>
-  allDanceStyles.filter((style) => style.popular)
+interface CategoryGroup {
+  category: string;
+  styles: DanceStyleItem[];
+}
+
+const allStyles = getDanceStyles();
+
+// Get popular dance styles based on member count (top 5)
+const popularDanceIds = computed(() =>
+  allStyles
+    .sort((a, b) => b.members - a.members)
+    .slice(0, 6)
+    .map((style) => style.to.split("/").pop() || "")
 );
 
-// Filtered styles based on search
-const filteredStyles = computed(() => {
-  const query = searchQuery.value.toLowerCase();
-  return allDanceStyles.filter(
-    (style) =>
-      style.label.toLowerCase().includes(query) ||
-      style.category.toLowerCase().includes(query)
-  );
+// Group styles by category
+const danceStyles = computed<CategoryGroup[]>(() => {
+  const groups: Record<string, DanceStyleItem[]> = {};
+  const popularStyles: DanceStyleItem[] = [];
+
+  allStyles.forEach((style) => {
+    const id = style.to.split("/").pop() || "";
+    const styleItem = {
+      id,
+      label: style.name,
+      icon: "ph:music-notes",
+    };
+
+    // Add to popular category if it's a popular dance
+    if (popularDanceIds.value.includes(id)) {
+      popularStyles.push(styleItem);
+    }
+
+    // Add to regular category if showing all or if searching
+    if (showAll.value || searchQuery.value) {
+      if (!groups[style.category]) {
+        groups[style.category] = [];
+      }
+      groups[style.category].push(styleItem);
+    }
+  });
+
+  const result: CategoryGroup[] = [];
+
+  // Add popular category first if there are popular styles
+  if (popularStyles.length > 0) {
+    result.push({
+      category: "Popular",
+      styles: popularStyles.sort((a, b) => {
+        const aStyle = allStyles.find((s) => s.to.includes(a.id));
+        const bStyle = allStyles.find((s) => s.to.includes(b.id));
+        return (bStyle?.members || 0) - (aStyle?.members || 0);
+      }),
+    });
+  }
+
+  // Add other categories
+  Object.entries(groups).forEach(([category, styles]) => {
+    // Don't show empty categories
+    if (styles.length > 0) {
+      result.push({
+        category,
+        styles: styles.filter(
+          (style) =>
+            // In regular categories, don't show dances that are already in popular section
+            // unless we're searching
+            searchQuery.value || !popularDanceIds.value.includes(style.id)
+        ),
+      });
+    }
+  });
+
+  // Filter out categories that became empty after filtering
+  return result.filter((group) => group.styles.length > 0);
 });
 
-// Group styles by category
-const groupedStyles = computed(() => {
-  const groups: Record<string, typeof allDanceStyles> = {};
-  filteredStyles.value.forEach((style) => {
-    if (!groups[style.category]) {
-      groups[style.category] = [];
-    }
-    groups[style.category].push(style);
-  });
-  return groups;
+// Remove filteredStyles computed property as we handle search in danceStyles
+const filteredStyles = computed<CategoryGroup[]>(() => {
+  if (!searchQuery.value) return danceStyles.value;
+
+  return danceStyles.value
+    .map((category) => ({
+      ...category,
+      styles: category.styles.filter((style) =>
+        style.label.toLowerCase().includes(searchQuery.value.toLowerCase())
+      ),
+    }))
+    .filter((category) => category.styles.length > 0);
 });
 
 // Preselect communities based on user type or query
@@ -72,10 +122,6 @@ const toggleCommunity = (id: string) => {
 };
 
 const handleSubmit = () => {
-  if (selectedCommunities.value.length === 0) {
-    // TODO: Show error message
-    return;
-  }
   // TODO: Handle community selection submission
   console.log("Selected communities:", selectedCommunities.value);
   router.push("/register/success");
@@ -99,18 +145,23 @@ const removeStyle = (id: string) => {
 
       <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
         <form @submit.prevent="handleSubmit" class="space-y-8">
-          <!-- Search Input -->
-          <div class="relative">
-            <Input
-              v-model="searchQuery"
-              type="search"
-              placeholder="Search dance styles..."
-              class="pl-10"
-            />
-            <Icon
-              name="ph:magnifying-glass"
-              class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
-            />
+          <!-- Search and View Toggle -->
+          <div class="flex gap-4">
+            <div class="relative flex-1">
+              <Input
+                v-model="searchQuery"
+                type="search"
+                placeholder="Search dance styles..."
+                class="pl-10"
+              />
+              <Icon
+                name="ph:magnifying-glass"
+                class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+              />
+            </div>
+            <Button type="button" variant="outline" @click="showAll = !showAll">
+              {{ showAll ? "Show Popular" : "Show All" }}
+            </Button>
           </div>
 
           <!-- Selected Styles -->
@@ -125,7 +176,11 @@ const removeStyle = (id: string) => {
                 class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-purple-100 text-purple-700"
               >
                 <span class="text-sm font-medium">
-                  {{ allDanceStyles.find((s) => s.id === id)?.label }}
+                  {{
+                    danceStyles
+                      .flatMap((c) => c.styles)
+                      .find((s) => s.id === id)?.label
+                  }}
                 </span>
                 <button
                   type="button"
@@ -138,50 +193,23 @@ const removeStyle = (id: string) => {
             </div>
           </div>
 
-          <!-- Popular Styles -->
-          <div
-            v-if="!searchQuery && popularStyles.length > 0"
-            class="space-y-3"
-          >
-            <label class="block text-sm font-medium text-gray-700">
-              Popular Styles
-            </label>
-            <div class="flex flex-wrap gap-2">
-              <button
-                v-for="style in popularStyles"
-                :key="style.id"
-                type="button"
-                @click="toggleCommunity(style.id)"
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border-2 transition-all duration-200 hover:border-purple-500 hover:bg-purple-50"
-                :class="[
-                  selectedCommunities.includes(style.id)
-                    ? 'border-purple-500 bg-purple-50'
-                    : 'border-gray-200',
-                ]"
-              >
-                <Icon name="ph:music-notes" class="w-5 h-5 text-purple-600" />
-                <span class="font-medium">{{ style.label }}</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- All Styles by Category -->
+          <!-- Dance Styles by Category -->
           <div v-if="filteredStyles.length > 0" class="space-y-8">
             <div
-              v-for="(styles, category) in groupedStyles"
-              :key="category"
-              class="space-y-3"
+              v-for="category in filteredStyles"
+              :key="category.category"
+              class="space-y-4"
             >
-              <label class="block text-sm font-medium text-gray-700">
-                {{ category }}
-              </label>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <h3 class="text-lg font-semibold text-gray-900">
+                {{ category.category }}
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <button
-                  v-for="style in styles"
+                  v-for="style in category.styles"
                   :key="style.id"
                   type="button"
                   @click="toggleCommunity(style.id)"
-                  class="flex items-center gap-2 p-3 rounded-lg border-2 transition-all duration-200 hover:border-purple-500 hover:bg-purple-50 text-left"
+                  class="flex items-center gap-3 p-4 h-[60px] rounded-xl border-2 transition-all duration-200 hover:border-purple-500 hover:bg-purple-50"
                   :class="[
                     selectedCommunities.includes(style.id)
                       ? 'border-purple-500 bg-purple-50'
@@ -189,10 +217,10 @@ const removeStyle = (id: string) => {
                   ]"
                 >
                   <Icon
-                    name="ph:music-notes"
-                    class="w-5 h-5 text-purple-600 flex-shrink-0"
+                    :name="style.icon"
+                    class="w-6 h-6 flex-shrink-0 text-purple-600"
                   />
-                  <span class="font-medium">{{ style.label }}</span>
+                  <span class="font-medium truncate">{{ style.label }}</span>
                 </button>
               </div>
             </div>
@@ -208,9 +236,11 @@ const removeStyle = (id: string) => {
               type="submit"
               size="lg"
               class="w-full max-w-md"
-              :disabled="selectedCommunities.length === 0"
+              :variant="
+                selectedCommunities.length === 0 ? 'outline' : 'default'
+              "
             >
-              Continue
+              {{ selectedCommunities.length === 0 ? "Skip" : "Continue" }}
             </Button>
             <p class="text-sm text-gray-500">
               You can always update your preferences later in your profile
