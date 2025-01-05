@@ -1,185 +1,10 @@
-<template>
-  <div>
-    <div class="mb-8">
-      <div
-        class="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between"
-      >
-        <div class="relative">
-          <Input
-            v-model="search"
-            placeholder="Search organizers..."
-            class="w-full sm:w-64"
-          >
-            <template #prefix>
-              <Icon name="ph:magnifying-glass" class="w-4 h-4" />
-            </template>
-          </Input>
-        </div>
-        <div class="flex gap-2">
-          <Button variant="outline" @click="toggleView">
-            <Icon
-              :name="isGridView ? 'ph:grid-four' : 'ph:list'"
-              class="w-4 h-4"
-            />
-          </Button>
-          <Button variant="outline" @click="showFilters = !showFilters">
-            <Icon name="ph:funnel" class="w-4 h-4" />
-            Filters
-          </Button>
-        </div>
-      </div>
-
-      <div v-if="showFilters" class="mt-4 p-4 bg-gray-50 rounded-lg">
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div>
-            <Label>Dance Styles</Label>
-            <Select v-model="selectedStyle">
-              <SelectTrigger>
-                <SelectValue :placeholder="getStylesLabel(filters.styles)" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">Any Style</SelectItem>
-                <SelectItem
-                  v-for="style in danceStyles"
-                  :key="style.value"
-                  :value="style.value"
-                >
-                  {{ style.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div>
-            <Label>Location</Label>
-            <Input v-model="filters.location" placeholder="City or country" />
-          </div>
-          <div>
-            <Label>Event Types</Label>
-            <Select v-model="selectedEventType">
-              <SelectTrigger>
-                <SelectValue
-                  :placeholder="getEventTypesLabel(filters.eventTypes)"
-                />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">Any Event Type</SelectItem>
-                <SelectItem
-                  v-for="type in eventTypes"
-                  :key="type.value"
-                  :value="type.value"
-                >
-                  {{ type.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div v-if="isGridView" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div
-        v-for="organizer in filteredOrganizers"
-        :key="organizer.id"
-        class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-      >
-        <NuxtLink :to="`/organizers/${organizer.id}`">
-          <div class="aspect-w-16 aspect-h-9 rounded-t-lg overflow-hidden">
-            <img
-              :src="organizer.coverImage || '/images/default-cover.jpg'"
-              :alt="organizer.name"
-              class="object-cover"
-            />
-          </div>
-          <div class="p-4">
-            <div class="flex items-center gap-3 mb-3">
-              <img
-                :src="organizer.avatar || '/images/default-avatar.jpg'"
-                :alt="organizer.name"
-                class="w-12 h-12 rounded-full"
-              />
-              <div>
-                <h3 class="font-semibold text-lg">{{ organizer.name }}</h3>
-                <p class="text-sm text-gray-600">{{ organizer.location }}</p>
-              </div>
-            </div>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <Badge
-                v-for="style in organizer.styles"
-                :key="style"
-                variant="secondary"
-              >
-                {{ getStyleLabel(style) }}
-              </Badge>
-            </div>
-            <p class="text-sm text-gray-600 line-clamp-2">
-              {{ organizer.bio }}
-            </p>
-          </div>
-        </NuxtLink>
-      </div>
-    </div>
-
-    <div v-else class="space-y-4">
-      <div
-        v-for="organizer in filteredOrganizers"
-        :key="organizer.id"
-        class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4"
-      >
-        <NuxtLink :to="`/organizers/${organizer.id}`">
-          <div class="flex gap-4">
-            <img
-              :src="organizer.avatar || '/images/default-avatar.jpg'"
-              :alt="organizer.name"
-              class="w-16 h-16 rounded-full"
-            />
-            <div class="flex-1">
-              <div class="flex items-start justify-between">
-                <div>
-                  <h3 class="font-semibold text-lg">{{ organizer.name }}</h3>
-                  <p class="text-sm text-gray-600">{{ organizer.location }}</p>
-                </div>
-                <div class="text-sm text-gray-600">
-                  {{ organizer.eventCount }} events
-                </div>
-              </div>
-              <div class="flex flex-wrap gap-2 my-2">
-                <Badge
-                  v-for="style in organizer.styles"
-                  :key="style"
-                  variant="secondary"
-                >
-                  {{ getStyleLabel(style) }}
-                </Badge>
-              </div>
-              <p class="text-sm text-gray-600 line-clamp-2">
-                {{ organizer.bio }}
-              </p>
-            </div>
-          </div>
-        </NuxtLink>
-      </div>
-    </div>
-
-    <div v-if="!filteredOrganizers.length">
-      <EmptyState variant="no-results" />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "#components";
 import EmptyState from "~/components/common/EmptyState.vue";
 
 const search = ref("");
 const showFilters = ref(false);
 const isGridView = ref(true);
+const showLocationFilter = ref(false);
 
 interface Filters {
   styles: string[];
@@ -265,9 +90,9 @@ const organizers = ref([
     name: "Tango Nights",
     location: "Buenos Aires, Argentina",
     avatar:
-      "https://images.unsplash.com/photo-1516714819001-8ee7a13b98f3?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=400&h=400&fit=crop",
     coverImage:
-      "https://images.unsplash.com/photo-1545959570-a94084071b5d?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1200&h=800&fit=crop",
     styles: ["tango"],
     eventTypes: ["socials", "performances"],
     bio: "Authentic Argentine tango events and milongas in the heart of Buenos Aires.",
@@ -291,9 +116,9 @@ const organizers = ref([
     name: "Zouk Brazil",
     location: "Rio de Janeiro, Brazil",
     avatar:
-      "https://images.unsplash.com/photo-1541904845547-0eaf866de997?w=400&h=400&fit=crop",
+      "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400&h=400&fit=crop",
     coverImage:
-      "https://images.unsplash.com/photo-1545959570-a94084071b5d?w=1200&h=800&fit=crop",
+      "https://images.unsplash.com/photo-1534685785745-60a2cea0ec34?w=1200&h=800&fit=crop",
     styles: ["zouk", "salsa"],
     eventTypes: ["festivals", "workshops"],
     bio: "Brazilian Zouk events, workshops, and beach parties.",
@@ -429,3 +254,193 @@ watch(selectedEventType, (newValue) => {
   }
 });
 </script>
+
+<template>
+  <div>
+    <div class="mb-8">
+      <div
+        class="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between"
+      >
+        <div class="relative">
+          <Input
+            v-model="search"
+            placeholder="Search organizers..."
+            class="w-full sm:w-64"
+          >
+            <template #prefix>
+              <Icon name="ph:magnifying-glass" class="w-4 h-4" />
+            </template>
+          </Input>
+        </div>
+        <div class="flex gap-2">
+          <Button variant="outline" @click="toggleView">
+            <Icon
+              :name="isGridView ? 'ph:grid-four' : 'ph:list'"
+              class="w-4 h-4"
+            />
+          </Button>
+          <Button variant="outline" @click="showFilters = !showFilters">
+            <Icon name="ph:funnel" class="w-4 h-4" />
+            Filters
+          </Button>
+        </div>
+      </div>
+
+      <div v-if="showFilters" class="mt-4 p-4 bg-gray-50 rounded-lg">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div>
+            <Label>Dance Styles</Label>
+            <Select v-model="selectedStyle">
+              <SelectTrigger>
+                <SelectValue :placeholder="getStylesLabel(filters.styles)" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="any">Any Style</SelectItem>
+                <SelectItem
+                  v-for="style in danceStyles"
+                  :key="style.value"
+                  :value="style.value"
+                >
+                  {{ style.label }}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+          <div>
+            <Label>Location</Label>
+            <Button
+              variant="outline"
+              class="w-full justify-start"
+              @click="showLocationFilter = true"
+            >
+              <Icon name="ph:map-pin" class="w-4 h-4 mr-2" />
+              {{ filters.location || "Any Location" }}
+            </Button>
+          </div>
+          <div>
+            <Label>Event Types</Label>
+            <Select v-model="selectedEventType">
+              <SelectTrigger>
+                <SelectValue
+                  :placeholder="getEventTypesLabel(filters.eventTypes)"
+                />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="any">Any Event Type</SelectItem>
+                <SelectItem
+                  v-for="type in eventTypes"
+                  :key="type.value"
+                  :value="type.value"
+                >
+                  {{ type.label }}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="isGridView" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        v-for="organizer in filteredOrganizers"
+        :key="organizer.id"
+        class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+      >
+        <NuxtLink :to="`/organizers/${organizer.id}`">
+          <div class="aspect-w-16 aspect-h-9 rounded-t-lg overflow-hidden">
+            <img
+              :src="organizer.coverImage || '/images/default-cover.jpg'"
+              :alt="organizer.name"
+              class="object-cover"
+            />
+          </div>
+          <div class="p-4">
+            <div class="flex items-center gap-3 mb-3">
+              <img
+                :src="organizer.avatar || '/images/default-avatar.jpg'"
+                :alt="organizer.name"
+                class="w-12 h-12 rounded-full"
+              />
+              <div>
+                <h3 class="font-semibold text-lg">{{ organizer.name }}</h3>
+                <p class="text-sm text-gray-600">{{ organizer.location }}</p>
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-3">
+              <Badge
+                v-for="style in organizer.styles"
+                :key="style"
+                variant="secondary"
+              >
+                {{ getStyleLabel(style) }}
+              </Badge>
+            </div>
+            <p class="text-sm text-gray-600 line-clamp-2">
+              {{ organizer.bio }}
+            </p>
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div v-else class="space-y-4">
+      <div
+        v-for="organizer in filteredOrganizers"
+        :key="organizer.id"
+        class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4"
+      >
+        <NuxtLink :to="`/organizers/${organizer.id}`">
+          <div class="flex gap-4">
+            <img
+              :src="organizer.avatar || '/images/default-avatar.jpg'"
+              :alt="organizer.name"
+              class="w-16 h-16 rounded-full"
+            />
+            <div class="flex-1">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold text-lg">{{ organizer.name }}</h3>
+                  <p class="text-sm text-gray-600">{{ organizer.location }}</p>
+                </div>
+                <div class="text-sm text-gray-600">
+                  {{ organizer.eventCount }} events
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2 my-2">
+                <Badge
+                  v-for="style in organizer.styles"
+                  :key="style"
+                  variant="secondary"
+                >
+                  {{ getStyleLabel(style) }}
+                </Badge>
+              </div>
+              <p class="text-sm text-gray-600 line-clamp-2">
+                {{ organizer.bio }}
+              </p>
+            </div>
+          </div>
+        </NuxtLink>
+      </div>
+    </div>
+
+    <div v-if="!filteredOrganizers.length">
+      <EmptyState variant="no-results" />
+    </div>
+
+    <Sheet :open="showLocationFilter" @update:open="showLocationFilter = false">
+      <SheetContent side="bottom" class="h-[80vh]">
+        <SheetHeader>
+          <SheetTitle>Filter by Location</SheetTitle>
+        </SheetHeader>
+        <div class="mt-4">
+          <LocationPanel
+            :location="filters.location"
+            @update:location="filters.location = $event || ''"
+          />
+        </div>
+      </SheetContent>
+    </Sheet>
+  </div>
+</template>
