@@ -15,7 +15,7 @@ export const mockPosts = [
     timestamp: "2 hours ago",
     content: {
       text: "💃 Quick tip for following: When you feel the lead for a right turn, wait for the tension in the connection before moving. This helps create cleaner turns and better synergy with your partner.\n\nThis small detail made a huge difference in my dancing. Try it and let me know if it helps!",
-      tags: ["Dance Tips", "Following", "Technique"],
+      tags: ["dance-tips", "following", "technique"],
     },
     stats: {
       likes: 42,
@@ -44,7 +44,7 @@ export const mockPosts = [
       },
       description:
         "Quick tutorial showing three fundamental exercises to improve your body movement in salsa. Perfect for beginners!",
-      tags: ["Tutorial", "Technique", "Body Movement"],
+      tags: ["tutorial", "technique", "body-movement"],
     },
     stats: {
       likes: 156,
@@ -75,7 +75,7 @@ export const mockPosts = [
         ],
         totalVotes: 150,
       },
-      tags: ["Music", "Practice", "Salsa"],
+      tags: ["music", "practice", "salsa"],
     },
     stats: {
       likes: 25,
@@ -104,7 +104,7 @@ export const mockPosts = [
             "Deep dive into the roots of salsa music and its evolution",
         },
       ],
-      tags: ["Music History", "Learning Resources", "Musicality"],
+      tags: ["music-history", "learning-resources", "musicality"],
     },
     stats: {
       likes: 45,
@@ -131,7 +131,7 @@ export const mockPosts = [
       description:
         "A comprehensive guide to understanding the fundamental rhythm pattern in salsa music and how it affects our dancing.",
       html: "The clave is the heartbeat of salsa music...",
-      tags: ["Musicality", "Beginner Guide", "Rhythm"],
+      tags: ["musicality", "beginner-guide", "rhythm"],
     },
     stats: {
       likes: 89,
@@ -161,7 +161,7 @@ export const mockPosts = [
         where: "Havana Social Club, Berlin",
         level: "All levels welcome",
       },
-      tags: ["Ladies Group", "Social Dancing", "Berlin"],
+      tags: ["ladies-group", "social-dancing", "berlin"],
     },
     stats: {
       interested: 5,
@@ -185,7 +185,7 @@ export const mockPosts = [
       rating: 5,
       description:
         "Finally checked out the new Salsa Mania venue and wow! Spacious dance floor with perfect grip, great sound system, and friendly crowd. The pre-party class was excellent too. Definitely my new favorite Thursday spot!",
-      tags: ["Venue Review", "London", "Social Dancing"],
+      tags: ["venue-review", "london", "social-dancing"],
     },
     stats: {
       likes: 35,
@@ -214,7 +214,7 @@ export const mockPosts = [
         { icon: "ph:map-pin", text: "East London" },
         { icon: "ph:graduation-cap", text: "Min. 3 years teaching exp." },
       ],
-      tags: ["Teaching", "Job Opening", "London"],
+      tags: ["teaching", "job-opening", "london"],
     },
     stats: {
       interested: 12,
@@ -236,7 +236,7 @@ export const mockPosts = [
     content: {
       title: "New in Berlin - Where to dance salsa?",
       text: "Just moved to Berlin and looking to connect with the salsa scene! Particularly interested in Cuban style socials and weekday practice sessions. Any recommendations for venues, WhatsApp groups, or regular events?",
-      tags: ["Berlin", "Local Scene", "Cuban Salsa"],
+      tags: ["berlin", "local-scene", "cuban-salsa"],
     },
     stats: {
       likes: 8,
@@ -261,7 +261,7 @@ export const mockPosts = [
         "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=800&h=400&fit=crop",
       description:
         "Just launched our new collection of professional dance shoes! Italian leather, perfect heel height, and superior comfort. Use code SUMMER20 for 20% off.",
-      tags: ["Dance Shoes", "New Collection", "Special Offer"],
+      tags: ["dance-shoes", "new-collection", "special-offer"],
     },
     stats: {
       likes: 34,
@@ -292,7 +292,7 @@ export const mockPosts = [
         seats: "1 seat needed",
         contribution: "Will share fuel costs",
       },
-      tags: ["Festival", "Ride Share", "Freiburg"],
+      tags: ["festival", "ride-share", "freiburg"],
     },
     stats: {
       interested: 3,
@@ -323,7 +323,7 @@ export const mockPosts = [
         level: "Beginner",
         style: "Casino/Cuban",
       },
-      tags: ["Practice Partner", "Casino", "Berlin", "Beginner"],
+      tags: ["practice-partner", "casino", "berlin", "beginner"],
     },
     stats: {
       interested: 2,

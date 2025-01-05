@@ -50,7 +50,7 @@ export const mockEvents = [
         activity: "Social Dancing",
       },
     ],
-    tags: ["timba", "live music", "social dancing"],
+    tags: ["timba", "live-music", "social-dancing"],
     status: "upcoming",
     stats: {
       interested: 45,
@@ -159,7 +159,7 @@ export const mockEvents = [
       currency: "EUR",
       type: "per-person",
     },
-    tags: ["timba", "live music", "songo"],
+    tags: ["timba", "live-music", "songo"],
     status: "upcoming",
   },
   {
@@ -185,7 +185,7 @@ export const mockEvents = [
       currency: "GBP",
       type: "per-person",
     },
-    tags: ["Live Music", "Cuban Salsa", "Social Dancing"],
+    tags: ["live-music", "cuban-salsa", "social-dancing"],
     status: "upcoming",
     artists: ["son_cubano_1"],
     organizer: {
