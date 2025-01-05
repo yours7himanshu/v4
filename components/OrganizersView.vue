@@ -290,90 +290,82 @@ watch(selectedEventType, (newValue) => {
 
 <template>
   <div>
-    <div class="mb-8">
-      <div
-        class="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between"
-      >
-        <div class="relative">
-          <Input
-            v-model="search"
-            placeholder="Search organizers..."
-            class="w-full sm:w-64"
-          >
-            <template #prefix>
-              <Icon name="ph:magnifying-glass" class="w-4 h-4" />
-            </template>
-          </Input>
-        </div>
-        <div class="flex gap-2">
-          <Button variant="outline" @click="toggleView">
-            <Icon
-              :name="isGridView ? 'ph:grid-four' : 'ph:list'"
-              class="w-4 h-4"
-            />
-          </Button>
-          <Button variant="outline" @click="showFilters = !showFilters">
-            <Icon name="ph:funnel" class="w-4 h-4" />
-            Filters
-          </Button>
-        </div>
+    <!-- Controls -->
+    <div class="flex justify-between items-center mb-6">
+      <div class="flex gap-2">
+        <Button
+          variant="outline"
+          class="justify-start"
+          @click="showLocationFilter = true"
+        >
+          <Icon name="ph:map-pin" class="w-4 h-4 mr-2" />
+          {{ filters.location || "Any Location" }}
+        </Button>
+        <Button variant="outline" @click="showFilters = !showFilters">
+          <Icon name="ph:funnel" class="w-4 h-4 mr-2" />
+          Filters
+        </Button>
+        <Button variant="outline" @click="toggleView">
+          <Icon
+            :name="isGridView ? 'ph:grid-four' : 'ph:list'"
+            class="w-4 h-4"
+          />
+        </Button>
       </div>
 
-      <div v-if="showFilters" class="mt-4 p-4 bg-gray-50 rounded-lg">
-        <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-          <div>
-            <Label>Dance Styles</Label>
-            <Select v-model="selectedStyle">
-              <SelectTrigger>
-                <SelectValue :placeholder="getStylesLabel(filters.styles)" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">Any Style</SelectItem>
-                <SelectItem
-                  v-for="style in danceStyles"
-                  :key="style.value"
-                  :value="style.value"
-                >
-                  {{ style.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-          <div>
-            <Label>Location</Label>
-            <Button
-              variant="outline"
-              class="w-full justify-start"
-              @click="showLocationFilter = true"
-            >
-              <Icon name="ph:map-pin" class="w-4 h-4 mr-2" />
-              {{ filters.location || "Any Location" }}
-            </Button>
-          </div>
-          <div>
-            <Label>Event Types</Label>
-            <Select v-model="selectedEventType">
-              <SelectTrigger>
-                <SelectValue
-                  :placeholder="getEventTypesLabel(filters.eventTypes)"
-                />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">Any Event Type</SelectItem>
-                <SelectItem
-                  v-for="type in eventTypes"
-                  :key="type.value"
-                  :value="type.value"
-                >
-                  {{ type.label }}
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+      <Button variant="default" as-child>
+        <NuxtLink to="/register" class="flex items-center gap-2">
+          <Icon name="ph:plus-circle" class="w-5 h-5" />
+          Add Your City's Groups
+        </NuxtLink>
+      </Button>
+    </div>
+
+    <!-- Filters -->
+    <div v-if="showFilters" class="mb-8 p-4 bg-gray-50 rounded-lg">
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div>
+          <Label>Dance Styles</Label>
+          <Select v-model="selectedStyle">
+            <SelectTrigger>
+              <SelectValue :placeholder="getStylesLabel(filters.styles)" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="any">Any Style</SelectItem>
+              <SelectItem
+                v-for="style in danceStyles"
+                :key="style.value"
+                :value="style.value"
+              >
+                {{ style.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <Label>Event Types</Label>
+          <Select v-model="selectedEventType">
+            <SelectTrigger>
+              <SelectValue
+                :placeholder="getEventTypesLabel(filters.eventTypes)"
+              />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="any">Any Event Type</SelectItem>
+              <SelectItem
+                v-for="type in eventTypes"
+                :key="type.value"
+                :value="type.value"
+              >
+                {{ type.label }}
+              </SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
     </div>
 
+    <!-- Results Grid View -->
     <div v-if="isGridView" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <div
         v-for="organizer in filteredOrganizers"
@@ -516,6 +508,7 @@ watch(selectedEventType, (newValue) => {
       </div>
     </div>
 
+    <!-- Results List View -->
     <div v-else class="space-y-4">
       <div
         v-for="organizer in filteredOrganizers"
@@ -656,10 +649,20 @@ watch(selectedEventType, (newValue) => {
       </div>
     </div>
 
-    <div v-if="!filteredOrganizers.length">
-      <EmptyState variant="no-results" />
+    <!-- Empty State -->
+    <div v-if="!filteredOrganizers.length" class="text-center">
+      <div class="max-w-md mx-auto">
+        <EmptyState variant="no-results" />
+        <p class="mt-4 text-gray-600">
+          Don't see your city? Help grow the community by
+          <Button variant="link" class="px-1" as-child>
+            <NuxtLink to="/register">adding your local dance groups</NuxtLink>
+          </Button>
+        </p>
+      </div>
     </div>
 
+    <!-- Location Sheet -->
     <Sheet :open="showLocationFilter" @update:open="showLocationFilter = false">
       <SheetContent side="bottom" class="h-[80vh]">
         <SheetHeader>
