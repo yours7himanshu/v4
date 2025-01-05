@@ -197,9 +197,9 @@ const handleImageError = (event: Event) => {
               <div class="flex items-center text-gray-500">
                 <span class="w-20">Price:</span>
                 <span>{{
-                  event.price.amount === 0
+                  event.price?.amount === 0
                     ? "Free"
-                    : `${event.price.amount}${event.price.currency}`
+                    : `${event.price?.amount}${event.price?.currency}`
                 }}</span>
               </div>
               <div class="flex items-center text-gray-500">
@@ -261,21 +261,21 @@ const handleImageError = (event: Event) => {
               <div class="flex gap-4">
                 <div class="w-24 h-16 rounded overflow-hidden bg-gray-100">
                   <NuxtImg
-                    :src="post.image"
-                    :alt="post.title"
+                    :src="post.content.cover"
+                    :alt="post.content.title"
                     class="w-full h-full object-cover"
                   />
                 </div>
                 <div class="flex-1">
                   <h4 class="font-medium group-hover:text-purple-600">
-                    {{ post.title }}
+                    {{ post.content.title }}
                   </h4>
                   <p class="text-sm text-gray-600 line-clamp-1">
-                    {{ post.description }}
+                    {{ post.content.description }}
                   </p>
                   <div class="text-xs text-gray-500 mt-1">
-                    {{ post.author }} •
-                    {{ new Date(post.date).toLocaleDateString() }}
+                    {{ post.author.name }} •
+                    {{ new Date(post.timestamp).toLocaleDateString() }}
                   </div>
                 </div>
               </div>
