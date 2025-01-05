@@ -2,6 +2,7 @@
 const emit = defineEmits<{
   (e: "update:type", value: string): void;
   (e: "update:location", value: string | null): void;
+  (e: "update:style", value: string | null): void;
 }>();
 
 const props = defineProps({
@@ -10,6 +11,10 @@ const props = defineProps({
     default: "all",
   },
   location: {
+    type: String as () => string | null,
+    default: null,
+  },
+  style: {
     type: String as () => string | null,
     default: null,
   },
@@ -26,6 +31,17 @@ const postTypeOptions = [
   { value: "gig", label: "Gigs", icon: "ph:music-notes" },
   { value: "ask_locals", label: "Ask Locals", icon: "ph:question" },
   { value: "video", label: "Videos", icon: "ph:video-camera" },
+];
+
+// Dance styles
+const danceStyles = [
+  { id: "salsa", name: "Salsa", members: 12500 },
+  { id: "bachata", name: "Bachata", members: 10200 },
+  { id: "kizomba", name: "Kizomba", members: 8300 },
+  { id: "zouk", name: "Brazilian Zouk", members: 6100 },
+  { id: "merengue", name: "Merengue", members: 4500 },
+  { id: "mambo", name: "Mambo", members: 3800 },
+  { id: "cha-cha", name: "Cha Cha", members: 3200 },
 ];
 
 // Location filter
@@ -47,6 +63,17 @@ const selectedLocation = computed({
     showLocationFilter.value = false;
   },
 });
+
+const selectedStyle = computed({
+  get: () => props.style,
+  set: (value) => emit("update:style", value),
+});
+
+const formatNumber = (num: number) => {
+  if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`;
+  if (num >= 1000) return `${(num / 1000).toFixed(1)}K`;
+  return num;
+};
 </script>
 
 <template>
@@ -96,24 +123,11 @@ const selectedLocation = computed({
     >
       <Icon name="ph:x" class="w-4 h-4" />
     </Button>
-
-    <Sheet :open="showLocationFilter" @update:open="showLocationFilter = false">
-      <SheetContent side="bottom" class="h-[80vh]">
-        <SheetHeader>
-          <SheetTitle>Filter by Location</SheetTitle>
-        </SheetHeader>
-        <div class="mt-4">
-          <LocationPanel
-            :location="selectedLocation"
-            @update:location="selectedLocation = $event"
-          />
-        </div>
-      </SheetContent>
-    </Sheet>
   </div>
 
   <!-- Desktop View -->
-  <div class="hidden md:flex flex-col gap-4 w-60">
+  <div class="hidden md:flex flex-col gap-6 w-60">
+    <!-- Post Types -->
     <div class="flex flex-col gap-1">
       <Button
         v-for="type in postTypeOptions"
@@ -127,6 +141,7 @@ const selectedLocation = computed({
       </Button>
     </div>
 
+    <!-- Location -->
     <div class="flex items-center gap-2">
       <Button
         variant="ghost"
@@ -145,6 +160,34 @@ const selectedLocation = computed({
       >
         <Icon name="ph:x" class="w-4 h-4" />
       </Button>
+    </div>
+
+    <!-- Dance Styles -->
+    <div class="flex flex-col gap-2">
+      <div class="font-medium text-sm text-gray-500 px-3">Dance Styles</div>
+      <div class="flex flex-col -mx-2">
+        <button
+          v-for="style in danceStyles"
+          :key="style.id"
+          class="flex items-center gap-3 px-3 py-2 hover:bg-gray-100 rounded-lg transition-colors"
+          :class="{ 'bg-gray-100': selectedStyle === style.id }"
+          @click="selectedStyle = style.id"
+        >
+          <div
+            class="w-6 h-6 rounded-full bg-purple-100 flex items-center justify-center"
+          >
+            <Icon name="ph:music-notes" class="w-3.5 h-3.5 text-purple-600" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <span class="text-sm font-medium truncate">{{ style.name }}</span>
+              <span class="text-xs text-gray-500">{{
+                formatNumber(style.members)
+              }}</span>
+            </div>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
 
