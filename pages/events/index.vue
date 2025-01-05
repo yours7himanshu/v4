@@ -1,7 +1,7 @@
 <template>
   <PageSimple
     title="Dance Events"
-    description="Find and book the perfect space for dancing"
+    description="Discover dance events, workshops, and parties near you"
   >
     <EventsList />
   </PageSimple>

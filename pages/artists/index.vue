@@ -1,7 +1,7 @@
 <template>
   <PageSimple
     title="Dance Artists"
-    description="Find and book the perfect space for dancing"
+    description="Find and connect with dance teachers, performers and artists"
   >
     <ArtistsView />
   </PageSimple>
