@@ -31,7 +31,7 @@ const danceStyles = computed(() => {
 </script>
 
 <template>
-  <div class="pt-16 relative min-h-[60vh] flex items-center overflow-hidden">
+  <div class="relative min-h-[60vh] flex items-center overflow-hidden">
     <GradientBackground />
 
     <!-- Content -->

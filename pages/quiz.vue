@@ -44,7 +44,7 @@ const selectVideo = (style: string) => {
 </script>
 
 <template>
-  <div class="min-h-screen relative py-16">
+  <div class="min-h-screen relative">
     <GradientBackground />
     <div class="pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <!-- Header -->
