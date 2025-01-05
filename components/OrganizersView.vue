@@ -61,7 +61,7 @@ const eventTypes = [
 const organizers = ref([
   {
     id: "1",
-    name: "Dance Fusion Events",
+    name: "Berlin Salsa Community",
     location: "Berlin, Germany",
     avatar:
       "https://images.unsplash.com/photo-1524117074681-31bd4de22ad3?w=400&h=400&fit=crop",
@@ -69,12 +69,18 @@ const organizers = ref([
       "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=1200&h=800&fit=crop",
     styles: ["salsa", "bachata"],
     eventTypes: ["festivals", "workshops", "socials"],
-    bio: "Organizing the biggest Latin dance events in Berlin since 2015.",
+    bio: "The main salsa & bachata community in Berlin. Join our WhatsApp group for daily socials and practice sessions.",
     eventCount: 45,
+    links: {
+      whatsapp: "https://chat.whatsapp.com/...",
+      instagram: "@berlinsalsa",
+      facebook: "Berlin Salsa Community (3.5k members)",
+      website: "https://salsaberlin.de",
+    },
   },
   {
     id: "2",
-    name: "Swing Society",
+    name: "Swing Dance Paris",
     location: "Paris, France",
     avatar:
       "https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?w=400&h=400&fit=crop",
@@ -82,12 +88,17 @@ const organizers = ref([
       "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=1200&h=800&fit=crop",
     styles: ["swing", "jazz"],
     eventTypes: ["classes", "socials"],
-    bio: "Dedicated to preserving and promoting swing dance culture.",
+    bio: "Weekly swing dance classes and social dances. Follow us on Instagram for latest updates and join our Telegram channel.",
     eventCount: 32,
+    links: {
+      telegram: "t.me/swingparis",
+      instagram: "@swingdanceparis",
+      facebook: "Swing Dance Paris Official (2.8k members)",
+    },
   },
   {
     id: "3",
-    name: "Tango Nights",
+    name: "Tango Buenos Aires",
     location: "Buenos Aires, Argentina",
     avatar:
       "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?w=400&h=400&fit=crop",
@@ -95,12 +106,17 @@ const organizers = ref([
       "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1200&h=800&fit=crop",
     styles: ["tango"],
     eventTypes: ["socials", "performances"],
-    bio: "Authentic Argentine tango events and milongas in the heart of Buenos Aires.",
+    bio: "Daily milongas and tango events. Join our WhatsApp group for real-time updates on milonga locations and special events.",
     eventCount: 128,
+    links: {
+      whatsapp: "https://chat.whatsapp.com/...",
+      instagram: "@tangoba",
+      website: "https://tangobuenosaires.org",
+    },
   },
   {
     id: "4",
-    name: "Urban Dance Collective",
+    name: "NYC Urban Dance",
     location: "New York, USA",
     avatar:
       "https://images.unsplash.com/photo-1529335764857-3f1164d1cb24?w=400&h=400&fit=crop",
@@ -108,12 +124,17 @@ const organizers = ref([
       "https://images.unsplash.com/photo-1508807526345-15e9b5f4eaff?w=1200&h=800&fit=crop",
     styles: ["contemporary", "ballet"],
     eventTypes: ["performances", "workshops", "classes"],
-    bio: "Contemporary dance events and performances in NYC.",
+    bio: "Contemporary dance community in NYC. Join our Discord for class schedules and practice sessions.",
     eventCount: 67,
+    links: {
+      discord: "discord.gg/nycurbandance",
+      instagram: "@nycurbandance",
+      facebook: "NYC Urban Dance Community (5k members)",
+    },
   },
   {
     id: "5",
-    name: "Zouk Brazil",
+    name: "Rio Zouk Movement",
     location: "Rio de Janeiro, Brazil",
     avatar:
       "https://images.unsplash.com/photo-1547347298-4074fc3086f0?w=400&h=400&fit=crop",
@@ -121,12 +142,18 @@ const organizers = ref([
       "https://images.unsplash.com/photo-1534685785745-60a2cea0ec34?w=1200&h=800&fit=crop",
     styles: ["zouk", "salsa"],
     eventTypes: ["festivals", "workshops"],
-    bio: "Brazilian Zouk events, workshops, and beach parties.",
+    bio: "The largest Brazilian Zouk community in Rio. Daily classes and weekend parties. Join our WhatsApp for practice partners.",
     eventCount: 89,
+    links: {
+      whatsapp: "https://chat.whatsapp.com/...",
+      instagram: "@riozouk",
+      facebook: "Rio Zouk Official (4.2k members)",
+      website: "https://riozouk.com.br",
+    },
   },
   {
     id: "6",
-    name: "Kizomba Vibes",
+    name: "Kizomba Lisboa",
     location: "Lisbon, Portugal",
     avatar:
       "https://images.unsplash.com/photo-1523307730650-594bc63f9d67?w=400&h=400&fit=crop",
@@ -134,8 +161,14 @@ const organizers = ref([
       "https://images.unsplash.com/photo-1547153760-18fc86324498?w=1200&h=800&fit=crop",
     styles: ["kizomba"],
     eventTypes: ["festivals", "workshops", "classes"],
-    bio: "Bringing authentic Kizomba culture to Europe through events and festivals.",
+    bio: "Authentic Kizomba community in Lisbon. Join our groups for daily socials and beach dance events.",
     eventCount: 54,
+    links: {
+      whatsapp: "https://chat.whatsapp.com/...",
+      telegram: "t.me/kizombalisboa",
+      instagram: "@kizombalisboa",
+      facebook: "Kizomba Lisboa (3.1k members)",
+    },
   },
 ]);
 
@@ -376,9 +409,108 @@ watch(selectedEventType, (newValue) => {
                 {{ getStyleLabel(style) }}
               </Badge>
             </div>
-            <p class="text-sm text-gray-600 line-clamp-2">
+            <p class="text-sm text-gray-600 mb-4">
               {{ organizer.bio }}
             </p>
+            <div class="flex flex-wrap gap-2">
+              <Button
+                v-if="organizer.links.whatsapp"
+                variant="outline"
+                size="sm"
+                class="gap-1"
+                as-child
+              >
+                <a
+                  :href="organizer.links.whatsapp"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Icon name="ph:whatsapp-logo" class="w-4 h-4" />
+                  WhatsApp
+                </a>
+              </Button>
+              <Button
+                v-if="organizer.links.telegram"
+                variant="outline"
+                size="sm"
+                class="gap-1"
+                as-child
+              >
+                <a
+                  :href="organizer.links.telegram"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Icon name="ph:telegram-logo" class="w-4 h-4" />
+                  Telegram
+                </a>
+              </Button>
+              <Button
+                v-if="organizer.links.instagram"
+                variant="outline"
+                size="sm"
+                class="gap-1"
+                as-child
+              >
+                <a
+                  :href="
+                    'https://instagram.com/' +
+                    organizer.links.instagram.slice(1)
+                  "
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Icon name="ph:instagram-logo" class="w-4 h-4" />
+                  Instagram
+                </a>
+              </Button>
+              <Button
+                v-if="organizer.links.facebook"
+                variant="outline"
+                size="sm"
+                class="gap-1"
+                as-child
+              >
+                <a href="#" class="flex items-center">
+                  <Icon name="ph:facebook-logo" class="w-4 h-4" />
+                  <span class="truncate max-w-[150px]">{{
+                    organizer.links.facebook
+                  }}</span>
+                </a>
+              </Button>
+              <Button
+                v-if="organizer.links.discord"
+                variant="outline"
+                size="sm"
+                class="gap-1"
+                as-child
+              >
+                <a
+                  :href="'https://' + organizer.links.discord"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Icon name="ph:discord-logo" class="w-4 h-4" />
+                  Discord
+                </a>
+              </Button>
+              <Button
+                v-if="organizer.links.website"
+                variant="outline"
+                size="sm"
+                class="gap-1"
+                as-child
+              >
+                <a
+                  :href="organizer.links.website"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <Icon name="ph:globe" class="w-4 h-4" />
+                  Website
+                </a>
+              </Button>
+            </div>
           </div>
         </NuxtLink>
       </div>
@@ -416,9 +548,108 @@ watch(selectedEventType, (newValue) => {
                   {{ getStyleLabel(style) }}
                 </Badge>
               </div>
-              <p class="text-sm text-gray-600 line-clamp-2">
+              <p class="text-sm text-gray-600 mb-3">
                 {{ organizer.bio }}
               </p>
+              <div class="flex flex-wrap gap-2">
+                <Button
+                  v-if="organizer.links.whatsapp"
+                  variant="outline"
+                  size="sm"
+                  class="gap-1"
+                  as-child
+                >
+                  <a
+                    :href="organizer.links.whatsapp"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <Icon name="ph:whatsapp-logo" class="w-4 h-4" />
+                    WhatsApp
+                  </a>
+                </Button>
+                <Button
+                  v-if="organizer.links.telegram"
+                  variant="outline"
+                  size="sm"
+                  class="gap-1"
+                  as-child
+                >
+                  <a
+                    :href="organizer.links.telegram"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <Icon name="ph:telegram-logo" class="w-4 h-4" />
+                    Telegram
+                  </a>
+                </Button>
+                <Button
+                  v-if="organizer.links.instagram"
+                  variant="outline"
+                  size="sm"
+                  class="gap-1"
+                  as-child
+                >
+                  <a
+                    :href="
+                      'https://instagram.com/' +
+                      organizer.links.instagram.slice(1)
+                    "
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <Icon name="ph:instagram-logo" class="w-4 h-4" />
+                    Instagram
+                  </a>
+                </Button>
+                <Button
+                  v-if="organizer.links.facebook"
+                  variant="outline"
+                  size="sm"
+                  class="gap-1"
+                  as-child
+                >
+                  <a href="#" class="flex items-center">
+                    <Icon name="ph:facebook-logo" class="w-4 h-4" />
+                    <span class="truncate max-w-[150px]">{{
+                      organizer.links.facebook
+                    }}</span>
+                  </a>
+                </Button>
+                <Button
+                  v-if="organizer.links.discord"
+                  variant="outline"
+                  size="sm"
+                  class="gap-1"
+                  as-child
+                >
+                  <a
+                    :href="'https://' + organizer.links.discord"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <Icon name="ph:discord-logo" class="w-4 h-4" />
+                    Discord
+                  </a>
+                </Button>
+                <Button
+                  v-if="organizer.links.website"
+                  variant="outline"
+                  size="sm"
+                  class="gap-1"
+                  as-child
+                >
+                  <a
+                    :href="organizer.links.website"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <Icon name="ph:globe" class="w-4 h-4" />
+                    Website
+                  </a>
+                </Button>
+              </div>
             </div>
           </div>
         </NuxtLink>
