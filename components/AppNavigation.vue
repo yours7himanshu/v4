@@ -112,5 +112,5 @@ watch(
       </div>
     </transition>
   </nav>
-  <div class="h-16"></div>
+  <div class="h-16 bg-background"></div>
 </template>

@@ -51,7 +51,7 @@ const handleFollow = () => {
 
 <template>
   <!-- Hero Section -->
-  <div class="pt-16 relative min-h-[50vh]">
+  <div class="relative min-h-[50vh]">
     <div class="relative flex items-center overflow-hidden min-h-[50vh] py-12">
       <GradientBackground />
 
@@ -112,13 +112,12 @@ const handleFollow = () => {
 
               <!-- Action Buttons -->
               <div class="flex justify-center md:justify-start gap-4">
-                <Button variant="secondary" size="lg" @click="handleBook"
+                <Button variant="primary-on-dark" size="lg" @click="handleBook"
                   >Book Now</Button
                 >
                 <Button
-                  variant="outline"
+                  variant="secondary-on-dark"
                   size="lg"
-                  class="bg-white/10"
                   @click="handleFollow"
                   >Follow</Button
                 >
@@ -171,7 +170,7 @@ const handleFollow = () => {
     </div>
 
     <!-- Content -->
-    <div id="content" class="scroll-mt-[88px]">
+    <div id="content" class="scroll-mt-32">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="flex flex-col-reverse md:flex-row gap-8 justify-center">
           <!-- Main Content -->
@@ -236,7 +235,7 @@ const handleFollow = () => {
                   </tbody>
                 </table>
 
-                <Button class="w-full" variant="default" @click="handleBook"
+                <Button class="w-full" variant="secondary" @click="handleBook"
                   >Book Now</Button
                 >
               </div>

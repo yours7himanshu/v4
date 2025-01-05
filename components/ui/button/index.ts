@@ -17,6 +17,10 @@ export const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
         "secondary-on-dark":
           "bg-white/10 text-white shadow-sm backdrop-blur hover:bg-white/20",
+        "primary-on-dark":
+          "bg-white text-primary shadow-sm backdrop-blur hover:bg-white/90",
+        "outline-on-dark":
+          "border border-white/20 text-white shadow-sm backdrop-blur hover:bg-white/10",
         "on-muted":
           "border border-border bg-background text-foreground shadow-sm hover:bg-accent hover:text-accent-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
