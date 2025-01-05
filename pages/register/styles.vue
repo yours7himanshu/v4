@@ -129,17 +129,17 @@ const removeStyle = (id: string) => {
 </script>
 
 <template>
-  <div class="bg-gray-50 min-h-screen">
+  <div class="bg-background min-h-screen">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
       <div class="text-center mb-12">
         <h1 class="text-4xl font-bold mb-4">Choose Your Dance Styles</h1>
-        <p class="text-gray-600 text-lg">
+        <p class="text-muted-foreground text-lg">
           Select the dance styles you're interested in to personalize your
           experience
         </p>
       </div>
 
-      <div class="bg-white rounded-2xl shadow-lg p-8 mb-8">
+      <div class="bg-card rounded-lg shadow-lg p-8 mb-8">
         <form @submit.prevent="handleSubmit" class="space-y-8">
           <!-- Search and View Toggle -->
           <div class="flex gap-4">
@@ -152,7 +152,7 @@ const removeStyle = (id: string) => {
               />
               <Icon
                 name="ph:magnifying-glass"
-                class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+                class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground"
               />
             </div>
             <Button type="button" variant="outline" @click="showAll = !showAll">
@@ -162,14 +162,14 @@ const removeStyle = (id: string) => {
 
           <!-- Selected Styles -->
           <div v-if="selectedCommunities.length > 0" class="space-y-3">
-            <label class="block text-sm font-medium text-gray-700">
+            <label class="block text-sm font-medium text-foreground">
               Selected Styles
             </label>
             <div class="flex flex-wrap gap-2">
               <div
                 v-for="id in selectedCommunities"
                 :key="id"
-                class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-purple-100 text-purple-700"
+                class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary/10 text-primary"
               >
                 <span class="text-sm font-medium">
                   {{
@@ -181,7 +181,7 @@ const removeStyle = (id: string) => {
                 <button
                   type="button"
                   @click="removeStyle(id)"
-                  class="w-4 h-4 rounded-full hover:bg-purple-200 inline-flex items-center justify-center"
+                  class="w-4 h-4 rounded-full hover:bg-primary/20 inline-flex items-center justify-center"
                 >
                   <Icon name="ph:x" class="w-3 h-3" />
                 </button>
@@ -196,7 +196,7 @@ const removeStyle = (id: string) => {
               :key="category.category"
               class="space-y-4"
             >
-              <h3 class="text-lg font-semibold text-gray-900">
+              <h3 class="text-lg font-semibold text-foreground">
                 {{ category.category }}
               </h3>
               <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -205,16 +205,16 @@ const removeStyle = (id: string) => {
                   :key="style.id"
                   type="button"
                   @click="toggleCommunity(style.id)"
-                  class="flex items-center gap-3 p-4 h-[60px] rounded-xl border-2 transition-all duration-200 hover:border-purple-500 hover:bg-purple-50"
+                  class="flex items-center gap-3 p-4 h-[60px] rounded-lg border-2 transition-all duration-200 hover:border-primary hover:bg-primary/10"
                   :class="[
                     selectedCommunities.includes(style.id)
-                      ? 'border-purple-500 bg-purple-50'
-                      : 'border-gray-200',
+                      ? 'border-primary bg-primary/10'
+                      : 'border-border',
                   ]"
                 >
                   <Icon
                     :name="style.icon"
-                    class="w-6 h-6 flex-shrink-0 text-purple-600"
+                    class="w-6 h-6 flex-shrink-0 text-primary"
                   />
                   <span class="font-medium truncate">{{ style.label }}</span>
                 </button>
@@ -223,7 +223,10 @@ const removeStyle = (id: string) => {
           </div>
 
           <!-- No Results -->
-          <div v-else-if="searchQuery" class="text-center py-12 text-gray-500">
+          <div
+            v-else-if="searchQuery"
+            class="text-center py-12 text-muted-foreground"
+          >
             No dance styles found for "{{ searchQuery }}"
           </div>
 
@@ -238,7 +241,7 @@ const removeStyle = (id: string) => {
             >
               {{ selectedCommunities.length === 0 ? "Skip" : "Continue" }}
             </Button>
-            <p class="text-sm text-gray-500">
+            <p class="text-sm text-muted-foreground">
               You can always update your preferences later in your profile
               settings
             </p>
