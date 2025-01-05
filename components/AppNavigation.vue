@@ -1,5 +1,6 @@
 <script setup>
 const route = useRoute();
+const auth = useAuthStore();
 const isMobileMenuOpen = ref(false);
 
 const navigationItems = [
@@ -11,6 +12,12 @@ const navigationItems = [
 
 const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
+};
+
+const handleSignOut = async () => {
+  await auth.logout();
+  // Optionally redirect to home or login page
+  navigateTo("/");
 };
 
 watch(
@@ -49,11 +56,24 @@ watch(
             {{ item.label }}
           </NuxtLink>
           <ThemeToggle />
-          <Button
-            variant="default"
-            class="hover:bg-purple-600 transition-colors"
-            >Sign In</Button
-          >
+          <template v-if="auth.isAuthenticated">
+            <Button
+              variant="ghost"
+              @click="handleSignOut"
+              class="hover:text-purple-600 transition-colors"
+            >
+              Sign Out
+            </Button>
+          </template>
+          <template v-else>
+            <Button
+              variant="default"
+              class="hover:bg-purple-600 transition-colors"
+              as-child
+            >
+              <NuxtLink to="/login">Sign In</NuxtLink>
+            </Button>
+          </template>
         </div>
         <!-- Mobile menu button -->
         <div class="flex items-center sm:hidden">
@@ -103,11 +123,25 @@ watch(
               >Toggle theme</span
             >
           </div>
-          <Button
-            variant="default"
-            class="w-full mt-4 hover:bg-purple-600 transition-colors"
-            >Sign In</Button
-          >
+          <template v-if="auth.isAuthenticated">
+            <Button
+              variant="ghost"
+              @click="handleSignOut"
+              class="w-full justify-start px-3 hover:text-purple-600 transition-colors"
+            >
+              <Icon name="lucide:log-out" class="h-5 w-5 mr-2" />
+              Sign Out
+            </Button>
+          </template>
+          <template v-else>
+            <Button
+              variant="default"
+              class="w-full mt-4 hover:bg-purple-600 transition-colors"
+              as-child
+            >
+              <NuxtLink to="/login">Sign In</NuxtLink>
+            </Button>
+          </template>
         </div>
       </div>
     </transition>
