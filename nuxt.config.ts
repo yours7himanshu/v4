@@ -19,6 +19,13 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@pinia/nuxt",
     "@nuxtjs/google-fonts",
+    "@nuxt/content",
+  ],
+  components: [
+    {
+      path: "~/components",
+      pathPrefix: false,
+    },
   ],
   colorMode: {
     classSuffix: "",
