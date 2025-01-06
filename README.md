@@ -70,6 +70,7 @@ pnpm build
 ### Business
 
 - [Vision](docs/content/20.business/1.vision.md)
+- [Organization](docs/content/20.business/2.organization.md)
 - [Business Model](docs/content/20.business/0.model.md)
 
 ### Design Challenges
