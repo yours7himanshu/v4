@@ -12,6 +12,7 @@ Items related to organization, policy and role development:
 
 ### Core Circle
 
+- [x] Select first dance style: Salsa Cubana ([decision record](../30.governance/decisions/001-first-dance-style.md))
 - [ ] Complete S3 documentation structure
 - [ ] Define circle formation process
 - [ ] Create role selection process
@@ -42,12 +43,16 @@ Items related to organization, policy and role development:
 
 Concrete tasks to be implemented:
 
-### First Dance Style MVP
+### First Dance Style MVP (Salsa Cubana)
 
-- [ ] Select target dance style
-- [ ] Engage key community leaders
-- [ ] Define style-specific features
-- [ ] Launch pilot community
+- [x] Select target dance style: Salsa Cubana
+- [ ] Document current activities:
+  - [ ] Sunday classes at Buenavista
+  - [ ] Wednesday socials (year-round)
+  - [ ] Friday socials (summer, open air)
+- [ ] Identify main pain points in organizing
+- [ ] Implement tools for existing activities
+- [ ] Connect with other Salsa Cubana teachers
 
 ### Platform Development
 
