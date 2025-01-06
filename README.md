@@ -70,7 +70,7 @@ pnpm build
 ### Business
 
 - [Vision](docs/content/20.business/1.vision.md)
-- [Organization & Business Model](docs/content/20.business/2.organization-and-model.md)
+- [Organization Canvas](docs/content/20.business/2.organization-canvas.md)
 - [Strategy](docs/content/20.business/2.strategy.md)
 - [OKRs](docs/content/20.business/4.okrs.md)
 
