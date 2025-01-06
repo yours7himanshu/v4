@@ -1,13 +1,20 @@
 const animate = require("tailwindcss-animate");
+const typography = require("@tailwindcss/typography");
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx,vue}",
     "./components/**/*.{ts,tsx,vue}",
     "./app/**/*.{ts,tsx,vue}",
     "./src/**/*.{ts,tsx,vue}",
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./app.vue",
+    "./error.vue",
   ],
   prefix: "",
   theme: {
@@ -100,7 +107,61 @@ module.exports = {
           "animation-delay": "4s",
         },
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: "none",
+            color: "rgb(107 70 193 / 0.8)", // purple-700 with opacity
+            h2: {
+              color: "rgb(88 28 135)", // purple-900
+              fontWeight: "600",
+              fontSize: "1.25em",
+              marginTop: "1.5em",
+              marginBottom: "0.75em",
+            },
+            h3: {
+              color: "rgb(88 28 135)", // purple-900
+              fontWeight: "500",
+              fontSize: "1.1em",
+              marginTop: "1.25em",
+              marginBottom: "0.5em",
+            },
+            p: {
+              marginTop: "0.5em",
+              marginBottom: "0.5em",
+            },
+            ul: {
+              marginTop: "0.125em",
+              marginBottom: "0.125em",
+            },
+            li: {
+              marginTop: "0.05em",
+              marginBottom: "0.05em",
+              lineHeight: "1.2",
+            },
+            "ul > li::before": {
+              backgroundColor: "rgb(147 51 234)", // purple-600
+              width: "0.25em",
+              height: "0.25em",
+              marginTop: "0.5em",
+              marginLeft: "-0.75em",
+            },
+            strong: {
+              color: "rgb(88 28 135)", // purple-900
+              fontWeight: "600",
+            },
+            a: {
+              color: "rgb(147 51 234)", // purple-600
+              textDecoration: "none",
+              "&:hover": {
+                color: "rgb(126 34 206)", // purple-700
+                textDecoration: "underline",
+              },
+            },
+          },
+        },
+      },
     },
   },
-  plugins: [animate],
+  plugins: [typography, animate],
 };
