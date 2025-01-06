@@ -15,17 +15,6 @@ due_date: 2024-09-01
 
 Dance artists and teachers need better tools to manage bookings and reach students, currently relying on fragmented solutions that limit their reach.
 
-## User Stories
-
-- As an Artist, I want to manage my class schedule
-- As an Artist, I want to accept bookings for private lessons
-- As an Artist, I want to share my content and get discovered
-- As an Artist, I want to promote my events and classes
-- As an Artist, I want to build my professional profile
-- As an Artist, I want to connect with event organizers
-- As an Artist, I want to manage student communications
-- As an Artist, I want to receive payments online
-
 ## Success Metrics
 
 - Number of active artists
@@ -34,10 +23,3 @@ Dance artists and teachers need better tools to manage bookings and reach studen
 - Student satisfaction scores
 - Class attendance rates
 - Content engagement metrics
-
-## Related Issues
-
-- Booking system
-- Artist profiles
-- Payment processing
-- Class management
