@@ -9,6 +9,7 @@ interface Issue {
   labels: string[];
   created_at: string;
   due_date: string;
+  epic?: string;
 }
 
 const { data } = await useAsyncData("issues", () =>
@@ -26,6 +27,11 @@ const issues = computed(() => {
   });
   return Array.from(uniqueIssues.values());
 });
+
+const getIssueId = (path: string) => {
+  const match = path.match(/us-(\d+)-/);
+  return match ? match[1] : "";
+};
 
 const formatDate = (date: string) => {
   return new Date(date).toLocaleDateString("de-DE", {
@@ -81,12 +87,22 @@ const getStatusColor = (status: string) => {
                 getPriorityColor(issue.priority),
               ]"
             />
+            <div class="text-xs text-gray-500 font-mono">
+              US-{{ getIssueId(issue._path) }}
+            </div>
             <h3 class="font-medium">{{ issue.title }}</h3>
           </div>
           <p class="mt-1 text-sm text-gray-600">{{ issue.description }}</p>
 
           <div class="mt-3 flex flex-wrap items-center gap-3">
             <div class="flex gap-1">
+              <Badge
+                v-if="issue.epic"
+                variant="outline"
+                class="text-[10px] px-1.5 border-purple-200 bg-purple-50 text-purple-700"
+              >
+                {{ issue.epic }}
+              </Badge>
               <Badge
                 v-for="label in issue.labels"
                 :key="label"
@@ -95,11 +111,6 @@ const getStatusColor = (status: string) => {
               >
                 {{ label }}
               </Badge>
-            </div>
-
-            <div class="flex items-center gap-2 text-xs text-gray-500">
-              <Icon name="uil:calendar-alt" class="w-3 h-3" />
-              {{ formatDate(issue.due_date) }}
             </div>
 
             <div class="flex items-center gap-2 text-xs text-gray-500">

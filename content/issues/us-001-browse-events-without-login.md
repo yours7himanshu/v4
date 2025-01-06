@@ -10,7 +10,7 @@ labels:
   - events
 created_at: 2024-03-20
 due_date: 2024-04-15
-epic: epic-event-discovery
+epic: event-discovery
 ---
 
 ## User Story
