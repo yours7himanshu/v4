@@ -19,7 +19,11 @@
         "docs/content/40.operations/backlog.md",
         "docs/content/30.governance/decisions/",
         "docs/content/40.operations/processes.md"
-      ]
+      ],
+      "greeting": {
+        "withUser": "Hello {username}! 👋",
+        "withoutUser": "Welcome! I notice you haven't completed the onboarding yet. Let's get you set up!"
+      }
     },
     {
       "name": "Product Expert",
@@ -99,7 +103,9 @@
         "What is your GitHub username?",
         "Which circles are you part of? (core, community, product, growth)",
         "What are your roles? (core, contributor, member)"
-      ]
+      ],
+      "required": true,
+      "createFile": true
     }
   },
   "defaults": {
