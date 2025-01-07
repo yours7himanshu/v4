@@ -41,13 +41,14 @@ const danceStyles = computed(() => {
           <h1
             class="text-5xl md:text-7xl font-extrabold text-primary-foreground tracking-tight"
           >
-            Let's dance?
+            One Place for All Dance Events
           </h1>
           <p
             class="text-lg md:text-xl text-primary-foreground/80 mt-4 mb-12 max-w-2xl mx-auto"
           >
-            Join a global community of dancers, learn from the best, and
-            discover events worldwide
+            Stop searching through WhatsApp, Telegram, and Facebook groups. Find
+            all dance events, classes, and festivals in your city in one place.
+            Join 10,000+ dancers who already found their community.
           </p>
 
           <!-- Dance Style Selection -->
