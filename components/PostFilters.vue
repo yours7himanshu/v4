@@ -25,7 +25,7 @@ const postTypeOptions = [
   { value: "all", label: "All Posts", icon: "ph:list" },
   { value: "event", label: "Events", icon: "ph:calendar" },
   { value: "meet", label: "Meet", icon: "ph:users" },
-  { value: "note", label: "Notes", icon: "ph:note" },
+  { value: "note", label: "Messages", icon: "ph:note" },
   { value: "article", label: "Articles", icon: "ph:article" },
   { value: "review", label: "Reviews", icon: "ph:star" },
   { value: "gig", label: "Gigs", icon: "ph:music-notes" },
