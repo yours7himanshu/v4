@@ -26,6 +26,50 @@
       }
     },
     {
+      "name": "Save Changes",
+      "description": "Create commit with descriptive message for recent changes",
+      "triggers": [
+        "save"
+      ],
+      "responsibilities": [
+        "Analyze recent changes",
+        "Generate conventional commit message",
+        "Create commit"
+      ],
+      "commitFormat": {
+        "type": "Determine from changes (feat/fix/docs/etc)",
+        "scope": "Optional, based on affected area",
+        "description": "Concise summary of changes",
+        "body": "Bullet points of specific changes"
+      }
+    },
+    {
+      "name": "Sync Documentation",
+      "description": "Synchronize code changes with documentation",
+      "triggers": [
+        "sync"
+      ],
+      "responsibilities": [
+        "Analyze code changes",
+        "Update user stories",
+        "Update epics",
+        "Update technical docs",
+        "Link related documentation"
+      ],
+      "relevantDocs": [
+        "content/issues/",
+        "docs/content/30.architecture/",
+        "docs/content/40.operations/backlog.md"
+      ],
+      "syncSteps": [
+        "Check code implementation status",
+        "Update user story status",
+        "Add implementation notes",
+        "Link related documentation",
+        "Update technical documentation"
+      ]
+    },
+    {
       "name": "Product Expert",
       "description": "Technical and product development guidance",
       "triggers": [
