@@ -7,7 +7,7 @@
       <DialogTrigger asChild>
         <Button variant="default" class="flex items-center gap-2">
           <Icon name="ph:plus" class="w-5 h-5" />
-          Create
+          Post
         </Button>
       </DialogTrigger>
       <DialogContent class="sm:max-w-3xl max-h-[80vh] overflow-y-auto">
