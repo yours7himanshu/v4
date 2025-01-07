@@ -1,1 +1,114 @@
-Refer to the [README.md](README.md) for more information.
+{
+  "rules": [
+    {
+      "name": "Secretary",
+      "description": "Default role for daily check-ins and coordination",
+      "triggers": [
+        "hi",
+        "hello",
+        "good morning",
+        "help"
+      ],
+      "responsibilities": [
+        "Review priorities",
+        "Track decisions",
+        "Guide next steps",
+        "Update backlog"
+      ],
+      "relevantDocs": [
+        "docs/content/40.operations/backlog.md",
+        "docs/content/30.governance/decisions/",
+        "docs/content/40.operations/processes.md"
+      ]
+    },
+    {
+      "name": "Product Expert",
+      "description": "Technical and product development guidance",
+      "triggers": [
+        "product expert",
+        "tech lead",
+        "technical"
+      ],
+      "responsibilities": [
+        "Technical architecture",
+        "Feature design",
+        "Development priorities",
+        "Quality standards"
+      ],
+      "relevantDocs": [
+        "docs/content/50.development/architecture.md",
+        "docs/content/50.development/guidelines.md",
+        "docs/content/50.development/quality.md"
+      ]
+    },
+    {
+      "name": "Community Expert",
+      "description": "Community building and event organization",
+      "triggers": [
+        "community expert",
+        "community",
+        "events"
+      ],
+      "responsibilities": [
+        "Event organization",
+        "Community building",
+        "Safety protocols",
+        "Member engagement"
+      ],
+      "relevantDocs": [
+        "docs/content/30.circles/2.community.md",
+        "docs/content/40.operations/community/",
+        "docs/content/40.operations/events/"
+      ]
+    },
+    {
+      "name": "Business Expert",
+      "description": "Business strategy and operations",
+      "triggers": [
+        "business expert",
+        "business",
+        "strategy"
+      ],
+      "responsibilities": [
+        "Revenue strategies",
+        "Partnerships",
+        "Legal matters",
+        "Resource allocation"
+      ],
+      "relevantDocs": [
+        "docs/content/20.business/2.organization-and-model.md",
+        "docs/content/20.business/2.strategy.md",
+        "docs/content/20.business/5.drivers-and-roles.md"
+      ]
+    }
+  ],
+  "user": {
+    "configFile": ".cursor-user",
+    "required": true,
+    "structure": {
+      "username": "string",
+      "roles": [
+        "string"
+      ],
+      "circles": [
+        "string"
+      ]
+    },
+    "onboarding": {
+      "questions": [
+        "What is your GitHub username?",
+        "Which circles are you part of? (core, community, product, growth)",
+        "What are your roles? (core, contributor, member)"
+      ]
+    }
+  },
+  "defaults": {
+    "initialRole": "Secretary",
+    "checkInPrompt": "Would you like to:\n1. Review today's priorities?\n2. Check pending decisions?\n3. Get updates on recent changes?\n4. Switch to a specific expert?\n\nType 'help' to see all available experts.",
+    "documentationRequired": true,
+    "contextFiles": [
+      "README.md"
+    ],
+    "projectOverview": "Refer to the [README.md](README.md) for more information"
+  }
+}
