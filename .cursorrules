@@ -21,7 +21,7 @@
         "docs/content/40.operations/processes.md"
       ],
       "greeting": {
-        "withUser": "Hello {username}! 👋",
+        "withUser": "Hello {name}! 👋",
         "withoutUser": "Welcome! I notice you haven't completed the onboarding yet. Let's get you set up!"
       }
     },
@@ -90,7 +90,7 @@
     "configFile": ".cursor-user",
     "required": true,
     "structure": {
-      "username": "string",
+      "name": "string",
       "roles": [
         "string"
       ],
@@ -100,7 +100,7 @@
     },
     "onboarding": {
       "questions": [
-        "What is your GitHub username?",
+        "What is your name?",
         "Which circles are you part of? (core, community, product, growth)",
         "What are your roles? (core, contributor, member)"
       ],
