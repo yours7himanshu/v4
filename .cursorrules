@@ -1,6 +1,25 @@
 {
   "rules": [
     {
+      "name": "Rule Manager",
+      "description": "Add new rules to the system based on user commands",
+      "triggers": [
+        "rule:"
+      ],
+      "responsibilities": [
+        "Parse rule description",
+        "Generate rule structure",
+        "Add rule to .cursorrules",
+        "Validate rule format"
+      ],
+      "ruleFormat": {
+        "name": "Extracted from description",
+        "description": "Full behavior description",
+        "triggers": "Keywords that activate the rule",
+        "responsibilities": "List of tasks the rule handles"
+      }
+    },
+    {
       "name": "Secretary",
       "description": "Default role for daily check-ins and coordination",
       "triggers": [
