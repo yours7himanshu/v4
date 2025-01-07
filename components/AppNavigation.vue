@@ -6,7 +6,7 @@ const isMobileMenuOpen = ref(false);
 const navigationItems = [
   { to: "/feed", label: "Feed", icon: "lucide:home" },
   { to: "/events", label: "Events", icon: "lucide:calendar" },
-  { to: "/organizers", label: "Orgs", icon: "lucide:building" },
+  { to: "/groups", label: "Groups", icon: "lucide:users-2" },
   { to: "/artists", label: "Artists", icon: "lucide:users" },
   { to: "/venues", label: "Venues", icon: "lucide:map-pin" },
 ];

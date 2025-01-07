@@ -1,7 +1,7 @@
 <template>
   <PageSimple
-    title="Dance Organizers"
-    description="Find and connect with dance event organizers and promoters"
+    title="Dance Groups"
+    description="Find and connect with dance groups, promoters, and organizers"
   >
     <OrganizersView />
   </PageSimple>
