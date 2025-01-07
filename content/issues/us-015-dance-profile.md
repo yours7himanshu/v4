@@ -1,65 +1,67 @@
 ---
-title: Specify Dance Level and Goals
-description: Allow dancers to create detailed profiles with their experience and objectives
-status: todo
+title: Dance Profile Management
+description: Enable users to create and manage their dance profiles
+status: in-progress
 priority: high
 assignee: Frontend Team
 labels:
   - user-story
   - frontend
-  - partner-finding
-  - profiles
+  - profile
 created_at: 2024-03-20
-due_date: 2024-05-15
-epic: partner-finding
+due_date: 2024-04-30
+epic: user-profiles
+implementation_status:
+  - ✅ Basic auth store setup
+  - ✅ User points/levels system designed
+  - ⏳ Profile form components in progress
+  - 🔲 Profile image upload pending
+  - 🔲 Dance preferences pending
 ---
 
 ## User Story
 
 As a Dancer,
-I want to specify my dance level and goals,
-So that I can find compatible partners with matching experience and aspirations.
+I want to create and manage my dance profile,
+So that I can showcase my dance experience and connect with the community.
 
 ## Acceptance Criteria
 
-- [ ] Dance profile setup:
-  - Multiple dance styles
-  - Skill level per style
-  - Years of experience
-  - Training history
-  - Competition experience
-  - Teaching experience
-- [ ] Goals specification:
-  - Practice objectives
-  - Performance goals
-  - Competition plans
-  - Social dancing interests
-  - Learning priorities
-- [ ] Skill assessment:
-  - Self-assessment tools
-  - Skill verification
-  - Progress tracking
-  - Achievement badges
-  - Endorsements
-- [ ] Media showcase:
-  - Dance videos
-  - Performance photos
-  - Competition results
-  - Certificates
-  - Awards
-- [ ] Profile visibility:
-  - Public/private options
-  - Custom sharing
-  - Profile analytics
-  - View history
-  - Profile completion score
+- [x] Basic profile information:
+  - [x] Name
+  - [x] Email
+  - [ ] Profile picture
+  - [ ] Bio
+- [ ] Dance preferences:
+  - [ ] Favorite styles
+  - [ ] Experience levels
+  - [ ] Teaching/learning interests
+- [ ] Community features:
+  - [x] Points system
+  - [x] Level progression
+  - [ ] Achievements
+  - [ ] Badges
+- [ ] Privacy settings:
+  - [ ] Profile visibility
+  - [ ] Contact preferences
+  - [ ] Data sharing options
+- [x] Mobile-responsive design
 
 ## Technical Notes
 
-- Implement skill rating system
-- Handle media uploads
-- Create progress tracking
-- Enable endorsements
-- Support achievements
-- Handle privacy settings
-- Implement profile analytics
+- Implement secure file upload for profile pictures
+- Handle data validation
+- Implement privacy controls
+- Support profile data export
+
+## Implementation Notes
+
+- Using Pinia for state management
+- vee-validate + zod for form validation
+- shadcn-vue components for UI
+- Points system implemented in auth store
+- Need to implement:
+  - Image upload service
+  - Privacy settings logic
+  - Dance preferences schema
+  - Achievement system

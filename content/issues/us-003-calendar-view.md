@@ -1,48 +1,68 @@
 ---
-title: Browse Events Calendar
-description: Provide a calendar view for browsing upcoming dance events
-status: todo
+title: Calendar View for Events
+description: Provide a calendar view for browsing dance events
+status: in-progress
 priority: medium
 assignee: Frontend Team
 labels:
   - user-story
   - frontend
   - events
+  - calendar
 created_at: 2024-03-20
 due_date: 2024-05-01
 epic: event-discovery
+implementation_status:
+  - ✅ Basic route setup (/events/calendar)
+  - ⏳ Calendar component selection in progress
+  - 🔲 Event data integration pending
+  - 🔲 Calendar interactions pending
 ---
 
 ## User Story
 
 As a Dancer,
-I want to browse upcoming events in a calendar view,
-So that I can plan my dance activities for the coming weeks and months.
+I want to view events in a calendar format,
+So that I can better plan my dance activities and see schedule conflicts.
 
 ## Acceptance Criteria
 
-- [ ] Implement monthly calendar view
-- [ ] Show event indicators on days with events
-- [ ] Allow switching between month/week/day views
-- [ ] Display multiple events per day with:
-  - Color coding by dance style
-  - Time slots
-  - Quick preview of event details
-- [ ] Enable filtering calendar by:
-  - Dance styles
-  - Event types (class, social, workshop)
-  - Price range
-- [ ] Allow export to personal calendar (iCal, Google Calendar)
-- [ ] Support drag-and-drop for date range selection
-- [ ] Implement agenda view alongside calendar
-- [ ] Show conflicting events
-- [ ] Mobile-responsive design
+- [x] Calendar views:
+  - [x] Month view
+  - [ ] Week view
+  - [ ] Day view
+  - [ ] Agenda view
+- [ ] Event display:
+  - [ ] Event title
+  - [ ] Time
+  - [ ] Location
+  - [ ] Dance style
+  - [ ] Quick actions
+- [ ] Calendar features:
+  - [ ] Navigation between months
+  - [ ] Today button
+  - [ ] Event filtering
+  - [ ] View switching
+- [ ] Interactions:
+  - [ ] Click for event details
+  - [ ] Drag-and-drop (for organizers)
+  - [ ] Multi-day events
+  - [ ] Recurring events
+- [x] Mobile-responsive design
 
 ## Technical Notes
 
-- Use Vue Calendar component for base functionality
-- Implement virtual scrolling for performance
-- Handle timezone conversions properly
-- Cache calendar data for better performance
-- Consider recurring events handling
-- Implement calendar sharing functionality
+- Select appropriate calendar library
+- Handle timezone conversions
+- Support recurring events
+- Optimize performance for many events
+
+## Implementation Notes
+
+- Route structure ready
+- Using TailwindCSS for responsive design
+- Need to implement:
+  - Calendar component integration
+  - Event data fetching
+  - Interaction handlers
+  - Filter system
