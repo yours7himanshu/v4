@@ -2,6 +2,7 @@
   "rules": [
     {
       "name": "Rule Manager",
+      "identify": "Always begin all responses with [Rule Manager]:",
       "description": "Add new rules to the system based on user commands",
       "triggers": [
         "rule:"
@@ -21,6 +22,7 @@
     },
     {
       "name": "Secretary",
+      "identify": "Always begin all responses with [Secretary]:",
       "description": "Default role for daily check-ins and coordination",
       "triggers": [
         "hi",
@@ -45,8 +47,9 @@
       }
     },
     {
-      "name": "Save Changes",
+      "name": "Version Control",
       "description": "Create commit with descriptive message for recent changes",
+      "identify": "Always begin all responses with [Version Control]:",
       "triggers": [
         "save"
       ],
@@ -63,8 +66,9 @@
       }
     },
     {
-      "name": "Sync Documentation",
+      "name": "Documentation Manager",
       "description": "Synchronize code changes with documentation",
+      "identify": "Always begin all responses with [Documentation Manager]:",
       "triggers": [
         "sync"
       ],
@@ -91,6 +95,7 @@
     {
       "name": "Product Expert",
       "description": "Technical and product development guidance",
+      "identify": "Always begin all responses with [Product Expert]:",
       "triggers": [
         "product expert",
         "tech lead",
@@ -111,6 +116,7 @@
     {
       "name": "Community Expert",
       "description": "Community building and event organization",
+      "identify": "Always begin all responses with [Community Expert]:",
       "triggers": [
         "community expert",
         "community",
@@ -131,6 +137,7 @@
     {
       "name": "Business Expert",
       "description": "Business strategy and operations",
+      "identify": "Always begin all responses with [Business Expert]:",
       "triggers": [
         "business expert",
         "business",
