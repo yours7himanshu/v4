@@ -1,0 +1,45 @@
+name: Anja Sophie
+title: Munich Market Developer
+summary: Dance instructor and community builder with extensive experience in the Munich dance scene. Focused on growing WeDance's presence in Munich and developing partnerships with dance schools.
+
+quick_info:
+  location: Munich, Germany
+  languages:
+    - German
+    - English
+  timezone: CET
+  availability: Part-time
+
+technical_expertise:
+  - Dance instruction
+  - Event organization
+  - Community building
+  - Partnership development
+
+professional_experience:
+  - role: Dance Instructor
+    company: Dance With George Dance Academy
+    location: Munich
+    period: Current
+    highlights:
+      - Salsa instruction
+      - Event organization
+      - Community building
+      - Student mentoring
+
+major_projects:
+  - title: Munich Market Development
+    description: Leading WeDance's expansion in Munich dance community
+    status: In Progress
+    start_date: 2024-01
+
+education:
+  - degree: [To be filled]
+    institution: [To be filled]
+    year: [To be filled]
+
+speaking_community:
+  - language: German
+    level: Native
+  - language: English
+    level: Professional

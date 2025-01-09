@@ -23,6 +23,13 @@
 - Focus: Local community growth, marketing strategy, UX feedback, strategic planning
 - [CV](./aina.yaml)
 
+### Anja Sophie
+
+- Role:
+- Circles:
+- Focus:
+- [CV](./anja-sophie.yaml)
+
 ## Onboarding Process
 
 When adding new team members:
