@@ -18,7 +18,7 @@ New team members must sign:
 
 1. Fork the WeDance repository
 2. Create a new branch: `sign/your-github-username`
-3. Create a file in `signatures/YYYY-MM/your-github-username.md` with:
+3. Create a file in `signatures/YYYY-MM-DD-your-github-username.md` with:
 
    ```md
    # Signature Record
