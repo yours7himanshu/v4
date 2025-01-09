@@ -17,6 +17,7 @@ We will implement the following profit distribution policy:
 
 1. Contributor time will be recognized as monetary investment
 2. Hourly rate calculation:
+   - Founder (Alex Razbakov): 36 EUR/hour
    - Based on contributor's current job rate
    - Based on potential job rate (if provable)
    - Default rate of 15 EUR/hour for those without work experience
