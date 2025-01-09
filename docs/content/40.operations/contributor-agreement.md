@@ -2,12 +2,24 @@
 
 ## Overview
 
-This Contributor Agreement ("Agreement") outlines the terms under which you contribute to WeDance. It protects both contributors and the project while maintaining our open-source principles.
+This Contributor Agreement ("Agreement") outlines the terms under which you contribute to WeDance. It protects both contributors and the project while maintaining our open-source principles and core values.
+
+## Core Values Alignment
+
+Your contributions should align with WeDance's core values:
+
+- **Community-driven**: Serve community needs first
+- **Participatory**: Enable both creation and participation
+- **Transparency**: Keep processes open and accessible
+- **Trust & Safety**: Maintain security and trust
+- **Quality**: Uphold high standards
 
 ## Related Documents
 
 - [Code of Conduct](./code-of-conduct.md) - Our community standards and expectations
 - [Privacy Guidelines](./privacy-guidelines.md) - How we handle and protect data
+- [Organization Canvas](/docs/content/20.business/2.organization-canvas.md) - Our values and structure
+- [Drivers and Roles](/docs/content/20.business/5.drivers-and-roles.md) - How we organize
 
 ## 1. Definitions
 
@@ -106,3 +118,21 @@ Name: \***\*\*\*\*\***\_\_\_\_\***\*\*\*\*\***
 Date: \***\*\*\*\*\***\_\_\_\_\***\*\*\*\*\***
 GitHub Username: **\*\***\_\_**\*\***
 Signature: **\*\*\*\***\_\_\_\_**\*\*\*\***
+
+## Governance
+
+This Agreement follows our Sociocracy 3.0 principles:
+
+### Decision Making
+
+- Changes through circle structure
+- Consent-based processes
+- Regular review cycles
+- Community input integration
+
+### Role Participation
+
+- Circle membership opportunities
+- Role rotation possibilities
+- Skill development support
+- Cross-circle collaboration

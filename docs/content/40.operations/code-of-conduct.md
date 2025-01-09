@@ -4,10 +4,22 @@
 
 We pledge to make WeDance a welcoming and safe space for all members of the dance community, regardless of dance level, style, background, age, body type, disability, ethnicity, gender identity, nationality, race, religion, or sexual orientation.
 
+## Core Values in Action
+
+Our Code of Conduct is built on WeDance's core values:
+
+- **Community-driven**: We believe communities know best how to serve their needs
+- **Participatory**: Everyone can be both creator and participant
+- **Transparency**: All processes are open and accessible
+- **Trust & Safety**: We create a secure environment for connection
+- **Quality**: We maintain high standards in all interactions
+
 ## Related Documents
 
 - [Privacy Guidelines](./privacy-guidelines.md) - How we handle and protect data
 - [Contributor Agreement](./contributor-agreement.md) - Terms for contributing to WeDance
+- [Organization Canvas](/docs/content/20.business/2.organization-canvas.md) - Our values and structure
+- [Drivers and Roles](/docs/content/20.business/5.drivers-and-roles.md) - How we organize
 
 ## Our Standards
 
@@ -122,3 +134,21 @@ I acknowledge that I have read and agree to follow this Code of Conduct:
 Name: \***\*\*\*\*\***\_\_\_\_\***\*\*\*\*\***
 Date: \***\*\*\*\*\***\_\_\_\_\***\*\*\*\*\***
 Signature: **\*\*\*\***\_\_\_\_**\*\*\*\***
+
+## Governance
+
+This Code of Conduct follows our Sociocracy 3.0 principles:
+
+### Updates and Evolution
+
+- Changes proposed through circle structure
+- Decisions made by consent
+- Regular review and adaptation
+- Community feedback integration
+
+### Enforcement Process
+
+- Circle-based investigation
+- Consent-based decision making
+- Transparent documentation
+- Regular policy review

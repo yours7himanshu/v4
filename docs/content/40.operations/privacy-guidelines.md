@@ -2,12 +2,24 @@
 
 ## Overview
 
-These guidelines outline how WeDance team members should handle user data and sensitive information. As a team member, you are responsible for maintaining user trust and protecting privacy.
+These guidelines outline how WeDance team members should handle user data and sensitive information. As a team member, you are responsible for maintaining user trust and protecting privacy in alignment with our core values.
+
+## Core Values in Practice
+
+Our privacy practices embody WeDance's core values:
+
+- **Community-driven**: Privacy policies shaped by community needs
+- **Participatory**: Everyone contributes to data protection
+- **Transparency**: Clear and open privacy processes
+- **Trust & Safety**: Highest standards of data security
+- **Quality**: Excellence in privacy protection
 
 ## Related Documents
 
 - [Code of Conduct](./code-of-conduct.md) - Our community standards and expectations
 - [Contributor Agreement](./contributor-agreement.md) - Terms for contributing to WeDance
+- [Organization Canvas](/docs/content/20.business/2.organization-canvas.md) - Our values and structure
+- [Drivers and Roles](/docs/content/20.business/5.drivers-and-roles.md) - How we organize
 
 ## User Data Handling
 
@@ -88,6 +100,24 @@ These guidelines outline how WeDance team members should handle user data and se
 - Implement privacy by design
 - Regular privacy audits
 - Update procedures as needed
+
+## Governance
+
+These guidelines follow our Sociocracy 3.0 principles:
+
+### Policy Evolution
+
+- Circle-based updates
+- Consent decision-making
+- Regular review process
+- Community feedback integration
+
+### Implementation
+
+- Circle responsibility
+- Shared accountability
+- Transparent processes
+- Continuous improvement
 
 ## Questions & Support
 
