@@ -110,14 +110,9 @@ We will:
 
 By contributing to the Project, you accept and agree to this Agreement. If you have questions, please contact the core team before contributing.
 
----
+## Signing
 
-## Acknowledgments
-
-Name: \***\*\*\*\*\***\_\_\_\_\***\*\*\*\*\***
-Date: \***\*\*\*\*\***\_\_\_\_\***\*\*\*\*\***
-GitHub Username: **\*\***\_\_**\*\***
-Signature: **\*\*\*\***\_\_\_\_**\*\*\*\***
+Please follow our [Digital Signing Process](./signing-process.md) to acknowledge this Agreement.
 
 ## Governance
 

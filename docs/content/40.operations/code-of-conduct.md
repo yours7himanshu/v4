@@ -127,13 +127,9 @@ For questions or concerns:
 - Events: Talk to organizers
 - Emergency: Contact local authorities
 
-## Acknowledgments
+## Signing
 
-I acknowledge that I have read and agree to follow this Code of Conduct:
-
-Name: \***\*\*\*\*\***\_\_\_\_\***\*\*\*\*\***
-Date: \***\*\*\*\*\***\_\_\_\_\***\*\*\*\*\***
-Signature: **\*\*\*\***\_\_\_\_**\*\*\*\***
+Please follow our [Digital Signing Process](./signing-process.md) to acknowledge this Code of Conduct.
 
 ## Governance
 

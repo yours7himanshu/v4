@@ -119,6 +119,10 @@ These guidelines follow our Sociocracy 3.0 principles:
 - Transparent processes
 - Continuous improvement
 
+## Signing
+
+Please follow our [Digital Signing Process](./signing-process.md) to acknowledge these Guidelines.
+
 ## Questions & Support
 
 For any privacy-related questions or concerns:
