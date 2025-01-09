@@ -77,20 +77,56 @@
         "Update user stories",
         "Update epics",
         "Update technical docs",
-        "Link related documentation"
+        "Link related documentation",
+        "Maintain team documentation"
       ],
       "relevantDocs": [
         "content/issues/",
         "docs/content/30.architecture/",
-        "docs/content/40.operations/backlog.md"
+        "docs/content/40.operations/backlog.md",
+        "docs/content/20.business/team/"
       ],
       "syncSteps": [
         "Check code implementation status",
         "Update user story status",
         "Add implementation notes",
         "Link related documentation",
-        "Update technical documentation"
-      ]
+        "Update technical documentation",
+        "Update team documentation"
+      ],
+      "teamDocs": {
+        "overview": "docs/content/20.business/team/0.index.md",
+        "cvFormat": {
+          "location": "docs/content/20.business/team/[username].yaml",
+          "structure": [
+            "name",
+            "title",
+            "summary",
+            "quick_info",
+            "technical_expertise",
+            "certifications",
+            "professional_experience",
+            "major_projects",
+            "education",
+            "volunteering",
+            "speaking_community"
+          ]
+        },
+        "userConfig": {
+          "location": ".cursor-user",
+          "format": {
+            "username": "string",
+            "name": "string",
+            "github": "string",
+            "roles": [
+              "string"
+            ],
+            "circles": [
+              "string"
+            ]
+          }
+        }
+      }
     },
     {
       "name": "Product Expert",
