@@ -10,7 +10,7 @@ labels:
   - profile
 created_at: 2024-03-20
 due_date: 2024-04-30
-epic: user-profiles
+epic: community-engagement
 implementation_status:
   - ✅ Basic auth store setup
   - ✅ User points/levels system designed
