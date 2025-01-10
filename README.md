@@ -22,7 +22,8 @@ WeDance is a participatory network that empowers dance communities by providing 
 
 ## 📦 Prerequisites
 
-- Node.js (version specified in `.nvmrc`)
+- Git
+- NVM (to install specific Node.js version)
 - PNPM package manager
 
 ## 🛠️ Setup
@@ -30,13 +31,14 @@ WeDance is a participatory network that empowers dance communities by providing 
 1. Clone the repository
 
 ```bash
-git clone [repository-url]
-cd concept2
+git clone git@github.com:razbakov/wedance.git
+cd wedance
 ```
 
 2. Install dependencies
 
 ```bash
+nvm use
 pnpm install
 ```
 
@@ -51,6 +53,31 @@ pnpm dev
 ```bash
 pnpm build
 ```
+
+## 📁 AI-First Development
+
+After cloning the repository, open it in [Cursor IDE](https://www.cursor.com/) for an AI-first development experience:
+
+1. Toggle AI Pane (Cmd + I)
+2. Go to Cursor Settings -> Models -> Check "claude-3-5-sonnet-20241022"
+3. Open Composer Tab
+4. Switch model to "claude-3-5-sonnet-20241022"
+5. Switch to agent
+6. Say "hi" to start your onboarding
+
+After your onboarding round complete, you type "hi" and get the following prompt:
+
+```
+Would you like to:
+
+1. Review today's priorities?
+2. Check pending decisions?
+3. Get updates on recent changes?
+4. Switch to a specific expert?
+```
+
+We don't use any ticketing system, AI will tell you what to do next.
+AI will act like your personal secretary, answer any questions about business, design, architecture, etc.
 
 ## 📁 Project Structure
 
