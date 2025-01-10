@@ -274,24 +274,30 @@ WeDance is a community-driven platform that organizes the world's dance informat
 
 ### 6-Month Goals (Q2 2025)
 
-- Scale premium features
+- Launch first dance style community
 - 5000 registered users
-- Revenue growth from premium services
-- 10 active city communities
+- €10K MRR (€120K annual run rate)
+- 80% satisfaction in target dance style
 
 ### 12-Month Goals (Q4 2025)
 
-- €250K annual run rate
+- €25K MRR (€300K annual run rate)
 - 40% gross margin
 - 10000 active users
-- International expansion
+- Launch second dance style
+- Validated revenue model across all streams
 
 ### 24-Month Goals (Q4 2026)
 
-- €1M annual revenue
-- Global presence
-- Multiple dance styles
-- Platform ecosystem growth
+- €1M annual revenue (€83K MRR) with balanced streams:
+  - Event Services: €200K
+  - Artist Services: €200K
+  - Venue Services: €200K
+  - Dancer Services: €200K
+  - Platform Licensing: €200K
+- 50% gross margin
+- 3+ active dance styles
+- Self-sustaining platform ecosystem
 
 ## Next Steps
 
