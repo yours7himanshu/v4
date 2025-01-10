@@ -1,5 +1,32 @@
 # Q1 2025 Objectives
 
+## OKR Alignment
+
+These Q1 2025 objectives support our [company OKRs](/20.business/4.okrs) in the following ways:
+
+### Core Circle
+
+- Yarima Online Course → O1: Launch First Dance Style Community
+- Munich Salsa Calendar → O1: Launch First Dance Style Community
+- Pinakothek Booking → O2: Establish S3 Governance
+
+### Community Circle
+
+- Google Reviews Collection → O2: Foster Active Community
+- Eneris Zoom Class Launch → O3: Enable Community Leadership
+
+### Product Circle
+
+- Eneris Zoom Class Launch (Technical) → O1: Launch Core Platform Features
+  - Payment processing
+  - Booking system
+  - Platform uptime
+
+### Growth Circle
+
+- WeDance Offline Events → O1: Establish Market Presence
+- Investor Presentation → O2: Build Revenue Channels
+
 ## January Deadlines
 
 ### 1. Yarima Online Course

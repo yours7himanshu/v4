@@ -1,2 +1,4 @@
-title: Home
+title: WeDance Documentation
 navigation: true
+layout: docs
+navigation_file: navigation.yml
