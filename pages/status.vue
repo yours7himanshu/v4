@@ -1,74 +1,77 @@
 <script setup lang="ts">
+interface Issue {
+  _path: string;
+  title: string;
+  description: string;
+  status: "todo" | "in-progress" | "done";
+  priority: string;
+  assignee: string;
+  labels: string[];
+  created_at: string;
+  due_date: string;
+  epic?: string;
+  body?: any;
+}
+
 const stats = [
   { label: "Dancers", value: "2,455+" },
   { label: "Cities", value: "102" },
   { label: "Countries", value: "60" },
 ];
 
-const currentFeatures = [
-  {
-    name: "Event Discovery",
-    description: "Browse dance events by city and style",
-  },
-  {
-    name: "Community Profiles",
-    description: "Create and view dancer profiles",
-  },
-  {
-    name: "Basic Posts",
-    description: "Share updates and content with the community",
-  },
-];
+const { data: issuesData } = await useAsyncData("issues", () =>
+  queryContent<Issue>("/issues").find()
+);
 
-const inProgress = [
-  {
-    name: "Event Management",
-    description: "Tools for organizers to create and manage events",
-  },
-  {
-    name: "Partner Finding",
-    description: "Find dance partners for practice and events",
-  },
-  {
-    name: "Local Scene Guides",
-    description: "Discover the best dance spots in each city",
-  },
-];
+const totalIssues = computed(() => issuesData.value?.length || 0);
+const doneIssues = computed(
+  () => issuesData.value?.filter((i) => i.status === "done").length || 0
+);
+const inProgressIssues = computed(
+  () => issuesData.value?.filter((i) => i.status === "in-progress").length || 0
+);
 
-const roadmap = [
-  {
-    quarter: "Q1 2025",
-    features: [
-      "Event Discovery Improvements",
-      "Community Profiles Enhancement",
-      "Basic Posts and Sharing",
-    ],
-  },
-  {
-    quarter: "Q2 2025",
-    features: [
-      "Event Management Tools",
-      "Partner Finding System",
-      "Local Scene Guides",
-    ],
-  },
-  {
-    quarter: "Q3 2025",
-    features: [
-      "Artist Profiles and Booking",
-      "Venue Management",
-      "Community Discussion Tools",
-    ],
-  },
-  {
-    quarter: "Q4 2025",
-    features: [
-      "Event Ticketing System",
-      "Trust and Safety Features",
-      "Advanced Analytics",
-    ],
-  },
-];
+const overallProgress = computed(() => {
+  if (!totalIssues.value) return 0;
+  return Math.round(
+    ((doneIssues.value + inProgressIssues.value * 0.5) / totalIssues.value) *
+      100
+  );
+});
+
+const completedFeatures = computed(
+  () =>
+    issuesData.value
+      ?.filter((issue) => issue.status === "done")
+      .map((issue) => ({
+        name: issue.title,
+        description: issue.description,
+      })) || []
+);
+
+const inProgressFeatures = computed(
+  () =>
+    issuesData.value
+      ?.filter((issue) => issue.status === "in-progress")
+      .map((issue) => ({
+        name: issue.title,
+        description: issue.description,
+        progress: 50, // In-progress items are considered 50% complete
+      })) || []
+);
+
+const upcomingFeatures = computed(
+  () =>
+    issuesData.value
+      ?.filter((issue) => issue.status === "todo")
+      .sort((a, b) => (a.priority === "high" ? -1 : 1))
+      .slice(0, 6)
+      .map((issue) => ({
+        name: issue.title,
+        description: issue.description,
+        progress: 0,
+      })) || []
+);
 </script>
 
 <template>
@@ -81,9 +84,33 @@ const roadmap = [
           WeDance is a participatory network transforming how dance communities
           connect, organize, and thrive together.
         </p>
+
+        <!-- Overall Progress -->
+        <div class="mt-6 max-w-sm mx-auto">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-medium text-gray-700"
+              >Overall Progress</span
+            >
+            <span class="text-sm font-medium text-gray-700"
+              >{{ overallProgress }}%</span
+            >
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-2.5">
+            <div
+              class="bg-purple-600 h-2.5 rounded-full transition-all duration-500"
+              :style="{ width: `${overallProgress}%` }"
+            />
+          </div>
+          <div class="mt-2 flex justify-between text-xs text-gray-500">
+            <span>{{ doneIssues }} completed</span>
+            <span>{{ inProgressIssues }} in progress</span>
+            <span>{{ totalIssues }} total</span>
+          </div>
+        </div>
+
         <NuxtLink
           to="/about"
-          class="inline-flex items-center gap-1 text-purple-600 hover:text-purple-700"
+          class="inline-flex items-center gap-1 text-purple-600 hover:text-purple-700 mt-6"
         >
           Learn About Our Vision
           <Icon name="ph:arrow-right" class="w-4 h-4" />
@@ -107,15 +134,18 @@ const roadmap = [
         <h2 class="text-2xl font-bold mb-6">Current Status</h2>
         <div class="bg-white rounded-lg shadow-sm divide-y">
           <div
-            v-for="feature in currentFeatures"
+            v-for="feature in completedFeatures"
             :key="feature.name"
             class="p-4 flex items-start gap-3"
           >
             <Icon name="ph:check-circle" class="w-5 h-5 text-green-500 mt-1" />
-            <div>
+            <div class="flex-1">
               <div class="font-medium">{{ feature.name }}</div>
               <div class="text-sm text-gray-600">
                 {{ feature.description }}
+              </div>
+              <div class="mt-2 w-full bg-gray-200 rounded-full h-1.5">
+                <div class="bg-green-500 h-1.5 rounded-full w-full" />
               </div>
             </div>
           </div>
@@ -127,7 +157,7 @@ const roadmap = [
         <h2 class="text-2xl font-bold mb-6">In Development</h2>
         <div class="bg-white rounded-lg shadow-sm divide-y">
           <div
-            v-for="feature in inProgress"
+            v-for="feature in inProgressFeatures"
             :key="feature.name"
             class="p-4 flex items-start gap-3"
           >
@@ -135,38 +165,44 @@ const roadmap = [
               name="ph:circle-dashed"
               class="w-5 h-5 text-purple-500 mt-1"
             />
-            <div>
+            <div class="flex-1">
               <div class="font-medium">{{ feature.name }}</div>
               <div class="text-sm text-gray-600">
                 {{ feature.description }}
+              </div>
+              <div class="mt-2 w-full bg-gray-200 rounded-full h-1.5">
+                <div
+                  class="bg-purple-500 h-1.5 rounded-full transition-all duration-500"
+                  :style="{ width: `${feature.progress}%` }"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Roadmap -->
+      <!-- Upcoming Features -->
       <div class="mb-12">
-        <h2 class="text-2xl font-bold mb-6">Development Roadmap</h2>
-        <div class="space-y-6">
+        <h2 class="text-2xl font-bold mb-6">Upcoming Features</h2>
+        <div class="bg-white rounded-lg shadow-sm divide-y">
           <div
-            v-for="phase in roadmap"
-            :key="phase.quarter"
-            class="bg-white rounded-lg shadow-sm p-6"
+            v-for="feature in upcomingFeatures"
+            :key="feature.name"
+            class="p-4 flex items-start gap-3"
           >
-            <div class="font-semibold text-purple-600 mb-3">
-              {{ phase.quarter }}
+            <Icon name="ph:arrow-right" class="w-5 h-5 text-gray-400 mt-1" />
+            <div class="flex-1">
+              <div class="font-medium">{{ feature.name }}</div>
+              <div class="text-sm text-gray-600">
+                {{ feature.description }}
+              </div>
+              <div class="mt-2 w-full bg-gray-200 rounded-full h-1.5">
+                <div
+                  class="bg-gray-400 h-1.5 rounded-full transition-all duration-500"
+                  :style="{ width: `${feature.progress}%` }"
+                />
+              </div>
             </div>
-            <ul class="space-y-2">
-              <li
-                v-for="feature in phase.features"
-                :key="feature"
-                class="text-sm text-gray-600 flex items-center gap-2"
-              >
-                <Icon name="ph:arrow-right" class="w-4 h-4" />
-                {{ feature }}
-              </li>
-            </ul>
           </div>
         </div>
       </div>
