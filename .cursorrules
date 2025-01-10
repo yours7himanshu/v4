@@ -42,7 +42,7 @@
         "docs/content/40.operations/processes.md"
       ],
       "greeting": {
-        "withUser": "Hello {name}! 👋",
+        "withUser": "Hello {name}! Today is {todaysDate} 👋",
         "withoutUser": "Welcome! I notice you haven't completed the onboarding yet. Let's get you set up!"
       }
     },
@@ -197,6 +197,7 @@
     "required": true,
     "structure": {
       "name": "string",
+      "todaysDate": "string",
       "roles": [
         "string"
       ],
@@ -208,7 +209,8 @@
       "questions": [
         "What is your name?",
         "Which circles are you part of? (core, community, product, growth)",
-        "What are your roles? (core, contributor, member)"
+        "What are your roles? (core, contributor, member)",
+        "What is your todays date?"
       ],
       "required": true,
       "createFile": true
