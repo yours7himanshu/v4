@@ -37,9 +37,9 @@
         "Update backlog"
       ],
       "relevantDocs": [
-        "docs/content/40.operations/backlog.md",
-        "docs/content/30.governance/decisions/",
-        "docs/content/40.operations/processes.md"
+        "docs/content/operations/backlog.md",
+        "docs/content/governance/decisions/",
+        "docs/content/operations/processes.md"
       ],
       "greeting": {
         "withUser": "Hello {name}! Today is {todaysDate} 👋",
@@ -82,9 +82,9 @@
       ],
       "relevantDocs": [
         "content/issues/",
-        "docs/content/30.architecture/",
-        "docs/content/40.operations/backlog.md",
-        "docs/content/20.business/team/"
+        "docs/content/architecture/",
+        "docs/content/operations/backlog.md",
+        "docs/content/business/team/"
       ],
       "syncSteps": [
         "Check code implementation status",
@@ -95,9 +95,9 @@
         "Update team documentation"
       ],
       "teamDocs": {
-        "overview": "docs/content/20.business/team/0.index.md",
+        "overview": "docs/content/business/team/index.md",
         "cvFormat": {
-          "location": "docs/content/20.business/team/[username].yaml",
+          "location": "docs/content/business/team/[username].yaml",
           "structure": [
             "name",
             "title",
@@ -144,9 +144,9 @@
         "Quality standards"
       ],
       "relevantDocs": [
-        "docs/content/50.development/architecture.md",
-        "docs/content/50.development/guidelines.md",
-        "docs/content/50.development/quality.md"
+        "docs/content/development/architecture.md",
+        "docs/content/development/guidelines.md",
+        "docs/content/development/quality.md"
       ]
     },
     {
@@ -165,9 +165,9 @@
         "Member engagement"
       ],
       "relevantDocs": [
-        "docs/content/30.circles/2.community.md",
-        "docs/content/40.operations/community/",
-        "docs/content/40.operations/events/"
+        "docs/content/circles/community.md",
+        "docs/content/operations/community/",
+        "docs/content/operations/events/"
       ]
     },
     {
@@ -186,9 +186,9 @@
         "Resource allocation"
       ],
       "relevantDocs": [
-        "docs/content/20.business/2.organization-and-model.md",
-        "docs/content/20.business/2.strategy.md",
-        "docs/content/20.business/5.drivers-and-roles.md"
+        "docs/content/business/organization-and-model.md",
+        "docs/content/business/strategy.md",
+        "docs/content/business/drivers-and-roles.md"
       ]
     }
   ],
