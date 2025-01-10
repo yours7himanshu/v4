@@ -19,6 +19,29 @@ WeDance is a community-driven platform that organizes the world's dance informat
   - 6,944 following
     (as of January 2025)
 
+### Growth Targets
+
+Q2 2025 (6 months):
+
+- First dance style launch
+- 5,000 registered users
+- 2,000 monthly active users
+- €10K MRR (€120K annual run rate)
+
+Q4 2025 (12 months):
+
+- Second dance style launch
+- 10,000 registered users
+- 5,000 monthly active users
+- €25K MRR (€300K annual run rate)
+
+Q4 2026 (24 months):
+
+- 3+ dance styles
+- 25,000 registered users
+- 15,000 monthly active users
+- €83K MRR (€1M annual revenue)
+
 ### Problem
 
 - Dance information is scattered across private chats and closed
@@ -276,27 +299,29 @@ WeDance is a community-driven platform that organizes the world's dance informat
 ### 6-Month Goals (Q2 2025)
 
 - Launch first dance style community
-- 5000 registered users
+- Grow to 5,000 registered users
+- Achieve 2,000 monthly active users (40% retention)
 - €10K MRR (€120K annual run rate)
 - 80% satisfaction in target dance style
 
 ### 12-Month Goals (Q4 2025)
 
 - €25K MRR (€300K annual run rate)
-- 40% gross margin
-- 10000 active users
+- Grow to 10,000 registered users
+- Achieve 5,000 monthly active users (50% retention)
 - Launch second dance style
 - Validated revenue model across all streams
 
 ### 24-Month Goals (Q4 2026)
 
 - €1M annual revenue (€83K MRR) with balanced streams:
-  - Event Services: €200K
-  - Artist Services: €200K
-  - Venue Services: €200K
-  - Dancer Services: €200K
-  - Platform Licensing: €200K
-- 50% gross margin
+  - Event Services: €200K (€16.5K MRR)
+  - Artist Services: €200K (€16.5K MRR)
+  - Venue Services: €200K (€16.5K MRR)
+  - Dancer Services: €200K (€16.5K MRR)
+  - Platform Licensing: €200K (€16.5K MRR)
+- Grow to 25,000 registered users
+- Achieve 15,000 monthly active users (60% retention)
 - 3+ active dance styles
 - Self-sustaining platform ecosystem
 
