@@ -96,33 +96,33 @@ AI will act like your personal secretary, answer any questions about business, d
 
 ### Business
 
-- [Vision](docs/content/20.business/1.vision.md)
-- [Organization Canvas](docs/content/20.business/2.organization-canvas.md)
-- [OKRs](docs/content/20.business/4.okrs.md)
+- [Vision](docs/content/business/vision.md)
+- [Organization Canvas](docs/content/business/organization-canvas.md)
+- [OKRs](docs/content/business/okrs.md)
 
 ### Design Challenges
 
-- [Dance Styles](docs/content/50.design/styles.md)
-- [Homepage](docs/content/50.design/homepage.md)
+- [Dance Styles](docs/content/design/styles.md)
+- [Homepage](docs/content/design/homepage.md)
 
 ### Architecture
 
-- [Overview](docs/content/30.architecture/0.index.md)
-- [Actions](docs/content/30.architecture/actions.md)
-- [Dance Styles](docs/content/30.architecture/dance-styles.md)
-- [Events](docs/content/30.architecture/events.md)
-- [Event Types](docs/content/30.architecture/event-types.md)
-- [Levels](docs/content/30.architecture/levels.md)
-- [Pages](docs/content/30.architecture/pages.md)
-- [Points](docs/content/30.architecture/points.md)
-- [Posts](docs/content/30.architecture/posts.md)
-- [Profiles](docs/content/30.architecture/profiles.md)
-- [Schemas](docs/content/30.architecture/schemas.md)
-- [Voting](docs/content/30.architecture/voting.md)
+- [Overview](docs/content/architecture/index.md)
+- [Actions](docs/content/architecture/actions.md)
+- [Dance Styles](docs/content/architecture/dance-styles.md)
+- [Events](docs/content/architecture/events.md)
+- [Event Types](docs/content/architecture/event-types.md)
+- [Levels](docs/content/architecture/levels.md)
+- [Pages](docs/content/architecture/pages.md)
+- [Points](docs/content/architecture/points.md)
+- [Posts](docs/content/architecture/posts.md)
+- [Profiles](docs/content/architecture/profiles.md)
+- [Schemas](docs/content/architecture/schemas.md)
+- [Voting](docs/content/architecture/voting.md)
 
 ### User Flows
 
-- [Overview](docs/content/40.flows/0.index.md)
+- [Overview](docs/content/design/flows/index.md)
 
 ### Resources
 
