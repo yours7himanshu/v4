@@ -128,17 +128,17 @@ Concrete tasks to be implemented:
 - [ ] Ticket Sales (us-008)
 - [ ] Attendee Communication (us-012)
 
+#### Community Growth
+
+- [ ] Organizer Onboarding (us-045)
+- [ ] Dance Profiles (us-015)
+
 #### Trust & Safety
 
 - [ ] Profile Verification (us-036)
 - [ ] Attendee Verification (us-039)
 - [ ] Community Guidelines (us-040)
 - [ ] Moderation Tools (us-041)
-
-#### Community Growth
-
-- [ ] Organizer Onboarding (us-045)
-- [ ] Dance Profiles (us-015)
 
 ### Medium Priority Q1
 
