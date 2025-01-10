@@ -117,6 +117,7 @@ WeDance is a community-driven platform that organizes the world's dance informat
    - Local Committee formation
    - Design Sprint iterations (2023)
    - Current stable version v3.14.0
+   - Source code: https://github.com/we-dance/platform
    - Live at https://wedance.vip/
 
 ### Next Phase Focus
@@ -309,6 +310,12 @@ WeDance is a community-driven platform that organizes the world's dance informat
 
 ## Current Technical Challenges (January 2025)
 
+### Source Code
+
+- Main repository: https://github.com/we-dance/platform
+- Current version: v3.14.0
+- Tech stack: Nuxt 3, Vue.js, Firebase, Algolia
+
 ### Accessibility Barriers
 
 - Current Firebase-based solution doesn't work in Cuba and potentially other regions
@@ -335,37 +342,57 @@ Current infrastructure costs are unpredictable and high (200-700 EUR) due to:
 
 1. Database Options
 
-   - PostgreSQL vs MongoDB evaluation
-   - Query and data-structure optimization
-   - Cost-performance analysis
+   - Current: Firebase Realtime Database
+   - Evaluating: PostgreSQL vs MongoDB
+   - Goals:
+     - Query optimization
+     - Data structure improvements
+     - Cost reduction
+     - Global accessibility
 
 2. API Architecture
 
-   - GraphQL evaluation
-   - Supabase client possibilities
-   - tRPC consideration
-   - Real-time updates alternative to Firebase
+   - Current: Firebase + REST
+   - Evaluating:
+     - tRPC (already set up)
+     - GraphQL
+     - Supabase
+   - Focus on real-time capabilities without Firebase dependency
 
 3. Feature Implementation
 
-   - Chat system architecture
-   - Feed system with personalization
-   - Follow system optimization
+   - Current stack:
+     - Nuxt 3 (✅ implemented)
+     - Vue.js
+     - TailwindCSS (✅ configured)
+     - shadcn-vue (✅ ready)
+   - Priority features:
+     - Chat system architecture
+     - Feed system with personalization
+     - Follow system optimization
+     - Event management (⏳ 20% complete)
+     - Partner finding (🔲 planned)
+     - Booking system (🔲 planned)
 
 4. Hosting Optimization
-   - Evaluating Hetzner vs AWS vs Vercel vs Netlify
-   - PostgreSQL hosting options
-   - Single-server vs distributed architecture
-   - Performance benchmarking
-   - Scaling strategy
-   - Migration path planning
+   - Current: Netlify + Firebase
+   - Evaluating:
+     - Hetzner (cost-effective)
+     - AWS (global reach)
+     - Vercel (performance)
+   - Goals:
+     - Reduce costs (current: 200-700 EUR/month)
+     - Improve global accessibility
+     - Optimize performance
+     - Simplify architecture
 
 These challenges are driving the development of version 4, focusing on:
 
-- Global accessibility
-- Improved performance
+- Global accessibility (especially Cuba and restricted regions)
+- Improved performance (PageSpeed and SEO)
 - Cost optimization
 - Sustainable architecture
+- Scalable infrastructure for dance style expansion
 
 ---
 
