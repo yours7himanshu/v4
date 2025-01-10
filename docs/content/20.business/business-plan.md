@@ -2,9 +2,22 @@
 
 ## Executive Summary
 
-WeDance is a community-driven platform that organizes the world's dance information and builds participatory networks to help dance communities self-organize effectively. Our mission is to solve the fragmentation of dance communities by providing a unified platform for event organization, partner finding, and community building.
+WeDance is a community-driven platform that organizes the world's dance information and builds participatory networks to help dance communities self-organize effectively. Starting as Kizomba News in 2017, evolving through DanceCard (2018-2019), and launching as WeDance in 2020, the platform has grown to serve 231 cities across 60 countries with over 3,119 registered members and 4,000 monthly active users. The current version v3.14.0 is live at https://wedance.vip/ (as of January 2025).
 
 ## Market Opportunity
+
+### Current State
+
+- 231 cities across 60 countries
+- 3,119 registered members
+- 5,743 events organized
+- 4,000 monthly active users (January 2025)
+- 1.5K monthly clicks from Google Search (January 2025)
+- Strong Munich community presence (@wedancemunich):
+  - 2,133 posts
+  - 5,099 followers
+  - 6,944 following
+    (as of January 10, 2025)
 
 ### Problem
 
@@ -26,7 +39,7 @@ WeDance is a community-driven platform that organizes the world's dance informat
 
 ## Business Model
 
-### Revenue Streams (2025 Target: €1M)
+### Revenue Streams (2026 Target: €1M)
 
 1. Event Services (€200K)
 
@@ -69,56 +82,84 @@ WeDance is a community-driven platform that organizes the world's dance informat
 
 ## Go-to-Market Strategy
 
-### Phase 1: Single Dance Style Focus
+### Historical Progress
 
-1. Launch with Salsa Cubana community
-2. Partner with key community leaders
-3. Build critical mass in initial cities
-4. Validate core features and pricing
+1. Kizomba News (2017-2018)
 
-### Phase 2: Expansion
+   - Started as kizomba.news
+   - Event tracking via Google Spreadsheet
+   - Newsletter subscription system
 
-1. Scale within Salsa Cubana to more cities
-2. Add complementary dance styles
-3. Launch white-label solutions
-4. Develop international partnerships
+2. DanceCard Era (2018-2019)
 
-### Phase 3: Platform Growth
+   - Facebook event scraper development
+   - Dance event database
+   - Dance Radar feature (unreleased)
 
-1. Enable cross-style interactions
-2. Launch platform licensing
-3. Expand to international markets
-4. Build dance festival networks
+3. WeDance v1 (May 2020)
+
+   - Partner finding feature
+   - Profile system inspired by Couchsurfing
+   - Outdoor dance space booking
+
+4. WeDance v2-v3 (Sept 2020-Present)
+   - Twitter-inspired layout
+   - Social media integration
+   - Community discussion via Telegram
+   - Ambassador program launch (2021)
+   - Local Committee formation
+   - Design Sprint iterations (2023)
+   - Current stable version v3.14.0
+   - Live at https://wedance.vip/
+
+### Next Phase Focus
+
+1. Community Scaling
+
+   - Expand successful city models
+   - Strengthen Ambassador program
+   - Enhance event discovery
+
+2. Feature Development
+
+   - Improve partner finding
+   - Enhanced event organization tools
+   - Cross-city connectivity
+
+3. Platform Growth
+   - Style-specific features
+   - Premium services rollout
+   - International expansion
 
 ## Implementation Plan
 
-### Q2 2024
-
-- Complete UG registration
-- Launch MVP with core features
-- Onboard first community leaders
-- Start revenue generation
-
-### Q3 2024
-
-- Expand to 3 key cities
-- Launch partner finding system
-- Implement payment processing
-- Start premium services
-
-### Q4 2024
-
-- Launch white-label solution
-- Scale marketing operations
-- Build festival partnerships
-- Prepare for international expansion
-
 ### Q1 2025
 
-- Launch in new dance styles
-- Scale platform licensing
-- Optimize revenue streams
-- Prepare for GmbH transition
+- International expansion focus
+- Advanced partner matching
+- Enhanced community tools
+- Platform optimization
+
+### Q2 2025
+
+- Scale successful community models
+- Enhance partner finding system
+- Improve event discovery
+- Launch new premium features
+
+### Q3 2025
+
+- Expand Ambassador program
+- Launch cross-city features
+- Implement enhanced analytics
+- Optimize user engagement
+
+### Q4 2025
+
+- Roll out style-specific features
+- Scale premium services
+- Strengthen city networks
+- Launch improved mobile experience
 
 ## Financial Projections
 
@@ -148,31 +189,47 @@ WeDance is a community-driven platform that organizes the world's dance informat
 
 ### Key Challenges
 
-1. Network Effect
+1. Technical Infrastructure
+
+   - Global accessibility barriers (e.g., Cuba)
+   - Performance bottlenecks
+   - Unpredictable costs
+   - Architecture scalability
+   - Migration complexity
+
+2. Network Effect
 
    - Achieving critical mass per style
    - Balancing supply and demand
    - Cross-style expansion timing
 
-2. Trust Building
+3. Trust Building
 
    - User verification
    - Safety protocols
    - Quality control
 
-3. Technical
-   - Feature complexity
-   - Scalability
-   - Integration challenges
-
 ### Mitigation Strategies
 
-1. Focus on single dance style until critical mass
-2. Partner with established community leaders
-3. Implement strong verification system
-4. Build open-source community
-5. Regular security audits
-6. Agile development methodology
+1. Technical Solutions
+
+   - Evaluate and implement vendor-neutral architecture
+   - Optimize for performance and cost
+   - Implement robust monitoring
+   - Develop clear migration path
+   - Regular architecture reviews
+
+2. Community Growth
+
+   - Focus on single dance style until critical mass
+   - Partner with established community leaders
+   - Build local community first approach
+
+3. Platform Trust
+   - Implement strong verification system
+   - Build open-source community
+   - Regular security audits
+   - Transparent operations
 
 ## Team and Organization
 
@@ -208,35 +265,96 @@ WeDance is a community-driven platform that organizes the world's dance informat
 
 ## Success Metrics
 
-### 6-Month Goals
+### 6-Month Goals (Q2 2025)
 
-- MVP launch
-- 1000 registered users
-- First revenue generation
-- 3 city presence
+- Scale premium features
+- 5000 registered users
+- Revenue growth from premium services
+- 10 active city communities
 
-### 12-Month Goals
+### 12-Month Goals (Q4 2025)
 
 - €250K annual run rate
 - 40% gross margin
-- 5000 active users
-- White-label launch
+- 10000 active users
+- International expansion
 
-### 24-Month Goals
+### 24-Month Goals (Q4 2026)
 
 - €1M annual revenue
-- International presence
+- Global presence
 - Multiple dance styles
-- Platform licensing scale
+- Platform ecosystem growth
 
 ## Next Steps
 
-1. Complete UG registration
-2. Launch MVP platform
-3. Onboard key partners
-4. Start revenue generation
-5. Build core team
+1. Scale premium features and services
+2. Strengthen city communities
+3. Enhance partner finding system
+4. Expand international presence
+5. Optimize platform performance
+
+## Current Technical Challenges (January 2025)
+
+### Accessibility Barriers
+
+- Current Firebase-based solution doesn't work in Cuba and potentially other regions
+- Need for architecture that works globally without restrictions
+- [Firebase services blacklist certain IP addresses](https://github.com/cuban-opensourcers/cuban-restricted)
+
+### Performance Issues
+
+- Low PageSpeed scores affecting user experience
+- Poor Google Search indexing due to slow content loading
+- Need for improved SEO and content accessibility
+
+### Cost Optimization Needed
+
+Current infrastructure costs are unpredictable and high (200-700 EUR) due to:
+
+- Netlify Prerendering causing cascade of operations
+- Firebase read operations
+- Algolia read operations
+- Netlify Bandwidth costs
+- Function execution loops from code/logic issues
+
+### Architecture Evaluation (v4 Planning)
+
+1. Database Options
+
+   - PostgreSQL vs MongoDB evaluation
+   - Query and data-structure optimization
+   - Cost-performance analysis
+
+2. API Architecture
+
+   - GraphQL evaluation
+   - Supabase client possibilities
+   - tRPC consideration
+   - Real-time updates alternative to Firebase
+
+3. Feature Implementation
+
+   - Chat system architecture
+   - Feed system with personalization
+   - Follow system optimization
+
+4. Hosting Optimization
+   - Evaluating Hetzner vs AWS vs Vercel vs Netlify
+   - PostgreSQL hosting options
+   - Single-server vs distributed architecture
+   - Performance benchmarking
+   - Scaling strategy
+   - Migration path planning
+
+These challenges are driving the development of version 4, focusing on:
+
+- Global accessibility
+- Improved performance
+- Cost optimization
+- Sustainable architecture
 
 ---
 
 This business plan is a living document and will be updated regularly based on market feedback and organizational learning.
+Last updated: January 10, 2025
