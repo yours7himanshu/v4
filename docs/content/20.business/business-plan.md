@@ -11,13 +11,13 @@ WeDance is a community-driven platform that organizes the world's dance informat
 - 231 cities across 60 countries
 - 3,119 registered members
 - 5,743 events organized
-- 4,000 monthly active users (January 2025)
-- 1.5K monthly clicks from Google Search (January 2025)
+- 4,000 monthly active users (March 2024)
+- 1.5K monthly clicks from Google Search (February 2024)
 - Strong Munich community presence (@wedancemunich):
   - 2,133 posts
   - 5,099 followers
   - 6,944 following
-    (as of January 10, 2025)
+    (as of January 2025)
 
 ### Problem
 
