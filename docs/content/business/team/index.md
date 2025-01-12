@@ -18,9 +18,9 @@
 
 ### Aina
 
-- Role: Core Team
-- Circles: TBD
-- Focus: TBD
+- Role: Community Growth & UX Advisor
+- Circles: Core, Community, Growth, Product
+- Focus: Local community growth, marketing strategy, UX feedback, strategic planning
 - [CV](./aina.yaml)
 
 ## Onboarding Process

@@ -148,3 +148,29 @@ Proposed
 - [Project History](/docs/content/20.business/1.history.md)
 - [Profit Distribution Policy](/docs/content/30.governance/decisions/003-profit-distribution.md)
 - [Contributor Agreement](/docs/content/40.operations/contributor-agreement.md)
+
+# Historical Recognition
+
+This document records significant historical contributions to WeDance before the formal contribution tracking system was established.
+
+## Contributors
+
+### Aina
+
+**Period**: 2+ years (2022-2024)
+**Areas**: Community Growth, UX, Marketing
+
+**Key Contributions**:
+
+- Grew WeDanceMunich Instagram presence
+- Provided extensive UX feedback for platform development
+- First-line validation for new features and ideas
+- Multi-style dance perspective (Salsa, Bachata, Kizomba, Zouk, Standard Latin)
+- Marketing strategy insights as marketing student
+
+**Impact**:
+
+- Improved platform usability through regular feedback
+- Enhanced local community engagement
+- Strengthened multi-style dance integration
+- Contributed to growth strategy development

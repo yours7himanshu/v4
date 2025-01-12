@@ -1,24 +1,66 @@
 name: Aina
-title: TBD
-summary: TBD
+title: Community Growth & UX Advisor
+summary: Long-term core team member with extensive dance background and marketing expertise. Key advisor for platform development, strategic planning, and community growth initiatives.
+
+circles:
+  - name: Core
+    role: Strategic Advisor
+    focus: Platform vision and strategic planning
+  - name: Community
+    role: Advisor
+    focus: Local community growth and engagement strategies
+  - name: Growth
+    role: Marketing Consultant
+    focus: Social media strategy and market expansion
+  - name: Product
+    role: UX Advisor
+    focus: Platform usability and feature validation
 
 quick_info:
-  location: TBD
-  experience: TBD
-  languages: []
-  contact:
-    email: TBD
-    github: TBD
+  location: Munich, Germany
+  dance_styles:
+    - Salsa
+    - Bachata
+    - Kizomba
+    - Zouk
+    - Standard Latin
 
 technical_expertise:
-  frontend_development:
-    title: Frontend Development
-    skills: []
+  - UX Design & Feedback
+  - Social Media Growth
+  - Community Building
+  - Marketing Strategy
 
-  backend_infrastructure:
-    title: Backend & Infrastructure
-    skills: []
+professional_experience:
+  - title: Instagram Growth Manager
+    organization: WeDanceMunich
+    period: 2+ years
+    achievements:
+      - Increased follower count
+      - Improved community engagement
+      - Enhanced local visibility
 
-professional_experience: []
-education: []
-volunteering: []
+major_projects:
+  - name: WeDanceMunich Growth
+    role: Community Manager
+    impact:
+      - Instagram community growth
+      - Local event promotion
+      - Community engagement
+
+education:
+  - field: Marketing
+    status: Current Student
+    relevance: Direct application to platform growth strategies
+
+contribution_areas:
+  - UX feedback and platform development
+  - First-line idea validation
+  - Community growth strategies
+  - Multi-style dance perspective
+  - Local market insights
+
+speaking_community:
+  - Regular feedback sessions on platform development
+  - Community insights sharing
+  - Dance style integration discussions
