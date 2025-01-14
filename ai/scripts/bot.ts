@@ -72,6 +72,8 @@ bot.command("start", (ctx: Context) => {
   const user = { ...ctx.from, app: "telegram" };
   if (!user) return;
 
+  Logger.setUser(user);
+
   // Reset conversation history with system prompt
   conversationHistory.set(chatId, [{ role: "user", content: systemPrompt }]);
   conversationHistory.set(chatId, [

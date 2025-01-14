@@ -1,6 +1,14 @@
 import fs from "fs";
 import path from "path";
 
+interface UserInfo {
+  id?: number;
+  username?: string;
+  first_name?: string;
+  last_name?: string;
+  app?: string;
+}
+
 export type LogType =
   | "user"
   | "system"
@@ -19,6 +27,11 @@ export interface LogMetadata {
 
 export class Logger {
   private static LOG_DIR = "logs";
+  private static currentUser: UserInfo | null = null;
+
+  static setUser(user: UserInfo) {
+    this.currentUser = user;
+  }
 
   static initialize() {
     if (!fs.existsSync(this.LOG_DIR)) {
