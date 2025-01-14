@@ -145,9 +145,9 @@ Proposed
 
 ## Related Documents
 
-- [Project History](/docs/content/20.business/1.history.md)
-- [Profit Distribution Policy](/docs/content/30.governance/decisions/003-profit-distribution.md)
-- [Contributor Agreement](/docs/content/40.operations/contributor-agreement.md)
+- [Project History](/docs/content/business/history.md)
+- [Profit Distribution Policy](/docs/content/governance/decisions/003-profit-distribution.md)
+- [Contributor Agreement](/docs/content/operations/contributor-agreement.md)
 
 # Historical Recognition
 

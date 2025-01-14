@@ -12,7 +12,7 @@ Items related to organization, policy and role development:
 
 ### Core Circle
 
-- [x] Select first dance style: Salsa Cubana ([decision record](../30.governance/decisions/001-first-dance-style.md))
+- [x] Select first dance style: Salsa Cubana ([decision record](../governance/decisions/001-first-dance-style.md))
 - [ ] Complete S3 documentation structure
 - [ ] Define circle formation process
 - [ ] Create role selection process

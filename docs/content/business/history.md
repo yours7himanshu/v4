@@ -83,5 +83,5 @@ Key developments:
 
 ## Related Documents
 
-- [Profit Distribution Policy](/docs/content/30.governance/decisions/003-profit-distribution.md)
-- [Organization Canvas](/docs/content/20.business/2.organization-canvas.md)
+- [Profit Distribution Policy](/docs/content/governance/decisions/003-profit-distribution.md)
+- [Organization Canvas](/docs/content/business/organization-canvas.md)

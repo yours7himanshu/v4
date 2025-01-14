@@ -85,7 +85,7 @@ We will:
 - Maintain attribution of your Contributions
 - Include you in our contributors list
 - Respect your right to be identified as a contributor
-- Value your time contributions as monetary investment according to our [Profit Distribution Policy](/docs/content/30.governance/decisions/003-profit-distribution.md)
+- Value your time contributions as monetary investment according to our [Profit Distribution Policy](/docs/content/governance/decisions/003-profit-distribution.md)
 - Provide Cursor IDE license for active contributors
 
 ## 8. Disclaimer
