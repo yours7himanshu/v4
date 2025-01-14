@@ -114,12 +114,10 @@
         },
         "userConfig": {
           "format": {
-            "id": "string",
             "first_name": "string",
             "last_name": "string",
             "github": "string",
             "telegram": "string",
-            "language_code": "string",
             "roles": [
               "string"
             ],
@@ -195,26 +193,26 @@
     }
   ],
   "user": {
-    "configFile": ".cursor-user",
     "required": true,
     "structure": {
-      "name": "string",
-      "todaysDate": "string",
-      "roles": [
-        "string"
-      ],
-      "circles": [
-        "string"
-      ]
+      "id": "string",
+      "first_name": "string",
+      "last_name": "string",
+      "github": "string",
+      "telegram": "string",
+      "language_code": "string"
     },
     "onboarding": {
       "questions": [
-        "What is your name?",
-        "Which circles are you part of? (core, community, product, growth)",
-        "What are your roles? (core, contributor, member)"
+        "What is your name?"
       ],
-      "required": true,
-      "createFile": true
+      "required": true
+    },
+    "references": {
+      "team": {
+        "file": "docs/content/business/team/index.md",
+        "description": "Team members and their roles"
+      }
     }
   },
   "defaults": {
