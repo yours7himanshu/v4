@@ -61,16 +61,7 @@ When adding new team members:
    - volunteering
    - speaking_community
 
-3. Create `.cursor-user` file with:
-
-   ```json
-   {
-     "username": "github_username",
-     "name": "Full Name",
-     "roles": ["role1", "role2"],
-     "circles": ["circle1", "circle2"]
-   }
-   ```
+3. Sign [Contributor Agreement](./contributor-agreement.md)
 
 4. Add to relevant communication channels and tools
 
