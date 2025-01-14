@@ -11,48 +11,10 @@ import {
 } from "./providers";
 import { tools } from "./tools";
 import { ToolResultBlockParam } from "@anthropic-ai/sdk/resources/messages";
+import { Logger } from "./utils/logger";
 
 // Load environment variables
 dotenv.config();
-
-// Initialize logging
-const LOG_DIR = "logs";
-if (!fs.existsSync(LOG_DIR)) {
-  fs.mkdirSync(LOG_DIR);
-}
-
-// Logging function
-function logConversation(
-  chatId: number,
-  type:
-    | "user"
-    | "system"
-    | "llm-request"
-    | "llm-response"
-    | "bot-response"
-    | "tool-execution",
-  content: string,
-  metadata?: any
-) {
-  const date = new Date();
-  const fileName = `${LOG_DIR}/chat_${date.getFullYear()}-${(
-    date.getMonth() + 1
-  )
-    .toString()
-    .padStart(2, "0")}.log`;
-  const timestamp = date.toISOString();
-
-  let logEntry = `\n[${timestamp}] Chat ID: ${chatId} | Type: ${type}\n`;
-
-  if (metadata) {
-    logEntry += `Metadata: ${JSON.stringify(metadata, null, 2)}\n`;
-  }
-
-  logEntry += `Content: ${content}\n`;
-  logEntry += "----------------------------------------\n";
-
-  fs.appendFileSync(fileName, logEntry);
-}
 
 const cursorRules = JSON.parse(fs.readFileSync("../.cursorrules", "utf-8"));
 const systemPrompt = JSON.stringify(
@@ -107,15 +69,20 @@ bot.command("start", (ctx: Context) => {
   const chatId = ctx.chat?.id;
   if (!chatId) return;
 
+  const user = { ...ctx.from, app: "telegram" };
+  if (!user) return;
+
   // Reset conversation history with system prompt
   conversationHistory.set(chatId, [{ role: "user", content: systemPrompt }]);
-  logConversation(chatId, "system", "Clearing conversation history");
+  conversationHistory.set(chatId, [
+    { role: "user", content: JSON.stringify(user) },
+  ]);
+  Logger.log(chatId, "system", "Clearing conversation history");
 
   const response = `Hi! I am your WeDance AI Secretary. How can I help you today?`;
 
-  // Log the command
-  logConversation(chatId, "user", "/start");
-  logConversation(chatId, "bot-response", response);
+  Logger.log(chatId, "user", "/start");
+  Logger.log(chatId, "bot-response", response);
 
   ctx.reply(response, { parse_mode: "Markdown" });
 });
@@ -128,9 +95,8 @@ bot.command("provider", (ctx: Context) => {
   const { name, model } = llmProvider.getModelInfo();
   const response = `Current provider: ${name} (${model})`;
 
-  // Log the command
-  logConversation(chatId, "user", "/provider");
-  logConversation(chatId, "bot-response", response);
+  Logger.log(chatId, "user", "/provider");
+  Logger.log(chatId, "bot-response", response);
 
   ctx.reply(response);
 });
@@ -194,7 +160,7 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
           content: content.text,
         });
 
-        logConversation(ctx.chat?.id, "bot-response", textContent);
+        Logger.log(ctx.chat?.id, "bot-response", textContent);
 
         if (textContent) {
           await ctx.reply(textContent, {
@@ -204,7 +170,7 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
       }
 
       if (content.type === "tool_use") {
-        logConversation(ctx.chat?.id, "tool-execution", "Executing tool", {
+        Logger.log(ctx.chat?.id, "tool-execution", "Executing tool", {
           tool: content.name,
           input: content.input,
         });
@@ -265,7 +231,7 @@ bot.on("text", async (ctx: Context) => {
   history.push({ role: "user", content: messageText });
 
   // Log user message
-  logConversation(chatId, "user", messageText);
+  Logger.log(chatId, "user", messageText);
 
   processMessage(ctx, history);
 });

@@ -3,6 +3,7 @@ import path from "path";
 
 export type LogType =
   | "user"
+  | "system"
   | "llm-request"
   | "llm-response"
   | "bot-response"

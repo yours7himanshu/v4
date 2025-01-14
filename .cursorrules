@@ -113,11 +113,13 @@
           ]
         },
         "userConfig": {
-          "location": ".cursor-user",
           "format": {
-            "username": "string",
-            "name": "string",
+            "id": "string",
+            "first_name": "string",
+            "last_name": "string",
             "github": "string",
+            "telegram": "string",
+            "language_code": "string",
             "roles": [
               "string"
             ],
@@ -209,8 +211,7 @@
       "questions": [
         "What is your name?",
         "Which circles are you part of? (core, community, product, growth)",
-        "What are your roles? (core, contributor, member)",
-        "What is your todays date?"
+        "What are your roles? (core, contributor, member)"
       ],
       "required": true,
       "createFile": true
