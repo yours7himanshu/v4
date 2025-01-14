@@ -16,18 +16,8 @@ import { Logger } from "./utils/logger";
 // Load environment variables
 dotenv.config();
 
-const cursorRules = JSON.parse(fs.readFileSync("../.cursorrules", "utf-8"));
-const systemPrompt = JSON.stringify(
-  {
-    ...cursorRules,
-    todaysDate: new Date().toISOString().split("T")[0],
-  },
-  null,
-  2
-);
-
-// "Format response in Telegram HTML",
-// "The maximum length of a message is 4096 characters and it must be UTF-8 encoded",
+const cursorRules = fs.readFileSync("../.cursorrules", "utf-8");
+const systemPrompt = cursorRules;
 
 // Initialize LLM provider
 const CURRENT_PROVIDER = (process.env.LLM_PROVIDER as ProviderType) || "ollama";
@@ -90,8 +80,14 @@ bot.command("start", async (ctx: Context) => {
   logger.log(chatId, "system", "Clearing conversation history");
 
   conversationHistory.set(chatId, [
-    { role: "user", content: systemPrompt },
-    { role: "user", content: JSON.stringify(user) },
+    { role: "system", content: systemPrompt },
+    {
+      role: "user",
+      content: JSON.stringify({
+        user,
+        todaysDate: new Date().toISOString().split("T")[0],
+      }),
+    },
     { role: "user", content: "Hi!" },
   ]);
 

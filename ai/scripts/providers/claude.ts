@@ -38,12 +38,28 @@ export class ClaudeProvider extends BaseLLMProvider {
     sessionId: number | string
   ): Promise<Anthropic.Messages.Message> {
     try {
-      const request = {
-        model: this.model,
-        messages: history.map((msg) => ({
-          role: msg.role,
+      const systemPrompt = String(
+        history.find((msg) => msg.role === "system")?.content || ""
+      );
+
+      const messages: Anthropic.Messages.MessageParam[] = history
+        .filter((msg) => msg.role !== "system")
+        .map((msg) => ({
+          role: msg.role === "assistant" ? "assistant" : "user",
           content: msg.content,
-        })),
+        }));
+
+      const request: Anthropic.Messages.MessageCreateParamsNonStreaming = {
+        model: this.model,
+        system: [
+          {
+            type: "text",
+            text: systemPrompt,
+            // claude-3-sonnet-20240229 does not support cache_control
+            // cache_control: { type: "ephemeral" },
+          },
+        ],
+        messages: messages,
         tools: this.tools,
         max_tokens: 4096,
         temperature: 0,

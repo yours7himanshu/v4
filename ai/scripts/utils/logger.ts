@@ -46,7 +46,7 @@ export class Logger {
 
   private getLogPath(type: LogType): string {
     const date = new Date();
-    const username = this.user?.username || "anonymous";
+    const username = this.user?.username || String(this.user.id);
     const dateStr = date.toISOString().split("T")[0]; // YYYY-MM-DD
 
     // Create directory structure

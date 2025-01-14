@@ -2,7 +2,7 @@ import { Logger, LogMetadata } from "../utils/logger";
 import Anthropic from "@anthropic-ai/sdk";
 
 export interface HistoryMessage {
-  role: "user" | "assistant";
+  role: "user" | "assistant" | "system";
   content: string | Array<Anthropic.Messages.ContentBlockParam>;
 }
 
