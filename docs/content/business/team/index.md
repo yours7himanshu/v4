@@ -2,8 +2,10 @@
 
 ## Core Circle
 
-### Alex Razbakov
+### Aleksey Razbakov
 
+- Telegram: AlexRazbakov
+- GitHub: razbakov
 - Role: Founder, Core Team
 - Circles: Core, Community, Product, Growth
 - Focus: Technical architecture, product vision, and community building
