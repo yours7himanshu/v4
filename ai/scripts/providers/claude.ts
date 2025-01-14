@@ -6,7 +6,6 @@ import {
   LLMError,
 } from "./types";
 import { toolDefinitions } from "../tools";
-import { Logger } from "../utils/logger";
 
 export class ClaudeProvider extends BaseLLMProvider {
   private client: Anthropic;
