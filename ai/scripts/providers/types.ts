@@ -20,6 +20,14 @@ export interface ProviderConfig {
 export abstract class BaseLLMProvider {
   protected abstract name: string;
   protected abstract model: string;
+  protected logger!: Logger;
+
+  protected initLogger() {
+    this.logger = new Logger({
+      username: this.name,
+      app: "provider",
+    });
+  }
 
   abstract ask(
     history: HistoryMessage[],
@@ -34,10 +42,15 @@ export abstract class BaseLLMProvider {
   }
 
   protected logRequest(request: any, sessionId: number | string) {
-    Logger.log(sessionId, "llm-request", JSON.stringify(request, null, 2), {
-      provider: this.name,
-      model: this.model,
-    });
+    this.logger.log(
+      sessionId,
+      "llm-request",
+      JSON.stringify(request, null, 2),
+      {
+        provider: this.name,
+        model: this.model,
+      }
+    );
   }
 
   protected logResponse(
@@ -45,11 +58,16 @@ export abstract class BaseLLMProvider {
     sessionId: number | string,
     metadata?: LogMetadata
   ) {
-    Logger.log(sessionId, "llm-response", JSON.stringify(response, null, 2), {
-      provider: this.name,
-      model: this.model,
-      ...metadata,
-    });
+    this.logger.log(
+      sessionId,
+      "llm-response",
+      JSON.stringify(response, null, 2),
+      {
+        provider: this.name,
+        model: this.model,
+        ...metadata,
+      }
+    );
   }
 }
 

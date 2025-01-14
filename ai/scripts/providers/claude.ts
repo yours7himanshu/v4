@@ -30,6 +30,7 @@ export class ClaudeProvider extends BaseLLMProvider {
     this.model = config.model || "claude-3-sonnet-20240229";
 
     this.tools = toolDefinitions;
+    this.initLogger();
   }
 
   async ask(
