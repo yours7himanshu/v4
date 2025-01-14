@@ -83,6 +83,7 @@ bot.command("start", async (ctx: Context) => {
   if (!user) return;
 
   const logger = getLogger(user);
+  llmProvider.setLogger(logger);
   logger.log(chatId, "system", "Clearing conversation history");
 
   conversationHistory.set(chatId, [
@@ -101,11 +102,14 @@ bot.command("provider", (ctx: Context) => {
   const chatId = ctx.chat?.id;
   if (!chatId || !ctx.from) return;
 
+  const logger = getLogger(ctx.from);
+  llmProvider.setLogger(logger);
+
+  logger.log(chatId, "user", "/provider");
+
   const { name, model } = llmProvider.getModelInfo();
   const response = `Current provider: ${name} (${model})`;
 
-  const logger = getLogger(ctx.from);
-  logger.log(chatId, "user", "/provider");
   logger.log(chatId, "bot-response", response);
 
   ctx.reply(response);

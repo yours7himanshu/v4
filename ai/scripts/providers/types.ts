@@ -22,11 +22,8 @@ export abstract class BaseLLMProvider {
   protected abstract model: string;
   protected logger!: Logger;
 
-  protected initLogger() {
-    this.logger = new Logger({
-      username: this.name,
-      app: "provider",
-    });
+  public setLogger(logger: Logger) {
+    this.logger = logger;
   }
 
   abstract ask(

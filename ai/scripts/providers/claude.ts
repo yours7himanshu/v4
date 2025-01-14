@@ -6,6 +6,7 @@ import {
   LLMError,
 } from "./types";
 import { toolDefinitions } from "../tools";
+import { Logger } from "../utils/logger";
 
 export class ClaudeProvider extends BaseLLMProvider {
   private client: Anthropic;
@@ -30,7 +31,6 @@ export class ClaudeProvider extends BaseLLMProvider {
     this.model = config.model || "claude-3-sonnet-20240229";
 
     this.tools = toolDefinitions;
-    this.initLogger();
   }
 
   async ask(
