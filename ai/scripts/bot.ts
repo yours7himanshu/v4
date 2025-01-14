@@ -158,6 +158,7 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
     if (!ctx.chat?.id || !ctx.from) return;
 
     const logger = getLogger(ctx.from);
+    llmProvider.setLogger(logger);
 
     // Get initial response
     let message = await llmProvider.ask(history, ctx.chat?.id);
@@ -189,11 +190,6 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
       }
 
       if (content.type === "tool_use") {
-        logger.log(ctx.chat?.id, "tool-execution", "", {
-          tool: content.name,
-          input: content.input,
-        });
-
         await ctx.sendChatAction("typing");
 
         waitingForToolResponse = true;
@@ -213,6 +209,12 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
           tool_use_id: content.id,
           content: toolResponse,
         };
+
+        logger.log(ctx.chat?.id, "tool-execution", "", {
+          tool: content.name,
+          input: content.input,
+          output: toolResponse,
+        });
 
         history.push({
           role: "user",

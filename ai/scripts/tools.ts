@@ -162,14 +162,14 @@ export const tools: { [key: string]: Tool } = {
   grep_search: {
     name: "grep_search",
     description:
-      "Search for a text pattern across all files in a directory and its subdirectories. This tool is perfect for finding where certain text appears in your codebase. It recursively searches through all files, reporting which files contain the search pattern. Use this when you need to locate specific text, function names, or other patterns across multiple files. The search is case-sensitive and literal (not regex). The tool will search all file types by default, but you can narrow the search to specific directories.",
+      "Search for a text pattern (regular expression) across all files in a directory and its subdirectories. This tool is perfect for finding where certain patterns appear in your codebase. It recursively searches through all files, reporting which files contain matches for the regex pattern. Use this when you need to locate specific text, function names, or other patterns across multiple files. The search is case-sensitive by default and supports full JavaScript regular expressions. The tool will search all file types by default, but you can narrow the search to specific directories.",
     input_schema: {
       type: "object",
       properties: {
         pattern: {
           type: "string",
           description:
-            "The exact text pattern to search for in files. This is case-sensitive and matches literally, not as a regex.",
+            "The regular expression pattern to search for in files. This is case-sensitive by default and supports full JavaScript regex syntax.",
         },
         directory: {
           type: "string",
@@ -187,6 +187,7 @@ export const tools: { [key: string]: Tool } = {
       directory: string;
     }) => {
       try {
+        const regex = new RegExp(pattern);
         const files = glob.sync("**/*", {
           cwd: "../" + directory,
           nodir: true,
@@ -194,7 +195,7 @@ export const tools: { [key: string]: Tool } = {
         let results = [];
         for (const file of files) {
           const content = fs.readFileSync(path.join(directory, file), "utf-8");
-          if (content.includes(pattern)) {
+          if (regex.test(content)) {
             results.push(`${file}: contains pattern "${pattern}"`);
           }
         }
