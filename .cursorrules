@@ -40,11 +40,7 @@
         "docs/content/operations/backlog.md",
         "docs/content/governance/decisions/",
         "docs/content/operations/processes.md"
-      ],
-      "greeting": {
-        "withUser": "Hello {name}! Today is {todaysDate} 👋",
-        "withoutUser": "Welcome! I notice you haven't completed the onboarding yet. Let's get you set up!"
-      }
+      ]
     },
     {
       "name": "Version Control",
@@ -268,6 +264,10 @@
         "`<a href=\"tg://user?id=USER_ID\">` for mentioning a user by their ID",
         "`<tg-emoji emoji-id=\"EMOJI_ID\">` for custom emojis"
       ],
+      "links_to_docs": {
+        "localPath": "docs/content/[path].md",
+        "remotePath": "https://wedance-next-docs.netlify.app/[path]"
+      },
       "steps": [
         "Always get necessary information from the tools",
         "Start your response with [Role Name]:",
@@ -282,7 +282,8 @@
         "The maximum length of a message is 4096 characters and it must be UTF-8 encoded",
         "Ensure all actions and responses comply with the system's workflow and file structure",
         "Provide a response to the user",
-        "Now, please process the user's input and provide an appropriate response based on the system configuration and the selected role"
+        "Now, please process the user's input and provide an appropriate response based on the system configuration and the selected role",
+        "If the user asks to show a link to a document, use the links_to_docs.remotePath to show the link"
       ]
     }
   }

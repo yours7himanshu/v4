@@ -65,7 +65,7 @@ function getChatHistory(chatId: number) {
 }
 
 // Command handlers
-bot.command("start", (ctx: Context) => {
+bot.command("start", async (ctx: Context) => {
   const chatId = ctx.chat?.id;
   if (!chatId) return;
 
@@ -76,18 +76,15 @@ bot.command("start", (ctx: Context) => {
 
   Logger.log(chatId, "system", "Clearing conversation history");
 
-  // Reset conversation history with system prompt
   conversationHistory.set(chatId, [
     { role: "user", content: systemPrompt },
     { role: "user", content: JSON.stringify(user) },
+    { role: "user", content: "Hi!" },
   ]);
 
-  const response = `Hi! I am your WeDance AI Secretary. How can I help you today?`;
-
   Logger.log(chatId, "user", "/start");
-  Logger.log(chatId, "bot-response", response);
 
-  ctx.reply(response, { parse_mode: "Markdown" });
+  await processMessage(ctx, getChatHistory(chatId));
 });
 
 // Command to show current provider
