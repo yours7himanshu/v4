@@ -255,7 +255,6 @@
         "Identify key elements in the user input",
         "Consider which tool(s) might be relevant",
         "Justify the selection of the most appropriate tool",
-        "Parameters for the tool",
         "Users can't see the output of any tool"
       ]
     },
