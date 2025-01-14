@@ -54,8 +54,15 @@ function logConversation(
   fs.appendFileSync(fileName, logEntry);
 }
 
-const cursorRules = fs.readFileSync("../.cursorrules", "utf-8");
-const systemPrompt = cursorRules;
+const cursorRules = JSON.parse(fs.readFileSync("../.cursorrules", "utf-8"));
+const systemPrompt = JSON.stringify(
+  {
+    ...cursorRules,
+    todaysDate: new Date().toISOString().split("T")[0],
+  },
+  null,
+  2
+);
 
 // "Format response in Telegram HTML",
 // "The maximum length of a message is 4096 characters and it must be UTF-8 encoded",
@@ -197,6 +204,11 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
       }
 
       if (content.type === "tool_use") {
+        logConversation(ctx.chat?.id, "tool-execution", "Executing tool", {
+          tool: content.name,
+          input: content.input,
+        });
+
         await ctx.sendChatAction("typing");
 
         waitingForToolResponse = true;
@@ -206,6 +218,8 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
           role: "assistant",
           content: [content],
         });
+
+        console.log("exec:", content.name, content.input);
 
         const toolResponse = await tools[content.name].execute(content.input);
 

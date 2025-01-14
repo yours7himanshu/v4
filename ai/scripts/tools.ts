@@ -28,7 +28,7 @@ export const tools: { [key: string]: Tool } = {
     },
     execute: async ({ filePath }: { filePath: string }) => {
       try {
-        const fullPath = path.join(process.cwd(), filePath);
+        const fullPath = path.join(process.cwd(), "../", filePath);
         if (!fs.existsSync(fullPath)) {
           return `File not found: ${filePath}`;
         }
@@ -148,7 +148,7 @@ export const tools: { [key: string]: Tool } = {
     },
     execute: async ({ dirPath }: { dirPath: string }) => {
       try {
-        const fullPath = path.join(process.cwd(), dirPath);
+        const fullPath = path.join(process.cwd(), "../", dirPath);
         if (!fs.existsSync(fullPath)) {
           return `Directory not found: ${dirPath}`;
         }
@@ -187,7 +187,10 @@ export const tools: { [key: string]: Tool } = {
       directory: string;
     }) => {
       try {
-        const files = glob.sync("**/*", { cwd: directory, nodir: true });
+        const files = glob.sync("**/*", {
+          cwd: "../" + directory,
+          nodir: true,
+        });
         let results = [];
         for (const file of files) {
           const content = fs.readFileSync(path.join(directory, file), "utf-8");
