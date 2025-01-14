@@ -341,7 +341,7 @@
     },
     "response": {
       "action": "When responding to the user, wrap your response in <response> tags",
-      "format": [
+      "TelegramHtmlFormat": [
         "`<b>` or `<strong>` for bold text",
         "`<i>` or `<em>` for italic text",
         "`<u>` or `<ins>` for underlined text",
@@ -358,7 +358,7 @@
       "steps": [
         "Always get necessary information from the tools",
         "Start your response with [Role Name]:",
-        "Format response in Telegram HTML, allowed tags:",
+        "Format response in TelegramHtmlFormat",
         "Ensure all tags have closing tags",
         "Do not use Markdown in your response",
         "Never show the full file content, summarize, only relevant information, adjust as needed, convert to expected format; if it is a form, ask questions one by one",
@@ -370,7 +370,8 @@
         "Ensure all actions and responses comply with the system's workflow and file structure",
         "Provide a response to the user",
         "Now, please process the user's input and provide an appropriate response based on the system configuration and the selected role",
-        "If the user asks to show a link to a document, use the links_to_docs.remotePath to show the link"
+        "If the user asks to show a link to a document, use the links_to_docs.remotePath to show the link",
+        "One more time. Very important. Ensure <response> is in TelegramHtmlFormat"
       ]
     }
   }
