@@ -37,6 +37,7 @@ Items related to organization, policy and role development:
 
 #### In Progress
 
+- [ ] Refactoring see [refactoring plan](refactoring-plan.md)
 - [ ] Implement authentication system
   - [x] Create auth store structure
   - [x] Define user levels
