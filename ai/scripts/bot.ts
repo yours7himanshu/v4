@@ -173,7 +173,7 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
       }
 
       if (content.type === "tool_use") {
-        Logger.log(ctx.chat?.id, "tool-execution", "Executing tool", {
+        Logger.log(ctx.chat?.id, "tool-execution", "", {
           tool: content.name,
           input: content.input,
         });
