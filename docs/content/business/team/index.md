@@ -13,6 +13,8 @@
 
 ### Egor Kruglov
 
+- Telegram: Ek92020
+- GitHub: KindImagination
 - Role: Contributor
 - Circles: Product, Community
 - Focus: Community platform engine development, franchise/licensing features
@@ -20,6 +22,7 @@
 
 ### Aina
 
+- Telegram: Aina_G_K
 - Role: Community Growth & UX Advisor
 - Circles: Core, Community, Growth, Product
 - Focus: Local community growth, marketing strategy, UX feedback, strategic planning
