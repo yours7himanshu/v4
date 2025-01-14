@@ -27,39 +27,42 @@ export interface LogMetadata {
 
 export class Logger {
   private static LOG_DIR = "logs";
-  private static currentUser: UserInfo | null = null;
+  private user: UserInfo;
+  private initialized: boolean = false;
 
-  static setUser(user: UserInfo) {
-    this.currentUser = user;
+  constructor(user: UserInfo) {
+    this.user = user;
+    this.initialize();
   }
 
-  static initialize() {
-    if (!fs.existsSync(this.LOG_DIR)) {
-      fs.mkdirSync(this.LOG_DIR);
+  private initialize() {
+    if (!this.initialized) {
+      if (!fs.existsSync(Logger.LOG_DIR)) {
+        fs.mkdirSync(Logger.LOG_DIR);
+      }
+      this.initialized = true;
     }
   }
 
-  private static getLogPath(type: LogType): string {
+  private getLogPath(type: LogType): string {
     const date = new Date();
-    const username = this.currentUser?.username || "anonymous";
+    const username = this.user?.username || "anonymous";
     const dateStr = date.toISOString().split("T")[0]; // YYYY-MM-DD
 
     // Create directory structure
-    const dirPath = path.join(this.LOG_DIR, username, dateStr);
+    const dirPath = path.join(Logger.LOG_DIR, username, dateStr);
     fs.mkdirSync(dirPath, { recursive: true });
 
     // Return full file path with type as filename
     return path.join(dirPath, `${type}.log`);
   }
 
-  static log(
+  log(
     sessionId: string | number,
     type: LogType,
     content: string,
     metadata?: LogMetadata
   ) {
-    this.initialize();
-
     const timestamp = new Date().toISOString();
     const logPath = this.getLogPath(type);
 
@@ -72,6 +75,7 @@ export class Logger {
     logEntry += `Content: ${content}\n`;
     logEntry += "----------------------------------------\n";
 
+    // Use synchronous write to avoid race conditions
     fs.appendFileSync(logPath, logEntry);
   }
 }

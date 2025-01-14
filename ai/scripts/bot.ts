@@ -47,14 +47,9 @@ try {
 // Initialize bot with token from environment variables
 const bot = new Telegraf(process.env.TELEGRAM_BOT_TOKEN || "");
 
-// Store conversation history
+// Store conversation history and loggers
 const conversationHistory = new Map<number, Array<HistoryMessage>>();
-
-// Basic error handling
-bot.catch((err: unknown, ctx: Context) => {
-  console.error("Telegraf error:", err);
-  ctx.reply("Sorry, I encountered an error. Please try again later.");
-});
+const userLoggers = new Map<number, Logger>();
 
 // Helper to get chat history
 function getChatHistory(chatId: number) {
@@ -64,17 +59,31 @@ function getChatHistory(chatId: number) {
   return conversationHistory.get(chatId)!;
 }
 
+// Helper to get or create logger for a user
+function getLogger(user: any) {
+  const chatId = user.id;
+  if (!userLoggers.has(chatId)) {
+    userLoggers.set(chatId, new Logger({ ...user, app: "telegram" }));
+  }
+  return userLoggers.get(chatId)!;
+}
+
+// Basic error handling
+bot.catch((err: unknown, ctx: Context) => {
+  console.error("Telegraf error:", err);
+  ctx.reply("Sorry, I encountered an error. Please try again later.");
+});
+
 // Command handlers
 bot.command("start", async (ctx: Context) => {
   const chatId = ctx.chat?.id;
   if (!chatId) return;
 
-  const user = { ...ctx.from, app: "telegram" };
+  const user = ctx.from;
   if (!user) return;
 
-  Logger.setUser(user);
-
-  Logger.log(chatId, "system", "Clearing conversation history");
+  const logger = getLogger(user);
+  logger.log(chatId, "system", "Clearing conversation history");
 
   conversationHistory.set(chatId, [
     { role: "user", content: systemPrompt },
@@ -82,7 +91,7 @@ bot.command("start", async (ctx: Context) => {
     { role: "user", content: "Hi!" },
   ]);
 
-  Logger.log(chatId, "user", "/start");
+  logger.log(chatId, "user", "/start");
 
   await processMessage(ctx, getChatHistory(chatId));
 });
@@ -90,13 +99,14 @@ bot.command("start", async (ctx: Context) => {
 // Command to show current provider
 bot.command("provider", (ctx: Context) => {
   const chatId = ctx.chat?.id;
-  if (!chatId) return;
+  if (!chatId || !ctx.from) return;
 
   const { name, model } = llmProvider.getModelInfo();
   const response = `Current provider: ${name} (${model})`;
 
-  Logger.log(chatId, "user", "/provider");
-  Logger.log(chatId, "bot-response", response);
+  const logger = getLogger(ctx.from);
+  logger.log(chatId, "user", "/provider");
+  logger.log(chatId, "bot-response", response);
 
   ctx.reply(response);
 });
@@ -138,7 +148,9 @@ function getTagContent(text: string, tag: string): string {
 
 async function processMessage(ctx: Context, history: HistoryMessage[]) {
   try {
-    if (!ctx.chat?.id) return;
+    if (!ctx.chat?.id || !ctx.from) return;
+
+    const logger = getLogger(ctx.from);
 
     // Get initial response
     let message = await llmProvider.ask(history, ctx.chat?.id);
@@ -160,7 +172,7 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
           content: content.text,
         });
 
-        Logger.log(ctx.chat?.id, "bot-response", textContent);
+        logger.log(ctx.chat?.id, "bot-response", textContent);
 
         if (textContent) {
           await ctx.reply(textContent, {
@@ -170,7 +182,7 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
       }
 
       if (content.type === "tool_use") {
-        Logger.log(ctx.chat?.id, "tool-execution", "", {
+        logger.log(ctx.chat?.id, "tool-execution", "", {
           tool: content.name,
           input: content.input,
         });
@@ -208,8 +220,9 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
   } catch (error: any) {
     console.error(`${CURRENT_PROVIDER} error:`, error.message);
 
-    if (ctx.chat?.id) {
-      Logger.log(ctx.chat?.id, "system", error.message);
+    if (ctx.chat?.id && ctx.from) {
+      const logger = getLogger(ctx.from);
+      logger.log(ctx.chat?.id, "system", error.message);
     }
 
     let errorMessage = `Sorry, I encountered an error with ${CURRENT_PROVIDER}.`;
@@ -230,13 +243,14 @@ bot.on("text", async (ctx: Context) => {
   const chatId = ctx.chat?.id;
   const messageText = (ctx.message as Message.TextMessage).text;
 
-  if (!chatId) return;
+  if (!chatId || !ctx.from) return;
 
   const history = getChatHistory(chatId);
   history.push({ role: "user", content: messageText });
 
   // Log user message
-  Logger.log(chatId, "user", messageText);
+  const logger = getLogger(ctx.from);
+  logger.log(chatId, "user", messageText);
 
   processMessage(ctx, history);
 });
