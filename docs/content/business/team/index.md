@@ -24,9 +24,16 @@
 
 - Telegram: Aina_G_K
 - Role: Community Growth & UX Advisor
-- Circles: Core, Community, Growth, Product
+- Circles: Core, Community, Growth
 - Focus: Local community growth, marketing strategy, UX feedback, strategic planning
 - [CV](./aina.yaml)
+
+### Anja Sophie
+
+- Role: Munich Market Developer
+- Circles: Core, Community, Growth
+- Focus: Munich market development, dance school partnerships, local community growth
+- [CV](./anja-sophie.yaml)
 
 ## Onboarding Process
 
