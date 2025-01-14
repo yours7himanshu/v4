@@ -230,13 +230,10 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
       logger.log(ctx.chat?.id, "system", error.message);
     }
 
-    let errorMessage = `Sorry, I encountered an error with ${CURRENT_PROVIDER}.`;
+    let errorMessage = `Sorry, I encountered an error.\n\n`;
 
     if (error instanceof LLMError) {
-      errorMessage += "\n\nTroubleshooting tips:";
-      error.getTroubleshooting().forEach((tip) => {
-        errorMessage += `\n• ${tip}`;
-      });
+      errorMessage += "Restart the conversation with /start";
     }
 
     await ctx.reply(errorMessage);
