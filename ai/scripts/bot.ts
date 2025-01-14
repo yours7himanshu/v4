@@ -209,6 +209,11 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
     }
   } catch (error: any) {
     console.error(`${CURRENT_PROVIDER} error:`, error.message);
+
+    if (ctx.chat?.id) {
+      Logger.log(ctx.chat?.id, "system", error.message);
+    }
+
     let errorMessage = `Sorry, I encountered an error with ${CURRENT_PROVIDER}.`;
 
     if (error instanceof LLMError) {

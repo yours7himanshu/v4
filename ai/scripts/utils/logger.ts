@@ -39,6 +39,19 @@ export class Logger {
     }
   }
 
+  private static getLogPath(type: LogType): string {
+    const date = new Date();
+    const username = this.currentUser?.username || "anonymous";
+    const dateStr = date.toISOString().split("T")[0]; // YYYY-MM-DD
+
+    // Create directory structure
+    const dirPath = path.join(this.LOG_DIR, username, dateStr);
+    fs.mkdirSync(dirPath, { recursive: true });
+
+    // Return full file path with type as filename
+    return path.join(dirPath, `${type}.log`);
+  }
+
   static log(
     sessionId: string | number,
     type: LogType,
@@ -47,16 +60,10 @@ export class Logger {
   ) {
     this.initialize();
 
-    const date = new Date();
-    const fileName = path.join(
-      this.LOG_DIR,
-      `chat_${date.getFullYear()}-${(date.getMonth() + 1)
-        .toString()
-        .padStart(2, "0")}.log`
-    );
-    const timestamp = date.toISOString();
+    const timestamp = new Date().toISOString();
+    const logPath = this.getLogPath(type);
 
-    let logEntry = `\n[${timestamp}] Session ID: ${sessionId} | Type: ${type}\n`;
+    let logEntry = `[${timestamp}] Session ID: ${sessionId}\n`;
 
     if (metadata) {
       logEntry += `Metadata: ${JSON.stringify(metadata, null, 2)}\n`;
@@ -65,6 +72,6 @@ export class Logger {
     logEntry += `Content: ${content}\n`;
     logEntry += "----------------------------------------\n";
 
-    fs.appendFileSync(fileName, logEntry);
+    fs.appendFileSync(logPath, logEntry);
   }
 }
