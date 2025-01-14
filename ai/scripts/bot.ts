@@ -74,12 +74,13 @@ bot.command("start", (ctx: Context) => {
 
   Logger.setUser(user);
 
+  Logger.log(chatId, "system", "Clearing conversation history");
+
   // Reset conversation history with system prompt
-  conversationHistory.set(chatId, [{ role: "user", content: systemPrompt }]);
   conversationHistory.set(chatId, [
+    { role: "user", content: systemPrompt },
     { role: "user", content: JSON.stringify(user) },
   ]);
-  Logger.log(chatId, "system", "Clearing conversation history");
 
   const response = `Hi! I am your WeDance AI Secretary. How can I help you today?`;
 
