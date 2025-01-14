@@ -82,6 +82,9 @@ bot.command("start", async (ctx: Context) => {
   const user = ctx.from;
   if (!user) return;
 
+  console.log("user", user);
+  console.log("chatId", chatId);
+
   const logger = getLogger(user);
   llmProvider.setLogger(logger);
   logger.log(chatId, "system", "Clearing conversation history");
