@@ -169,6 +169,9 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
         textContent = cleanupTags(textContent, "analysis");
         textContent = cleanupTags(textContent, "tool_selection");
 
+        // non-prompted tags
+        textContent = cleanupTags(textContent, "search_quality_reflection");
+
         textContent = getTagContent(textContent, "response");
 
         history.push({
