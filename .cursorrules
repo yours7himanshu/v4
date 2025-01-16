@@ -370,6 +370,8 @@
         "remotePath": "https://wedance-next-docs.netlify.app/[path]"
       },
       "steps": [
+        "Do not invent information and facts, always get necessary information from the tools",
+        "You can hypothesize but you must clearly state that you are hypothesizing",
         "Always get necessary information from the tools",
         "Start your response with [Role Name]:",
         "Format response in TelegramHtmlFormat",

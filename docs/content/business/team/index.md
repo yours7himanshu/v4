@@ -16,8 +16,8 @@
 - Telegram: Ek92020
 - GitHub: KindImagination
 - Role: Contributor
-- Circles: Product, Community
-- Focus: Community platform engine development, franchise/licensing features
+- Circles: Product
+- Focus: Product Development
 - [CV](./KindImagination.yaml)
 
 ### Aina

@@ -75,17 +75,80 @@ bot.command("start", async (ctx: Context) => {
   console.log("user", user);
   console.log("chatId", chatId);
 
+  const roles = {
+    295988749: {
+      name: "Aina",
+      role: "Community Growth & UX Advisor",
+      circles: ["core", "community", "growth"],
+      focus:
+        "Local community growth, marketing strategy, UX feedback, strategic planning",
+      cv: "docs/content/business/team/aina.yaml",
+    },
+    976234670: {
+      name: "Anja",
+      role: "Munich Market Developer",
+      circles: ["core", "community", "growth"],
+      focus:
+        "Munich market development, dance school partnerships, local community growth",
+      cv: "docs/content/business/team/anja-sophie.yaml",
+    },
+    449558779: {
+      name: "Egor",
+      role: "Contributor",
+      circles: ["product"],
+      focus: "Product Development",
+      cv: "docs/content/business/team/KindImagination.yaml",
+    },
+    508842300: {
+      name: "Alex",
+      role: "Founder",
+      circles: ["core", "community", "product", "growth"],
+      focus: "Technical architecture, product vision, and community building",
+      cv: "docs/content/business/team/razbakov.yaml",
+    },
+    visitor: {
+      role: "Visitor",
+    },
+  };
+
+  let context = [];
+  const isTeamMember = Object.keys(roles).includes(user.id.toString());
+
+  if (isTeamMember) {
+    const files = [
+      "docs/content/business/vision.md",
+      "docs/content/business/organization-canvas.md",
+      "docs/content/operations/objectives-2025-q1.md",
+      "docs/content/operations/backlog.md",
+    ];
+
+    for (const filePath of files) {
+      const content = await tools.read_file.execute({
+        path: filePath,
+      });
+
+      context.push({
+        filePath,
+        content,
+      });
+    }
+  }
+
   const logger = getLogger(user);
   llmProvider.setLogger(logger);
-  logger.log(chatId, "system", "Clearing conversation history");
+  logger.log(chatId, "system", "Starting new conversation", user);
 
   conversationHistory.set(chatId, [
-    { role: "system", content: systemPrompt },
+    {
+      role: "system",
+      content: systemPrompt + "\n\n" + JSON.stringify(context),
+    },
     {
       role: "user",
       content: JSON.stringify({
         user,
         todaysDate: new Date().toISOString().split("T")[0],
+        meta: roles[user.id as keyof typeof roles] || roles["visitor"],
       }),
     },
     { role: "user", content: "Hi!" },
@@ -171,6 +234,7 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
 
         // non-prompted tags
         textContent = cleanupTags(textContent, "search_quality_reflection");
+        textContent = cleanupTags(textContent, "search_quality_score");
 
         textContent = getTagContent(textContent, "response");
 
