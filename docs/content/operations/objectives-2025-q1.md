@@ -2,7 +2,7 @@
 
 ## OKR Alignment
 
-These Q1 2025 objectives support our [company OKRs](/20.business/4.okrs) in the following ways:
+These Q1 2025 objectives support our [company OKRs](/business/okrs) in the following ways:
 
 ### Core Circle
 
