@@ -111,28 +111,7 @@ bot.command("start", async (ctx: Context) => {
     },
   };
 
-  let context = [];
   const isTeamMember = Object.keys(roles).includes(user.id.toString());
-
-  if (isTeamMember) {
-    const files = [
-      "docs/content/business/vision.md",
-      "docs/content/business/organization-canvas.md",
-      "docs/content/operations/objectives-2025-q1.md",
-      "docs/content/operations/backlog.md",
-    ];
-
-    for (const filePath of files) {
-      const content = await tools.read_file.execute({
-        path: filePath,
-      });
-
-      context.push({
-        filePath,
-        content,
-      });
-    }
-  }
 
   const logger = getLogger(user);
   llmProvider.setLogger(logger);
@@ -141,7 +120,7 @@ bot.command("start", async (ctx: Context) => {
   conversationHistory.set(chatId, [
     {
       role: "system",
-      content: systemPrompt + "\n\n" + JSON.stringify(context),
+      content: systemPrompt,
     },
     {
       role: "user",
@@ -151,7 +130,6 @@ bot.command("start", async (ctx: Context) => {
         meta: roles[user.id as keyof typeof roles] || roles["visitor"],
       }),
     },
-    { role: "user", content: "Hi!" },
   ]);
 
   logger.log(chatId, "user", "/start");
@@ -177,39 +155,10 @@ bot.command("provider", (ctx: Context) => {
   ctx.reply(response);
 });
 
-function cleanupTags(text: string, tag: string): string {
-  let cleanedText = text;
-
-  const regex = new RegExp(`<${tag}>([\\s\\S]*?)<\\/${tag}>`, "g");
-  cleanedText = cleanedText.replace(regex, "");
-
-  if (!cleanedText.includes(`${tag}>`)) {
-    return cleanedText;
-  }
-
-  // Handle unclosed tags by removing all text after them
-  const unclosedToolIndex = cleanedText.indexOf(`<${tag}>`);
-  if (unclosedToolIndex !== -1) {
-    cleanedText = cleanedText.substring(0, unclosedToolIndex);
-  }
-
-  // Handle unopened tags by removing all text before them
-  const unopenedToolIndex = cleanedText.indexOf(`<\/${tag}>`);
-  if (unopenedToolIndex !== -1) {
-    cleanedText = cleanedText.substring(unopenedToolIndex);
-  }
-
-  return cleanedText;
-}
-
 function getTagContent(text: string, tag: string): string {
-  const matches = text.match(`<${tag}>(.*?)<\/${tag}>`);
-  let content = matches ? matches[1] : text;
-  content = content.replace(`<${tag}>`, "");
-  content = content.replace(`<\/${tag}>`, "");
-  content = content.trim();
-
-  return content;
+  const regex = new RegExp(`<${tag}>(.*?)</${tag}>`, "s");
+  const match = text.match(regex);
+  return match ? match[1].trim() : "";
 }
 
 async function processMessage(ctx: Context, history: HistoryMessage[]) {
@@ -227,26 +176,17 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
       if (content.type === "text") {
         await ctx.sendChatAction("typing");
 
-        let textContent = content.text;
-        textContent = cleanupTags(textContent, "role_selection");
-        textContent = cleanupTags(textContent, "analysis");
-        textContent = cleanupTags(textContent, "tool_selection");
-
-        // non-prompted tags
-        textContent = cleanupTags(textContent, "search_quality_reflection");
-        textContent = cleanupTags(textContent, "search_quality_score");
-
-        textContent = getTagContent(textContent, "response");
+        const response = getTagContent(content.text, "response");
 
         history.push({
           role: "assistant",
           content: content.text,
         });
 
-        logger.log(ctx.chat?.id, "bot-response", textContent);
+        logger.log(ctx.chat?.id, "bot-response", content.text);
 
-        if (textContent) {
-          await ctx.reply(textContent, {
+        if (response) {
+          await ctx.reply(response, {
             parse_mode: "HTML",
           });
         }
