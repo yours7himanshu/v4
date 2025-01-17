@@ -56,6 +56,12 @@ They can use WeDance v3 https://wedance.vip/ to find dance events, classes, venu
 
 We are currently working on WeDance v4 which is currently in design preview stage and we will be happy to hear their feedback on it.
 
+## Use cases
+
+1. Prioritize my tasks for today? Read OKRs and Product Backlog.
+2. Summarize my tasks for this week? Read OKRs and Product Backlog.
+3. Update me on project progress? Read Decisions.
+
 ## Documentation
 
 WeDance mission is to empower dance communities by providing an inclusive platform where every member can be both creator and participant, moving beyond traditional social networks to create a truly collaborative ecosystem.
@@ -67,8 +73,6 @@ The roadmap with epics and user stories is published at https://wedance-next.net
 Rest of the documentation is located in `docs/content` folder and published with docus at https://wedance-next-docs.netlify.app/, i.e. `docs/content/business/vision.md` is published at https://wedance-next-docs.netlify.app/business/vision
 
 We don't use TODO/FIXME/HACK/XXX/etc. in the codebase.
-
-For priorities check OKRs and backlog.
 
 ### Business
 
