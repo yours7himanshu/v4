@@ -223,7 +223,12 @@ async function processMessage(
           content: [content],
         });
 
-        console.log("exec:", content.name, content.input);
+        ctx.reply(
+          `<tg-spoiler>${content.name} ${JSON.stringify(content.input)}</tg-spoiler>`,
+          {
+            parse_mode: "HTML",
+          }
+        );
 
         const toolResponse = await tools[content.name].execute(content.input);
 
