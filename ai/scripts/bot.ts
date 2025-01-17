@@ -108,7 +108,7 @@ bot.command("start", async (ctx: Context) => {
   };
 
   let context = "";
-  let includeFiles = true;
+  let includeFiles = false;
 
   const isTeamMember = Object.keys(roles).includes(user.id.toString());
   if (isTeamMember && includeFiles) {
