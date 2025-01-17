@@ -86,7 +86,6 @@ Following S3 principles:
    - OKR setting and adjustment
    - Circle retrospectives
    - Strategic planning
-   - Current quarter: [Q1 2025 Objectives](/40.operations/objectives-2025-q1)
 
 4. **Success Criteria**
    - Clear measurement methods
