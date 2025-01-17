@@ -107,9 +107,11 @@ bot.command("start", async (ctx: Context) => {
     },
   };
 
-  let context = [];
+  let context = "";
+  let includeFiles = true;
+
   const isTeamMember = Object.keys(roles).includes(user.id.toString());
-  if (isTeamMember) {
+  if (isTeamMember && includeFiles) {
     const files = ["docs/content/business/okrs.md"];
 
     for (const filePath of files) {
@@ -117,10 +119,7 @@ bot.command("start", async (ctx: Context) => {
         path: filePath,
       });
 
-      context.push({
-        filePath,
-        content,
-      });
+      context += `\n\n${content}`;
     }
   }
 
@@ -131,7 +130,7 @@ bot.command("start", async (ctx: Context) => {
   conversationHistory.set(chatId, [
     {
       role: "system",
-      content: systemPrompt + "\n\n" + JSON.stringify(context),
+      content: systemPrompt + "\n\n" + context,
     },
     {
       role: "user",
