@@ -37,30 +37,37 @@ Items related to organization, policy and role development:
 
 #### In Progress
 
-- [ ] Refactoring see [refactoring plan](refactoring-plan.md)
-- [ ] Implement authentication system
+- [ ] Egor: Refactoring [refactoring plan](refactoring-plan.md)
+
+#### Planned
+
+- [ ] Alex: create UX to buy tickets
+- [ ] Alex: create UX to buy online classes
+- [ ] Alex: create UX to book an artist
+- [ ] Alex: create UX to book a venue
+- [ ] Alex: create UX to edit profile
+- [ ] Alex: create UX to create a post
+- [ ] Alex: create UX to create an event
+- [ ] Alex: Implement authentication system
   - [x] Create auth store structure
   - [x] Define user levels
   - [ ] Add actual authentication logic
   - [ ] Implement user sessions
-- [ ] Set up tRPC API
+- [ ] Egor: Set up tRPC API
   - [x] Configure tRPC
   - [ ] Define API endpoints
   - [ ] Add error handling
-- [ ] Create database schema
-- [ ] Implement core features
+- [ ] Egor: Create database schema
+- [ ] Egor: Implement core features
   - [x] Set up page structure
   - [ ] Add CRUD operations
   - [ ] Implement file uploads
-
-#### Planned
-
-- [ ] Define architecture principles
-- [ ] Create development workflow
-- [ ] Establish quality standards
-- [ ] Design API guidelines
-- [ ] Set up testing framework
-- [ ] Implement CI/CD pipeline
+- [ ] Alex: Define architecture principles
+- [ ] Alex: Create development workflow
+- [ ] Alex: Establish quality standards
+- [ ] Alex: Design API guidelines
+- [ ] Alex: Set up testing framework
+- [ ] Alex: Implement CI/CD pipeline
 
 ### Growth Circle
 
