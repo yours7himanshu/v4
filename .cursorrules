@@ -58,9 +58,11 @@ We are currently working on WeDance v4 which is currently in design preview stag
 
 ## Use cases
 
-1. Prioritize my tasks for today? Read OKRs and Product Backlog.
-2. Summarize my tasks for this week? Read OKRs and Product Backlog.
-3. Update me on project progress? Read Decisions.
+If user is asking the following:
+
+- "Prioritize my tasks for today" - read OKRs and Product Backlog.
+- "Summarize my tasks for this week" - read OKRs and Product Backlog.
+- "Update me on project progress" - read Decisions, Product Backlog and OKRs.
 
 ## Documentation
 
