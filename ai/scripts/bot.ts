@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import { Telegraf, Context } from "telegraf";
-import { Message } from "telegraf/types";
+import { CallbackQuery, Message } from "telegraf/types";
 import fs from "fs";
 import {
   HistoryMessage,
@@ -82,7 +82,6 @@ bot.command("start", async (ctx: Context) => {
       circles: ["core", "community", "growth"],
       focus:
         "Local community growth, marketing strategy, UX feedback, strategic planning",
-      cv: "docs/content/business/team/aina.yaml",
     },
     976234670: {
       name: "Anja",
@@ -90,21 +89,18 @@ bot.command("start", async (ctx: Context) => {
       circles: ["core", "community", "growth"],
       focus:
         "Munich market development, dance school partnerships, local community growth",
-      cv: "docs/content/business/team/anja-sophie.yaml",
     },
     449558779: {
       name: "Egor",
       role: "Contributor",
       circles: ["product"],
       focus: "Product Development",
-      cv: "docs/content/business/team/KindImagination.yaml",
     },
     508842300: {
       name: "Alex",
       role: "Founder",
       circles: ["core", "community", "product", "growth"],
       focus: "Technical architecture, product vision, and community building",
-      cv: "docs/content/business/team/razbakov.yaml",
     },
     visitor: {
       role: "Visitor",
@@ -134,7 +130,7 @@ bot.command("start", async (ctx: Context) => {
 
   logger.log(chatId, "user", "/start");
 
-  await processMessage(ctx, getChatHistory(chatId));
+  await processMessage(ctx, getChatHistory(chatId), true);
 });
 
 // Command to show current provider
@@ -161,7 +157,11 @@ function getTagContent(text: string, tag: string): string {
   return match ? match[1].trim() : "";
 }
 
-async function processMessage(ctx: Context, history: HistoryMessage[]) {
+async function processMessage(
+  ctx: Context,
+  history: HistoryMessage[],
+  isFirstMessage: boolean = false
+) {
   try {
     if (!ctx.chat?.id || !ctx.from) return;
 
@@ -171,12 +171,18 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
     // Get initial response
     let message = await llmProvider.ask(history, ctx.chat?.id);
 
+    const options = [
+      "Prioritize my tasks for today",
+      "Summarize my tasks for this week",
+      "Update me on project progress",
+    ];
+
     let waitingForToolResponse = false;
     for (const content of message.content) {
       if (content.type === "text") {
         await ctx.sendChatAction("typing");
 
-        const response = getTagContent(content.text, "response");
+        const response = content.text;
 
         history.push({
           role: "assistant",
@@ -186,8 +192,22 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
         logger.log(ctx.chat?.id, "bot-response", content.text);
 
         if (response) {
+          let reply_markup = undefined;
+
+          if (isFirstMessage) {
+            reply_markup = {
+              inline_keyboard: options.map((option) => [
+                {
+                  text: option,
+                  callback_data: option,
+                },
+              ]),
+            };
+          }
+
           await ctx.reply(response, {
             parse_mode: "HTML",
+            reply_markup: reply_markup,
           });
         }
       }
@@ -247,6 +267,26 @@ async function processMessage(ctx: Context, history: HistoryMessage[]) {
   }
 }
 
+function isDataCallbackQuery(
+  query: CallbackQuery
+): query is CallbackQuery.DataQuery {
+  return (query as CallbackQuery.DataQuery).data !== undefined;
+}
+
+bot.on("callback_query", async (ctx: Context) => {
+  const chatId = ctx.chat?.id;
+  const callbackQuery = ctx.callbackQuery;
+
+  if (!chatId || !callbackQuery) return;
+
+  if (isDataCallbackQuery(callbackQuery)) {
+    const history = getChatHistory(chatId);
+    history.push({ role: "user", content: callbackQuery.data });
+
+    await processMessage(ctx, history);
+  }
+});
+
 // Handle messages
 bot.on("text", async (ctx: Context) => {
   const chatId = ctx.chat?.id;
@@ -261,7 +301,7 @@ bot.on("text", async (ctx: Context) => {
   const logger = getLogger(ctx.from);
   logger.log(chatId, "user", messageText);
 
-  processMessage(ctx, history);
+  await processMessage(ctx, history);
 });
 
 // Launch bot
