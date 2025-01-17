@@ -107,7 +107,22 @@ bot.command("start", async (ctx: Context) => {
     },
   };
 
+  let context = [];
   const isTeamMember = Object.keys(roles).includes(user.id.toString());
+  if (isTeamMember) {
+    const files = ["docs/content/business/okrs.md"];
+
+    for (const filePath of files) {
+      const content = await tools.read_file.execute({
+        path: filePath,
+      });
+
+      context.push({
+        filePath,
+        content,
+      });
+    }
+  }
 
   const logger = getLogger(user);
   llmProvider.setLogger(logger);
@@ -116,7 +131,7 @@ bot.command("start", async (ctx: Context) => {
   conversationHistory.set(chatId, [
     {
       role: "system",
-      content: systemPrompt,
+      content: systemPrompt + "\n\n" + JSON.stringify(context),
     },
     {
       role: "user",
