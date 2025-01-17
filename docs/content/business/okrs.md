@@ -1,144 +1,20 @@
 # OKRs
 
-## Core Circle
+## Objectives 2025
 
-### O1: Launch First Dance Style Community
+### O1: Empower artists to grow their audience and income, reaching €200K in service revenue.
 
-KRs:
+### O2: Become the go-to platform for event organizers by generating €200K in service revenue.
 
-1. Select and validate target dance style through community research
-2. Onboard 3 key community leaders as partners
-3. Define and document style-specific requirements
-4. Achieve 80% satisfaction score from initial community feedback
+### O3: Streamline venue management and bookings to achieve €200K in service revenue.
 
-### O2: Establish S3 Governance
+## Objectives 2025 Q1
 
-KRs:
+### O1: TBD
 
-1. Complete circle formation with all key roles filled
-2. Conduct 6 successful governance meetings
-3. Document and test all core processes
-4. Achieve 90% participation in circle meetings
+### O2: TBD
 
-### O3: Set Foundation for €1M Revenue
-
-KRs:
-
-1. Achieve €10K MRR by Q2 2025 (€120K annual run rate)
-2. Validate pricing models for all 5 revenue streams
-3. Achieve 40% gross margin across all revenue streams
-4. Set up financial reporting for each revenue stream
-
-## Community Circle
-
-### O1: Build Trust & Safety Framework
-
-KRs:
-
-1. Implement community guidelines with 90% member acceptance
-2. Launch verified profile system with 50% adoption
-3. Establish moderation process with 2-hour response time
-4. Achieve zero major safety incidents
-
-### O2: Foster Active Community
-
-KRs:
-
-1. Achieve 70% weekly active members
-2. Generate 100 member-initiated discussions
-3. Facilitate 10 successful partner matches
-4. Maintain NPS score above 40
-
-### O3: Enable Community Leadership
-
-KRs:
-
-1. Train 5 community ambassadors
-2. Document 3 success stories
-3. Achieve 30% member-generated content
-4. Launch community rewards program
-
-## Product Circle
-
-### O1: Launch Core Platform Features
-
-KRs:
-
-1. Deploy event management system
-   - ⏳ Routes structure ready (20%)
-   - 🔲 CRUD operations pending
-   - 🔲 Booking system pending
-2. Launch partner finding feature
-   - 🔲 Not started
-3. Implement booking and payments
-   - 🔲 Not started
-4. Achieve 99% platform uptime
-   - ⏳ Development environment ready (10%)
-
-### O2: Optimize User Experience
-
-KRs:
-
-1. Achieve sub-2-second page load time
-   - ✅ Initial setup with Nuxt 3
-   - ⏳ Performance monitoring pending
-2. Reduce onboarding friction (80% completion rate)
-   - ⏳ Basic auth structure ready (30%)
-   - 🔲 Full onboarding flow pending
-3. Implement automated testing with 80% coverage
-   - 🔲 Testing framework pending
-   - 🔲 CI/CD setup pending
-4. Maintain mobile-first responsive design
-   - ✅ TailwindCSS configured
-   - ✅ shadcn-vue components ready
-
-### O3: Enable Platform Extensibility
-
-KRs:
-
-1. Document API for all core features
-   - ✅ tRPC setup complete
-   - ⏳ API endpoints in progress (20%)
-2. Create white-label configuration system
-   - 🔲 Not started
-3. Launch developer documentation
-   - ⏳ Basic architecture docs ready (30%)
-4. Support first external integration
-   - 🔲 Not started
-
-## Growth Circle
-
-### O1: Establish Market Presence
-
-KRs:
-
-1. Grow from 4,000 to 5,000 registered users by Q2 2025
-2. Maintain 50% monthly active user retention (2,000 MAU)
-3. Achieve 80% satisfaction score in target dance style
-4. Build foundation for second dance style launch
-
-### O2: Build Revenue Channels
-
-KRs:
-
-1. Event Services: Achieve €16.5K MRR (€200K annual) by Q4 2026
-2. Artist Services: Sign 50 paying artists (€16.5K MRR)
-3. Venue Services: Onboard 30 paying venues (€16.5K MRR)
-4. Dancer Services: Convert 10% of users to premium (€16.5K MRR)
-5. Platform Licensing:
-   - Close 4 white-label deals (€100K annual)
-   - Build showcase implementation (€16.5K MRR)
-   - Create partner certification program
-
-### O3: Create Growth Engine
-
-KRs:
-
-1. Achieve 40% month-over-month revenue growth
-2. Establish 5 key marketing channels with positive ROI
-3. Achieve customer acquisition cost < 6-month customer lifetime value
-4. Set up automated revenue forecasting dashboard
-5. Create dance style expansion playbook
+### O3: TBD
 
 ## Review Process
 
