@@ -66,6 +66,8 @@ The roadmap with epics and user stories is published at https://wedance-next.net
 
 Rest of the documentation is located in `docs/content` folder and published with docus at https://wedance-next-docs.netlify.app/, i.e. `docs/content/business/vision.md` is published at https://wedance-next-docs.netlify.app/business/vision
 
+We don't use TODO/FIXME/HACK/XXX/etc. in the codebase.
+
 ### Business
 
 - [Vision](docs/content/business/vision.md)

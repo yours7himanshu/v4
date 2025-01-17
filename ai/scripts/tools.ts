@@ -3,16 +3,18 @@ import glob from "glob";
 import fs from "fs";
 
 // File operation tools
-interface Tool {
+export interface Tool {
   name: string;
   description: string;
   input_schema: any;
+  progress: (input: any) => string;
   execute: (...args: any[]) => Promise<string>;
 }
 
 export const tools: { [key: string]: Tool } = {
   read_file: {
     name: "read_file",
+    progress: (input: { filePath: string }) => `Reading file ${input.filePath}`,
     description:
       "Read and return the contents of a file at the specified path. This tool is best used when you need to examine or analyze the contents of an existing file. It will return an error if the file doesn't exist or can't be read. The tool reads files as UTF-8 text, so it's not suitable for binary files. Use this when you need to understand what's in a file before making changes or when gathering information.",
     input_schema: {
@@ -41,6 +43,7 @@ export const tools: { [key: string]: Tool } = {
   },
   write_file: {
     name: "write_file",
+    progress: (input: { filePath: string }) => `Writing to ${input.filePath}`,
     description:
       "Create a new file or overwrite an existing file with the specified content. This tool will create any necessary parent directories if they don't exist. Use this when you need to save new content to a file or completely replace an existing file's contents. The tool writes text as UTF-8, so it's not suitable for binary data. Be cautious when using this on existing files as it will overwrite them entirely - use edit_file instead if you only need to make specific changes.",
     input_schema: {
@@ -83,6 +86,7 @@ export const tools: { [key: string]: Tool } = {
   },
   edit_file: {
     name: "edit_file",
+    progress: (input: { filePath: string }) => `Editing file ${input.filePath}`,
     description:
       "Modify specific parts of an existing file while preserving the rest of its content. This tool is ideal for making targeted changes to files without affecting other parts. It performs a simple text replacement, replacing all occurrences of the search text with the replacement text. Use this when you need to update specific portions of a file while keeping the rest intact. Note that this tool uses exact string matching, not regex, so it's best for precise replacements. If the file doesn't exist or can't be modified, it will return an error.",
     input_schema: {
@@ -133,6 +137,8 @@ export const tools: { [key: string]: Tool } = {
   },
   list_dir: {
     name: "list_dir",
+    progress: (input: { dirPath: string }) =>
+      `Listing files in ${input.dirPath}`,
     description:
       "List all files and directories in the specified directory. This tool is useful for exploring the contents of a directory or verifying the existence of files. It returns a newline-separated list of all items in the directory. Use this when you need to understand the structure of a directory or find specific files. The tool does not recursively list subdirectories - it only shows immediate children of the specified directory. Returns an error if the directory doesn't exist or can't be read.",
     input_schema: {
@@ -161,6 +167,8 @@ export const tools: { [key: string]: Tool } = {
   },
   grep_search: {
     name: "grep_search",
+    progress: (input: { pattern: string; directory: string }) =>
+      `Searching for ${input.pattern} in ${input.directory}`,
     description:
       "Search for a text pattern (regular expression) across all files in a directory and its subdirectories. This tool is perfect for finding where certain patterns appear in your codebase. It recursively searches through all files, reporting which files contain matches for the regex pattern. Use this when you need to locate specific text, function names, or other patterns across multiple files. The search is case-sensitive by default and supports full JavaScript regular expressions. The tool will search all file types by default, but you can narrow the search to specific directories.",
     input_schema: {

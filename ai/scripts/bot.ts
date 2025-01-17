@@ -9,7 +9,7 @@ import {
   BaseLLMProvider,
   LLMError,
 } from "./providers";
-import { tools } from "./tools";
+import { Tool, tools } from "./tools";
 import { ToolResultBlockParam } from "@anthropic-ai/sdk/resources/messages";
 import { Logger } from "./utils/logger";
 
@@ -223,31 +223,34 @@ async function processMessage(
           content: [content],
         });
 
-        ctx.reply(
-          `<tg-spoiler>${content.name} ${JSON.stringify(content.input)}</tg-spoiler>`,
-          {
+        const tool = tools[content.name] as Tool | undefined;
+
+        if (tool) {
+          const progress = tool.progress(content.input);
+
+          ctx.reply(`<i>${progress}</i>`, {
             parse_mode: "HTML",
-          }
-        );
+          });
 
-        const toolResponse = await tools[content.name].execute(content.input);
+          const toolResponse = await tool.execute(content.input);
 
-        const toolResult: ToolResultBlockParam = {
-          type: "tool_result",
-          tool_use_id: content.id,
-          content: toolResponse,
-        };
+          const toolResult: ToolResultBlockParam = {
+            type: "tool_result",
+            tool_use_id: content.id,
+            content: toolResponse,
+          };
 
-        logger.log(ctx.chat?.id, "tool-execution", "", {
-          tool: content.name,
-          input: content.input,
-          output: toolResponse,
-        });
+          logger.log(ctx.chat?.id, "tool-execution", "", {
+            tool: content.name,
+            input: content.input,
+            output: toolResponse,
+          });
 
-        history.push({
-          role: "user",
-          content: [toolResult],
-        });
+          history.push({
+            role: "user",
+            content: [toolResult],
+          });
+        }
       }
     }
 
