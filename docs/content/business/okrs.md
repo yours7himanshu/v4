@@ -46,19 +46,21 @@ Key Results:
 
 ### O2: Establish Relationships with Artists
 
-- Found 3 dance instructors interested in selling their online classes
+- Found 5 dance instructors interested in selling their online classes
+- Successful design sprint user testing for online classes
 
 ### O3: Establish Relationships with Organizers
 
-- Found 3 organizers interested in ticketing for Regular Parties
-- Found 3 organizers interested in ticketing for Courses
-- Found 3 organizers interested in ticketing for Online Zoom Classes
-- Found 3 organizers interested in ticketing for Festivals
+- Found 5 organizers interested in ticketing for Regular Parties
+- Found 5 organizers interested in ticketing for Courses
+- Found 5 organizers interested in ticketing for Online Zoom Classes
+- Found 5 organizers interested in ticketing for Festivals
+- Successful 4 design sprints user testing for ticketing
 
 ### O4: Grow community
 
 - Google Reviews Collection (Anja, Eneris, Yarima, Amado, Salsea)
-- Munich Salsa Calendar is launched by end of January 2025
+- Munich Salsa Calendar campaign is launched by end of January 2025 (newsletter, telegram, instagram)
 - 10 videos of salsa cubana dancers from different cities
 - 10 videos of different dance styles in Munich
 - Voting for Pinakothek Booking Policy is posted by end of February 2025
