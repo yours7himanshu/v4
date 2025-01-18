@@ -37,7 +37,7 @@ Social Media Growth Lead:
 - Create content strategy for growth channels
 - Train and support regional social media teams
 
-Local Market Development (Munich):
+Market Growth in Munich:
 
 - Implement and test local growth strategies
 - Provide Munich market insights and analysis
@@ -55,7 +55,7 @@ Multi-Style Dance Growth:
 
 ### Anja Sophie
 
-Local Community Growth:
+Community Growth in Munich:
 
 - Develop local dance community growth strategies
 - Build relationships with dance schools and venues

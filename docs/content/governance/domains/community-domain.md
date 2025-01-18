@@ -33,7 +33,7 @@ Community Engagement:
 - Gather and implement community feedback
 - Create engagement reports and recommendations
 
-Local Community Building (Munich):
+Local Community Growth in Munich:
 
 - Organize and support local community events
 - Build relationships with Munich dance community
