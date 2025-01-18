@@ -1,4 +1,4 @@
-# WeDance Contributor Agreement
+# Contributor Agreement
 
 ## Overview
 

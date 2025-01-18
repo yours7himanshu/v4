@@ -1,8 +1,12 @@
-Dance Community Platform
+---
+title: Home
+navigation: false
+layout: page
+main:
+  fluid: false
+---
 
-#description
 WeDance is a participatory network transforming how dance communities connect, organize, and thrive together. We're building tools for self-organization, connection, and collaboration that put community first.
-::
 
 ::card-grid
 #title

@@ -38,16 +38,22 @@ const features = [
   },
 ];
 
+const introduction = {
+  title: "Introduction",
+  description:
+    "WeDance is a global platform dedicated to uniting and empowering dance communities by making dance information accessible and supporting community growth. This document outlines our Vision and Mission, providing clear direction and purpose to guide our efforts in creating a more connected and inclusive dance world.",
+};
+
+const vision = {
+  title: "Our Vision",
+  description:
+    "To create a world where dance is universally accessible, and communities thrive through connection and shared experiences.",
+};
+
 const mission = {
   title: "Our Mission",
   description:
-    "Organize all the world's information about dance and make it universally accessible.",
-  points: [
-    "Make dance more accessible to everyone",
-    "Help communities self-organize and thrive",
-    "Support artists and event organizers",
-    "Connect dancers globally while strengthening local scenes",
-  ],
+    "We empower dance communities by providing an AI-driven platform that organizes global dance information, simplifies event management, and fosters inclusive participation to support community growth and connection.",
 };
 
 const values = [
@@ -89,23 +95,12 @@ const values = [
       <!-- Mission -->
       <div class="mb-16">
         <div class="text-center mb-8">
+          <h2 class="text-2xl font-bold text-gray-900">{{ vision.title }}</h2>
+          <p class="text-lg text-gray-600 mt-2">{{ vision.description }}</p>
+        </div>
+        <div class="text-center mb-8">
           <h2 class="text-2xl font-bold text-gray-900">{{ mission.title }}</h2>
           <p class="text-lg text-gray-600 mt-2">{{ mission.description }}</p>
-        </div>
-        <div class="bg-white rounded-lg shadow-sm p-8">
-          <ul class="grid gap-4">
-            <li
-              v-for="point in mission.points"
-              :key="point"
-              class="flex items-center gap-3"
-            >
-              <Icon
-                name="ph:check-circle"
-                class="w-5 h-5 text-purple-600 flex-shrink-0"
-              />
-              <span class="text-gray-700">{{ point }}</span>
-            </li>
-          </ul>
         </div>
       </div>
 

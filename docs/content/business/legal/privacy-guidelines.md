@@ -1,4 +1,4 @@
-# Privacy Guidelines for Team Members
+# Privacy Guidelines
 
 ## Overview
 

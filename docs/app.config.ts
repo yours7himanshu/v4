@@ -5,7 +5,7 @@ export default defineAppConfig({
     description:
       "A participatory network transforming how dance communities connect, organize, and thrive together",
     aside: {
-      level: 0,
+      level: 1,
       collapsed: true,
       exclude: [],
     },

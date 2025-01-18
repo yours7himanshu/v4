@@ -1,239 +1,90 @@
-# Backlog
-
-Following S3 principles, our backlog is organized by:
-
-1. Driver (what need/opportunity we're responding to)
-2. Value (impact on organization)
-3. Circle (who's responsible)
-
-## Governance Backlog
-
-Items related to organization, policy and role development:
-
-### Core Circle
-
-- [x] Select first dance style: Salsa Cubana ([decision record](../governance/decisions/001-first-dance-style.md))
-- [ ] Complete S3 documentation structure
-- [ ] Define circle formation process
-- [ ] Create role selection process
-- [ ] Establish meeting formats
-
-### Community Circle
-
-- [ ] Define community guidelines
-- [ ] Create safety protocols
-- [ ] Establish moderation process
-- [ ] Design ambassador program
-
-### Product Circle
-
-#### Completed
-
-- [x] Set up Nuxt.js 3 with TypeScript
-- [x] Configure TailwindCSS and UI components
-- [x] Implement state management with Pinia
-- [x] Set up form validation (vee-validate + zod)
-- [x] Create basic routing structure
-
-#### In Progress
-
-- [ ] Egor: Refactoring [refactoring plan](refactoring-plan.md)
-
-#### Planned
-
-- [ ] Alex: create UX to buy tickets
-- [ ] Alex: create UX to buy online classes
-- [ ] Alex: create UX to book an artist
-- [ ] Alex: create UX to book a venue
-- [ ] Alex: create UX to edit profile
-- [ ] Alex: create UX to create a post
-- [ ] Alex: create UX to create an event
-- [ ] Alex: search, find "MontunoClub"
-- [ ] Alex: Yarima's course
-- [ ] Alex: Eneris zoom classes
-- [ ] Alex: Javier - book dj, dj class
-- [ ] Alex: Dora - book piano lesson, musician workshop, book singer, book as musician
-- [ ] Alex: Blog post: dance business revolution
-- [ ] Alex: City homepage - similar to homepage with overview and features
-- [ ] Alex: For logged in users hide heros
-- [ ] Alex: profile menu (after signed in)
-- [ ] Alex: notifications
-- [ ] Alex: settings
-- [ ] Alex: Implement authentication system
-  - [x] Create auth store structure
-  - [x] Define user levels
-  - [ ] Add actual authentication logic
-  - [ ] Implement user sessions
-- [ ] Egor: Set up tRPC API
-  - [x] Configure tRPC
-  - [ ] Define API endpoints
-  - [ ] Add error handling
-- [ ] Egor: Create database schema
-- [ ] Egor: Implement core features
-  - [x] Set up page structure
-  - [ ] Add CRUD operations
-  - [ ] Implement file uploads
-- [ ] Alex: Define architecture principles
-- [ ] Alex: Create development workflow
-- [ ] Alex: Establish quality standards
-- [ ] Alex: Design API guidelines
-- [ ] Alex: Set up testing framework
-- [ ] Alex: Implement CI/CD pipeline
+following S3 how our documentation should be organized and what do we need
 
-### Growth Circle
+---
 
-- [ ] Define pricing models
-- [ ] Create partnership framework
-- [ ] Establish revenue tracking
-- [ ] Design marketing strategy
+Looking at our drivers and immediate needs, we should prioritize hiring based on:
 
-## Operations Backlog
+1. **Core Driver**: Need to establish S3 governance and initial structure
+2. **Platform Driver**: Need basic platform functionality
+3. **Community Driver**: Need to start building first dance style community
+4. **Business Driver**: Need to set up legal and financial foundation
 
-Concrete tasks to be implemented:
+Based on this, I recommend this hiring sequence:
 
-### First Dance Style MVP (Salsa Cubana)
+1. **First Hire: Technical Lead** (Product Circle)
 
-- [x] Select target dance style: Salsa Cubana
-- [ ] Document current activities:
-  - [ ] Sunday classes at Buenavista
-  - [ ] Wednesday socials (year-round)
-  - [ ] Friday socials (summer, open air)
-- [ ] Identify main pain points in organizing
-- [ ] Implement tools for existing activities
-- [ ] Connect with other Salsa Cubana teachers
+   - Can start building platform MVP
+   - Essential for validating technical decisions
+   - Can help evaluate future tech hires
+   - Critical for open source foundation
 
-### Platform Development
+2. **Second Hire: Community Manager** (Community Circle)
 
-- [ ] Set up development environment
-- [ ] Implement core user system
-- [ ] Create event management
-- [ ] Build partner finding
+   - Focus on first dance style community
+   - Build relationships with early adopters
+   - Help define community guidelines
+   - Start safety protocols
 
-### Business Setup
+3. **Third Hire: Growth Lead** (Growth Circle)
 
-- [ ] Register UG
-- [ ] Set up banking
-- [ ] Create contracts
-- [ ] Establish accounting
+   - Set up revenue streams
+   - Work with early partners
+   - Develop pricing models
+   - Handle business development
 
-### Community Building
+4. **Support Roles** (as needed):
+   - DevOps Engineer (once platform basics are ready)
+   - Community Moderator (once we have initial users)
+   - UX Designer (for refining user experience)
 
-- [ ] Create onboarding process
-- [ ] Design trust system
-- [ ] Build moderation tools
-- [ ] Launch safety features
+Would you like me to:
 
-## Q1 2025 Priority Stories
+1. Detail the job descriptions?
+2. Define the interview process following S3?
+3. Create onboarding guidelines?
+4. Map out the hiring timeline?
 
-### January Deadlines
+---
 
-#### Munich Salsa Calendar
+i would like to design a process of communication between me (or other team member) and you. so you will be representing different actors (experts), we need to list them somewhere. and you need to know who are you speaking to. and you need to guide people what to do next. maybe we need a daily routine? like when someone comes to work they say "hi" to you and your first role will be secretary. what you think? do it with .cursorrules file.
 
-- [ ] Calendar View (us-003)
-- [ ] Event Creation (us-007)
-- [ ] Public Event Browsing (us-001)
+---
 
-#### Yarima Online Course
+The items that should be moved to WeDance project management:
 
-- [ ] Online Payments (us-035)
-- [ ] Student Communications (us-034)
-- [ ] Class Scheduling (us-028)
+1. **Technical Planning**
 
-### High Priority Q1
+   - Q1 2025 WeDance Roadmap
+   - Feature development timeline
+   - Technical skill requirements for features
 
-#### Eneris Zoom Integration
+2. **Project Tasks**
 
-- [ ] Payment Processing (us-035)
-- [ ] Ticket Sales (us-008)
-- [ ] Attendee Communication (us-012)
+   ```
+   - List top 3 WeDance features to launch in Q1
+   - Create timeline for feature development
+   - Set up development milestones
+   ```
 
-#### Community Growth
+3. **Team/Technical Skills**
 
-- [ ] Organizer Onboarding (us-045)
-- [ ] Dance Profiles (us-015)
+   ```
+   - Required technical skills for features
+   - Team skill gaps analysis
+   - Technical learning resources for team
+   ```
 
-#### Trust & Safety
+4. **Project Metrics**
 
-- [ ] Profile Verification (us-036)
-- [ ] Attendee Verification (us-039)
-- [ ] Community Guidelines (us-040)
-- [ ] Moderation Tools (us-041)
+   ```
+   - Development progress tracking
+   - Feature completion metrics
+   - Technical debt tracking
+   ```
 
-### Medium Priority Q1
-
-#### Platform Enhancement
-
-- [ ] Documentation Integration (us-052)
-- [ ] Content Quality Standards (us-042)
-- [ ] Data Privacy Implementation (us-043)
-
-#### Community Engagement
-
-- [ ] Community Initiatives (us-027)
-- [ ] City Ambassador Program (us-044)
-- [ ] Community Posts (us-020)
-
-### Deferred Features
-
-- [ ] Language Support (us-049)
-- [ ] New Cities Expansion (us-048)
-- [ ] Tool Integration (us-050)
-
-## Backlog Refinement
-
-Following S3 principles:
-
-1. **Regular Review**
-
-   - Weekly circle review
-   - Monthly cross-circle alignment
-   - Quarterly strategic review
-
-2. **Prioritization Criteria**
-
-   - Impact on mission
-   - Resource availability
-   - Dependencies
-   - Time sensitivity
-
-3. **Documentation**
-
-   - Clear acceptance criteria
-   - Defined outcomes
-   - Resource requirements
-   - Success metrics
-
-4. **Evolution**
-   - Regular driver review
-   - Value assessment
-   - Resource adjustment
-   - Priority updates
-
-## Using the Backlog
-
-1. **Adding Items**
-
-   - Identify driver
-   - Specify value
-   - Assign circle
-   - Define criteria
-
-2. **Processing Items**
-
-   - Regular refinement
-   - Circle review
-   - Cross-circle coordination
-   - Resource allocation
-
-3. **Completing Items**
-
-   - Verification
-   - Documentation
-   - Learning capture
-   - Value assessment
-
-4. **Review Process**
-   - Weekly sync
-   - Monthly planning
-   - Quarterly strategy
-   - Annual review
+5. **Project Documentation**
+   ```
+   - Technical documentation
+   - Development guidelines
+   - Team processes
+   ```

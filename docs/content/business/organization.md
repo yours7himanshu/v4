@@ -1,10 +1,8 @@
-# Organization Canvas
+# Organization
 
 ## 1. Purpose
 
-To organize the world's dance information and build a participatory network that helps communities self-organize effectively and makes dance more accessible to everyone.
-
-We aim to solve the fragmentation of dance communities, where information is scattered across private chats and closed groups, leading to inefficient event organization, exclusion of potential participants, and slower community growth.
+Dance communities face fragmented information scattered across private chats and closed groups, causing inefficient event organization and limiting participant involvement. This disorganization slows community growth and excludes potential members. Addressing this issue will foster inclusive participation, streamline event planning, and support the vibrant growth of global dance communities.
 
 ## 2. Core Values
 
