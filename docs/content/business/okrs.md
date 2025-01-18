@@ -2,15 +2,11 @@
 
 ## Objective 2025 - €1M in revenue
 
-### O1: Empower artists to sell their online classes, reaching €90K in revenue.
-
-Key Results:
+**O1: Empower artists to sell their online classes, reaching €90K in revenue.**
 
 - KR1: Onboard and actively engage 10 dance instructors to offer pre-recorded class content
 
-### O2: Become the go-to platform for event organizers by generating €831K in service revenue.
-
-Key Results:
+**O2: Become the go-to platform for event organizers by generating €831K in service revenue.**
 
 - KR1: Onboard 500 festival organizers to manage their events
 - KR2: Attract 300 party organizers to list their regular events
@@ -18,9 +14,7 @@ Key Results:
 - KR4: Partner with 500 workshop/bootcamp organizers
 - KR5: Support 100 instructors in running online Zoom classes
 
-### O3: Empower artists to grow their audience and income, reaching €221K in service revenue.
-
-Key Results:
+**O3: Empower artists to grow their audience and income, reaching €221K in service revenue.**
 
 - KR1: Onboard and actively engage 200 dance instructors on the platform
 - KR2: Attract 200 DJs to list and manage their services
@@ -28,42 +22,40 @@ Key Results:
 - KR4: Engage 100 choreographers to offer their services
 - KR5: Partner with 100 videographers to provide content creation services
 
-### O4: Streamline venue management and bookings to achieve €25K in service revenue.
-
-Key Results:
+**O4: Streamline venue management and bookings to achieve €25K in service revenue.**
 
 - KR1: Partner with 200 dance studios to manage their venue bookings
 
 ## Objectives 2025 Q1
 
-### O1: Launch WeDance v4
+**O1: Launch WeDance v4**
 
-- Data migrated from v3
-- Yarima Online Course is launched by end of January 2025
-- Eneris Zoom Class migrated from TicketTailor
-- Pinakothek Booking is launched by May 1st, 2025
-- Successful design sprint user testing for dancers
+- KR1: Data migrated from v3
+- KR2: Yarima Online Course is launched by end of January 2025
+- KR3: Eneris Zoom Class migrated from TicketTailor
+- KR4: Pinakothek Booking is launched by May 1st, 2025
+- KR5: Successful design sprint user testing for dancers
 
-### O2: Establish Relationships with Artists
+**O2: Establish Relationships with Artists**
 
-- Found 5 dance instructors interested in selling their online classes
-- Successful design sprint user testing for online classes
+- KR1: Found 5 dance instructors interested in selling their online classes
+- KR2: Successful design sprint user testing for online classes
 
-### O3: Establish Relationships with Organizers
+**O3: Establish Relationships with Organizers**
 
-- Found 5 organizers interested in ticketing for Regular Parties
-- Found 5 organizers interested in ticketing for Courses
-- Found 5 organizers interested in ticketing for Online Zoom Classes
-- Found 5 organizers interested in ticketing for Festivals
-- Successful 4 design sprints user testing for ticketing
+- KR1: Found 5 organizers interested in ticketing for Regular Parties
+- KR2: Found 5 organizers interested in ticketing for Courses
+- KR3: Found 5 organizers interested in ticketing for Online Zoom Classes
+- KR4: Found 5 organizers interested in ticketing for Festivals
+- KR5: Successful 4 design sprints user testing for ticketing
 
-### O4: Grow community
+**O4: Grow community**
 
-- Google Reviews Collection (Anja, Eneris, Yarima, Amado, Salsea)
-- Munich Salsa Calendar campaign is launched by end of January 2025 (newsletter, telegram, instagram)
-- 10 videos of salsa cubana dancers from different cities
-- 10 videos of different dance styles in Munich
-- Voting for Pinakothek Booking Policy is posted by end of February 2025
+- KR1: Google Reviews Collection (Anja, Eneris, Yarima, Amado, Salsea)
+- KR2: Munich Salsa Calendar campaign is launched by end of January 2025 (newsletter, telegram, instagram)
+- KR3: 10 videos of salsa cubana dancers from different cities
+- KR4: 10 videos of different dance styles in Munich
+- KR5: Voting for Pinakothek Booking Policy is posted by end of February 2025
 
 ## Unknowns
 

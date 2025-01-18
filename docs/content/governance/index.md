@@ -1,4 +1,4 @@
-# Governance Overview
+# Governance
 
 This directory contains all governance-related documentation following Sociocracy 3.0 principles.
 

@@ -20,19 +20,19 @@ Quick Links
 #title
 Business
 #description
-[Organization](/business/organization) · [Objectives](/business/okrs) · [Talents](/business/talents) · [History](/business/history)
-::
-
-::card{icon=ph:gear}
-#title
-Operations
-#description
-[Backlog](/operations/backlog)
+[Organization](/business/organization) · [Objectives](/business/okrs) · [People](/business/people) · [History](/business/history)
 ::
 
 ::card{icon=ph:stack}
 #title
-Architecture
+Governance
 #description
-[Overview](/architecture/overview)
+[Overview](/governance)
+::
+
+::card{icon=ph:stack}
+#title
+Product
+#description
+[Architecture](/product/architecture)
 ::

@@ -1,4 +1,4 @@
-# Tensions Overview
+# Tensions
 
 ## Purpose
 
