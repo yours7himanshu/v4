@@ -1,5 +1,10 @@
 # Community Domain
 
+Delegator: Core Team
+Delegatees: Anja Sophie, Aina Kaiser
+Date of latest update: 18.01.2025
+Author Name(s): Alex Razbakov
+
 ## Purpose
 
 To build and nurture vibrant, safe, and engaged dance communities by facilitating meaningful connections, organizing events, and ensuring high-quality interactions among members.
@@ -15,6 +20,44 @@ To build and nurture vibrant, safe, and engaged dance communities by facilitatin
 - Implement and oversee trust-building mechanisms
 - Support style-specific community leaders
 - Coordinate cross-city and cross-style community initiatives
+
+## Role-Specific Responsibilities
+
+### Aina Kaiser
+
+Community Engagement:
+
+- Design and implement community engagement strategies
+- Monitor and analyze community health metrics
+- Facilitate cross-community discussions
+- Gather and implement community feedback
+- Create engagement reports and recommendations
+
+Local Community Building (Munich):
+
+- Organize and support local community events
+- Build relationships with Munich dance community
+- Support local dance venue partnerships
+- Foster cross-style community interaction
+- Document successful community initiatives
+
+Content & Communication:
+
+- Create engaging community content
+- Manage multi-language community communications
+- Share community success stories
+- Facilitate style-specific discussions
+- Support community content creation
+
+### Anja Sophie
+
+Dance Community Leadership:
+
+- Provide dance instruction expertise
+- Mentor community members
+- Organize community dance events
+- Support new member integration
+- Guide dance-specific community development
 
 ## Customers and Deliverables
 

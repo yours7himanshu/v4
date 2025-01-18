@@ -1,5 +1,10 @@
 # Growth Domain
 
+Delegator: Core Team
+Delegatees: Anja Sophie, Aina Kaiser
+Date of latest update: 18.01.2025
+Author Name(s): Alex Razbakov
+
 ## Purpose
 
 To drive systematic expansion of the platform across dance styles, geographic regions, and user segments while ensuring sustainable growth and market penetration, supporting the organization's path to €1M revenue by 2025.
@@ -19,6 +24,44 @@ To drive systematic expansion of the platform across dance styles, geographic re
 - Develop referral and viral growth programs
 - Identify and remove growth barriers
 - Scale successful growth initiatives
+
+## Role-Specific Responsibilities
+
+### Aina Kaiser
+
+Social Media Growth Lead:
+
+- Design and execute platform-wide social media growth strategy
+- Develop and optimize social media campaigns
+- Track and analyze social media metrics
+- Create content strategy for growth channels
+- Train and support regional social media teams
+
+Local Market Development (Munich):
+
+- Implement and test local growth strategies
+- Provide Munich market insights and analysis
+- Identify and develop local partnership opportunities
+- Validate growth experiments in Munich market
+- Share learnings for other market expansions
+
+Multi-Style Dance Growth:
+
+- Drive expansion across different dance styles
+- Provide insights for dance style integration
+- Develop style-specific growth strategies
+- Connect with style-specific communities
+- Monitor cross-style growth opportunities
+
+### Anja Sophie
+
+Local Community Growth:
+
+- Develop local dance community growth strategies
+- Build relationships with dance schools and venues
+- Organize community growth events
+- Provide dance instruction expertise
+- Support local partnership development
 
 ## Customers and Deliverables
 

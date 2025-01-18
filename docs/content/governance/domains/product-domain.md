@@ -23,6 +23,44 @@ Main Requirement: We need to develop and maintain a robust, user-friendly platfo
 - Monitor system health and respond to technical incidents
 - Implement analytics and tracking for key metrics
 
+## Role-Specific Responsibilities
+
+### Alex Razbakov
+
+Technical Leadership:
+
+- Guide overall technical architecture and strategy
+- Make key technical decisions
+- Review and approve major technical changes
+- Ensure technical quality and best practices
+- Lead technical innovation
+
+Product Strategy:
+
+- Define product vision and roadmap
+- Prioritize feature development
+- Balance technical debt with new features
+- Guide user experience direction
+- Ensure product-market fit
+
+Team Leadership:
+
+- Lead the development team
+- Mentor team members
+- Foster technical excellence
+- Enable cross-domain collaboration
+- Manage technical resources
+
+### Egor Kruglov
+
+Technical Development:
+
+- Implement core platform features
+- Maintain technical infrastructure
+- Support deployment and operations
+- Contribute to technical decisions
+- Ensure code quality
+
 ## Customers and Deliverables
 
 ### Internal Customers

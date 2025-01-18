@@ -1,9 +1,9 @@
 # Business Domain
 
 Delegator: Core Team
-Delegatees: [To be filled with actual names]
+Delegatees: Alex Razbakov, Aina Kaiser, Anja Sophie
 Date of latest update: 18.01.2025
-Author Name(s): [To be filled]
+Author Name(s): Alex Razbakov
 
 ## Purpose
 
@@ -22,6 +22,54 @@ Main Requirement: We need to develop and execute a sustainable business model th
 - Monitor and optimize business performance
 - Develop pricing strategies
 - Coordinate cross-domain resource planning
+
+## Role-Specific Responsibilities
+
+### Alex Razbakov
+
+Strategic Leadership:
+
+- Set overall business vision and strategy
+- Guide financial planning and targets
+- Make key business decisions
+- Ensure sustainable growth
+- Maintain mission alignment
+
+Resource Management:
+
+- Allocate resources across domains
+- Manage budget and investments
+- Guide resource optimization
+- Balance growth with sustainability
+- Oversee financial health
+
+Partnership Development:
+
+- Identify strategic partnerships
+- Guide partnership strategy
+- Approve major partnerships
+- Enable cross-domain collaboration
+- Foster stakeholder relationships
+
+### Aina Kaiser
+
+Growth Strategy:
+
+- Implement growth initiatives
+- Manage social media presence
+- Drive local market development
+- Support partnership building
+- Track growth metrics
+
+### Anja Sophie
+
+Community Development:
+
+- Build local dance community
+- Develop venue relationships
+- Support event organization
+- Guide community engagement
+- Provide market insights
 
 ## Customers and Deliverables
 
@@ -66,103 +114,13 @@ Main Requirement: We need to develop and execute a sustainable business model th
 
 ## External Constraints
 
-### Legal and Regulatory
-
-- UG/GmbH structure requirements
-- Tax regulations and reporting
-- GDPR and data privacy compliance
-- Payment processing regulations
-- Employment laws
-- Insurance requirements
-
-### Market Conditions
-
-- Competition from existing platforms
+- Legal requirements for UG/GmbH structure
+- Market competition
 - Economic conditions
-- Market saturation in key regions
-- Seasonal demand fluctuations
-- Currency exchange rates
-- Industry trends
-
-### Resource Limitations
-
-- Available investment capital
-- Team capacity
+- Regulatory environment
+- Payment processing limitations
+- Geographic expansion barriers
 - Technology infrastructure costs
-- Marketing budget constraints
-- Geographic expansion costs
-- Partnership development resources
-
-### Community Values
-
-- Social mission alignment
-- Pricing accessibility
-- Community-first approach
-- Sustainable growth practices
-- Ethical business practices
-- Environmental impact
-
-Each constraint should be:
-
-- Documented in business policies
-- Reviewed quarterly
-- Considered in strategic planning
-- Monitored for changes
-- Updated as needed
-
-## Revenue Targets 2025
-
-Total Target: €1M annually
-
-### Revenue Streams
-
-#### Event Services (€200K)
-
-- Event ticketing fees
-- Festival management tools
-- Course registration system
-- Event promotion services
-- Event insurance services
-
-#### Artist Services (€200K)
-
-- Artist profile subscriptions
-- Booking management fees
-- Workshop organization tools
-- Performance opportunities
-- Artist promotion services
-
-#### Venue Services (€200K)
-
-- Venue management system
-- Space rental platform
-- Scheduling tools
-- Venue promotion
-- Equipment rental
-
-#### Dancer Services (€200K)
-
-- Premium memberships
-- Class packages
-- Dance insurance
-- Partner finding service
-- Travel arrangements
-
-#### Platform Licensing (€200K)
-
-- White-label solutions
-- API access
-- Custom implementations
-- Consulting services
-- Support packages
-
-Each revenue stream should have:
-
-- Quarterly targets
-- Growth metrics
-- Profitability analysis
-- Resource allocation
-- Market expansion plan
 
 ## Key Challenges
 
