@@ -1,8 +1,15 @@
 # Business Domain
 
+Delegator: Core Team
+Delegatees: [To be filled with actual names]
+Date of latest update: 18.01.2025
+Author Name(s): [To be filled]
+
 ## Purpose
 
-To ensure sustainable growth and financial viability of the organization while maintaining alignment with our values and social mission, targeting €1M in revenue by 2025 through diverse service offerings to the dance community.
+Primary Driver: The organization's growth potential is currently limited by lack of sustainable revenue streams and clear business model, resulting in dependency on volunteer work and limited resources for development.
+
+Main Requirement: We need to develop and execute a sustainable business model that generates €1M in revenue by 2025 while maintaining alignment with our values and social mission, through diverse service offerings to the dance community.
 
 ## Key Responsibilities
 
@@ -59,13 +66,103 @@ To ensure sustainable growth and financial viability of the organization while m
 
 ## External Constraints
 
-- Legal requirements for UG/GmbH structure
-- Market competition
+### Legal and Regulatory
+
+- UG/GmbH structure requirements
+- Tax regulations and reporting
+- GDPR and data privacy compliance
+- Payment processing regulations
+- Employment laws
+- Insurance requirements
+
+### Market Conditions
+
+- Competition from existing platforms
 - Economic conditions
-- Regulatory environment
-- Payment processing limitations
-- Geographic expansion barriers
+- Market saturation in key regions
+- Seasonal demand fluctuations
+- Currency exchange rates
+- Industry trends
+
+### Resource Limitations
+
+- Available investment capital
+- Team capacity
 - Technology infrastructure costs
+- Marketing budget constraints
+- Geographic expansion costs
+- Partnership development resources
+
+### Community Values
+
+- Social mission alignment
+- Pricing accessibility
+- Community-first approach
+- Sustainable growth practices
+- Ethical business practices
+- Environmental impact
+
+Each constraint should be:
+
+- Documented in business policies
+- Reviewed quarterly
+- Considered in strategic planning
+- Monitored for changes
+- Updated as needed
+
+## Revenue Targets 2025
+
+Total Target: €1M annually
+
+### Revenue Streams
+
+#### Event Services (€200K)
+
+- Event ticketing fees
+- Festival management tools
+- Course registration system
+- Event promotion services
+- Event insurance services
+
+#### Artist Services (€200K)
+
+- Artist profile subscriptions
+- Booking management fees
+- Workshop organization tools
+- Performance opportunities
+- Artist promotion services
+
+#### Venue Services (€200K)
+
+- Venue management system
+- Space rental platform
+- Scheduling tools
+- Venue promotion
+- Equipment rental
+
+#### Dancer Services (€200K)
+
+- Premium memberships
+- Class packages
+- Dance insurance
+- Partner finding service
+- Travel arrangements
+
+#### Platform Licensing (€200K)
+
+- White-label solutions
+- API access
+- Custom implementations
+- Consulting services
+- Support packages
+
+Each revenue stream should have:
+
+- Quarterly targets
+- Growth metrics
+- Profitability analysis
+- Resource allocation
+- Market expansion plan
 
 ## Key Challenges
 
@@ -80,14 +177,39 @@ To ensure sustainable growth and financial viability of the organization while m
 
 ## Key Resources
 
-- Financial management tools
-- Business analytics platform
-- Partnership network
-- Legal advisors
+### Financial Resources
+
+- Operating budget
+- Revenue streams
+- Investment capital
+- Emergency fund
+- Grant funding
+
+### Tools and Software
+
+- Financial management software
+- Business analytics platforms
+- CRM system
+- Payment processing tools
+- Accounting software
+- Contract management system
+
+### Human Resources
+
+- Business development team
+- Financial advisors
+- Legal consultants
+- Market researchers
+- Partnership managers
+
+### Knowledge Base
+
 - Market research data
-- Revenue forecasting models
-- Resource planning tools
-- Performance dashboards
+- Financial models
+- Business plans
+- Partnership agreements
+- Legal documentation
+- Training materials
 
 ## Competencies, Qualities and Skills
 
@@ -103,52 +225,85 @@ To ensure sustainable growth and financial viability of the organization while m
 
 ## Key Metrics and Monitoring
 
-**Weekly Monitoring:**
+### Revenue Metrics (Daily)
 
-- Revenue by stream
-- Customer acquisition costs
+- Daily revenue by stream
+- Transaction volume
+- Average transaction value
 - Conversion rates
-- Partnership performance
-- Cash flow metrics
-- User growth rates
-- Transaction volumes
+- Cash flow status
 
-**Monthly Review:**
+### Business Performance (Weekly)
 
-- Revenue targets progress
-- Market penetration metrics
-- Partnership health
+- Revenue growth rate (target: 15% monthly)
+- Customer acquisition cost (target: <€50)
+- Customer lifetime value (target: >€200)
+- Partnership revenue (target: 20% of total)
+- Operating costs (threshold: <60% of revenue)
+
+### Growth Metrics (Monthly)
+
+- Market penetration rate
+- User growth rate
+- Revenue per user
+- Partner satisfaction score
+- Cost optimization rate
+
+### Strategic KPIs (Quarterly)
+
+- Progress toward €1M goal
+- Market share by region
+- Partnership network growth
 - Resource utilization
-- Cost structure analysis
-- Growth indicators
-- ROI by initiative
+- Profit margins
+
+Each metric should be:
+
+- Tracked in business dashboard
+- Reviewed according to schedule
+- Documented with clear targets
+- Tied to specific actions when missed
+- Used to inform business decisions
 
 ## Evaluation Schedule
 
-Quarterly evaluation of:
+### Daily (30 mins)
 
-- Revenue stream performance
-- Partnership effectiveness
-- Market development progress
-- Resource allocation efficiency
-- Cost optimization opportunities
+- Revenue tracking
+- Cash flow monitoring
+- Transaction analysis
+- Critical issue resolution
+
+### Weekly (2 hours)
+
+- Performance metrics review
+- Partnership status check
+- Resource allocation review
+- Market response analysis
+
+### Monthly (4 hours)
+
+- Revenue target assessment
+- Market expansion review
+- Partnership evaluation
+- Cost structure analysis
+- Team capacity planning
+
+### Quarterly (8 hours)
+
+- Strategic goals review
+- Financial performance analysis
+- Market position assessment
+- Resource planning
 - Growth strategy alignment
-- Business model validation
 
-Annual comprehensive review of:
+### Annual (16 hours)
 
-- Overall business strategy
-- Financial performance
-- Partnership portfolio
-- Market position
-- Resource requirements
-- Growth opportunities
-- Legal structure optimization
+- Complete business model review
+- Revenue stream assessment
+- Partnership portfolio review
+- Market strategy planning
+- Resource optimization
+- Five-year planning
 
-Key focus areas align with 2025 revenue targets:
-
-- Event Services (€200K)
-- Artist Services (€200K)
-- Venue Services (€200K)
-- Dancer Services (€200K)
-- Platform Licensing (€200K)
+The results of these evaluations should be documented in the business wiki and used to inform strategic decisions and resource allocation. Reviews should be flexible to accommodate market changes or strategic opportunities.

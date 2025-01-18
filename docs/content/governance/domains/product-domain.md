@@ -1,8 +1,15 @@
 # Product Domain
 
+Delegator: Core Team
+Delegatees: Alex Razbakov, Egor Kruglov
+Date of latest update: 18.01.2025
+Author Name(s): Alex Razbakov
+
 ## Purpose
 
-To build and maintain a high-quality, open-source platform that empowers dance communities to organize events, connect members, and grow their activities efficiently and safely.
+Primary Driver: The organization's growth and impact in the dance community is currently limited by technical barriers and lack of efficient tools for event organization and community management. This results in fragmented solutions, manual processes, and missed opportunities for community engagement.
+
+Main Requirement: We need to develop and maintain a robust, user-friendly platform that empowers dance communities to efficiently organize events, connect members, and grow their activities while ensuring security, privacy, and scalability.
 
 ## Key Responsibilities
 
@@ -34,41 +41,88 @@ To build and maintain a high-quality, open-source platform that empowers dance c
 
 ## Delegator Responsibilities
 
-- Provide clear product requirements and priorities
-- Ensure alignment with organizational strategy and OKRs
-- Allocate necessary resources and budget
-- Facilitate communication with other domains
-- Support decision-making on technical matters
-- Help resolve cross-domain dependencies
-- Review and approve major technical decisions
-- Ensure compliance with legal and regulatory requirements
+- Provide clear technical direction and architectural decisions to guide the product development team's focus
+- Maintain open communication channels for technical feedback and issue escalation
+- Support professional development and training to keep the team's technical skills current
+- Review and approve major technical decisions and architecture changes
+- Ensure the product team stays informed about industry trends and technical innovations
+- Allocate resources and budget for technical infrastructure and tools
+- Foster a culture of code quality, security, and technical excellence
+- Facilitate cross-domain collaboration and technical knowledge sharing
 
 ## Dependencies
 
 ### Internal Dependencies
 
-- Product Domain: Feature specifications and user stories
-- Community Domain: User feedback and requirements
-- Business Domain: Revenue targets and business requirements
-- Legal: Compliance requirements and privacy guidelines
+#### Community Domain
+
+- Deliverable: User feedback and feature requirements
+- Requirement: Regular updates on community needs and pain points
+
+#### Business Domain
+
+- Deliverable: Strategic priorities and business requirements
+- Requirement: Clear OKRs and success metrics
+
+#### Legal Domain
+
+- Deliverable: Compliance requirements and privacy guidelines
+- Requirement: Regular compliance audits and updates
 
 ### External Dependencies
 
-- Payment processors: Integration APIs and documentation
-- Cloud service providers: Infrastructure and services
-- Open source community: Code contributions and feedback
-- Third-party API providers: Integration capabilities
+#### Cloud Service Providers
+
+- Deliverable: Infrastructure and platform services
+- Requirement: Service level agreements and support
+
+#### Payment Processors
+
+- Deliverable: Payment processing capabilities
+- Requirement: API documentation and integration support
+
+#### Open Source Community
+
+- Deliverable: Code contributions and feedback
+- Requirement: Clear contribution guidelines and review process
 
 ## External Constraints
 
-- Data privacy regulations (GDPR)
+### Technical Constraints
+
+- Must maintain backward compatibility with existing APIs
+- Must comply with web standards and accessibility guidelines
+- Must support major browsers and devices
+- Must operate within infrastructure cost limits
+
+### Legal and Compliance
+
+- GDPR and data privacy regulations
 - Payment processing regulations
 - Open source license requirements
-- Infrastructure provider limitations
-- Browser and device compatibility requirements
 - Security standards and certifications
-- Budget limitations
-- Time-to-market pressures
+
+### Time and Resource
+
+- Development team capacity
+- Infrastructure budget limits
+- Release schedule coordination
+- Third-party service limitations
+
+### Quality Standards
+
+- Code quality thresholds
+- Performance benchmarks
+- Security requirements
+- Documentation standards
+
+Each constraint should be:
+
+- Documented in the technical specification
+- Reviewed during planning phases
+- Considered in architectural decisions
+- Monitored for compliance
+- Updated as requirements change
 
 ## Key Challenges
 
@@ -83,15 +137,36 @@ To build and maintain a high-quality, open-source platform that empowers dance c
 
 ## Key Resources
 
-- Development infrastructure and tools
-- Cloud computing resources
-- Testing and monitoring tools
-- Documentation platform
-- Version control system
-- CI/CD pipeline
+### Time Allocation
+
+- Full-time development team members (40 hrs per week)
+- On-call rotation for critical system maintenance
+- Flexible hours during deployment windows
+
+### Infrastructure
+
+- Cloud computing resources (AWS/GCP)
 - Development and staging environments
-- Security testing tools
+- CI/CD pipeline
+- Monitoring and logging systems
+- Version control and code review platforms
+
+### Tools and Software
+
+- Development IDEs and tools
+- Testing frameworks
+- Security scanning tools
 - Performance monitoring suite
+- Project management software
+- Documentation platform
+
+### Budget
+
+- Infrastructure costs allocation
+- Development tools and licenses
+- Security certificates
+- External services and APIs
+- Training and certification budget
 
 ## Competencies, Qualities and Skills
 
@@ -119,56 +194,81 @@ To build and maintain a high-quality, open-source platform that empowers dance c
 
 ## Key Metrics and Monitoring
 
-### Technical Metrics (Weekly)
+### System Performance (Daily)
 
-- System uptime and availability
-- Response time and performance
-- Error rates and types
-- Code quality metrics
-- Test coverage
-- Security vulnerabilities
-- API response times
-- Infrastructure costs
+- System uptime and availability (target: 99.9%)
+- API response times (target: <200ms)
+- Error rates by service (threshold: <0.1%)
+- Infrastructure resource utilization
+- Database performance metrics
 
-### Development Metrics (Monthly)
+### Development Velocity (Weekly)
 
-- Feature delivery rate
+- Sprint completion rate
+- Code review turnaround time
+- Build and deployment success rate
+- Test coverage percentage
 - Technical debt ratio
-- Bug resolution time
+
+### Quality Metrics (Monthly)
+
+- Number of critical bugs reported
+- Security vulnerabilities identified
+- Code quality scores
 - Documentation coverage
-- Code review throughput
-- Open source contribution rate
-- Integration success rate
-- Deployment frequency
+- API versioning compliance
+
+### Business Impact (Quarterly)
+
+- Platform user growth rate
+- Feature adoption metrics
+- System scalability metrics
+- Cost per transaction
+- Infrastructure cost optimization
+
+Each metric should be:
+
+- Tracked in the monitoring dashboard
+- Reviewed according to the schedule
+- Documented with clear thresholds
+- Tied to specific action items when thresholds are breached
+- Used to inform technical decisions and resource allocation
 
 ## Evaluation Schedule
 
-### Weekly Reviews
+### Daily
 
-- Technical metrics review
-- Incident response assessment
-- Sprint progress evaluation
+- System health checks
+- Critical metrics monitoring
+- Incident response review
+
+### Weekly (1 hour)
+
+- Sprint progress review
+- Technical debt assessment
 - Resource utilization check
+- Performance metrics review
 
-### Monthly Reviews
+### Monthly (2 hours)
 
 - Feature delivery assessment
-- Performance optimization review
-- Security assessment
-- Resource allocation review
+- Security review
+- Infrastructure cost analysis
+- Team capacity planning
 
-### Quarterly Reviews
+### Quarterly (4 hours)
 
-- Domain effectiveness evaluation
-- Technical strategy alignment
 - Architecture review
-- Team capacity assessment
+- Technical strategy alignment
 - Skills gap analysis
+- Major technical decisions review
 
-### Annual Reviews
+### Annual (8 hours)
 
 - Complete domain design review
 - Technology stack assessment
-- Major architecture decisions
 - Long-term scalability planning
 - Team structure optimization
+- Budget and resource planning
+
+The results of these evaluations should be documented in the project wiki and used to inform future technical decisions and resource allocation. Reviews should be flexible to accommodate urgent technical challenges or strategic shifts in product direction.
