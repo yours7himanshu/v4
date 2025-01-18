@@ -65,6 +65,45 @@ Key Results:
 - 10 videos of different dance styles in Munich
 - Voting for Pinakothek Booking Policy is posted by end of February 2025
 
+## Unknowns
+
+- What is the optimal pricing strategy for online classes?
+- How to effectively onboard and support dance instructors in creating online content?
+- What are the key features needed for festival organizers vs regular party organizers?
+- What integrations are needed for different types of event organizers?
+- How to validate venue management needs across different types of dance studios?
+- What are the main pain points for artists in growing their audience?
+- How to effectively match artists with event organizers?
+- What are the specific needs of different user segments (DJs, bands, choreographers)?
+- How to measure and ensure quality of service across different provider types?
+- What are the key differentiators from existing solutions in each service area?
+- How to balance platform growth with community quality?
+- What are the most effective channels for reaching each target user group?
+
+## Next Actions
+
+- [ ] Alex: create UX to buy tickets
+- [ ] Alex: create UX to buy online classes
+- [ ] Alex: create UX to book an artist
+- [ ] Alex: create UX to book a venue
+- [ ] Alex: create UX to edit profile
+- [ ] Alex: create UX to create a post
+- [ ] Alex: create UX to create an event
+- [ ] Alex: search, find "MontunoClub"
+- [ ] Alex: Yarima's course
+- [ ] Alex: Eneris zoom classes
+- [ ] Alex: Javier - book dj, dj class
+- [ ] Alex: Dora - book piano lesson, musician workshop, book singer, book as musician
+- [ ] Alex: City homepage - similar to homepage with overview and features
+- [ ] Alex: For logged in users hide heros
+- [ ] Alex: profile menu (after signed in)
+- [ ] Alex: notifications
+- [ ] Alex: settings
+- [ ] Alex: Implement authentication system
+- [ ] Egor: schema and mocks reorganization
+- [ ] Egor: Set up tRPC API
+- [ ] Egor: schema.org standardization
+
 ## Review Process
 
 Following S3 principles:
