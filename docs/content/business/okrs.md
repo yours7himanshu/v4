@@ -89,7 +89,7 @@ Key Results:
 - [ ] Alex: create UX to edit profile
 - [ ] Alex: create UX to create a post
 - [ ] Alex: create UX to create an event
-- [ ] Alex: search, find "MontunoClub"
+- [ ] Alex: create UX to search, find "MontunoClub"
 - [ ] Alex: Yarima's course
 - [ ] Alex: Eneris zoom classes
 - [ ] Alex: Javier - book dj, dj class
