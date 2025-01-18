@@ -149,22 +149,31 @@ Variable Costs:
 - Marketing campaigns
 - Partner commissions
 
-## 12. Revenue Streams (2025 Target: €1M)
+## 12. Revenue Streams
+
+2025 Target: €1M
 
 1. Event Services (€200K)
 
    - Ticketing fees
-   - Premium promotion
+   - Sponsored promotions
+   - Management tools
+   - Premium features
+   - Website builder
 
 2. Artist Services (€200K)
 
    - Booking fees
-   - Profile features
+   - Sponsored promotions
+   - Management tools
+   - Premium features
+   - Website builder
 
 3. Venue Services (€200K)
 
    - Rental platform fees
    - Management tools
+   - Premium features
 
 4. Dancer Services (€200K)
 

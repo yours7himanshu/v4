@@ -48,6 +48,17 @@ Items related to organization, policy and role development:
 - [ ] Alex: create UX to edit profile
 - [ ] Alex: create UX to create a post
 - [ ] Alex: create UX to create an event
+- [ ] Alex: search, find "MontunoClub"
+- [ ] Alex: Yarima's course
+- [ ] Alex: Eneris zoom classes
+- [ ] Alex: Javier - book dj, dj class
+- [ ] Alex: Dora - book piano lesson, musician workshop, book singer, book as musician
+- [ ] Alex: Blog post: dance business revolution
+- [ ] Alex: City homepage - similar to homepage with overview and features
+- [ ] Alex: For logged in users hide heros
+- [ ] Alex: profile menu (after signed in)
+- [ ] Alex: notifications
+- [ ] Alex: settings
 - [ ] Alex: Implement authentication system
   - [x] Create auth store structure
   - [x] Define user levels
