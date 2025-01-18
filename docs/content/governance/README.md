@@ -8,6 +8,7 @@ This directory contains all governance-related documentation following Sociocrac
 - [Impediment Management](./processes/impediment-management.md)
 - [Experimentation Framework](./processes/experimentation-framework.md)
 - [Autonomous Value Creation](./processes/autonomous-value-creation.md)
+- [Dependency Management](./processes/dependency-management.md)
 
 ## Structure
 
