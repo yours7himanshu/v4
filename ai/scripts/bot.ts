@@ -16,7 +16,7 @@ import { Logger } from "./utils/logger";
 // Load environment variables
 dotenv.config();
 
-const cursorRules = fs.readFileSync("../.cursorrules", "utf-8");
+const cursorRules = fs.readFileSync("system.md", "utf-8");
 const systemPrompt = cursorRules;
 
 // Initialize LLM provider
