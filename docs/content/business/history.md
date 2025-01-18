@@ -1,18 +1,18 @@
 # WeDance History
 
-## Fast Forward (March 2023)
+### Fast Forward (March 2023)
 
 Multiple Design Sprints were led by Sprint Leaders to validate new ideas and discover real user needs. After multiple iterations, we started to get better results in user testing and VIP cards progressed to the build phase.
 
-## Unpause (September 2022)
+### Unpause (September 2022)
 
 After WeHelp project didn't gain significant traction, the team returned to work on WeDance.
 
-## The War (February 2022)
+### The War (February 2022)
 
 When war started between Russia and Ukraine, the dev team pivoted to work on WeHelp project to assist with evacuation efforts.
 
-## Local Committee (November 2021)
+### Local Committee (November 2021)
 
 Key developments:
 
@@ -24,7 +24,7 @@ Key developments:
 - Established 5 partnerships in Munich
 - Maintained dance calendar for 3 months
 
-## First Campaigns (September 2021)
+### First Campaigns (September 2021)
 
 - Created comprehensive lists for Dance Festivals, Groups, Influencers, and Studios
 - Launched advertising campaigns for multiple festivals:
@@ -32,14 +32,14 @@ Key developments:
   - Rovinj Salsa Festival
   - Kyiv Sense Fest
 
-## WeDanceStory (August 2021)
+### WeDanceStory (August 2021)
 
 - Began preparation for official registration as German non-profit (Verein)
 - Launched WeDanceStory initiative led by Aslihan
 - Opened first job position for Frontend Developer
 - Expanded team with new Ambassador in Munich
 
-## Ambassador Program (July 2021)
+### Ambassador Program (July 2021)
 
 - Launched City Profiles
 - Established Ambassador roles in multiple cities:
@@ -50,7 +50,7 @@ Key developments:
   - Odesa (Mila)
 - Implemented Scrum process with intern designers and developers
 
-## WeDance v2 (September 2020)
+### WeDance v2 (September 2020)
 
 - Redesigned layout inspired by Twitter
 - Created social media presence:
@@ -59,7 +59,7 @@ Key developments:
   - Facebook
 - Connected Telegram group for community discussions
 
-## WeDance v1 (May 2020)
+### WeDance v1 (May 2020)
 
 - First code committed on May 17, 2020
 - Initially inspired by dev.to platform
@@ -67,7 +67,7 @@ Key developments:
 - Implemented profile editing inspired by Couchsurfing
 - Created outdoor dance space booking system
 
-## DanceCard (Oct 2018 - Dec 2019)
+### DanceCard (Oct 2018 - Dec 2019)
 
 - Partnership with David established
 - Developed Facebook event scraper
@@ -75,13 +75,13 @@ Key developments:
 - Started work on Dance Radar feature (unreleased)
 - Preview still available at [dancecard.netlify.app](https://dancecard.netlify.app/)
 
-## Kizomba News (Mar 2017 - Oct 2018)
+### Kizomba News (Mar 2017 - Oct 2018)
 
 - Started as kizomba.news
 - Used Google Spreadsheet for event tracking
 - Implemented newsletter subscription system
 
-## Related Documents
+### Related Documents
 
 - [Profit Distribution Policy](/docs/content/governance/decisions/003-profit-distribution.md)
 - [Organization Canvas](/docs/content/business/organization-canvas.md)

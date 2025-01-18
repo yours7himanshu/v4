@@ -20,7 +20,7 @@ Quick Links
 #title
 Business
 #description
-[Vision](/business/vision) · [OKRs](/business/okrs) · [Organization Canvas](/business/organization-canvas) · [History](/business/history)
+[Organization](/business/organization) · [Objectives](/business/okrs) · [Talents](/business/talents) · [History](/business/history)
 ::
 
 ::card{icon=ph:gear}
