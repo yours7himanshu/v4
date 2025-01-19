@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Checkbox } from "@/components/ui/checkbox";
+
 const props = defineProps<{
   modelValue: boolean;
 }>();
@@ -9,23 +11,29 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="flex items-start gap-3">
-    <input
+  <div class="flex items-start space-x-3">
+    <Checkbox
       :checked="modelValue"
-      @change="
-        emit('update:modelValue', ($event.target as HTMLInputElement).checked)
-      "
-      type="checkbox"
+      @update:checked="emit('update:modelValue', $event)"
+      id="terms"
       required
-      class="mt-1"
     />
-    <label class="text-sm text-gray-600">
+    <label
+      for="terms"
+      class="text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+    >
       I agree to the
-      <NuxtLink to="/terms" class="text-purple-600 hover:text-purple-700">
+      <NuxtLink
+        to="/terms"
+        class="font-medium text-primary underline underline-offset-4 hover:text-primary/90"
+      >
         Terms of Service
       </NuxtLink>
       and
-      <NuxtLink to="/privacy" class="text-purple-600 hover:text-purple-700">
+      <NuxtLink
+        to="/privacy"
+        class="font-medium text-primary underline underline-offset-4 hover:text-primary/90"
+      >
         Privacy Policy
       </NuxtLink>
     </label>
