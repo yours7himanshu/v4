@@ -18,23 +18,50 @@ const course = ref({
   },
   pricing: {
     regular: {
-      amount: 99,
-      currency: "EUR",
+      monthly: {
+        amount: 15,
+        currency: "EUR",
+        interval: "month",
+      },
+      annual: {
+        amount: 150,
+        currency: "EUR",
+        interval: "year",
+        savings: "Save 25%",
+      },
       features: [
         "Full course access",
         "Downloadable materials",
-        "Certificate of completion",
-        "30-day money-back guarantee",
+        "Community forum access",
+        "Monthly group Q&A",
       ],
     },
     premium: {
-      amount: 199,
-      currency: "EUR",
+      monthly: {
+        amount: 30,
+        currency: "EUR",
+        interval: "month",
+      },
+      annual: {
+        amount: 300,
+        currency: "EUR",
+        interval: "year",
+        savings: "Save 25%",
+      },
       features: [
         "Everything in Regular",
-        "1 private class",
-        "Priority Q&A access",
-        "Lifetime updates",
+        "Weekly live Q&A sessions",
+        "Priority support",
+        "1-on-1 feedback",
+        "Private community access",
+      ],
+    },
+    trial: {
+      duration: 7,
+      features: [
+        "First module access",
+        "Community forum preview",
+        "No credit card required",
       ],
     },
   },
@@ -508,6 +535,39 @@ const selectLesson = (lesson: any) => {
               <h3 class="font-semibold">Choose Your Plan</h3>
             </div>
             <div class="p-4 space-y-4">
+              <!-- Trial -->
+              <div class="bg-purple-50 rounded-lg p-4">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h4 class="font-semibold">Free Trial</h4>
+                    <p class="text-sm text-gray-600">
+                      Try for {{ course.pricing.trial.duration }} days
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-lg font-semibold text-purple-600">
+                      Free
+                    </div>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-4">
+                  <li
+                    v-for="feature in course.pricing.trial.features"
+                    :key="feature"
+                    class="flex items-center gap-2 text-sm"
+                  >
+                    <Icon
+                      name="ph:check-circle"
+                      class="w-4 h-4 text-green-500"
+                    />
+                    {{ feature }}
+                  </li>
+                </ul>
+                <Button class="w-full" variant="default"
+                  >Start Free Trial</Button
+                >
+              </div>
+
               <!-- Regular Plan -->
               <div class="border rounded-lg p-4">
                 <div class="flex justify-between items-start mb-4">
@@ -517,8 +577,23 @@ const selectLesson = (lesson: any) => {
                   </div>
                   <div class="text-right">
                     <div class="text-2xl font-bold">
-                      {{ course.pricing.regular.amount }}
-                      {{ course.pricing.regular.currency }}
+                      {{ course.pricing.regular.monthly.amount }}
+                      {{ course.pricing.regular.monthly.currency }}
+                    </div>
+                    <div class="text-sm text-gray-600">per month</div>
+                  </div>
+                </div>
+                <div class="bg-gray-50 rounded p-3 mb-4">
+                  <div class="flex items-center justify-between">
+                    <div class="text-sm">
+                      Annual plan
+                      <span class="text-green-600 font-medium">{{
+                        course.pricing.regular.annual.savings
+                      }}</span>
+                    </div>
+                    <div class="text-sm font-medium">
+                      {{ course.pricing.regular.annual.amount }}
+                      {{ course.pricing.regular.annual.currency }}/year
                     </div>
                   </div>
                 </div>
@@ -535,7 +610,14 @@ const selectLesson = (lesson: any) => {
                     {{ feature }}
                   </li>
                 </ul>
-                <Button class="w-full" variant="default">Get Started</Button>
+                <div class="space-y-2">
+                  <Button class="w-full" variant="default"
+                    >Subscribe Monthly</Button
+                  >
+                  <Button class="w-full" variant="outline"
+                    >Subscribe Annually</Button
+                  >
+                </div>
               </div>
 
               <!-- Premium Plan -->
@@ -543,14 +625,27 @@ const selectLesson = (lesson: any) => {
                 <div class="flex justify-between items-start mb-4">
                   <div>
                     <h4 class="font-semibold">Premium</h4>
-                    <p class="text-sm text-gray-600">
-                      Best value with private class
-                    </p>
+                    <p class="text-sm text-gray-600">For dedicated learners</p>
                   </div>
                   <div class="text-right">
                     <div class="text-2xl font-bold">
-                      {{ course.pricing.premium.amount }}
-                      {{ course.pricing.premium.currency }}
+                      {{ course.pricing.premium.monthly.amount }}
+                      {{ course.pricing.premium.monthly.currency }}
+                    </div>
+                    <div class="text-sm text-gray-600">per month</div>
+                  </div>
+                </div>
+                <div class="bg-purple-50 rounded p-3 mb-4">
+                  <div class="flex items-center justify-between">
+                    <div class="text-sm">
+                      Annual plan
+                      <span class="text-green-600 font-medium">{{
+                        course.pricing.premium.annual.savings
+                      }}</span>
+                    </div>
+                    <div class="text-sm font-medium">
+                      {{ course.pricing.premium.annual.amount }}
+                      {{ course.pricing.premium.annual.currency }}/year
                     </div>
                   </div>
                 </div>
@@ -567,10 +662,19 @@ const selectLesson = (lesson: any) => {
                     {{ feature }}
                   </li>
                 </ul>
-                <Button class="w-full" variant="default"
-                  >Get Premium Access</Button
-                >
+                <div class="space-y-2">
+                  <Button class="w-full" variant="default"
+                    >Subscribe Monthly</Button
+                  >
+                  <Button class="w-full" variant="outline"
+                    >Subscribe Annually</Button
+                  >
+                </div>
               </div>
+
+              <p class="text-xs text-center text-gray-500">
+                All plans include 14-day money-back guarantee. Cancel anytime.
+              </p>
             </div>
           </div>
 
