@@ -7,16 +7,24 @@ const dialog = useDialog();
 const components = {
   PricingOptionsDialog,
 } as const;
+
+const currentComponent = computed(() => {
+  return components[
+    dialog.currentDialog.value?.component as keyof typeof components
+  ];
+});
+
+const currentProps = computed(() => {
+  return dialog.currentDialog.value?.props;
+});
 </script>
 
 <template>
   <Teleport to="body">
     <component
       v-if="dialog.isOpen"
-      :is="
-        components[dialog.currentDialog?.component as keyof typeof components]
-      "
-      v-bind="dialog.currentDialog?.props"
+      :is="currentComponent"
+      v-bind="currentProps"
     />
   </Teleport>
 </template>

@@ -27,11 +27,15 @@ export const mockEvents = [
       "Experience the legendary Havana D'Primera live in Munich! A night of pure Cuban music and dance.",
     image:
       "https://res.cloudinary.com/djumxevsm/image/upload/v1732373003/a1zosu7n7luzj25tsr1l.jpg",
-    price: {
-      amount: 35,
-      currency: "EUR",
-      type: "per-person",
-    },
+    prices: [
+      {
+        name: "Party Pass",
+        description:
+          "General admission ticket for the concert and social dancing",
+        amount: 35,
+        currency: "EUR",
+      },
+    ],
     schedule: [
       {
         time: "20:00",
@@ -154,11 +158,14 @@ export const mockEvents = [
     description:
       "The legendary Los Van Van returns to Munich as part of their European tour!",
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=concert2",
-    price: {
-      amount: 45,
-      currency: "EUR",
-      type: "per-person",
-    },
+    prices: [
+      {
+        name: "Concert Pass",
+        description: "General admission ticket for the concert",
+        amount: 45,
+        currency: "EUR",
+      },
+    ],
     tags: ["timba", "live-music", "songo"],
     status: "upcoming",
   },
@@ -180,11 +187,15 @@ export const mockEvents = [
       "Join us for a night of pure Cuban salsa! Live music by Son Cubano, pre-party workshop with Maria & Carlos, and social dancing until late.",
     image:
       "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=800&h=400&fit=crop",
-    price: {
-      amount: 15,
-      currency: "GBP",
-      type: "per-person",
-    },
+    prices: [
+      {
+        name: "Party Pass",
+        description:
+          "General admission ticket for the concert and social dancing",
+        amount: 15,
+        currency: "GBP",
+      },
+    ],
     tags: ["live-music", "cuban-salsa", "social-dancing"],
     status: "upcoming",
     artists: ["son_cubano_1"],
@@ -217,11 +228,14 @@ export const mockEvents = [
     description: "Weekly outdoor social dancing with Timba music",
     image:
       "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
-    price: {
-      amount: 0,
-      currency: "EUR",
-      type: "free",
-    },
+    prices: [
+      {
+        name: "Free Pass",
+        description: "Free entry to the event",
+        amount: 0,
+        currency: "EUR",
+      },
+    ],
     tags: ["cuban-salsa", "timba", "open-air"],
     status: "upcoming",
     organizer: {
@@ -247,11 +261,15 @@ export const mockEvents = [
     description: "Special night dedicated to Timba music with live band",
     image:
       "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
-    price: {
-      amount: 15,
-      currency: "EUR",
-      type: "per-person",
-    },
+    prices: [
+      {
+        name: "Party Pass",
+        description:
+          "General admission ticket for the concert and social dancing",
+        amount: 15,
+        currency: "EUR",
+      },
+    ],
     tags: ["cuban-salsa", "timba", "live-music"],
     status: "upcoming",
     organizer: {
@@ -278,11 +296,14 @@ export const mockEvents = [
       "Learn the basics of Rueda de Casino with experienced instructors",
     image:
       "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
-    price: {
-      amount: 30,
-      currency: "EUR",
-      type: "per-person",
-    },
+    prices: [
+      {
+        amount: 30,
+        currency: "EUR",
+        name: "Workshop Pass",
+        description: "General admission ticket for the workshop",
+      },
+    ],
     tags: ["cuban-salsa", "rueda", "workshop"],
     status: "upcoming",
     organizer: {

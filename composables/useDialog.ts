@@ -6,8 +6,11 @@ interface DialogOptions {
 }
 
 export function useDialog() {
-  const isOpen = ref(false);
-  const currentDialog = ref<DialogOptions | null>(null);
+  const isOpen = useState("dialog-is-open", () => false);
+  const currentDialog = useState<DialogOptions | null>(
+    "dialog-current",
+    () => null
+  );
 
   const open = (options: DialogOptions) => {
     currentDialog.value = options;

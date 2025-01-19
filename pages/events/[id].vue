@@ -25,14 +25,15 @@ const formattedDate = computed(() => {
 });
 
 const getPrice = (event: AnyEvent) => {
-  if (event.type === "workshop" && event.prices?.length > 0) {
+  if (event.prices?.length > 0) {
     const lowestPrice = event.prices.reduce(
       (min, p) => (p.amount < min.amount ? p : min),
       event.prices[0]
     );
     return `From ${lowestPrice.amount} ${lowestPrice.currency}`;
   }
-  return event.price ? `${event.price.amount} ${event.price.currency}` : "Free";
+
+  return "Unknown price";
 };
 
 // Related events
@@ -108,17 +109,18 @@ const handleGoing = () => {
   );
 };
 
+const dialog = useDialog();
+
 const handleBook = () => {
   if (!event.value) return;
 
-  if (event.value.prices?.length > 0) {
-    console.log("Book event:", event.value);
-    // For workshops with multiple pricing options
-    const dialog = useDialog();
+  const prices = event.value.prices;
+
+  if (prices?.length > 0) {
     dialog.open({
       component: "PricingOptionsDialog",
       props: {
-        prices: event.value.prices,
+        prices: prices,
         onSelect: (selectedPrice: Price) => {
           // Navigate to checkout with selected price
           // navigateTo(
