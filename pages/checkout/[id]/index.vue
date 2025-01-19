@@ -78,6 +78,7 @@ const item = computed<CheckoutItem | null>(() => {
         date: event.date,
         location: event.location,
         prices: event.prices,
+        image: event.image,
       };
     }
   }
