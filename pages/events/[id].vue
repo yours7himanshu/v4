@@ -123,16 +123,16 @@ const handleBook = () => {
         prices: prices,
         onSelect: (selectedPrice: Price) => {
           // Navigate to checkout with selected price
-          // navigateTo(
-          //   `/checkout/${event.value?.id}?priceId=${selectedPrice.id}`
-          // );
+          navigateTo(
+            `/checkout/${event.value?.id}?priceId=${selectedPrice.id}`
+          );
         },
       },
     });
   } else {
-    // For regular events or workshops with single price
+    // For events without prices
     // Navigate directly to checkout
-    // navigateTo(`/checkout/${event.value.id}`);
+    navigateTo(`/checkout/${event.value.id}`);
   }
 };
 
