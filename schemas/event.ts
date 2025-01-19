@@ -131,3 +131,11 @@ export const eventToFeedPost = (event: AnyEvent): Post => ({
     bookmarks: event.stats?.saves || 0,
   },
 });
+
+export interface Price {
+  id: string;
+  name: string;
+  description: string;
+  amount: number;
+  currency: string;
+}

@@ -6,9 +6,11 @@
     </main>
     <LandingFooter />
     <PrototypeBanner />
+    <DialogProvider />
   </div>
 </template>
 
 <script setup lang="ts">
 import PrototypeBanner from "@/components/PrototypeBanner.vue";
+import DialogProvider from "~/components/dialog/DialogProvider.vue";
 </script>

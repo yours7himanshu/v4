@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { mockEvents } from "@/data/mockEvents";
 import { mockArtists } from "@/data/mockArtists";
-import type { AnyEvent } from "~/schemas/event";
+import type { AnyEvent, Price } from "~/schemas/event";
 import GradientBackground from "~/components/common/GradientBackground.vue";
 import { formatDate } from "~/utils/format";
 import UserPoints from "~/components/common/UserPoints.vue";
@@ -110,7 +110,28 @@ const handleGoing = () => {
 
 const handleBook = () => {
   if (!event.value) return;
-  console.log("Book event:", event.value.name);
+
+  if (event.value.prices?.length > 0) {
+    console.log("Book event:", event.value);
+    // For workshops with multiple pricing options
+    const dialog = useDialog();
+    dialog.open({
+      component: "PricingOptionsDialog",
+      props: {
+        prices: event.value.prices,
+        onSelect: (selectedPrice: Price) => {
+          // Navigate to checkout with selected price
+          // navigateTo(
+          //   `/checkout/${event.value?.id}?priceId=${selectedPrice.id}`
+          // );
+        },
+      },
+    });
+  } else {
+    // For regular events or workshops with single price
+    // Navigate directly to checkout
+    // navigateTo(`/checkout/${event.value.id}`);
+  }
 };
 
 interface Artist {
@@ -199,7 +220,9 @@ const eventArtists = computed(() => {
 
                 <!-- Action Buttons -->
                 <div class="flex justify-center md:justify-start gap-4 mb-8">
-                  <Button variant="secondary" size="lg"> Book Now </Button>
+                  <Button variant="secondary" size="lg" @click="handleBook">
+                    Book Now
+                  </Button>
                 </div>
 
                 <!-- Event Stats -->
@@ -475,7 +498,7 @@ const eventArtists = computed(() => {
                 </div>
               </div>
             </div>
-            <Button class="w-full mt-6" variant="default" @click="handleGoing">
+            <Button class="w-full mt-6" variant="default" @click="handleBook">
               <Icon name="ph:ticket" class="w-5 h-5 mr-2" />
               Book Now
             </Button>
