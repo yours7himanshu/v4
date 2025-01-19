@@ -25,15 +25,23 @@ const formattedDate = computed(() => {
 });
 
 const getPrice = (event: AnyEvent) => {
-  if (event.prices?.length > 0) {
-    const lowestPrice = event.prices.reduce(
-      (min, p) => (p.amount < min.amount ? p : min),
-      event.prices[0]
-    );
-    return `From ${lowestPrice.amount} ${lowestPrice.currency}`;
+  if (!event.prices || event.prices.length === 0) {
+    return "Unknown price";
   }
 
-  return "Unknown price";
+  if (event.prices?.length === 1) {
+    if (event.prices[0].amount === 0) {
+      return "Free";
+    }
+
+    return `${event.prices[0].amount} ${event.prices[0].currency}`;
+  }
+
+  const lowestPrice = event.prices.reduce(
+    (min, p) => (p.amount < min.amount ? p : min),
+    event.prices[0]
+  );
+  return `From ${lowestPrice.amount} ${lowestPrice.currency}`;
 };
 
 // Related events
@@ -116,24 +124,26 @@ const handleBook = () => {
 
   const prices = event.value.prices;
 
-  if (prices?.length > 0) {
-    dialog.open({
-      component: "PricingOptionsDialog",
-      props: {
-        prices: prices,
-        onSelect: (selectedPrice: Price) => {
-          // Navigate to checkout with selected price
-          navigateTo(
-            `/checkout/${event.value?.id}?priceId=${selectedPrice.id}`
-          );
-        },
-      },
-    });
-  } else {
-    // For events without prices
-    // Navigate directly to checkout
+  if (!prices || prices.length === 0) {
     navigateTo(`/checkout/${event.value.id}`);
+    return;
   }
+
+  if (prices.length === 1) {
+    navigateTo(`/checkout/${event.value.id}?priceId=${prices[0].id}`);
+    return;
+  }
+
+  dialog.open({
+    component: "PricingOptionsDialog",
+    props: {
+      prices: prices,
+      onSelect: (selectedPrice: Price) => {
+        // Navigate to checkout with selected price
+        navigateTo(`/checkout/${event.value?.id}?priceId=${selectedPrice.id}`);
+      },
+    },
+  });
 };
 
 interface Artist {
