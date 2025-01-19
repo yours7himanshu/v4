@@ -2,6 +2,8 @@
 import { useDialog } from "~/composables/useDialog";
 import PricingOptionsDialog from "./PricingOptionsDialog.vue";
 import UserTypeInfoDialog from "./UserTypeInfoDialog.vue";
+import { Dialog, DialogContent } from "~/components/ui/dialog";
+import type { Component } from "vue";
 
 const dialog = useDialog();
 
@@ -10,23 +12,28 @@ const components = {
   UserTypeInfoDialog,
 } as const;
 
-const currentComponent = computed(() => {
+const currentComponent = computed<Component>(() => {
   return components[
     dialog.currentDialog.value?.component as keyof typeof components
   ];
 });
 
 const currentProps = computed(() => {
-  return dialog.currentDialog.value?.props;
+  return dialog.currentDialog.value?.props ?? {};
+});
+
+const isOpen = computed({
+  get: () => dialog.isOpen.value,
+  set: (value: boolean) => {
+    dialog.isOpen.value = value;
+  },
 });
 </script>
 
 <template>
-  <Teleport to="body">
-    <component
-      v-if="dialog.isOpen"
-      :is="currentComponent"
-      v-bind="currentProps"
-    />
-  </Teleport>
+  <Dialog :open="isOpen" @update:open="isOpen = $event">
+    <DialogContent>
+      <component v-if="isOpen" :is="currentComponent" v-bind="currentProps" />
+    </DialogContent>
+  </Dialog>
 </template>

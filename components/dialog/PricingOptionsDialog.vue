@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import type { Price } from "~/schemas/event";
 import { useDialog } from "~/composables/useDialog";
+import {
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "~/components/ui/dialog";
+import { Button } from "~/components/ui/button";
 
 const props = defineProps<{
   prices: Price[];
@@ -16,33 +23,31 @@ const handleSelect = (price: Price) => {
 </script>
 
 <template>
-  <div class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-    <div class="bg-white rounded-xl p-6 max-w-lg w-full mx-4">
-      <h2 class="text-2xl font-bold mb-6">Select Pricing Option</h2>
+  <DialogHeader>
+    <DialogTitle>Select Pricing Option</DialogTitle>
+  </DialogHeader>
 
-      <div class="space-y-4">
-        <button
-          v-for="price in prices"
-          :key="price.id"
-          class="w-full p-4 border rounded-lg hover:border-purple-500 transition-colors flex items-start justify-between gap-4 text-left"
-          @click="handleSelect(price)"
-        >
-          <div>
-            <div class="font-medium">{{ price.name }}</div>
-            <div class="text-sm text-gray-600">{{ price.description }}</div>
-          </div>
-          <div class="font-bold whitespace-nowrap">
-            {{ price.amount }} {{ price.currency }}
-          </div>
-        </button>
+  <div class="space-y-4 py-4">
+    <Button
+      v-for="price in prices"
+      :key="price.id"
+      variant="outline"
+      class="w-full justify-between h-auto py-4"
+      @click="handleSelect(price)"
+    >
+      <div class="flex flex-col items-start gap-1">
+        <span class="font-medium">{{ price.name }}</span>
+        <span class="text-sm text-muted-foreground">{{
+          price.description
+        }}</span>
       </div>
-
-      <button
-        class="mt-6 w-full p-2 text-gray-600 hover:text-gray-900"
-        @click="dialog.close"
-      >
-        Cancel
-      </button>
-    </div>
+      <span class="font-bold whitespace-nowrap">
+        {{ price.amount }} {{ price.currency }}
+      </span>
+    </Button>
   </div>
+
+  <DialogFooter>
+    <Button variant="ghost" @click="dialog.close">Cancel</Button>
+  </DialogFooter>
 </template>
