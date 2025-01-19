@@ -16,6 +16,68 @@ const course = ref({
     socialMedia: instructor.socialMedia,
     privateClass: instructor.availability.pricing?.privateClass,
   },
+  pricing: {
+    regular: {
+      amount: 99,
+      currency: "EUR",
+      features: [
+        "Full course access",
+        "Downloadable materials",
+        "Certificate of completion",
+        "30-day money-back guarantee",
+      ],
+    },
+    premium: {
+      amount: 199,
+      currency: "EUR",
+      features: [
+        "Everything in Regular",
+        "1 private class",
+        "Priority Q&A access",
+        "Lifetime updates",
+      ],
+    },
+  },
+  stats: {
+    enrolled: 234,
+    completed: 156,
+    avgRating: 4.8,
+    reviewCount: 45,
+  },
+  reviews: [
+    {
+      id: 1,
+      user: "John D.",
+      rating: 5,
+      comment:
+        "Excellent course! Maykel's teaching style is clear and engaging.",
+      date: "2024-03-15",
+    },
+    {
+      id: 2,
+      user: "Maria S.",
+      rating: 5,
+      comment:
+        "The best online Cuban salsa course I've taken. Great progression and explanations.",
+      date: "2024-03-10",
+    },
+    {
+      id: 3,
+      user: "David R.",
+      rating: 4,
+      comment: "Very comprehensive. The practice materials are super helpful.",
+      date: "2024-03-05",
+    },
+  ],
+  preview: {
+    videoId: "xyz789",
+    duration: "5:00",
+  },
+  community: {
+    discussions: 15,
+    activeStudents: 89,
+    nextLiveQ_A: "2024-03-25T18:00:00Z",
+  },
   price: instructor.availability.pricing?.workshop,
   materials: [
     {
@@ -381,6 +443,175 @@ const selectLesson = (lesson: any) => {
                   />
                 </li>
               </ul>
+            </div>
+          </div>
+
+          <!-- Course Stats -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-4 border-b">
+              <h3 class="font-semibold">Course Overview</h3>
+            </div>
+            <div class="p-4">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="text-center p-3 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-purple-600">
+                    {{ course.stats.enrolled }}
+                  </div>
+                  <div class="text-sm text-gray-600">Students</div>
+                </div>
+                <div class="text-center p-3 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-purple-600">
+                    {{ course.stats.completed }}
+                  </div>
+                  <div class="text-sm text-gray-600">Completed</div>
+                </div>
+                <div class="text-center p-3 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-yellow-500">
+                    {{ course.stats.avgRating }}
+                  </div>
+                  <div class="text-sm text-gray-600">Avg Rating</div>
+                </div>
+                <div class="text-center p-3 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-purple-600">
+                    {{ course.stats.reviewCount }}
+                  </div>
+                  <div class="text-sm text-gray-600">Reviews</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pricing Tiers -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-4 border-b">
+              <h3 class="font-semibold">Choose Your Plan</h3>
+            </div>
+            <div class="p-4 space-y-4">
+              <!-- Regular Plan -->
+              <div class="border rounded-lg p-4">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h4 class="font-semibold">Regular</h4>
+                    <p class="text-sm text-gray-600">Perfect for beginners</p>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold">
+                      {{ course.pricing.regular.amount }}
+                      {{ course.pricing.regular.currency }}
+                    </div>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-4">
+                  <li
+                    v-for="feature in course.pricing.regular.features"
+                    :key="feature"
+                    class="flex items-center gap-2 text-sm"
+                  >
+                    <Icon
+                      name="ph:check-circle"
+                      class="w-4 h-4 text-green-500"
+                    />
+                    {{ feature }}
+                  </li>
+                </ul>
+                <Button class="w-full" variant="default">Get Started</Button>
+              </div>
+
+              <!-- Premium Plan -->
+              <div class="border-2 border-purple-600 rounded-lg p-4">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h4 class="font-semibold">Premium</h4>
+                    <p class="text-sm text-gray-600">
+                      Best value with private class
+                    </p>
+                  </div>
+                  <div class="text-right">
+                    <div class="text-2xl font-bold">
+                      {{ course.pricing.premium.amount }}
+                      {{ course.pricing.premium.currency }}
+                    </div>
+                  </div>
+                </div>
+                <ul class="space-y-2 mb-4">
+                  <li
+                    v-for="feature in course.pricing.premium.features"
+                    :key="feature"
+                    class="flex items-center gap-2 text-sm"
+                  >
+                    <Icon
+                      name="ph:check-circle"
+                      class="w-4 h-4 text-green-500"
+                    />
+                    {{ feature }}
+                  </li>
+                </ul>
+                <Button class="w-full" variant="default">
+                  Get Premium Access
+                </Button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reviews -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-4 border-b">
+              <h3 class="font-semibold">Student Reviews</h3>
+            </div>
+            <div class="divide-y">
+              <div
+                v-for="review in course.reviews"
+                :key="review.id"
+                class="p-4"
+              >
+                <div class="flex items-center gap-2 mb-2">
+                  <div class="flex">
+                    <Icon
+                      v-for="i in review.rating"
+                      :key="i"
+                      name="ph:star-fill"
+                      class="w-4 h-4 text-yellow-400"
+                    />
+                  </div>
+                  <span class="text-sm text-gray-600">{{ review.user }}</span>
+                  <span class="text-xs text-gray-400">
+                    {{ new Date(review.date).toLocaleDateString() }}
+                  </span>
+                </div>
+                <p class="text-sm text-gray-600">{{ review.comment }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Community -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-4 border-b">
+              <h3 class="font-semibold">Community</h3>
+            </div>
+            <div class="p-4">
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="text-center p-3 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-purple-600">
+                    {{ course.community.discussions }}
+                  </div>
+                  <div class="text-sm text-gray-600">Discussions</div>
+                </div>
+                <div class="text-center p-3 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-purple-600">
+                    {{ course.community.activeStudents }}
+                  </div>
+                  <div class="text-sm text-gray-600">Active Students</div>
+                </div>
+              </div>
+              <div class="bg-purple-50 rounded-lg p-4">
+                <h4 class="font-medium mb-2">Next Live Q&A Session</h4>
+                <p class="text-sm text-gray-600">
+                  {{ new Date(course.community.nextLiveQ_A).toLocaleString() }}
+                </p>
+                <Button class="w-full mt-3" variant="outline">
+                  Join Community
+                </Button>
+              </div>
             </div>
           </div>
         </div>
