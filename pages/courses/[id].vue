@@ -13,8 +13,33 @@ const course = ref({
   instructor: {
     ...instructor,
     credentials: instructor.experience.achievements[0],
+    socialMedia: instructor.socialMedia,
+    privateClass: instructor.availability.pricing?.privateClass,
   },
   price: instructor.availability.pricing?.workshop,
+  materials: [
+    {
+      id: 1,
+      title: "Basic Steps Practice Guide",
+      type: "pdf",
+      size: "2.4 MB",
+      icon: "ph:file-pdf",
+    },
+    {
+      id: 2,
+      title: "Timba Music Playlist",
+      type: "playlist",
+      size: "20 songs",
+      icon: "ph:music-notes",
+    },
+    {
+      id: 3,
+      title: "Practice Drills",
+      type: "video",
+      size: "15 min",
+      icon: "ph:video",
+    },
+  ],
   modules: [
     {
       id: 1,
@@ -209,6 +234,28 @@ const selectLesson = (lesson: any) => {
                         </li>
                       </ul>
                     </div>
+                    <!-- Social Media Links -->
+                    <div
+                      class="flex items-center gap-4 mt-4"
+                      v-if="course.instructor.socialMedia"
+                    >
+                      <a
+                        v-if="course.instructor.socialMedia.instagram"
+                        :href="`https://instagram.com/${course.instructor.socialMedia.instagram}`"
+                        target="_blank"
+                        class="text-gray-600 hover:text-purple-600"
+                      >
+                        <Icon name="ph:instagram-logo" class="w-6 h-6" />
+                      </a>
+                      <a
+                        v-if="course.instructor.socialMedia.youtube"
+                        :href="`https://youtube.com/${course.instructor.socialMedia.youtube}`"
+                        target="_blank"
+                        class="text-gray-600 hover:text-red-600"
+                      >
+                        <Icon name="ph:youtube-logo" class="w-6 h-6" />
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -233,6 +280,29 @@ const selectLesson = (lesson: any) => {
               <p class="text-sm text-gray-600">
                 {{ course.price.duration }} minutes {{ course.price.note }}
               </p>
+            </div>
+          </div>
+
+          <!-- Private Class Booking -->
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden"
+            v-if="course.instructor.privateClass"
+          >
+            <div class="p-4 border-b">
+              <h3 class="font-semibold">Book Private Class</h3>
+            </div>
+            <div class="p-4">
+              <div class="text-2xl font-bold mb-1">
+                {{ course.instructor.privateClass.amount }}
+                {{ course.instructor.privateClass.currency }}
+              </div>
+              <p class="text-sm text-gray-600 mb-4">
+                {{ course.instructor.privateClass.duration }} minutes private
+                lesson
+              </p>
+              <Button class="w-full" variant="default"
+                >Book Private Class</Button
+              >
             </div>
           </div>
 
@@ -285,6 +355,32 @@ const selectLesson = (lesson: any) => {
                   </li>
                 </ul>
               </div>
+            </div>
+          </div>
+
+          <!-- Course Materials -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-4 border-b">
+              <h3 class="font-semibold">Course Materials</h3>
+            </div>
+            <div class="p-4">
+              <ul class="space-y-3">
+                <li
+                  v-for="material in course.materials"
+                  :key="material.id"
+                  class="flex items-center gap-3 p-2 rounded hover:bg-gray-50 cursor-pointer"
+                >
+                  <Icon :name="material.icon" class="w-5 h-5 text-gray-400" />
+                  <div class="flex-1">
+                    <div class="text-sm font-medium">{{ material.title }}</div>
+                    <div class="text-xs text-gray-500">{{ material.size }}</div>
+                  </div>
+                  <Icon
+                    name="ph:download-simple"
+                    class="w-5 h-5 text-gray-400"
+                  />
+                </li>
+              </ul>
             </div>
           </div>
         </div>
