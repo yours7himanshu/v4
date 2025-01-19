@@ -78,7 +78,6 @@ const course = ref({
     activeStudents: 89,
     nextLiveQ_A: "2024-03-25T18:00:00Z",
   },
-  price: instructor.availability.pricing?.workshop,
   materials: [
     {
       id: 1,
@@ -327,24 +326,6 @@ const selectLesson = (lesson: any) => {
 
         <!-- Course Content -->
         <div class="space-y-8">
-          <!-- Price Info -->
-          <div
-            class="bg-white rounded-xl shadow-sm overflow-hidden"
-            v-if="course.price"
-          >
-            <div class="p-4 border-b">
-              <h3 class="font-semibold">Course Price</h3>
-            </div>
-            <div class="p-4">
-              <div class="text-2xl font-bold mb-1">
-                {{ course.price.amount }} {{ course.price.currency }}
-              </div>
-              <p class="text-sm text-gray-600">
-                {{ course.price.duration }} minutes {{ course.price.note }}
-              </p>
-            </div>
-          </div>
-
           <!-- Private Class Booking -->
           <div
             class="bg-white rounded-xl shadow-sm overflow-hidden"
