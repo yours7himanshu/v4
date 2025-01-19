@@ -3,10 +3,6 @@ import { mockEvents } from "@/data/mockEvents";
 import type { AnyEvent, Price } from "~/schemas/event";
 import { formatDate } from "~/utils/format";
 
-definePageMeta({
-  layout: "focus",
-});
-
 const route = useRoute();
 const event = computed(() =>
   mockEvents.find((e) => String(e.id) === String(route.params.id))
