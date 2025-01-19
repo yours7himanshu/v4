@@ -221,8 +221,9 @@ const selectLesson = (lesson: any) => {
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Video Player -->
+        <!-- Main Content -->
         <div class="lg:col-span-2 space-y-8">
+          <!-- Video Player -->
           <div class="bg-white rounded-xl shadow-sm overflow-hidden">
             <div class="aspect-video">
               <iframe
@@ -240,6 +241,84 @@ const selectLesson = (lesson: any) => {
               <p class="text-sm text-gray-600">
                 Duration: {{ currentLesson.duration }}
               </p>
+            </div>
+          </div>
+
+          <!-- Course Content -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-4 border-b">
+              <h3 class="font-semibold">Course Content</h3>
+            </div>
+            <div class="divide-y">
+              <div
+                v-for="module in course.modules"
+                :key="module.id"
+                class="p-4"
+              >
+                <h4 class="font-medium mb-2">{{ module.title }}</h4>
+                <ul class="space-y-2">
+                  <li
+                    v-for="lesson in module.lessons"
+                    :key="lesson.id"
+                    @click="selectLesson(lesson)"
+                    class="flex items-center gap-3 p-2 rounded hover:bg-gray-50 cursor-pointer"
+                    :class="{
+                      'bg-purple-50': currentLesson.id === lesson.id,
+                    }"
+                  >
+                    <Icon
+                      :name="
+                        lesson.completed
+                          ? 'ph:check-circle-fill'
+                          : 'ph:play-circle'
+                      "
+                      class="w-5 h-5"
+                      :class="
+                        lesson.completed ? 'text-green-600' : 'text-gray-400'
+                      "
+                    />
+                    <div class="flex-1">
+                      <div
+                        class="text-sm"
+                        :class="{
+                          'font-medium': currentLesson.id === lesson.id,
+                        }"
+                      >
+                        {{ lesson.title }}
+                      </div>
+                      <div class="text-xs text-gray-500">
+                        {{ lesson.duration }}
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Course Materials -->
+          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div class="p-4 border-b">
+              <h3 class="font-semibold">Course Materials</h3>
+            </div>
+            <div class="p-4">
+              <ul class="space-y-3">
+                <li
+                  v-for="material in course.materials"
+                  :key="material.id"
+                  class="flex items-center gap-3 p-2 rounded hover:bg-gray-50 cursor-pointer"
+                >
+                  <Icon :name="material.icon" class="w-5 h-5 text-gray-400" />
+                  <div class="flex-1">
+                    <div class="text-sm font-medium">{{ material.title }}</div>
+                    <div class="text-xs text-gray-500">{{ material.size }}</div>
+                  </div>
+                  <Icon
+                    name="ph:download-simple"
+                    class="w-5 h-5 text-gray-400"
+                  />
+                </li>
+              </ul>
             </div>
           </div>
 
@@ -322,111 +401,72 @@ const selectLesson = (lesson: any) => {
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Course Content -->
-        <div class="space-y-8">
-          <!-- Private Class Booking -->
-          <div
-            class="bg-white rounded-xl shadow-sm overflow-hidden"
-            v-if="course.instructor.privateClass"
-          >
-            <div class="p-4 border-b">
-              <h3 class="font-semibold">Book Private Class</h3>
-            </div>
-            <div class="p-4">
-              <div class="text-2xl font-bold mb-1">
-                {{ course.instructor.privateClass.amount }}
-                {{ course.instructor.privateClass.currency }}
-              </div>
-              <p class="text-sm text-gray-600 mb-4">
-                {{ course.instructor.privateClass.duration }} minutes private
-                lesson
-              </p>
-              <Button class="w-full" variant="default"
-                >Book Private Class</Button
-              >
-            </div>
-          </div>
-
-          <!-- Course Content -->
+          <!-- Reviews -->
           <div class="bg-white rounded-xl shadow-sm overflow-hidden">
             <div class="p-4 border-b">
-              <h3 class="font-semibold">Course Content</h3>
+              <h3 class="font-semibold">Student Reviews</h3>
             </div>
             <div class="divide-y">
               <div
-                v-for="module in course.modules"
-                :key="module.id"
+                v-for="review in course.reviews"
+                :key="review.id"
                 class="p-4"
               >
-                <h4 class="font-medium mb-2">{{ module.title }}</h4>
-                <ul class="space-y-2">
-                  <li
-                    v-for="lesson in module.lessons"
-                    :key="lesson.id"
-                    @click="selectLesson(lesson)"
-                    class="flex items-center gap-3 p-2 rounded hover:bg-gray-50 cursor-pointer"
-                    :class="{
-                      'bg-purple-50': currentLesson.id === lesson.id,
-                    }"
-                  >
+                <div class="flex items-center gap-2 mb-2">
+                  <div class="flex">
                     <Icon
-                      :name="
-                        lesson.completed
-                          ? 'ph:check-circle-fill'
-                          : 'ph:play-circle'
-                      "
-                      class="w-5 h-5"
-                      :class="
-                        lesson.completed ? 'text-green-600' : 'text-gray-400'
-                      "
+                      v-for="i in review.rating"
+                      :key="i"
+                      name="ph:star-fill"
+                      class="w-4 h-4 text-yellow-400"
                     />
-                    <div class="flex-1">
-                      <div
-                        class="text-sm"
-                        :class="{
-                          'font-medium': currentLesson.id === lesson.id,
-                        }"
-                      >
-                        {{ lesson.title }}
-                      </div>
-                      <div class="text-xs text-gray-500">
-                        {{ lesson.duration }}
-                      </div>
-                    </div>
-                  </li>
-                </ul>
+                  </div>
+                  <span class="text-sm text-gray-600">{{ review.user }}</span>
+                  <span class="text-xs text-gray-400">
+                    {{ new Date(review.date).toLocaleDateString() }}
+                  </span>
+                </div>
+                <p class="text-sm text-gray-600">{{ review.comment }}</p>
               </div>
             </div>
           </div>
 
-          <!-- Course Materials -->
+          <!-- Community -->
           <div class="bg-white rounded-xl shadow-sm overflow-hidden">
             <div class="p-4 border-b">
-              <h3 class="font-semibold">Course Materials</h3>
+              <h3 class="font-semibold">Community</h3>
             </div>
             <div class="p-4">
-              <ul class="space-y-3">
-                <li
-                  v-for="material in course.materials"
-                  :key="material.id"
-                  class="flex items-center gap-3 p-2 rounded hover:bg-gray-50 cursor-pointer"
-                >
-                  <Icon :name="material.icon" class="w-5 h-5 text-gray-400" />
-                  <div class="flex-1">
-                    <div class="text-sm font-medium">{{ material.title }}</div>
-                    <div class="text-xs text-gray-500">{{ material.size }}</div>
+              <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="text-center p-3 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-purple-600">
+                    {{ course.community.discussions }}
                   </div>
-                  <Icon
-                    name="ph:download-simple"
-                    class="w-5 h-5 text-gray-400"
-                  />
-                </li>
-              </ul>
+                  <div class="text-sm text-gray-600">Discussions</div>
+                </div>
+                <div class="text-center p-3 bg-gray-50 rounded-lg">
+                  <div class="text-2xl font-bold text-purple-600">
+                    {{ course.community.activeStudents }}
+                  </div>
+                  <div class="text-sm text-gray-600">Active Students</div>
+                </div>
+              </div>
+              <div class="bg-purple-50 rounded-lg p-4">
+                <h4 class="font-medium mb-2">Next Live Q&A Session</h4>
+                <p class="text-sm text-gray-600">
+                  {{ new Date(course.community.nextLiveQ_A).toLocaleString() }}
+                </p>
+                <Button class="w-full mt-3" variant="outline"
+                  >Join Community</Button
+                >
+              </div>
             </div>
           </div>
+        </div>
 
+        <!-- Sidebar -->
+        <div class="lg:sticky lg:top-8 space-y-8">
           <!-- Course Stats -->
           <div class="bg-white rounded-xl shadow-sm overflow-hidden">
             <div class="p-4 border-b">
@@ -527,72 +567,33 @@ const selectLesson = (lesson: any) => {
                     {{ feature }}
                   </li>
                 </ul>
-                <Button class="w-full" variant="default">
-                  Get Premium Access
-                </Button>
+                <Button class="w-full" variant="default"
+                  >Get Premium Access</Button
+                >
               </div>
             </div>
           </div>
 
-          <!-- Reviews -->
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+          <!-- Private Class Booking -->
+          <div
+            class="bg-white rounded-xl shadow-sm overflow-hidden"
+            v-if="course.instructor.privateClass"
+          >
             <div class="p-4 border-b">
-              <h3 class="font-semibold">Student Reviews</h3>
-            </div>
-            <div class="divide-y">
-              <div
-                v-for="review in course.reviews"
-                :key="review.id"
-                class="p-4"
-              >
-                <div class="flex items-center gap-2 mb-2">
-                  <div class="flex">
-                    <Icon
-                      v-for="i in review.rating"
-                      :key="i"
-                      name="ph:star-fill"
-                      class="w-4 h-4 text-yellow-400"
-                    />
-                  </div>
-                  <span class="text-sm text-gray-600">{{ review.user }}</span>
-                  <span class="text-xs text-gray-400">
-                    {{ new Date(review.date).toLocaleDateString() }}
-                  </span>
-                </div>
-                <p class="text-sm text-gray-600">{{ review.comment }}</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Community -->
-          <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <div class="p-4 border-b">
-              <h3 class="font-semibold">Community</h3>
+              <h3 class="font-semibold">Book Private Class</h3>
             </div>
             <div class="p-4">
-              <div class="grid grid-cols-2 gap-4 mb-4">
-                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                  <div class="text-2xl font-bold text-purple-600">
-                    {{ course.community.discussions }}
-                  </div>
-                  <div class="text-sm text-gray-600">Discussions</div>
-                </div>
-                <div class="text-center p-3 bg-gray-50 rounded-lg">
-                  <div class="text-2xl font-bold text-purple-600">
-                    {{ course.community.activeStudents }}
-                  </div>
-                  <div class="text-sm text-gray-600">Active Students</div>
-                </div>
+              <div class="text-2xl font-bold mb-1">
+                {{ course.instructor.privateClass.amount }}
+                {{ course.instructor.privateClass.currency }}
               </div>
-              <div class="bg-purple-50 rounded-lg p-4">
-                <h4 class="font-medium mb-2">Next Live Q&A Session</h4>
-                <p class="text-sm text-gray-600">
-                  {{ new Date(course.community.nextLiveQ_A).toLocaleString() }}
-                </p>
-                <Button class="w-full mt-3" variant="outline">
-                  Join Community
-                </Button>
-              </div>
+              <p class="text-sm text-gray-600 mb-4">
+                {{ course.instructor.privateClass.duration }} minutes private
+                lesson
+              </p>
+              <Button class="w-full" variant="default"
+                >Book Private Class</Button
+              >
             </div>
           </div>
         </div>
