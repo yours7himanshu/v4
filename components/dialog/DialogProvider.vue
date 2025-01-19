@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { useDialog } from "~/composables/useDialog";
 import PricingOptionsDialog from "./PricingOptionsDialog.vue";
+import UserTypeInfoDialog from "./UserTypeInfoDialog.vue";
 
 const dialog = useDialog();
 
 const components = {
   PricingOptionsDialog,
+  UserTypeInfoDialog,
 } as const;
 
 const currentComponent = computed(() => {

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useDialog } from "~/composables/useDialog";
+
 const props = defineProps<{
   modelValue: string;
   simplified?: boolean;
@@ -8,6 +10,8 @@ const emit = defineEmits<{
   (e: "update:modelValue", value: string): void;
 }>();
 
+const dialog = useDialog();
+
 const types = computed(() =>
   props.simplified
     ? [
@@ -16,13 +20,23 @@ const types = computed(() =>
           label: "Dancer",
           icon: "ph:users-three",
           default: true,
+          description:
+            "Join dance events, find dance partners, and connect with the community. Perfect for social dancers and students looking to learn and participate.",
         },
         {
           id: "teacher",
           label: "Teacher/Performer",
           icon: "ph:microphone-stage",
+          description:
+            "Offer classes, workshops, and performances. Manage your schedule, promote your services, and grow your student base.",
         },
-        { id: "organizer", label: "Event Organizer", icon: "ph:buildings" },
+        {
+          id: "organizer",
+          label: "Event Organizer",
+          icon: "ph:buildings",
+          description:
+            "Create and manage dance events, from regular parties to festivals. Handle ticketing, promotion, and attendee management.",
+        },
       ]
     : [
         {
@@ -30,12 +44,41 @@ const types = computed(() =>
           label: "Dancer",
           icon: "ph:users-three",
           default: true,
+          description:
+            "Join dance events, find dance partners, and connect with the community. Perfect for social dancers and students looking to learn and participate.",
         },
-        { id: "artist", label: "Artist", icon: "ph:microphone-stage" },
-        { id: "organizer", label: "Organizer", icon: "ph:buildings" },
-        { id: "venue", label: "Venue Owner", icon: "ph:house" },
+        {
+          id: "artist",
+          label: "Artist",
+          icon: "ph:microphone-stage",
+          description:
+            "Showcase your talent as a performer, instructor, DJ, musician, or choreographer. Manage bookings and grow your audience.",
+        },
+        {
+          id: "organizer",
+          label: "Organizer",
+          icon: "ph:buildings",
+          description:
+            "Create and manage dance events, from regular parties to festivals. Handle ticketing, promotion, and attendee management.",
+        },
+        {
+          id: "venue",
+          label: "Venue Owner",
+          icon: "ph:house",
+          description:
+            "List your venue, manage bookings, and connect with event organizers. Perfect for dance studios and event spaces.",
+        },
       ]
 );
+
+const showInfo = () => {
+  dialog.open({
+    component: "UserTypeInfoDialog",
+    props: {
+      types: types.value,
+    },
+  });
+};
 </script>
 
 <template>
@@ -45,7 +88,7 @@ const types = computed(() =>
       <button
         type="button"
         class="text-gray-400 hover:text-gray-500"
-        title="Choose your primary role in the dance community. This helps us personalize your experience and connect you with relevant opportunities."
+        @click="showInfo"
       >
         <Icon name="heroicons-outline:question-mark-circle" class="w-4 h-4" />
       </button>
