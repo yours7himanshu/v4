@@ -15,8 +15,10 @@ interface Course {
   id: string;
   name: string;
   image?: string;
+  description?: string;
   instructor: {
     name: string;
+    image?: string;
   };
   pricing: {
     regular: {
@@ -30,18 +32,73 @@ interface Course {
   };
 }
 
+interface CheckoutItem {
+  id: string;
+  name: string;
+  image?: string;
+  description?: string;
+  instructor?: {
+    name: string;
+    image?: string;
+  };
+  pricing?: {
+    regular: {
+      monthly: CoursePrice;
+      annual: CoursePrice;
+    };
+    premium: {
+      monthly: CoursePrice;
+      annual: CoursePrice;
+    };
+  };
+  date?: {
+    start: string;
+    end: string;
+  };
+  location?: {
+    name: string;
+    city: string;
+  };
+  prices?: Price[];
+}
+
 const route = useRoute();
 const type = route.query.type || "event";
 
 // Get item details based on type
-const item = computed(() => {
+const item = computed<CheckoutItem | null>(() => {
   if (type === "event") {
-    return mockEvents.find((e) => String(e.id) === String(route.params.id));
+    const event = mockEvents.find(
+      (e) => String(e.id) === String(route.params.id)
+    );
+    if (event) {
+      return {
+        id: String(event.id),
+        name: event.name,
+        date: event.date,
+        location: event.location,
+        prices: event.prices,
+      };
+    }
   }
   if (type === "course") {
-    return mockCourses.find((c) => String(c.id) === String(route.params.id));
+    const course = mockCourses.find(
+      (c) => String(c.id) === String(route.params.id)
+    );
+    if (course) {
+      return {
+        id: course.id,
+        name: course.title,
+        image: course.instructor.image,
+        instructor: {
+          name: course.instructor.name,
+          image: course.instructor.image,
+        },
+        pricing: course.pricing,
+        description: course.description,
+      };
+    }
   }
-  // TODO: Replace with real course data from API
   return null;
 });
 
@@ -51,16 +108,32 @@ const selectedPrice = computed(() => {
 
   if (type === "event") {
     const priceId = route.query.priceId as string;
-    return (item.value as AnyEvent).prices?.find(
-      (p: Price) => p.id === priceId
-    );
+    return item.value.prices?.find((p: Price) => p.id === priceId);
   }
 
-  if (type === "course") {
+  if (type === "course" && item.value.pricing) {
     const plan = route.query.plan as "regular" | "premium";
     const interval = route.query.interval as "monthly" | "annual";
-    return (item.value as Course).pricing?.[plan]?.[interval];
+    const price = item.value.pricing[plan]?.[interval];
+    if (price) {
+      return {
+        type: "subscription",
+        ...price,
+        name: `${plan.charAt(0).toUpperCase() + plan.slice(1)} Plan`,
+        description:
+          interval === "annual" ? "Billed annually" : "Billed monthly",
+        interval,
+      };
+    }
   }
+
+  return null;
+});
+
+// Update template to handle subscription interval display
+const displayInterval = computed(() => {
+  if (!selectedPrice.value || !("interval" in selectedPrice.value)) return null;
+  return selectedPrice.value.interval === "annual" ? "year" : "month";
 });
 
 // Get final price for checkout
@@ -192,7 +265,7 @@ const handleSubmit = async () => {
                 <div class="text-sm text-gray-600">
                   <template v-if="checkoutPrice.type === 'subscription'">
                     {{
-                      checkoutPrice.interval === "annual"
+                      displayInterval === "year"
                         ? "Billed annually"
                         : "Billed monthly"
                     }}
@@ -208,7 +281,7 @@ const handleSubmit = async () => {
                   v-if="checkoutPrice.type === 'subscription'"
                   class="text-sm font-normal text-gray-600"
                 >
-                  /{{ checkoutPrice.interval === "annual" ? "year" : "month" }}
+                  /{{ displayInterval }}
                 </span>
               </div>
             </div>
