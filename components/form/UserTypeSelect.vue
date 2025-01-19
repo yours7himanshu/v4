@@ -3,7 +3,6 @@ import { useDialog } from "~/composables/useDialog";
 
 const props = defineProps<{
   modelValue: string;
-  simplified?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -12,64 +11,37 @@ const emit = defineEmits<{
 
 const dialog = useDialog();
 
-const types = computed(() =>
-  props.simplified
-    ? [
-        {
-          id: "dancer",
-          label: "Dancer",
-          icon: "ph:users-three",
-          default: true,
-          description:
-            "Join dance events, find dance partners, and connect with the community. Perfect for social dancers and students looking to learn and participate.",
-        },
-        {
-          id: "teacher",
-          label: "Teacher/Performer",
-          icon: "ph:microphone-stage",
-          description:
-            "Offer classes, workshops, and performances. Manage your schedule, promote your services, and grow your student base.",
-        },
-        {
-          id: "organizer",
-          label: "Event Organizer",
-          icon: "ph:buildings",
-          description:
-            "Create and manage dance events, from regular parties to festivals. Handle ticketing, promotion, and attendee management.",
-        },
-      ]
-    : [
-        {
-          id: "dancer",
-          label: "Dancer",
-          icon: "ph:users-three",
-          default: true,
-          description:
-            "Join dance events, find dance partners, and connect with the community. Perfect for social dancers and students looking to learn and participate.",
-        },
-        {
-          id: "artist",
-          label: "Artist",
-          icon: "ph:microphone-stage",
-          description:
-            "Showcase your talent as a performer, instructor, DJ, musician, or choreographer. Manage bookings and grow your audience.",
-        },
-        {
-          id: "organizer",
-          label: "Organizer",
-          icon: "ph:buildings",
-          description:
-            "Create and manage dance events, from regular parties to festivals. Handle ticketing, promotion, and attendee management.",
-        },
-        {
-          id: "venue",
-          label: "Venue Owner",
-          icon: "ph:house",
-          description:
-            "List your venue, manage bookings, and connect with event organizers. Perfect for dance studios and event spaces.",
-        },
-      ]
-);
+const types = computed(() => [
+  {
+    id: "dancer",
+    label: "Dancer",
+    icon: "ph:users-three",
+    default: true,
+    description:
+      "Join dance events, find dance partners, and connect with the community. Perfect for social dancers and students looking to learn and participate.",
+  },
+  {
+    id: "artist",
+    label: "Artist",
+    icon: "ph:microphone-stage",
+    description:
+      "Showcase your talent as a performer, instructor, DJ, musician, or choreographer. Manage bookings and grow your audience.",
+  },
+  {
+    id: "organizer",
+    label: "Organizer",
+    icon: "ph:buildings",
+    description:
+      "Create and manage dance events, from regular parties to festivals. Handle ticketing, promotion, and attendee management.",
+  },
+  {
+    id: "venue",
+    label: "Venue Owner",
+    icon: "ph:house",
+    description:
+      "List your venue, manage bookings, and connect with event organizers. Perfect for dance studios and event spaces.",
+  },
+]);
 
 const showInfo = () => {
   dialog.open({
