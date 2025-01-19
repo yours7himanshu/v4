@@ -3,6 +3,9 @@ import type { Post } from "./post";
 
 // Common schemas
 export const EventPriceSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  description: z.string(),
   amount: z.number(),
   currency: z.string(),
   type: z.enum(["per-person", "per-couple", "group"]).optional(),
@@ -46,7 +49,7 @@ export const BaseEventSchema = z.object({
   location: EventLocationSchema,
   description: z.string(),
   image: z.string().optional(),
-  price: EventPriceSchema.optional(),
+  prices: z.array(EventPriceSchema).optional(),
   tags: z.array(z.string()),
   status: z.enum(["upcoming", "ongoing", "past"]),
   artists: z.array(z.string()),
@@ -70,14 +73,6 @@ export const PartyEventSchema = BaseEventSchema.extend({
 export const WorkshopEventSchema = BaseEventSchema.extend({
   type: z.literal("workshop"),
   level: z.enum(["beginner", "intermediate", "advanced", "all"]),
-  prices: z.array(
-    z.object({
-      name: z.string(),
-      amount: z.number(),
-      currency: z.string(),
-      description: z.string(),
-    })
-  ),
 });
 
 export const ConcertEventSchema = BaseEventSchema.extend({
@@ -100,6 +95,7 @@ export type WorkshopEvent = z.infer<typeof WorkshopEventSchema>;
 export type ConcertEvent = z.infer<typeof ConcertEventSchema>;
 
 export type AnyEvent = PartyEvent | WorkshopEvent | ConcertEvent;
+export type Price = z.infer<typeof EventPriceSchema>;
 
 // Conversion to feed post
 export const eventToFeedPost = (event: AnyEvent): Post => ({
@@ -131,11 +127,3 @@ export const eventToFeedPost = (event: AnyEvent): Post => ({
     bookmarks: event.stats?.saves || 0,
   },
 });
-
-export interface Price {
-  id: string;
-  name: string;
-  description: string;
-  amount: number;
-  currency: string;
-}

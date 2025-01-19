@@ -3,6 +3,10 @@ import { mockEvents } from "@/data/mockEvents";
 import type { AnyEvent, Price } from "~/schemas/event";
 import { formatDate } from "~/utils/format";
 
+definePageMeta({
+  layout: "focus",
+});
+
 const route = useRoute();
 const event = computed(() =>
   mockEvents.find((e) => String(e.id) === String(route.params.id))
@@ -10,7 +14,7 @@ const event = computed(() =>
 
 // Get selected price for workshops
 const selectedPrice = computed(() => {
-  if (!event.value || event.value.type !== "workshop") return null;
+  if (!event.value) return null;
   const priceId = route.query.priceId as string;
   return event.value.prices?.find((p) => p.id === priceId);
 });
@@ -21,23 +25,7 @@ const checkoutPrice = computed(() => {
     return selectedPrice.value;
   }
 
-  if (event.value?.price) {
-    return {
-      id: event.value.id,
-      name: "Standard Entry",
-      description: "Standard entry ticket",
-      amount: event.value.price.amount,
-      currency: event.value.price.currency,
-    };
-  }
-
-  return {
-    id: event.value?.id || "",
-    name: "Free Entry",
-    description: "Free entry ticket",
-    amount: 0,
-    currency: "EUR",
-  };
+  throw new Error("Unknown price checkout logic not implemented yet");
 });
 
 const formData = reactive({
