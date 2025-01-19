@@ -29,6 +29,7 @@ export const mockEvents = [
       "https://res.cloudinary.com/djumxevsm/image/upload/v1732373003/a1zosu7n7luzj25tsr1l.jpg",
     prices: [
       {
+        id: "100-party-pass-1",
         name: "Party Pass",
         description:
           "General admission ticket for the concert and social dancing",
@@ -87,24 +88,28 @@ export const mockEvents = [
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=workshop1",
     prices: [
       {
+        id: "200-full-pass-1",
         name: "Full Pass",
         amount: 120,
         currency: "EUR",
         description: "All workshops and parties",
       },
       {
+        id: "200-saturday-pass-1",
         name: "Saturday Pass",
         amount: 70,
         currency: "EUR",
         description: "All Saturday activities",
       },
       {
+        id: "200-sunday-pass-1",
         name: "Sunday Pass",
         amount: 70,
         currency: "EUR",
         description: "All Sunday activities",
       },
       {
+        id: "200-single-workshop-1",
         name: "Single Workshop",
         amount: 25,
         currency: "EUR",
@@ -160,6 +165,7 @@ export const mockEvents = [
     image: "https://api.dicebear.com/7.x/avataaars/svg?seed=concert2",
     prices: [
       {
+        id: "300-concert-pass-1",
         name: "Concert Pass",
         description: "General admission ticket for the concert",
         amount: 45,
@@ -189,6 +195,7 @@ export const mockEvents = [
       "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=800&h=400&fit=crop",
     prices: [
       {
+        id: "400-party-pass-1",
         name: "Party Pass",
         description:
           "General admission ticket for the concert and social dancing",
@@ -230,6 +237,7 @@ export const mockEvents = [
       "https://images.unsplash.com/photo-1516834474-48c0abc2a902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2673&q=80",
     prices: [
       {
+        id: "500-free-pass-1",
         name: "Free Pass",
         description: "Free entry to the event",
         amount: 0,
@@ -263,6 +271,7 @@ export const mockEvents = [
       "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2670&q=80",
     prices: [
       {
+        id: "501-party-pass-1",
         name: "Party Pass",
         description:
           "General admission ticket for the concert and social dancing",
@@ -298,6 +307,7 @@ export const mockEvents = [
       "https://images.unsplash.com/photo-1547153760-18fc86324498?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2574&q=80",
     prices: [
       {
+        id: "502-workshop-pass-1",
         amount: 30,
         currency: "EUR",
         name: "Workshop Pass",
