@@ -40,7 +40,16 @@ const types = computed(() =>
 
 <template>
   <div class="space-y-3">
-    <label class="block text-sm font-medium text-gray-700"> I am a... </label>
+    <div class="flex items-center gap-2">
+      <label class="block text-sm font-medium text-gray-700"> I am a... </label>
+      <button
+        type="button"
+        class="text-gray-400 hover:text-gray-500"
+        title="Choose your primary role in the dance community. This helps us personalize your experience and connect you with relevant opportunities."
+      >
+        <Icon name="heroicons-outline:question-mark-circle" class="w-4 h-4" />
+      </button>
+    </div>
     <div class="grid grid-cols-2 gap-4">
       <button
         v-for="type in types"
