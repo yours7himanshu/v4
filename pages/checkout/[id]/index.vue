@@ -1,24 +1,75 @@
 <script setup lang="ts">
 import { mockEvents } from "@/data/mockEvents";
+import { mockCourses } from "@/data/mockCourses";
 import type { AnyEvent, Price } from "~/schemas/event";
 import { formatDate } from "~/utils/format";
 
-const route = useRoute();
-const event = computed(() =>
-  mockEvents.find((e) => String(e.id) === String(route.params.id))
-);
+interface CoursePrice {
+  amount: number;
+  currency: string;
+  interval?: string;
+  description?: string;
+}
 
-// Get selected price for workshops
+interface Course {
+  id: string;
+  name: string;
+  image?: string;
+  instructor: {
+    name: string;
+  };
+  pricing: {
+    regular: {
+      monthly: CoursePrice;
+      annual: CoursePrice;
+    };
+    premium: {
+      monthly: CoursePrice;
+      annual: CoursePrice;
+    };
+  };
+}
+
+const route = useRoute();
+const type = route.query.type || "event";
+
+// Get item details based on type
+const item = computed(() => {
+  if (type === "event") {
+    return mockEvents.find((e) => String(e.id) === String(route.params.id));
+  }
+  if (type === "course") {
+    return mockCourses.find((c) => String(c.id) === String(route.params.id));
+  }
+  // TODO: Replace with real course data from API
+  return null;
+});
+
+// Get selected price for workshops or courses
 const selectedPrice = computed(() => {
-  if (!event.value) return null;
-  const priceId = route.query.priceId as string;
-  return event.value.prices?.find((p) => p.id === priceId);
+  if (!item.value) return null;
+
+  if (type === "event") {
+    const priceId = route.query.priceId as string;
+    return (item.value as AnyEvent).prices?.find(
+      (p: Price) => p.id === priceId
+    );
+  }
+
+  if (type === "course") {
+    const plan = route.query.plan as "regular" | "premium";
+    const interval = route.query.interval as "monthly" | "annual";
+    return (item.value as Course).pricing?.[plan]?.[interval];
+  }
 });
 
 // Get final price for checkout
 const checkoutPrice = computed(() => {
   if (selectedPrice.value) {
-    return selectedPrice.value;
+    return {
+      ...selectedPrice.value,
+      type: type === "event" ? "one-time" : "subscription",
+    };
   }
 
   throw new Error("Unknown price checkout logic not implemented yet");
@@ -48,7 +99,7 @@ const handleEmailCheck = async () => {
 };
 
 const handleSubmit = async () => {
-  if (!event.value) return;
+  if (!item.value) return;
 
   try {
     let success = false;
@@ -65,7 +116,7 @@ const handleSubmit = async () => {
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       // Redirect to success page
-      navigateTo(`/checkout/${event.value.id}/success`);
+      navigateTo(`/checkout/${item.value.id}/success`);
     }
   } catch (e) {
     console.error("Checkout failed:", e);
@@ -74,38 +125,55 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <div v-if="event" class="min-h-screen bg-gray-50 py-12">
+  <div v-if="item" class="min-h-screen bg-gray-50 py-12">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-8">
         <!-- Header -->
         <div class="text-center">
           <h1 class="text-3xl font-bold">Checkout</h1>
-          <p class="text-gray-600 mt-2">Complete your booking</p>
+          <p class="text-gray-600 mt-2">
+            {{
+              type === "event"
+                ? "Complete your booking"
+                : "Start your learning journey"
+            }}
+          </p>
         </div>
 
-        <!-- Event Summary -->
+        <!-- Item Summary -->
         <div class="bg-white rounded-xl border p-6">
           <div class="flex gap-6">
             <div class="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
               <img
-                :src="event.image || '/images/event-placeholder.jpg'"
-                :alt="event.name"
+                :src="item.image || '/images/placeholder.jpg'"
+                :alt="item.name"
                 class="w-full h-full object-cover"
               />
             </div>
             <div>
-              <h2 class="text-xl font-bold">{{ event.name }}</h2>
+              <h2 class="text-xl font-bold">{{ item.name }}</h2>
               <div class="text-gray-600 space-y-1 mt-2">
-                <div class="flex items-center gap-2">
-                  <Icon name="ph:calendar" class="w-4 h-4" />
-                  <span>{{ formatDate(event.date.start) }}</span>
-                </div>
-                <div class="flex items-center gap-2">
-                  <Icon name="ph:map-pin" class="w-4 h-4" />
-                  <span
-                    >{{ event.location.name }}, {{ event.location.city }}</span
-                  >
-                </div>
+                <template v-if="type === 'event'">
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:calendar" class="w-4 h-4" />
+                    <span>{{ formatDate((item as AnyEvent).date.start) }}</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:map-pin" class="w-4 h-4" />
+                    <span
+                      >{{ (item as AnyEvent).location.name }},
+                      {{ (item as AnyEvent).location.city }}</span
+                    >
+                  </div>
+                </template>
+                <template v-else>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:user" class="w-4 h-4" />
+                    <span
+                      >Instructor: {{ (item as Course).instructor.name }}</span
+                    >
+                  </div>
+                </template>
               </div>
             </div>
           </div>
@@ -114,13 +182,34 @@ const handleSubmit = async () => {
           <div class="mt-6 pt-6 border-t">
             <div class="flex justify-between items-center text-lg">
               <div>
-                <div class="font-medium">{{ checkoutPrice.name }}</div>
+                <div class="font-medium">
+                  {{
+                    checkoutPrice.type === "subscription"
+                      ? "Subscription Plan"
+                      : checkoutPrice.name
+                  }}
+                </div>
                 <div class="text-sm text-gray-600">
-                  {{ checkoutPrice.description }}
+                  <template v-if="checkoutPrice.type === 'subscription'">
+                    {{
+                      checkoutPrice.interval === "annual"
+                        ? "Billed annually"
+                        : "Billed monthly"
+                    }}
+                  </template>
+                  <template v-else>
+                    {{ checkoutPrice.description }}
+                  </template>
                 </div>
               </div>
               <div class="font-bold">
                 {{ checkoutPrice.amount }} {{ checkoutPrice.currency }}
+                <span
+                  v-if="checkoutPrice.type === 'subscription'"
+                  class="text-sm font-normal text-gray-600"
+                >
+                  /{{ checkoutPrice.interval === "annual" ? "year" : "month" }}
+                </span>
               </div>
             </div>
           </div>
@@ -245,13 +334,21 @@ const handleSubmit = async () => {
   <!-- Empty State -->
   <div v-else class="min-h-screen flex items-center justify-center">
     <div class="text-center">
-      <Icon name="ph:calendar-x" class="w-16 h-16 text-gray-400 mx-auto mb-4" />
-      <h2 class="text-2xl font-bold text-gray-900 mb-2">Event Not Found</h2>
+      <Icon
+        :name="type === 'event' ? 'ph:calendar-x' : 'ph:video-camera-slash'"
+        class="w-16 h-16 text-gray-400 mx-auto mb-4"
+      />
+      <h2 class="text-2xl font-bold text-gray-900 mb-2">
+        {{ type === "event" ? "Event" : "Course" }} Not Found
+      </h2>
       <p class="text-gray-600 mb-6">
-        The event you're looking for doesn't exist or has been removed.
+        The {{ type === "event" ? "event" : "course" }} you're looking for
+        doesn't exist or has been removed.
       </p>
       <Button as-child>
-        <NuxtLink to="/events">Browse Events</NuxtLink>
+        <NuxtLink :to="type === 'event' ? '/events' : '/courses'">
+          Browse {{ type === "event" ? "Events" : "Courses" }}
+        </NuxtLink>
       </Button>
     </div>
   </div>
