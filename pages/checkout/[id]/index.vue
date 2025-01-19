@@ -35,7 +35,6 @@ const formData = reactive({
   phone: "",
   terms: false,
   password: "", // for account creation
-  createAccount: true, // default to true for community building
 });
 
 const isLoading = ref(false);
@@ -64,24 +63,10 @@ const checkEmail = async () => {
     if (isExistingUser.value) {
       checkoutState.value = "login";
     } else {
-      checkoutState.value = "guest";
+      checkoutState.value = "register";
     }
   } catch (e) {
     error.value = "Could not verify email. Please try again.";
-  } finally {
-    isLoading.value = false;
-  }
-};
-
-// Handle social login
-const handleSocialLogin = async (provider: string) => {
-  isLoading.value = true;
-  try {
-    // TODO: Implement social login
-    await new Promise((resolve) => setTimeout(resolve, 500));
-    checkoutState.value = "guest";
-  } catch (e) {
-    error.value = "Social login failed. Please try again.";
   } finally {
     isLoading.value = false;
   }
@@ -98,8 +83,8 @@ const handleSubmit = async () => {
     // For now, we'll simulate a successful booking
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    // Create account if requested
-    if (formData.createAccount && !isExistingUser.value) {
+    // Create account for new users
+    if (!isExistingUser.value) {
       // TODO: Implement account creation
     }
 
@@ -192,38 +177,6 @@ const handleSubmit = async () => {
                   <template v-if="isLoading">Checking...</template>
                   <template v-else>Continue</template>
                 </Button>
-
-                <div class="mt-4">
-                  <div class="relative">
-                    <div class="absolute inset-0 flex items-center">
-                      <div class="w-full border-t border-gray-300"></div>
-                    </div>
-                    <div class="relative flex justify-center text-sm">
-                      <span class="px-2 bg-white text-gray-500"
-                        >or continue with</span
-                      >
-                    </div>
-                  </div>
-
-                  <div class="mt-4 grid grid-cols-2 gap-3">
-                    <button
-                      type="button"
-                      @click="handleSocialLogin('google')"
-                      class="flex justify-center items-center px-4 py-2 border rounded-lg hover:bg-gray-50"
-                    >
-                      <Icon name="logos:google-icon" class="w-5 h-5 mr-2" />
-                      Google
-                    </button>
-                    <button
-                      type="button"
-                      @click="handleSocialLogin('facebook')"
-                      class="flex justify-center items-center px-4 py-2 border rounded-lg hover:bg-gray-50"
-                    >
-                      <Icon name="logos:facebook" class="w-5 h-5 mr-2" />
-                      Facebook
-                    </button>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -247,18 +200,14 @@ const handleSubmit = async () => {
                 <template v-if="isLoading">Logging in...</template>
                 <template v-else>Log in</template>
               </Button>
-
-              <button
-                type="button"
-                class="text-sm text-blue-600 hover:underline"
-                @click="checkoutState = 'guest'"
-              >
-                Continue as guest instead
-              </button>
             </div>
 
-            <!-- Guest/Account Creation Step -->
-            <template v-else>
+            <!-- Registration Step -->
+            <div v-else-if="checkoutState === 'register'" class="space-y-6">
+              <p class="text-sm text-gray-600">
+                Create your account to join our dance community
+              </p>
+
               <div class="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label class="block text-sm font-medium mb-2"
@@ -294,34 +243,14 @@ const handleSubmit = async () => {
                 />
               </div>
 
-              <!-- Account Creation Option -->
-              <div v-if="!isExistingUser" class="space-y-4">
-                <div class="flex items-start gap-3">
-                  <input
-                    v-model="formData.createAccount"
-                    type="checkbox"
-                    class="mt-1"
-                  />
-                  <div>
-                    <label class="text-sm font-medium text-gray-900"
-                      >Create an account</label
-                    >
-                    <p class="text-sm text-gray-600">
-                      Get updates about the event, connect with other attendees,
-                      and save your details for next time
-                    </p>
-                  </div>
-                </div>
-
-                <div v-if="formData.createAccount">
-                  <label class="block text-sm font-medium mb-2">Password</label>
-                  <input
-                    v-model="formData.password"
-                    type="password"
-                    required
-                    class="w-full px-4 py-2 border rounded-lg"
-                  />
-                </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Password</label>
+                <input
+                  v-model="formData.password"
+                  type="password"
+                  required
+                  class="w-full px-4 py-2 border rounded-lg"
+                />
               </div>
 
               <div class="flex items-start gap-3">
@@ -344,7 +273,7 @@ const handleSubmit = async () => {
                 <template v-if="isLoading">Processing...</template>
                 <template v-else>Complete Booking</template>
               </Button>
-            </template>
+            </div>
           </div>
         </form>
       </div>
