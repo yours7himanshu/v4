@@ -45,16 +45,25 @@ const formData = reactive({
 const isLoading = ref(false);
 const error = ref("");
 
+// Mock existing users for testing
+const mockUsers = [
+  "test@example.com",
+  "john@example.com",
+  "jane@example.com",
+  "demo@example.com",
+];
+
 // Check if email exists
 const checkEmail = async () => {
   if (!formData.email) return;
 
   isLoading.value = true;
   try {
-    // TODO: Implement actual email check
-    // For now, simulate API call
+    // Simulate API call
     await new Promise((resolve) => setTimeout(resolve, 500));
-    isExistingUser.value = false; // Replace with actual check
+
+    // Check if email exists in mock users
+    isExistingUser.value = mockUsers.includes(formData.email.toLowerCase());
 
     if (isExistingUser.value) {
       checkoutState.value = "login";
