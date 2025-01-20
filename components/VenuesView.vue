@@ -42,13 +42,20 @@ const filteredVenues = computed(() => {
         selectedFeatures.value.includes(feature)
       );
 
+    const minPrice = Math.min(...venue.areas.map((area) => area.pricePerHour));
+    const maxPrice = Math.max(...venue.areas.map((area) => area.pricePerHour));
+    const totalCapacity = venue.areas.reduce(
+      (sum, area) => sum + area.capacity,
+      0
+    );
+
     const matchesPrice =
-      venue.pricePerHour >= selectedPriceRange.value[0] &&
-      venue.pricePerHour <= selectedPriceRange.value[1];
+      maxPrice >= selectedPriceRange.value[0] &&
+      minPrice <= selectedPriceRange.value[1];
 
     const matchesCapacity =
-      venue.capacity >= selectedCapacityRange.value[0] &&
-      venue.capacity <= selectedCapacityRange.value[1];
+      totalCapacity >= selectedCapacityRange.value[0] &&
+      totalCapacity <= selectedCapacityRange.value[1];
 
     return (
       matchesSearch &&
@@ -241,18 +248,28 @@ const clearLocationFilter = () => {
         <p class="text-muted-foreground text-sm mb-2">
           {{ venue.address }}
         </p>
-        <p class="text-primary font-medium mb-3">
-          €{{ venue.pricePerHour }}/hour
-        </p>
-        <p class="text-foreground mb-4">{{ venue.description }}</p>
+        <div class="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+          <div class="flex items-center gap-1">
+            <Icon name="ph:currency-eur" class="w-4 h-4" />
+            {{ Math.min(...venue.areas.map((a) => a.pricePerHour)) }}-{{
+              Math.max(...venue.areas.map((a) => a.pricePerHour))
+            }}/hour
+          </div>
+          <div class="flex items-center gap-1">
+            <Icon name="ph:users" class="w-4 h-4" />
+            {{ venue.areas.reduce((sum, area) => sum + area.capacity, 0) }}
+            people
+          </div>
+        </div>
+        <p class="text-foreground mb-4 line-clamp-2">{{ venue.description }}</p>
         <div class="flex flex-wrap gap-2">
-          <span
-            v-for="feature in venue.features"
+          <Badge
+            v-for="feature in venue.features.slice(0, 3)"
             :key="feature"
-            class="text-xs bg-accent text-accent-foreground px-2 py-1 rounded-full"
+            variant="secondary"
           >
             {{ feature }}
-          </span>
+          </Badge>
         </div>
       </div>
     </NuxtLink>
