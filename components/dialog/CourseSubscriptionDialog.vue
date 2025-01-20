@@ -31,15 +31,23 @@ const isAnnual = ref(false);
 const showFeatures = ref(false);
 
 const allFeatures = computed(() => {
-  const features = new Set([
+  // Combine regular and premium features
+  return [
     ...props.course.pricing.regular.features,
-    ...props.course.pricing.premium.features,
-  ]);
-  return Array.from(features);
+    ...props.course.pricing.premium.features.filter(
+      (feature) =>
+        !props.course.pricing.regular.features.includes(feature) &&
+        feature !== "Everything in Regular"
+    ),
+  ];
 });
 
 const hasFeature = (feature: string, plan: "regular" | "premium") => {
-  return props.course.pricing[plan].features.includes(feature);
+  if (plan === "premium") {
+    return true; // Premium has access to all features
+  }
+  // Regular plan only has regular features
+  return props.course.pricing.regular.features.includes(feature);
 };
 
 const handleSelect = (plan: { type: string; interval?: string }) => {
@@ -209,47 +217,49 @@ const maxSavings = computed(() => {
     </Button>
 
     <!-- Features Comparison -->
-    <div v-if="showFeatures" class="mt-4 border rounded-lg p-4">
-      <table class="w-full text-sm">
-        <thead>
-          <tr class="border-b">
-            <th class="text-left py-2">Features</th>
-            <th class="text-center py-2">Regular</th>
-            <th class="text-center py-2">Premium</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="feature in allFeatures"
-            :key="feature"
-            class="border-b last:border-0"
-          >
-            <td class="py-2">{{ feature }}</td>
-            <td class="text-center py-2">
-              <Icon
-                :name="hasFeature(feature, 'regular') ? 'ph:check' : 'ph:x'"
-                class="w-4 h-4 mx-auto"
-                :class="
-                  hasFeature(feature, 'regular')
-                    ? 'text-green-600'
-                    : 'text-gray-400'
-                "
-              />
-            </td>
-            <td class="text-center py-2">
-              <Icon
-                :name="hasFeature(feature, 'premium') ? 'ph:check' : 'ph:x'"
-                class="w-4 h-4 mx-auto"
-                :class="
-                  hasFeature(feature, 'premium')
-                    ? 'text-green-600'
-                    : 'text-gray-400'
-                "
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+    <div v-if="showFeatures" class="mt-4 border rounded-lg">
+      <div class="max-h-[240px] overflow-y-auto">
+        <table class="w-full text-sm">
+          <thead class="bg-gray-50 sticky top-0">
+            <tr class="border-b">
+              <th class="text-left p-3">Features</th>
+              <th class="text-center w-20 p-3">Regular</th>
+              <th class="text-center w-20 p-3">Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="feature in allFeatures"
+              :key="feature"
+              class="border-b last:border-0 hover:bg-gray-50"
+            >
+              <td class="p-3">{{ feature }}</td>
+              <td class="text-center p-3">
+                <Icon
+                  :name="hasFeature(feature, 'regular') ? 'ph:check' : 'ph:x'"
+                  class="w-4 h-4 mx-auto"
+                  :class="
+                    hasFeature(feature, 'regular')
+                      ? 'text-green-600'
+                      : 'text-gray-400'
+                  "
+                />
+              </td>
+              <td class="text-center p-3">
+                <Icon
+                  :name="hasFeature(feature, 'premium') ? 'ph:check' : 'ph:x'"
+                  class="w-4 h-4 mx-auto"
+                  :class="
+                    hasFeature(feature, 'premium')
+                      ? 'text-green-600'
+                      : 'text-gray-400'
+                  "
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <p class="text-xs text-center text-muted-foreground mt-4">
