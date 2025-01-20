@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { Calendar } from "@/components/ui/calendar";
+import { format } from "date-fns";
+import { today, getLocalTimeZone } from "@internationalized/date";
+
 interface Props {
   area: {
     id: number;
@@ -23,6 +27,45 @@ const props = defineProps<Props>();
 const dialog = useDialog();
 
 const selectedImageIndex = ref(0);
+const selectedDate = ref(today(getLocalTimeZone()));
+const showCalendar = ref(false);
+
+const timeSlots = [
+  "09:00-10:00",
+  "10:00-11:00",
+  "11:00-12:00",
+  "12:00-13:00",
+  "13:00-14:00",
+  "14:00-15:00",
+  "15:00-16:00",
+  "16:00-17:00",
+  "17:00-18:00",
+  "18:00-19:00",
+  "19:00-20:00",
+  "20:00-21:00",
+];
+
+const selectedTimeSlot = ref<string | null>(null);
+
+const handleBook = () => {
+  if (!selectedDate.value || !selectedTimeSlot.value) return;
+
+  const date = selectedDate.value.toDate(getLocalTimeZone());
+  const bookingDate = format(date, "yyyy-MM-dd");
+  const bookingDateTime = `${bookingDate} ${selectedTimeSlot.value}`;
+
+  dialog.open({
+    component: "VenueBookingDialog",
+    props: {
+      venue: { areas: [props.area] },
+      selectedAreaId: props.area.id,
+      selectedDateTime: bookingDateTime,
+      onBook: (date: string, areaId: number) => {
+        console.log("Booking area for date:", date, "area:", areaId);
+      },
+    },
+  });
+};
 </script>
 
 <template>
@@ -107,19 +150,57 @@ const selectedImageIndex = ref(0);
         </template>
       </div>
     </div>
+
+    <!-- Calendar Section -->
+    <div v-if="showCalendar" class="space-y-4">
+      <div class="flex justify-between items-center">
+        <h4 class="font-medium">Select Date & Time</h4>
+        <Button variant="ghost" size="sm" @click="showCalendar = false">
+          <Icon name="ph:x" class="w-4 h-4" />
+        </Button>
+      </div>
+
+      <Calendar
+        v-model="selectedDate"
+        :disabled-dates="{ before: new Date() }"
+        mode="single"
+        class="rounded-md border mx-auto"
+      />
+
+      <div v-if="selectedDate" class="space-y-2">
+        <h4 class="font-medium">Available Time Slots</h4>
+        <div class="grid grid-cols-3 gap-2">
+          <Button
+            v-for="slot in timeSlots"
+            :key="slot"
+            variant="outline"
+            :class="[
+              selectedTimeSlot === slot
+                ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+                : '',
+            ]"
+            @click="selectedTimeSlot = slot"
+          >
+            {{ slot }}
+          </Button>
+        </div>
+      </div>
+
+      <Button
+        class="w-full"
+        :disabled="!selectedDate || !selectedTimeSlot"
+        @click="handleBook"
+      >
+        Book Now
+      </Button>
+    </div>
   </div>
 
   <DialogFooter>
     <Button variant="outline" @click="dialog.close()">Close</Button>
-    <Button
-      @click="
-        dialog.open({
-          component: 'VenueBookingDialog',
-          props: { venue: { areas: [area] } },
-        })
-      "
-    >
-      Book Now
+    <Button v-if="!showCalendar" @click="showCalendar = true">
+      <Icon name="ph:calendar-check" class="w-5 h-5 mr-2" />
+      Check Availability
     </Button>
   </DialogFooter>
 </template>

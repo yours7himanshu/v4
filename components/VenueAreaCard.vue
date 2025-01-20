@@ -17,6 +17,7 @@ interface Props {
     images: string[];
     availability: Record<string, string>;
   };
+  isPopular?: boolean;
 }
 
 const props = defineProps<Props>();
@@ -30,20 +31,64 @@ const showDetails = () => {
     },
   });
 };
+
+// Get next available time slot
+const now = new Date();
+const days = [
+  "sunday",
+  "monday",
+  "tuesday",
+  "wednesday",
+  "thursday",
+  "friday",
+  "saturday",
+];
+const currentDay = days[now.getDay()];
+const currentTime = now.getHours().toString().padStart(2, "0") + ":00";
+const availabilityToday = props.area.availability[currentDay];
+const [start, end] = availabilityToday?.split("-") || [];
+
+const nextAvailable = computed(() => {
+  if (!availabilityToday) return null;
+  if (currentTime < start) return start;
+  if (currentTime > end) return `tomorrow ${start}`;
+  return currentTime;
+});
 </script>
 
 <template>
   <div
-    class="group bg-card rounded-xl border overflow-hidden hover:border-primary/50 transition-colors cursor-pointer"
+    class="group bg-card rounded-xl border overflow-hidden hover:border-primary/50 transition-colors cursor-pointer relative"
     @click="showDetails"
   >
+    <!-- Popular Badge -->
+    <div
+      v-if="isPopular"
+      class="absolute top-3 right-3 z-10 bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full font-medium shadow-lg"
+    >
+      Most Popular
+    </div>
+
     <!-- Image -->
-    <div class="aspect-[4/3] overflow-hidden">
+    <div class="aspect-[4/3] overflow-hidden relative">
       <img
         :src="area.images[0]"
         :alt="area.name"
         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
       />
+      <!-- Availability Badge -->
+      <div
+        class="absolute bottom-3 left-3 bg-background/90 backdrop-blur-sm text-xs px-2 py-1 rounded-full font-medium shadow-lg border"
+      >
+        <span v-if="nextAvailable">
+          <Icon name="ph:clock" class="w-4 h-4 inline-block mr-1" />
+          Available {{ nextAvailable }}
+        </span>
+        <span v-else class="text-destructive">
+          <Icon name="ph:x-circle" class="w-4 h-4 inline-block mr-1" />
+          Unavailable today
+        </span>
+      </div>
     </div>
 
     <!-- Content -->

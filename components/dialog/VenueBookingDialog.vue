@@ -15,19 +15,40 @@ interface Props {
     areas: {
       id: number;
       name: string;
+      description: string;
       pricePerHour: number;
       capacity: number;
+      size: {
+        width: number;
+        length: number;
+        height: number;
+        unit: string;
+      };
+      amenities: string[];
+      floorType: string;
+      images: string[];
+      availability: Record<string, string>;
     }[];
   };
+  selectedAreaId?: number;
+  selectedDateTime?: string;
   onBook: (date: string, areaId: number) => void;
 }
 
 const props = defineProps<Props>();
 const dialog = useDialog();
 
-const selectedDate = ref(today(getLocalTimeZone()));
-const selectedTimeSlot = ref<string | null>(null);
-const selectedArea = ref<number | null>(null);
+const selectedDate = ref(
+  props.selectedDateTime
+    ? new Date(props.selectedDateTime)
+    : today(getLocalTimeZone())
+);
+
+const selectedTimeSlot = ref<string | null>(
+  props.selectedDateTime ? props.selectedDateTime.split(" ")[1] : null
+);
+
+const selectedArea = ref<number | null>(props.selectedAreaId || null);
 
 const timeSlots = [
   "09:00-10:00",
@@ -52,7 +73,11 @@ const handleBook = () => {
   if (!selectedDate.value || !selectedTimeSlot.value || !selectedArea.value)
     return;
 
-  const date = selectedDate.value.toDate(getLocalTimeZone());
+  const date =
+    selectedDate.value instanceof Date
+      ? selectedDate.value
+      : selectedDate.value.toDate(getLocalTimeZone());
+
   const bookingDate = format(date, "yyyy-MM-dd");
   const bookingDateTime = `${bookingDate} ${selectedTimeSlot.value}`;
 
@@ -68,7 +93,9 @@ const handleBook = () => {
       Select an area, date and time slot to book the venue.
     </DialogDescription>
   </DialogHeader>
+
   <div class="grid gap-4 py-4">
+    <!-- Area Selection -->
     <div class="space-y-2">
       <Label>Area</Label>
       <div class="grid grid-cols-1 gap-2">
@@ -78,18 +105,24 @@ const handleBook = () => {
           variant="outline"
           :class="[
             selectedArea === area.id
-              ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground'
-              : 'hover:bg-accent hover:text-accent-foreground',
+              ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+              : '',
           ]"
           @click="selectedArea = area.id"
         >
-          <div class="flex justify-between w-full">
-            <span>{{ area.name }}</span>
-            <span>{{ area.pricePerHour }}€/h</span>
+          <div class="flex items-center justify-between w-full">
+            <div class="text-left">
+              <div>{{ area.name }}</div>
+              <div class="text-sm text-muted-foreground">
+                {{ area.capacity }} people
+              </div>
+            </div>
+            <Badge variant="secondary">{{ area.pricePerHour }}€/h</Badge>
           </div>
         </Button>
       </div>
     </div>
+
     <div class="space-y-2">
       <Label>Date</Label>
       <Popover>
@@ -98,7 +131,11 @@ const handleBook = () => {
             <Icon name="ph:calendar" class="mr-2 h-4 w-4" />
             {{
               selectedDate
-                ? formatDate(selectedDate.toDate(getLocalTimeZone()))
+                ? formatDate(
+                    selectedDate instanceof Date
+                      ? selectedDate
+                      : selectedDate.toDate(getLocalTimeZone())
+                  )
                 : "Pick a date"
             }}
           </Button>
@@ -113,6 +150,7 @@ const handleBook = () => {
         </PopoverContent>
       </Popover>
     </div>
+
     <div class="space-y-2">
       <Label>Time Slot</Label>
       <div class="grid grid-cols-3 gap-2">
@@ -122,8 +160,8 @@ const handleBook = () => {
           variant="outline"
           :class="[
             selectedTimeSlot === slot
-              ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground'
-              : 'hover:bg-accent hover:text-accent-foreground',
+              ? 'bg-primary text-primary-foreground hover:bg-primary/90'
+              : '',
           ]"
           @click="selectedTimeSlot = slot"
         >
@@ -131,19 +169,31 @@ const handleBook = () => {
         </Button>
       </div>
     </div>
-    <div v-if="selectedArea" class="flex justify-between items-center text-sm">
-      <span class="text-muted-foreground">Selected area</span>
-      <div class="text-right">
-        <div class="font-medium">
-          {{ venue.areas.find((a) => a.id === selectedArea)?.name }}
+
+    <div v-if="selectedArea" class="space-y-2">
+      <div class="flex justify-between items-center text-sm">
+        <span class="text-muted-foreground">Selected area</span>
+        <div class="text-right">
+          <div class="font-medium">
+            {{ venue.areas.find((a) => a.id === selectedArea)?.name }}
+          </div>
+          <div class="text-muted-foreground">
+            {{ venue.areas.find((a) => a.id === selectedArea)?.capacity }}
+            people
+          </div>
         </div>
-        <div class="text-muted-foreground">
-          Capacity:
-          {{ venue.areas.find((a) => a.id === selectedArea)?.capacity }} people
-        </div>
+      </div>
+      <div class="flex justify-between items-center text-sm">
+        <span class="text-muted-foreground">Price</span>
+        <span class="font-medium"
+          >{{
+            venue.areas.find((a) => a.id === selectedArea)?.pricePerHour
+          }}€/hour</span
+        >
       </div>
     </div>
   </div>
+
   <DialogFooter>
     <Button variant="outline" @click="dialog.close()">Cancel</Button>
     <Button
