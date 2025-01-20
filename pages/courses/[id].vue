@@ -361,9 +361,13 @@ const selectLesson = (lesson: any) => {
                     {{ feature }}
                   </li>
                 </ul>
-                <Button class="w-full" variant="default"
-                  >Start Free Trial</Button
-                >
+                <Button class="w-full" variant="default" as-child>
+                  <NuxtLink
+                    :to="`/checkout/${course.id}?type=course&plan=trial`"
+                  >
+                    Start Free Trial
+                  </NuxtLink>
+                </Button>
               </div>
 
               <!-- Regular Plan -->

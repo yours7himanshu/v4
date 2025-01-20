@@ -29,6 +29,9 @@ interface Course {
       monthly: CoursePrice;
       annual: CoursePrice;
     };
+    trial?: {
+      duration: number;
+    };
   };
 }
 
@@ -49,6 +52,9 @@ interface CheckoutItem {
     premium: {
       monthly: CoursePrice;
       annual: CoursePrice;
+    };
+    trial?: {
+      duration: number;
     };
   };
   date?: {
@@ -113,8 +119,20 @@ const selectedPrice = computed(() => {
   }
 
   if (type === "course" && item.value.pricing) {
-    const plan = route.query.plan as "regular" | "premium";
+    const plan = route.query.plan as "regular" | "premium" | "trial";
     const interval = route.query.interval as "monthly" | "annual";
+
+    if (plan === "trial") {
+      return {
+        type: "trial",
+        amount: 0,
+        currency: "EUR",
+        name: "Free Trial",
+        description: `${item.value.pricing.trial?.duration || 7} days free trial`,
+        interval: "trial",
+      };
+    }
+
     const price = item.value.pricing[plan]?.[interval];
     if (price) {
       return {
@@ -134,6 +152,7 @@ const selectedPrice = computed(() => {
 // Update template to handle subscription interval display
 const displayInterval = computed(() => {
   if (!selectedPrice.value || !("interval" in selectedPrice.value)) return null;
+  if (selectedPrice.value.interval === "trial") return null;
   return selectedPrice.value.interval === "annual" ? "year" : "month";
 });
 
@@ -142,7 +161,9 @@ const checkoutPrice = computed(() => {
   if (selectedPrice.value) {
     return {
       ...selectedPrice.value,
-      type: type === "event" ? "one-time" : "subscription",
+      type:
+        selectedPrice.value.type ||
+        (type === "event" ? "one-time" : "subscription"),
     };
   }
 
@@ -260,7 +281,9 @@ const handleSubmit = async () => {
                   {{
                     checkoutPrice.type === "subscription"
                       ? "Subscription Plan"
-                      : checkoutPrice.name
+                      : checkoutPrice.type === "trial"
+                        ? "Free Trial"
+                        : checkoutPrice.name
                   }}
                 </div>
                 <div class="text-sm text-gray-600">
@@ -277,13 +300,18 @@ const handleSubmit = async () => {
                 </div>
               </div>
               <div class="font-bold">
-                {{ checkoutPrice.amount }} {{ checkoutPrice.currency }}
-                <span
-                  v-if="checkoutPrice.type === 'subscription'"
-                  class="text-sm font-normal text-gray-600"
-                >
-                  /{{ displayInterval }}
-                </span>
+                <template v-if="checkoutPrice.type === 'trial'">
+                  Free
+                </template>
+                <template v-else>
+                  {{ checkoutPrice.amount }} {{ checkoutPrice.currency }}
+                  <span
+                    v-if="checkoutPrice.type === 'subscription'"
+                    class="text-sm font-normal text-gray-600"
+                  >
+                    /{{ displayInterval }}
+                  </span>
+                </template>
               </div>
             </div>
           </div>
