@@ -14,7 +14,8 @@ type Variant =
   | "no-results"
   | "no-reviews"
   | "no-media"
-  | "no-classes";
+  | "no-classes"
+  | "group-not-found";
 
 const variants: Record<Variant, EmptyStateContent> = {
   "artist-not-found": {
@@ -50,6 +51,16 @@ const variants: Record<Variant, EmptyStateContent> = {
     icon: "ph:graduation-cap",
     title: "No Classes Available",
     description: "No classes are currently scheduled.",
+  },
+  "group-not-found": {
+    icon: "ph:users-three",
+    title: "Group Not Found",
+    description:
+      "The group you are looking for does not exist or has been removed.",
+    action: {
+      label: "Browse Groups",
+      to: "/groups",
+    },
   },
 };
 
