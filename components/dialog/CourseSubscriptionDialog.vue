@@ -28,32 +28,6 @@ const props = defineProps<{
 
 const dialog = useDialog();
 const isAnnual = ref(false);
-const showFeatures = ref(false);
-
-const allFeatures = computed(() => {
-  // Combine regular and premium features
-  return [
-    ...props.course.pricing.regular.features,
-    ...props.course.pricing.premium.features.filter(
-      (feature) =>
-        !props.course.pricing.regular.features.includes(feature) &&
-        feature !== "Everything in Regular"
-    ),
-  ];
-});
-
-const hasFeature = (feature: string, plan: "regular" | "premium") => {
-  if (plan === "premium") {
-    return true; // Premium has access to all features
-  }
-  // Regular plan only has regular features
-  return props.course.pricing.regular.features.includes(feature);
-};
-
-const handleSelect = (plan: { type: string; interval?: string }) => {
-  props.onSelect(plan);
-  dialog.close();
-};
 
 const maxSavings = computed(() => {
   const regularSavings = props.course.pricing.regular.annual.savings;
@@ -66,6 +40,11 @@ const maxSavings = computed(() => {
 
   return Math.max(extractNumber(regularSavings), extractNumber(premiumSavings));
 });
+
+const handleSelect = (plan: { type: string; interval?: string }) => {
+  props.onSelect(plan);
+  dialog.close();
+};
 </script>
 
 <template>
@@ -136,9 +115,22 @@ const maxSavings = computed(() => {
         >
           <Icon name="ph:star" class="w-4 h-4 text-purple-600" />
         </div>
-        <div class="text-left">
+        <div class="text-left flex-1">
           <div class="font-medium">Regular Plan</div>
           <div class="text-sm text-muted-foreground">Perfect for beginners</div>
+          <ul class="mt-2 space-y-1">
+            <li
+              v-for="feature in course.pricing.regular.features"
+              :key="feature"
+              class="flex items-center gap-2 text-sm text-muted-foreground"
+            >
+              <Icon
+                name="ph:check"
+                class="w-3.5 h-3.5 text-green-600 flex-shrink-0"
+              />
+              {{ feature }}
+            </li>
+          </ul>
         </div>
       </div>
       <div class="text-right">
@@ -177,11 +169,33 @@ const maxSavings = computed(() => {
         >
           <Icon name="ph:crown" class="w-4 h-4 text-purple-600" />
         </div>
-        <div class="text-left">
+        <div class="text-left flex-1">
           <div class="font-medium">Premium Plan</div>
           <div class="text-sm text-muted-foreground">
             For dedicated learners
           </div>
+          <ul class="mt-2 space-y-1">
+            <li class="flex items-center gap-2 text-sm text-muted-foreground">
+              <Icon
+                name="ph:check"
+                class="w-3.5 h-3.5 text-green-600 flex-shrink-0"
+              />
+              Everything in Regular
+            </li>
+            <li
+              v-for="feature in course.pricing.premium.features.filter(
+                (f) => f !== 'Everything in Regular'
+              )"
+              :key="feature"
+              class="flex items-center gap-2 text-sm text-muted-foreground"
+            >
+              <Icon
+                name="ph:check"
+                class="w-3.5 h-3.5 text-green-600 flex-shrink-0"
+              />
+              {{ feature }}
+            </li>
+          </ul>
         </div>
       </div>
       <div class="text-right">
@@ -202,65 +216,6 @@ const maxSavings = computed(() => {
         </div>
       </div>
     </Button>
-
-    <!-- Compare Features Button -->
-    <Button
-      variant="ghost"
-      class="w-full mt-2"
-      @click="showFeatures = !showFeatures"
-    >
-      {{ showFeatures ? "Hide" : "Compare" }} Features
-      <Icon
-        :name="showFeatures ? 'ph:caret-up' : 'ph:caret-down'"
-        class="w-4 h-4 ml-1"
-      />
-    </Button>
-
-    <!-- Features Comparison -->
-    <div v-if="showFeatures" class="mt-4 border rounded-lg">
-      <div class="max-h-[240px] overflow-y-auto">
-        <table class="w-full text-sm">
-          <thead class="bg-gray-50 sticky top-0">
-            <tr class="border-b">
-              <th class="text-left p-3">Features</th>
-              <th class="text-center w-20 p-3">Regular</th>
-              <th class="text-center w-20 p-3">Premium</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="feature in allFeatures"
-              :key="feature"
-              class="border-b last:border-0 hover:bg-gray-50"
-            >
-              <td class="p-3">{{ feature }}</td>
-              <td class="text-center p-3">
-                <Icon
-                  :name="hasFeature(feature, 'regular') ? 'ph:check' : 'ph:x'"
-                  class="w-4 h-4 mx-auto"
-                  :class="
-                    hasFeature(feature, 'regular')
-                      ? 'text-green-600'
-                      : 'text-gray-400'
-                  "
-                />
-              </td>
-              <td class="text-center p-3">
-                <Icon
-                  :name="hasFeature(feature, 'premium') ? 'ph:check' : 'ph:x'"
-                  class="w-4 h-4 mx-auto"
-                  :class="
-                    hasFeature(feature, 'premium')
-                      ? 'text-green-600'
-                      : 'text-gray-400'
-                  "
-                />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
 
     <p class="text-xs text-center text-muted-foreground mt-4">
       All plans include 14-day money-back guarantee. Cancel anytime.
