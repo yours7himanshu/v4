@@ -1,163 +1,238 @@
 <template>
-  <div>
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <!-- Header -->
-      <div class="flex flex-col md:flex-row gap-8 mb-8">
-        <div class="w-32 h-32 rounded-lg shrink-0 overflow-hidden">
-          <img
-            v-if="organizer?.avatar"
-            :src="organizer.avatar"
-            :alt="organizer?.name"
-            class="w-full h-full object-cover"
-          />
-          <div v-else class="w-full h-full bg-gray-200"></div>
-        </div>
-        <div class="flex-1">
-          <h1 class="text-3xl font-bold mb-2">{{ organizer?.name }}</h1>
-          <p class="text-gray-600 mb-4">{{ organizer?.bio }}</p>
-          <div class="flex flex-wrap gap-2 mb-4">
-            <Badge
-              v-for="style in organizer?.styles"
-              :key="style"
-              variant="secondary"
-            >
-              {{ getDanceStyle(style)?.label }}
-            </Badge>
-          </div>
-          <div class="flex gap-4">
-            <Button>Follow</Button>
-            <Button variant="outline">Message</Button>
+  <div v-if="organizer">
+    <!-- Hero Section -->
+    <div class="relative min-h-[50vh]">
+      <div
+        class="relative flex items-center overflow-hidden min-h-[50vh] py-12"
+      >
+        <GradientBackground />
+
+        <!-- Content -->
+        <div class="relative w-full">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <!-- Left: Content -->
+              <div class="text-center md:text-left">
+                <h1
+                  class="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+                >
+                  {{ organizer.name }}
+                </h1>
+                <div
+                  class="flex flex-wrap items-center justify-center md:justify-start gap-4 text-white/80 mb-6"
+                >
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:map-pin" class="w-4 h-4 md:w-5 md:h-5" />
+                    <span class="text-sm md:text-base">{{
+                      organizer.location
+                    }}</span>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <Icon name="ph:users" class="w-4 h-4 md:w-5 md:h-5" />
+                    <span class="text-sm md:text-base"
+                      >{{ organizer.eventCount }} events</span
+                    >
+                  </div>
+                </div>
+
+                <!-- Dance Styles -->
+                <div
+                  class="flex flex-wrap justify-center md:justify-start gap-2 mb-8"
+                >
+                  <Badge
+                    v-for="style in organizer.styles"
+                    :key="style"
+                    variant="secondary"
+                  >
+                    {{ getDanceStyle(style)?.label }}
+                  </Badge>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex justify-center md:justify-start gap-4">
+                  <Button variant="primary-on-dark" size="lg">
+                    <Icon name="ph:user-plus" class="w-5 h-5 mr-2" />
+                    Follow
+                  </Button>
+                  <Button
+                    variant="secondary-on-dark"
+                    size="lg"
+                    class="bg-white/10 hover:bg-white/20"
+                  >
+                    <Icon name="ph:chat-circle" class="w-5 h-5 mr-2" />
+                    Message
+                  </Button>
+                </div>
+              </div>
+
+              <!-- Right: Image -->
+              <div
+                class="relative aspect-[4/3] rounded-xl overflow-hidden shadow-xl"
+              >
+                <img
+                  v-if="organizer.coverImage"
+                  :src="organizer.coverImage"
+                  :alt="organizer.name"
+                  class="w-full h-full object-cover"
+                />
+                <div v-else class="w-full h-full bg-gray-200"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Content Tabs -->
-      <Tabs defaultValue="about" class="w-full">
-        <TabsList>
-          <TabsTrigger value="about">About</TabsTrigger>
-          <TabsTrigger value="events"
-            >Events ({{ organizer?.eventCount }})</TabsTrigger
-          >
-          <TabsTrigger value="photos">Photos</TabsTrigger>
-        </TabsList>
-        <TabsContent value="about">
-          <Card>
-            <CardHeader>
-              <CardTitle>About Us</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div class="space-y-6">
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div
+        class="flex flex-col md:flex-row justify-center gap-8 max-w-7xl mx-auto"
+      >
+        <!-- Left Column: Details -->
+        <div class="space-y-8 max-w-xl">
+          <!-- About -->
+          <div class="bg-card rounded-xl border p-6">
+            <h3 class="text-lg font-bold mb-4">About</h3>
+            <p class="text-muted-foreground">{{ organizer.bio }}</p>
+          </div>
+
+          <!-- Event Types -->
+          <div class="bg-card rounded-xl border p-6">
+            <h3 class="text-lg font-bold mb-4">Event Types</h3>
+            <div class="flex flex-wrap gap-2">
+              <Badge
+                v-for="type in organizer.eventTypes"
+                :key="type"
+                variant="secondary"
+              >
+                {{ getEventType(type)?.label }}
+              </Badge>
+            </div>
+          </div>
+
+          <!-- Upcoming Events -->
+          <div class="bg-card rounded-xl border p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-bold">Upcoming Events</h3>
+              <Button variant="ghost" size="sm">View All</Button>
+            </div>
+            <div class="text-muted-foreground">No upcoming events</div>
+          </div>
+
+          <!-- Photos -->
+          <div class="bg-card rounded-xl border p-6">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-lg font-bold">Photos</h3>
+              <Button variant="ghost" size="sm">View All</Button>
+            </div>
+            <div
+              v-if="organizer.coverImage"
+              class="aspect-video rounded-lg overflow-hidden"
+            >
+              <img
+                :src="organizer.coverImage"
+                :alt="organizer.name"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div v-else class="text-muted-foreground">No photos yet</div>
+          </div>
+
+          <!-- Location -->
+          <div class="bg-card rounded-xl border p-6">
+            <h3 class="text-lg font-bold mb-4">Location</h3>
+            <div class="space-y-4">
+              <div class="flex items-start gap-3">
+                <Icon
+                  name="ph:map-pin"
+                  class="w-5 h-5 text-primary flex-shrink-0 mt-1"
+                />
                 <div>
-                  <h3 class="font-semibold mb-2">Location</h3>
-                  <p class="text-gray-600">{{ organizer?.location }}</p>
-                </div>
-                <div>
-                  <h3 class="font-semibold mb-2">Event Types</h3>
-                  <div class="flex flex-wrap gap-2">
-                    <Badge
-                      v-for="type in organizer?.eventTypes"
-                      :key="type"
-                      variant="outline"
-                    >
-                      {{ getEventType(type)?.label }}
-                    </Badge>
-                  </div>
-                </div>
-                <div v-if="organizer?.links">
-                  <h3 class="font-semibold mb-2">Connect With Us</h3>
-                  <div class="flex flex-wrap gap-4">
-                    <a
-                      v-if="organizer.links.website"
-                      :href="organizer.links.website"
-                      target="_blank"
-                      class="text-purple-600 hover:text-purple-700"
-                    >
-                      <Icon name="ph:globe" class="w-5 h-5" />
-                    </a>
-                    <a
-                      v-if="organizer.links.instagram"
-                      :href="
-                        'https://instagram.com/' +
-                        organizer.links.instagram.slice(1)
-                      "
-                      target="_blank"
-                      class="text-purple-600 hover:text-purple-700"
-                    >
-                      <Icon name="ph:instagram-logo" class="w-5 h-5" />
-                    </a>
-                    <a
-                      v-if="organizer.links.facebook"
-                      :href="'#'"
-                      target="_blank"
-                      class="text-purple-600 hover:text-purple-700"
-                    >
-                      <Icon name="ph:facebook-logo" class="w-5 h-5" />
-                    </a>
-                    <a
-                      v-if="organizer.links.whatsapp"
-                      :href="organizer.links.whatsapp"
-                      target="_blank"
-                      class="text-purple-600 hover:text-purple-700"
-                    >
-                      <Icon name="ph:whatsapp-logo" class="w-5 h-5" />
-                    </a>
-                    <a
-                      v-if="organizer.links.telegram"
-                      :href="'https://' + organizer.links.telegram"
-                      target="_blank"
-                      class="text-purple-600 hover:text-purple-700"
-                    >
-                      <Icon name="ph:telegram-logo" class="w-5 h-5" />
-                    </a>
-                    <a
-                      v-if="organizer.links.discord"
-                      :href="'https://' + organizer.links.discord"
-                      target="_blank"
-                      class="text-purple-600 hover:text-purple-700"
-                    >
-                      <Icon name="ph:discord-logo" class="w-5 h-5" />
-                    </a>
+                  <div class="font-medium">{{ organizer.name }}</div>
+                  <div class="text-muted-foreground">
+                    {{ organizer.location }}
                   </div>
                 </div>
               </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="events">
-          <Card>
-            <CardHeader>
-              <CardTitle>Upcoming Events</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div class="grid gap-4">
-                <p class="text-gray-600">No upcoming events</p>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-        <TabsContent value="photos">
-          <Card>
-            <CardHeader>
-              <CardTitle>Photos</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div class="grid gap-4">
-                <div
-                  v-if="organizer?.coverImage"
-                  class="aspect-video rounded-lg overflow-hidden"
+              <!-- Map placeholder -->
+              <div class="aspect-[4/3] bg-muted rounded-lg"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Contact & Social -->
+        <div class="w-full md:w-96 space-y-8">
+          <!-- Contact Card -->
+          <div class="bg-card rounded-xl border p-6 sticky top-8">
+            <h3 class="text-lg font-bold mb-4">Connect With Us</h3>
+            <div class="space-y-4">
+              <div v-if="organizer.links" class="grid grid-cols-3 gap-4">
+                <a
+                  v-if="organizer.links.website"
+                  :href="organizer.links.website"
+                  target="_blank"
+                  class="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors"
                 >
-                  <img
-                    :src="organizer.coverImage"
-                    :alt="organizer.name"
-                    class="w-full h-full object-cover"
-                  />
-                </div>
-                <p v-else class="text-gray-600">No photos yet</p>
+                  <Icon name="ph:globe" class="w-6 h-6 text-primary" />
+                  <span class="text-sm">Website</span>
+                </a>
+                <a
+                  v-if="organizer.links.instagram"
+                  :href="
+                    'https://instagram.com/' +
+                    organizer.links.instagram.slice(1)
+                  "
+                  target="_blank"
+                  class="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors"
+                >
+                  <Icon name="ph:instagram-logo" class="w-6 h-6 text-primary" />
+                  <span class="text-sm">Instagram</span>
+                </a>
+                <a
+                  v-if="organizer.links.facebook"
+                  :href="'#'"
+                  target="_blank"
+                  class="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors"
+                >
+                  <Icon name="ph:facebook-logo" class="w-6 h-6 text-primary" />
+                  <span class="text-sm">Facebook</span>
+                </a>
+                <a
+                  v-if="organizer.links.whatsapp"
+                  :href="organizer.links.whatsapp"
+                  target="_blank"
+                  class="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors"
+                >
+                  <Icon name="ph:whatsapp-logo" class="w-6 h-6 text-primary" />
+                  <span class="text-sm">WhatsApp</span>
+                </a>
+                <a
+                  v-if="organizer.links.telegram"
+                  :href="'https://' + organizer.links.telegram"
+                  target="_blank"
+                  class="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors"
+                >
+                  <Icon name="ph:telegram-logo" class="w-6 h-6 text-primary" />
+                  <span class="text-sm">Telegram</span>
+                </a>
+                <a
+                  v-if="organizer.links.discord"
+                  :href="'https://' + organizer.links.discord"
+                  target="_blank"
+                  class="flex flex-col items-center gap-2 p-4 rounded-lg hover:bg-muted transition-colors"
+                >
+                  <Icon name="ph:discord-logo" class="w-6 h-6 text-primary" />
+                  <span class="text-sm">Discord</span>
+                </a>
               </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
+              <Button class="w-full" size="lg">
+                <Icon name="ph:chat-circle" class="w-5 h-5 mr-2" />
+                Send Message
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
