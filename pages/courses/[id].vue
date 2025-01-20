@@ -513,9 +513,13 @@ const selectLesson = (lesson: any) => {
                 {{ course.instructor.privateClass.duration }} minutes private
                 lesson
               </p>
-              <Button class="w-full" variant="default"
-                >Book Private Class</Button
-              >
+              <Button class="w-full" variant="default" as-child>
+                <NuxtLink
+                  :to="`/checkout/${course.id}?type=private&instructor=${course.instructor.id}`"
+                >
+                  Book Private Class
+                </NuxtLink>
+              </Button>
             </div>
           </div>
         </div>

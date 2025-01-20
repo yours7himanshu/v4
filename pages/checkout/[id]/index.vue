@@ -41,6 +41,7 @@ interface CheckoutItem {
   image?: string;
   description?: string;
   instructor?: {
+    id?: string;
     name: string;
     image?: string;
   };
@@ -56,6 +57,11 @@ interface CheckoutItem {
     trial?: {
       duration: number;
     };
+  };
+  privateClass?: {
+    amount: number;
+    currency: string;
+    duration: number;
   };
   date?: {
     start: string;
@@ -106,6 +112,25 @@ const item = computed<CheckoutItem | null>(() => {
       };
     }
   }
+  if (type === "private") {
+    const course = mockCourses.find(
+      (c) => String(c.id) === String(route.params.id)
+    );
+    if (course && course.instructor.privateClass) {
+      return {
+        id: course.id,
+        name: "Private Class",
+        image: course.instructor.image,
+        instructor: {
+          id: String(course.instructor.id),
+          name: course.instructor.name,
+          image: course.instructor.image,
+        },
+        privateClass: course.instructor.privateClass,
+        description: `Private ${course.instructor.privateClass.duration}-minute lesson with ${course.instructor.name}`,
+      };
+    }
+  }
   return null;
 });
 
@@ -144,6 +169,16 @@ const selectedPrice = computed(() => {
         interval,
       };
     }
+  }
+
+  if (type === "private" && item.value.privateClass) {
+    return {
+      type: "one-time",
+      amount: item.value.privateClass.amount,
+      currency: item.value.privateClass.currency,
+      name: "Private Class",
+      description: `${item.value.privateClass.duration} minutes with ${item.value.instructor?.name}`,
+    };
   }
 
   return null;

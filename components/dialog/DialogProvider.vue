@@ -2,6 +2,7 @@
 import { useDialog } from "~/composables/useDialog";
 import PricingOptionsDialog from "./PricingOptionsDialog.vue";
 import UserTypeInfoDialog from "./UserTypeInfoDialog.vue";
+import ArtistBookingDialog from "./ArtistBookingDialog.vue";
 import { Dialog, DialogContent } from "~/components/ui/dialog";
 import type { Component } from "vue";
 
@@ -10,6 +11,7 @@ const dialog = useDialog();
 const components = {
   PricingOptionsDialog,
   UserTypeInfoDialog,
+  ArtistBookingDialog,
 } as const;
 
 const currentComponent = computed<Component>(() => {

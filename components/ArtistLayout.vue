@@ -2,6 +2,7 @@
 import type { ArtistProfile } from "~/schemas/profile";
 import GradientBackground from "~/components/common/GradientBackground.vue";
 import ArtistCard from "~/components/ArtistCard.vue";
+import { useDialog } from "~/composables/useDialog";
 
 const props = defineProps<{
   artist: ArtistProfile;
@@ -35,13 +36,32 @@ const navigation = [
   },
 ];
 
+const dialog = useDialog();
+
 // Actions
 const handleContact = () => {
   console.log("Contact artist:", props.artist.name);
 };
 
 const handleBook = () => {
-  console.log("Book artist:", props.artist.name);
+  dialog.open({
+    component: "ArtistBookingDialog",
+    props: {
+      artist: props.artist,
+      onSelect: (service: {
+        type: string;
+        amount: number;
+        currency: string;
+        duration: number;
+      }) => {
+        // Navigate to checkout with selected service
+        navigateTo(
+          `/checkout/${props.artist.id}?type=${service.type}&instructor=${props.artist.id}`
+        );
+        return;
+      },
+    },
+  });
 };
 
 const handleFollow = () => {
