@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { mockCourses } from "~/data/mockCourses";
+import { useDialog } from "~/composables/useDialog";
+import { useRoute } from "vue-router";
 
-const course = ref(mockCourses.find((course) => course.id === "1")!);
+const route = useRoute();
+const course = ref(
+  mockCourses.find((course) => String(course.id) === String(route.params.id))!
+);
+const dialog = useDialog();
 
 const currentLesson = ref(course.value.modules[0].lessons[0]);
 
@@ -21,6 +27,20 @@ const progress = computed(() => {
 
 const selectLesson = (lesson: any) => {
   currentLesson.value = lesson;
+};
+
+const handleSubscribe = () => {
+  dialog.open({
+    component: "CourseSubscriptionDialog",
+    props: {
+      course: course.value,
+      onSelect: (plan: { type: string; interval?: string }) => {
+        navigateTo(
+          `/checkout/${route.params.id}?type=course&plan=${plan.type}${plan.interval ? `&interval=${plan.interval}` : ""}`
+        );
+      },
+    },
+  });
 };
 </script>
 
@@ -333,165 +353,56 @@ const selectLesson = (lesson: any) => {
               <h3 class="font-semibold">Choose Your Plan</h3>
             </div>
             <div class="p-4 space-y-4">
-              <!-- Trial -->
-              <div class="bg-purple-50 rounded-lg p-4">
-                <div class="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 class="font-semibold">Free Trial</h4>
-                    <p class="text-sm text-gray-600">
-                      Try for {{ course.pricing.trial.duration }} days
-                    </p>
-                  </div>
-                  <div class="text-right">
-                    <div class="text-lg font-semibold text-purple-600">
-                      Free
+              <!-- Plans Overview -->
+              <div class="space-y-4">
+                <!-- Trial -->
+                <div class="bg-purple-50 rounded-lg p-4">
+                  <div class="flex items-center gap-3">
+                    <Icon name="ph:sparkle" class="w-5 h-5 text-purple-600" />
+                    <div>
+                      <h4 class="font-medium">Free Trial</h4>
+                      <p class="text-sm text-gray-600">
+                        {{ course.pricing.trial.duration }} days
+                      </p>
                     </div>
                   </div>
                 </div>
-                <ul class="space-y-2 mb-4">
-                  <li
-                    v-for="feature in course.pricing.trial.features"
-                    :key="feature"
-                    class="flex items-center gap-2 text-sm"
-                  >
-                    <Icon
-                      name="ph:check-circle"
-                      class="w-4 h-4 text-green-500"
-                    />
-                    {{ feature }}
-                  </li>
-                </ul>
-                <Button class="w-full" variant="default" as-child>
-                  <NuxtLink
-                    :to="`/checkout/${course.id}?type=course&plan=trial`"
-                  >
-                    Start Free Trial
-                  </NuxtLink>
-                </Button>
-              </div>
 
-              <!-- Regular Plan -->
-              <div class="border rounded-lg p-4">
-                <div class="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 class="font-semibold">Regular</h4>
-                    <p class="text-sm text-gray-600">Perfect for beginners</p>
-                  </div>
-                  <div class="text-right">
-                    <div class="text-2xl font-bold">
-                      {{ course.pricing.regular.monthly.amount }}
-                      {{ course.pricing.regular.monthly.currency }}
-                    </div>
-                    <div class="text-sm text-gray-600">per month</div>
-                  </div>
-                </div>
-                <div class="bg-gray-50 rounded p-3 mb-4">
-                  <div class="flex items-center justify-between">
-                    <div class="text-sm">
-                      Annual plan
-                      <span class="text-green-600 font-medium">{{
-                        course.pricing.regular.annual.savings
-                      }}</span>
-                    </div>
-                    <div class="text-sm font-medium">
-                      {{ course.pricing.regular.annual.amount }}
-                      {{ course.pricing.regular.annual.currency }}/year
+                <!-- Regular -->
+                <div class="border rounded-lg p-4">
+                  <div class="flex items-center gap-3">
+                    <Icon name="ph:star" class="w-5 h-5 text-purple-600" />
+                    <div>
+                      <h4 class="font-medium">Regular Plan</h4>
+                      <p class="text-sm text-gray-600">
+                        From {{ course.pricing.regular.monthly.amount }}
+                        {{ course.pricing.regular.monthly.currency }}/month
+                      </p>
                     </div>
                   </div>
                 </div>
-                <ul class="space-y-2 mb-4">
-                  <li
-                    v-for="feature in course.pricing.regular.features"
-                    :key="feature"
-                    class="flex items-center gap-2 text-sm"
-                  >
-                    <Icon
-                      name="ph:check-circle"
-                      class="w-4 h-4 text-green-500"
-                    />
-                    {{ feature }}
-                  </li>
-                </ul>
-                <div class="space-y-2">
-                  <Button class="w-full" variant="default" as-child>
-                    <NuxtLink
-                      :to="`/checkout/${course.id}?type=course&plan=regular&interval=monthly`"
-                    >
-                      Subscribe Monthly
-                    </NuxtLink>
-                  </Button>
-                  <Button class="w-full" variant="outline" as-child>
-                    <NuxtLink
-                      :to="`/checkout/${course.id}?type=course&plan=regular&interval=annual`"
-                    >
-                      Subscribe Annually
-                    </NuxtLink>
-                  </Button>
+
+                <!-- Premium -->
+                <div class="border-2 border-purple-600 rounded-lg p-4">
+                  <div class="flex items-center gap-3">
+                    <Icon name="ph:crown" class="w-5 h-5 text-purple-600" />
+                    <div>
+                      <h4 class="font-medium">Premium Plan</h4>
+                      <p class="text-sm text-gray-600">
+                        From {{ course.pricing.premium.monthly.amount }}
+                        {{ course.pricing.premium.monthly.currency }}/month
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Premium Plan -->
-              <div class="border-2 border-purple-600 rounded-lg p-4">
-                <div class="flex justify-between items-start mb-4">
-                  <div>
-                    <h4 class="font-semibold">Premium</h4>
-                    <p class="text-sm text-gray-600">For dedicated learners</p>
-                  </div>
-                  <div class="text-right">
-                    <div class="text-2xl font-bold">
-                      {{ course.pricing.premium.monthly.amount }}
-                      {{ course.pricing.premium.monthly.currency }}
-                    </div>
-                    <div class="text-sm text-gray-600">per month</div>
-                  </div>
-                </div>
-                <div class="bg-purple-50 rounded p-3 mb-4">
-                  <div class="flex items-center justify-between">
-                    <div class="text-sm">
-                      Annual plan
-                      <span class="text-green-600 font-medium">{{
-                        course.pricing.premium.annual.savings
-                      }}</span>
-                    </div>
-                    <div class="text-sm font-medium">
-                      {{ course.pricing.premium.annual.amount }}
-                      {{ course.pricing.premium.annual.currency }}/year
-                    </div>
-                  </div>
-                </div>
-                <ul class="space-y-2 mb-4">
-                  <li
-                    v-for="feature in course.pricing.premium.features"
-                    :key="feature"
-                    class="flex items-center gap-2 text-sm"
-                  >
-                    <Icon
-                      name="ph:check-circle"
-                      class="w-4 h-4 text-green-500"
-                    />
-                    {{ feature }}
-                  </li>
-                </ul>
-                <div class="space-y-2">
-                  <Button class="w-full" variant="default" as-child>
-                    <NuxtLink
-                      :to="`/checkout/${course.id}?type=course&plan=premium&interval=monthly`"
-                    >
-                      Subscribe Monthly
-                    </NuxtLink>
-                  </Button>
-                  <Button class="w-full" variant="outline" as-child>
-                    <NuxtLink
-                      :to="`/checkout/${course.id}?type=course&plan=premium&interval=annual`"
-                    >
-                      Subscribe Annually
-                    </NuxtLink>
-                  </Button>
-                </div>
-              </div>
+              <Button class="w-full" variant="default" @click="handleSubscribe">
+                Choose Your Plan
+              </Button>
 
               <p class="text-xs text-center text-gray-500">
-                All plans include 14-day money-back guarantee. Cancel anytime.
+                All plans include 14-day money-back guarantee
               </p>
             </div>
           </div>
@@ -515,7 +426,7 @@ const selectLesson = (lesson: any) => {
               </p>
               <Button class="w-full" variant="default" as-child>
                 <NuxtLink
-                  :to="`/checkout/${course.id}?type=private&instructor=${course.instructor.id}`"
+                  :to="`/checkout/${route.params.id}?type=private&instructor=${course.instructor.id}`"
                 >
                   Book Private Class
                 </NuxtLink>
