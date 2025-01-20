@@ -49,7 +49,7 @@ function getStyleLabel(value: string) {
       view === 'list' ? 'p-4' : '',
     ]"
   >
-    <NuxtLink :to="`/organizers/${organizer.id}`">
+    <NuxtLink :to="`/groups/${organizer.id}`">
       <!-- Grid View -->
       <template v-if="view === 'grid'">
         <div
