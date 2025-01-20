@@ -103,16 +103,15 @@ const handleBook = () => {
           v-for="area in venue.areas"
           :key="area.id"
           variant="outline"
-          :class="[
-            selectedArea === area.id
-              ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-              : '',
-          ]"
+          :class="{
+            'border-primary': selectedArea === area.id,
+            'bg-primary/5': selectedArea === area.id,
+          }"
           @click="selectedArea = area.id"
         >
-          <div class="flex items-center justify-between w-full">
+          <div class="flex items-center justify-between w-full gap-4">
             <div class="text-left">
-              <div>{{ area.name }}</div>
+              <div class="font-medium">{{ area.name }}</div>
               <div class="text-sm text-muted-foreground">
                 {{ area.capacity }} people
               </div>
@@ -167,29 +166,6 @@ const handleBook = () => {
         >
           {{ slot }}
         </Button>
-      </div>
-    </div>
-
-    <div v-if="selectedArea" class="space-y-2">
-      <div class="flex justify-between items-center text-sm">
-        <span class="text-muted-foreground">Selected area</span>
-        <div class="text-right">
-          <div class="font-medium">
-            {{ venue.areas.find((a) => a.id === selectedArea)?.name }}
-          </div>
-          <div class="text-muted-foreground">
-            {{ venue.areas.find((a) => a.id === selectedArea)?.capacity }}
-            people
-          </div>
-        </div>
-      </div>
-      <div class="flex justify-between items-center text-sm">
-        <span class="text-muted-foreground">Price</span>
-        <span class="font-medium"
-          >{{
-            venue.areas.find((a) => a.id === selectedArea)?.pricePerHour
-          }}€/hour</span
-        >
       </div>
     </div>
   </div>
