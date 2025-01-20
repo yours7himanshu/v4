@@ -1,4 +1,13 @@
 <script setup lang="ts">
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { format } from "date-fns";
+import type { DateValue } from "@internationalized/date";
+
 interface Props {
   venue: {
     id: number;
@@ -11,7 +20,7 @@ interface Props {
 const props = defineProps<Props>();
 const dialog = useDialog();
 
-const selectedDate = ref<Date | null>(null);
+const selectedDate = ref<DateValue>();
 const selectedTimeSlot = ref<string | null>(null);
 
 const timeSlots = [
@@ -32,7 +41,7 @@ const timeSlots = [
 const handleBook = () => {
   if (!selectedDate.value || !selectedTimeSlot.value) return;
 
-  const bookingDate = selectedDate.value.toISOString().split("T")[0];
+  const bookingDate = format(selectedDate.value.toDate(), "yyyy-MM-dd");
   const bookingDateTime = `${bookingDate} ${selectedTimeSlot.value}`;
 
   props.onBook(bookingDateTime);
@@ -50,12 +59,26 @@ const handleBook = () => {
   <div class="grid gap-4 py-4">
     <div class="space-y-2">
       <Label>Date</Label>
-      <Datepicker
-        v-model="selectedDate"
-        :min-date="new Date()"
-        class="w-full"
-        placeholder="Select date"
-      />
+      <Popover>
+        <PopoverTrigger as-child>
+          <Button variant="outline" class="w-full justify-start text-left">
+            <Icon name="ph:calendar" class="mr-2 h-4 w-4" />
+            {{
+              selectedDate
+                ? format(selectedDate.toDate(), "PPP")
+                : "Pick a date"
+            }}
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent class="w-auto p-0">
+          <Calendar
+            v-model="selectedDate"
+            :disabled-dates="{ before: new Date() }"
+            mode="single"
+            class="rounded-md border"
+          />
+        </PopoverContent>
+      </Popover>
     </div>
     <div class="space-y-2">
       <Label>Time Slot</Label>

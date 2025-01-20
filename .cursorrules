@@ -1,0 +1,5 @@
+# Project rules
+
+- Use pnpm to install dependencies.
+- Nuxt autoimports are enabled, no need to import components manually.
+- Use shadcn-vue components.
