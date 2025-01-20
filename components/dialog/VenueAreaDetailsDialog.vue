@@ -3,23 +3,30 @@ import { Calendar } from "@/components/ui/calendar";
 import { format } from "date-fns";
 import { today, getLocalTimeZone } from "@internationalized/date";
 
+interface Area {
+  id: number;
+  name: string;
+  description: string;
+  pricePerHour: number;
+  capacity: number;
+  size: {
+    width: number;
+    length: number;
+    height: number;
+    unit: string;
+  };
+  amenities: string[];
+  floorType: string;
+  images: string[];
+  availability: Record<string, string>;
+}
+
 interface Props {
-  area: {
+  area: Area;
+  venue: {
     id: number;
     name: string;
-    description: string;
-    pricePerHour: number;
-    capacity: number;
-    size: {
-      width: number;
-      length: number;
-      height: number;
-      unit: string;
-    };
-    amenities: string[];
-    floorType: string;
-    images: string[];
-    availability: Record<string, string>;
+    areas: Area[];
   };
 }
 
@@ -46,7 +53,7 @@ const handleBook = () => {
   dialog.open({
     component: "VenueBookingDialog",
     props: {
-      venue: { areas: [props.area] },
+      venue: props.venue,
       selectedAreaId: props.area.id,
       onBook: (date: string, areaId: number) => {
         console.log("Booking area for date:", date, "area:", areaId);

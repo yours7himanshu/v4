@@ -167,7 +167,8 @@ const handleExploreAreas = () => {
                 v-for="area in venue.areas"
                 :key="area.id"
                 :area="area"
-                :is-popular="area.pricePerHour === maxPrice.value"
+                :venue="venue"
+                :is-popular="area.pricePerHour === maxPrice"
               />
             </div>
           </div>

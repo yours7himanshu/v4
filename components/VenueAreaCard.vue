@@ -1,21 +1,28 @@
 <script setup lang="ts">
+interface Area {
+  id: number;
+  name: string;
+  description: string;
+  pricePerHour: number;
+  capacity: number;
+  size: {
+    width: number;
+    length: number;
+    height: number;
+    unit: string;
+  };
+  amenities: string[];
+  floorType: string;
+  images: string[];
+  availability: Record<string, string>;
+}
+
 interface Props {
-  area: {
+  area: Area;
+  venue: {
     id: number;
     name: string;
-    description: string;
-    pricePerHour: number;
-    capacity: number;
-    size: {
-      width: number;
-      length: number;
-      height: number;
-      unit: string;
-    };
-    amenities: string[];
-    floorType: string;
-    images: string[];
-    availability: Record<string, string>;
+    areas: Area[];
   };
   isPopular?: boolean;
 }
@@ -28,6 +35,7 @@ const showDetails = () => {
     component: "VenueAreaDetailsDialog",
     props: {
       area: props.area,
+      venue: props.venue,
     },
   });
 };
