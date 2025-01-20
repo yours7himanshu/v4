@@ -12,9 +12,14 @@ interface Props {
   venue: {
     id: number;
     name: string;
-    pricePerHour: number;
+    areas: {
+      id: number;
+      name: string;
+      pricePerHour: number;
+      capacity: number;
+    }[];
   };
-  onBook: (date: string) => void;
+  onBook: (date: string, areaId: number) => void;
 }
 
 const props = defineProps<Props>();
@@ -22,6 +27,7 @@ const dialog = useDialog();
 
 const selectedDate = ref(today(getLocalTimeZone()));
 const selectedTimeSlot = ref<string | null>(null);
+const selectedArea = ref<number | null>(null);
 
 const timeSlots = [
   "09:00-10:00",
@@ -43,13 +49,14 @@ const formatDate = (date: Date) => {
 };
 
 const handleBook = () => {
-  if (!selectedDate.value || !selectedTimeSlot.value) return;
+  if (!selectedDate.value || !selectedTimeSlot.value || !selectedArea.value)
+    return;
 
   const date = selectedDate.value.toDate(getLocalTimeZone());
   const bookingDate = format(date, "yyyy-MM-dd");
   const bookingDateTime = `${bookingDate} ${selectedTimeSlot.value}`;
 
-  props.onBook(bookingDateTime);
+  props.onBook(bookingDateTime, selectedArea.value);
   dialog.close();
 };
 </script>
@@ -58,10 +65,31 @@ const handleBook = () => {
   <DialogHeader>
     <DialogTitle>Book {{ venue.name }}</DialogTitle>
     <DialogDescription>
-      Select a date and time slot to book the venue.
+      Select an area, date and time slot to book the venue.
     </DialogDescription>
   </DialogHeader>
   <div class="grid gap-4 py-4">
+    <div class="space-y-2">
+      <Label>Area</Label>
+      <div class="grid grid-cols-1 gap-2">
+        <Button
+          v-for="area in venue.areas"
+          :key="area.id"
+          variant="outline"
+          :class="[
+            selectedArea === area.id
+              ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground'
+              : 'hover:bg-accent hover:text-accent-foreground',
+          ]"
+          @click="selectedArea = area.id"
+        >
+          <div class="flex justify-between w-full">
+            <span>{{ area.name }}</span>
+            <span>{{ area.pricePerHour }}€/h</span>
+          </div>
+        </Button>
+      </div>
+    </div>
     <div class="space-y-2">
       <Label>Date</Label>
       <Popover>
@@ -103,14 +131,25 @@ const handleBook = () => {
         </Button>
       </div>
     </div>
-    <div class="flex justify-between items-center text-sm">
-      <span class="text-muted-foreground">Price per hour</span>
-      <span class="font-medium">{{ venue.pricePerHour }}€</span>
+    <div v-if="selectedArea" class="flex justify-between items-center text-sm">
+      <span class="text-muted-foreground">Selected area</span>
+      <div class="text-right">
+        <div class="font-medium">
+          {{ venue.areas.find((a) => a.id === selectedArea)?.name }}
+        </div>
+        <div class="text-muted-foreground">
+          Capacity:
+          {{ venue.areas.find((a) => a.id === selectedArea)?.capacity }} people
+        </div>
+      </div>
     </div>
   </div>
   <DialogFooter>
     <Button variant="outline" @click="dialog.close()">Cancel</Button>
-    <Button :disabled="!selectedDate || !selectedTimeSlot" @click="handleBook">
+    <Button
+      :disabled="!selectedDate || !selectedTimeSlot || !selectedArea"
+      @click="handleBook"
+    >
       Book Now
     </Button>
   </DialogFooter>

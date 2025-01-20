@@ -8,15 +8,27 @@ const venue = computed(() =>
 
 const dialog = useDialog();
 
+const totalCapacity = computed(
+  () => venue.value?.areas.reduce((sum, area) => sum + area.capacity, 0) || 0
+);
+
+const minPrice = computed(
+  () =>
+    venue.value?.areas.reduce(
+      (min, area) => Math.min(min, area.pricePerHour),
+      Infinity
+    ) || 0
+);
+
 const handleBook = () => {
   if (!venue.value) return;
   dialog.open({
     component: "VenueBookingDialog",
     props: {
       venue: venue.value,
-      onBook: (date: string) => {
+      onBook: (date: string, areaId: number) => {
         // Handle booking logic
-        console.log("Booking venue for date:", date);
+        console.log("Booking venue for date:", date, "area:", areaId);
       },
     },
   });
@@ -55,7 +67,7 @@ const handleBook = () => {
                   <div class="flex items-center gap-2">
                     <Icon name="ph:users" class="w-4 h-4 md:w-5 md:h-5" />
                     <span class="text-sm md:text-base"
-                      >{{ venue.capacity }} people</span
+                      >{{ totalCapacity }} people total</span
                     >
                   </div>
                   <div class="flex items-center gap-2">
@@ -64,7 +76,7 @@ const handleBook = () => {
                       class="w-4 h-4 md:w-5 md:h-5"
                     />
                     <span class="text-sm md:text-base"
-                      >{{ venue.pricePerHour }}€/hour</span
+                      >From {{ minPrice }}€/hour</span
                     >
                   </div>
                 </div>
@@ -166,6 +178,18 @@ const handleBook = () => {
               <div class="aspect-[4/3] bg-muted rounded-lg"></div>
             </div>
           </div>
+
+          <!-- Areas -->
+          <div class="bg-card rounded-xl border p-6">
+            <h3 class="text-lg font-bold mb-4">Available Areas</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <VenueAreaCard
+                v-for="area in venue.areas"
+                :key="area.id"
+                :area="area"
+              />
+            </div>
+          </div>
         </div>
 
         <!-- Right Column: Booking & Additional Info -->
@@ -175,12 +199,19 @@ const handleBook = () => {
             <h3 class="text-lg font-bold mb-4">Book this Venue</h3>
             <div class="space-y-4">
               <div class="flex justify-between items-center">
-                <span class="text-muted-foreground">Price per hour</span>
-                <span class="font-medium">{{ venue.pricePerHour }}€</span>
+                <span class="text-muted-foreground">Price range</span>
+                <span class="font-medium"
+                  >{{ minPrice }}-{{
+                    Math.max(...venue.areas.map((a) => a.pricePerHour))
+                  }}€/hour</span
+                >
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-muted-foreground">Capacity</span>
-                <span class="font-medium">{{ venue.capacity }} people</span>
+                <span class="text-muted-foreground">Total capacity</span>
+                <span class="font-medium">{{ totalCapacity }} people</span>
+              </div>
+              <div class="text-sm text-muted-foreground">
+                * Prices and capacity vary by area. Select an area when booking.
               </div>
               <Button class="w-full" size="lg" @click="handleBook">
                 Check Availability
