@@ -349,61 +349,31 @@ const handleSubscribe = () => {
 
           <!-- Pricing Tiers -->
           <div class="bg-white rounded-xl shadow-sm overflow-hidden">
-            <div class="p-4 border-b">
-              <h3 class="font-semibold">Choose Your Plan</h3>
-            </div>
-            <div class="p-4 space-y-4">
-              <!-- Plans Overview -->
+            <div class="p-4">
               <div class="space-y-4">
-                <!-- Trial -->
-                <div class="bg-purple-50 rounded-lg p-4">
-                  <div class="flex items-center gap-3">
-                    <Icon name="ph:sparkle" class="w-5 h-5 text-purple-600" />
-                    <div>
-                      <h4 class="font-medium">Free Trial</h4>
-                      <p class="text-sm text-gray-600">
-                        {{ course.pricing.trial.duration }} days
-                      </p>
-                    </div>
+                <div>
+                  <h3 class="font-semibold mb-2">Starting from</h3>
+                  <div class="text-2xl font-bold text-purple-600">
+                    {{ course.pricing.regular.monthly.amount }}
+                    {{ course.pricing.regular.monthly.currency }}
+                    <span class="text-base font-normal text-gray-600"
+                      >/month</span
+                    >
                   </div>
                 </div>
 
-                <!-- Regular -->
-                <div class="border rounded-lg p-4">
-                  <div class="flex items-center gap-3">
-                    <Icon name="ph:star" class="w-5 h-5 text-purple-600" />
-                    <div>
-                      <h4 class="font-medium">Regular Plan</h4>
-                      <p class="text-sm text-gray-600">
-                        From {{ course.pricing.regular.monthly.amount }}
-                        {{ course.pricing.regular.monthly.currency }}/month
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <Button
+                  class="w-full"
+                  variant="default"
+                  @click="handleSubscribe"
+                >
+                  View Pricing Plans
+                </Button>
 
-                <!-- Premium -->
-                <div class="border-2 border-purple-600 rounded-lg p-4">
-                  <div class="flex items-center gap-3">
-                    <Icon name="ph:crown" class="w-5 h-5 text-purple-600" />
-                    <div>
-                      <h4 class="font-medium">Premium Plan</h4>
-                      <p class="text-sm text-gray-600">
-                        From {{ course.pricing.premium.monthly.amount }}
-                        {{ course.pricing.premium.monthly.currency }}/month
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <p class="text-xs text-center text-gray-500">
+                  14-day money-back guarantee
+                </p>
               </div>
-
-              <Button class="w-full" variant="default" @click="handleSubscribe">
-                Choose Your Plan
-              </Button>
-
-              <p class="text-xs text-center text-gray-500">
-                All plans include 14-day money-back guarantee
-              </p>
             </div>
           </div>
 
