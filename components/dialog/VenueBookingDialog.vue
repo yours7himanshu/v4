@@ -6,7 +6,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { format } from "date-fns";
-import type { DateValue } from "@internationalized/date";
+import { today, getLocalTimeZone } from "@internationalized/date";
 
 interface Props {
   venue: {
@@ -20,7 +20,7 @@ interface Props {
 const props = defineProps<Props>();
 const dialog = useDialog();
 
-const selectedDate = ref<DateValue>();
+const selectedDate = ref(today(getLocalTimeZone()));
 const selectedTimeSlot = ref<string | null>(null);
 
 const timeSlots = [
@@ -38,10 +38,15 @@ const timeSlots = [
   "20:00-21:00",
 ];
 
+const formatDate = (date: Date) => {
+  return format(date, "PPP");
+};
+
 const handleBook = () => {
   if (!selectedDate.value || !selectedTimeSlot.value) return;
 
-  const bookingDate = format(selectedDate.value.toDate(), "yyyy-MM-dd");
+  const date = selectedDate.value.toDate(getLocalTimeZone());
+  const bookingDate = format(date, "yyyy-MM-dd");
   const bookingDateTime = `${bookingDate} ${selectedTimeSlot.value}`;
 
   props.onBook(bookingDateTime);
@@ -65,7 +70,7 @@ const handleBook = () => {
             <Icon name="ph:calendar" class="mr-2 h-4 w-4" />
             {{
               selectedDate
-                ? format(selectedDate.toDate(), "PPP")
+                ? formatDate(selectedDate.toDate(getLocalTimeZone()))
                 : "Pick a date"
             }}
           </Button>
@@ -89,8 +94,8 @@ const handleBook = () => {
           variant="outline"
           :class="[
             selectedTimeSlot === slot
-              ? 'bg-primary text-primary-foreground'
-              : '',
+              ? 'bg-primary text-primary-foreground hover:bg-primary/90 hover:text-primary-foreground'
+              : 'hover:bg-accent hover:text-accent-foreground',
           ]"
           @click="selectedTimeSlot = slot"
         >
