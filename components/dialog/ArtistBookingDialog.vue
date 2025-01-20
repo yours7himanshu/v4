@@ -1,11 +1,5 @@
 <script setup lang="ts">
 import type { ArtistProfile } from "~/schemas/profile";
-import {
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-} from "~/components/ui/dialog";
 
 const props = defineProps<{
   artist: ArtistProfile;

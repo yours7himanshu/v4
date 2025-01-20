@@ -1,13 +1,4 @@
 <script setup lang="ts">
-import { useDialog } from "~/composables/useDialog";
-import {
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogFooter,
-} from "~/components/ui/dialog";
-import { Button } from "~/components/ui/button";
-
 const props = defineProps<{
   types: Array<{
     id: string;
