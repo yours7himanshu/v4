@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { Switch } from "@/components/ui/switch";
+import { ref, computed } from "vue";
+
 const props = defineProps<{
   course: {
     id: string;
@@ -24,11 +27,37 @@ const props = defineProps<{
 }>();
 
 const dialog = useDialog();
+const isAnnual = ref(false);
+const showFeatures = ref(false);
+
+const allFeatures = computed(() => {
+  const features = new Set([
+    ...props.course.pricing.regular.features,
+    ...props.course.pricing.premium.features,
+  ]);
+  return Array.from(features);
+});
+
+const hasFeature = (feature: string, plan: "regular" | "premium") => {
+  return props.course.pricing[plan].features.includes(feature);
+};
 
 const handleSelect = (plan: { type: string; interval?: string }) => {
   props.onSelect(plan);
   dialog.close();
 };
+
+const maxSavings = computed(() => {
+  const regularSavings = props.course.pricing.regular.annual.savings;
+  const premiumSavings = props.course.pricing.premium.annual.savings;
+
+  const extractNumber = (str: string) => {
+    const match = str.match(/\d+/);
+    return match ? Number(match[0]) : 0;
+  };
+
+  return Math.max(extractNumber(regularSavings), extractNumber(premiumSavings));
+});
 </script>
 
 <template>
@@ -40,208 +69,190 @@ const handleSelect = (plan: { type: string; interval?: string }) => {
   </DialogHeader>
 
   <div class="space-y-4 py-4">
+    <!-- Interval Toggle -->
+    <div class="flex justify-center gap-4 items-center mb-6">
+      <span :class="{ 'text-purple-600 font-medium': !isAnnual }">Monthly</span>
+      <Switch
+        :checked="isAnnual"
+        @update:checked="isAnnual = $event"
+        class="data-[state=checked]:bg-purple-600"
+      />
+      <span :class="{ 'text-purple-600 font-medium': isAnnual }">
+        Annual
+        <span class="text-sm text-green-600 ml-1"
+          >Save up to {{ maxSavings }}%</span
+        >
+      </span>
+    </div>
+
     <!-- Trial Plan -->
-    <div
+    <Button
       v-if="course.pricing.trial"
-      class="bg-purple-50 rounded-lg border p-4 hover:border-purple-600 cursor-pointer transition-colors"
+      variant="outline"
+      class="w-full justify-between h-auto py-4 hover:border-purple-600"
       @click="handleSelect({ type: 'trial' })"
     >
-      <div class="flex items-start gap-4">
+      <div class="flex items-center gap-3">
         <div
-          class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
+          class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
         >
-          <Icon name="ph:sparkle" class="w-5 h-5 text-purple-600" />
+          <Icon name="ph:sparkle" class="w-4 h-4 text-purple-600" />
         </div>
-        <div class="flex-1">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <div class="font-medium">Free Trial</div>
-              <div class="text-sm text-gray-600">
-                Try for {{ course.pricing.trial.duration }} days
-              </div>
-              <ul class="mt-2 space-y-1">
-                <li
-                  v-for="feature in course.pricing.trial.features"
-                  :key="feature"
-                  class="flex items-center gap-2 text-sm text-gray-600"
-                >
-                  <Icon name="ph:check" class="w-4 h-4 text-green-600" />
-                  {{ feature }}
-                </li>
-              </ul>
-            </div>
-            <div class="text-right">
-              <div class="font-bold text-purple-600">Free</div>
-              <div class="text-sm text-gray-600">No credit card required</div>
-            </div>
+        <div class="text-left">
+          <div class="font-medium">Free Trial</div>
+          <div class="text-sm text-muted-foreground">
+            Try for {{ course.pricing.trial.duration }} days
           </div>
         </div>
       </div>
-    </div>
+      <div class="text-right">
+        <div class="font-bold text-purple-600">Free</div>
+        <div class="text-sm text-muted-foreground">No credit card</div>
+      </div>
+    </Button>
 
     <!-- Regular Plan -->
-    <div class="space-y-4">
-      <div
-        class="bg-white rounded-lg border p-4 hover:border-purple-600 cursor-pointer transition-colors"
-        @click="handleSelect({ type: 'regular', interval: 'monthly' })"
-      >
-        <div class="flex items-start gap-4">
-          <div
-            class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
-          >
-            <Icon name="ph:star" class="w-5 h-5 text-purple-600" />
-          </div>
-          <div class="flex-1">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <div class="font-medium">Regular Plan - Monthly</div>
-                <div class="text-sm text-gray-600">Perfect for beginners</div>
-                <ul class="mt-2 space-y-1">
-                  <li
-                    v-for="feature in course.pricing.regular.features"
-                    :key="feature"
-                    class="flex items-center gap-2 text-sm text-gray-600"
-                  >
-                    <Icon name="ph:check" class="w-4 h-4 text-green-600" />
-                    {{ feature }}
-                  </li>
-                </ul>
-              </div>
-              <div class="text-right">
-                <div class="font-bold">
-                  {{ course.pricing.regular.monthly.amount }}
-                  {{ course.pricing.regular.monthly.currency }}
-                </div>
-                <div class="text-sm text-gray-600">per month</div>
-              </div>
-            </div>
-          </div>
+    <Button
+      variant="outline"
+      class="w-full justify-between h-auto py-4 hover:border-purple-600"
+      @click="
+        handleSelect({
+          type: 'regular',
+          interval: isAnnual ? 'annual' : 'monthly',
+        })
+      "
+    >
+      <div class="flex items-center gap-3">
+        <div
+          class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
+        >
+          <Icon name="ph:star" class="w-4 h-4 text-purple-600" />
+        </div>
+        <div class="text-left">
+          <div class="font-medium">Regular Plan</div>
+          <div class="text-sm text-muted-foreground">Perfect for beginners</div>
         </div>
       </div>
-
-      <div
-        class="bg-white rounded-lg border p-4 hover:border-purple-600 cursor-pointer transition-colors"
-        @click="handleSelect({ type: 'regular', interval: 'annual' })"
-      >
-        <div class="flex items-start gap-4">
-          <div
-            class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
-          >
-            <Icon name="ph:star" class="w-5 h-5 text-purple-600" />
-          </div>
-          <div class="flex-1">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <div class="font-medium">Regular Plan - Annual</div>
-                <div class="text-sm text-gray-600">
-                  Save {{ course.pricing.regular.annual.savings }}
-                </div>
-                <ul class="mt-2 space-y-1">
-                  <li
-                    v-for="feature in course.pricing.regular.features"
-                    :key="feature"
-                    class="flex items-center gap-2 text-sm text-gray-600"
-                  >
-                    <Icon name="ph:check" class="w-4 h-4 text-green-600" />
-                    {{ feature }}
-                  </li>
-                </ul>
-              </div>
-              <div class="text-right">
-                <div class="font-bold">
-                  {{ course.pricing.regular.annual.amount }}
-                  {{ course.pricing.regular.annual.currency }}
-                </div>
-                <div class="text-sm text-gray-600">per year</div>
-              </div>
-            </div>
-          </div>
+      <div class="text-right">
+        <div class="font-bold">
+          {{
+            isAnnual
+              ? course.pricing.regular.annual.amount
+              : course.pricing.regular.monthly.amount
+          }}
+          {{
+            isAnnual
+              ? course.pricing.regular.annual.currency
+              : course.pricing.regular.monthly.currency
+          }}
+        </div>
+        <div class="text-sm text-muted-foreground">
+          per {{ isAnnual ? "year" : "month" }}
         </div>
       </div>
-    </div>
+    </Button>
 
     <!-- Premium Plan -->
-    <div class="space-y-4">
-      <div
-        class="bg-white rounded-lg border-2 border-purple-600 p-4 hover:bg-purple-50 cursor-pointer transition-colors"
-        @click="handleSelect({ type: 'premium', interval: 'monthly' })"
-      >
-        <div class="flex items-start gap-4">
-          <div
-            class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
-          >
-            <Icon name="ph:crown" class="w-5 h-5 text-purple-600" />
-          </div>
-          <div class="flex-1">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <div class="font-medium">Premium Plan - Monthly</div>
-                <div class="text-sm text-gray-600">For dedicated learners</div>
-                <ul class="mt-2 space-y-1">
-                  <li
-                    v-for="feature in course.pricing.premium.features"
-                    :key="feature"
-                    class="flex items-center gap-2 text-sm text-gray-600"
-                  >
-                    <Icon name="ph:check" class="w-4 h-4 text-green-600" />
-                    {{ feature }}
-                  </li>
-                </ul>
-              </div>
-              <div class="text-right">
-                <div class="font-bold">
-                  {{ course.pricing.premium.monthly.amount }}
-                  {{ course.pricing.premium.monthly.currency }}
-                </div>
-                <div class="text-sm text-gray-600">per month</div>
-              </div>
-            </div>
+    <Button
+      variant="outline"
+      class="w-full justify-between h-auto py-4 border-2 border-purple-600 hover:bg-purple-50"
+      @click="
+        handleSelect({
+          type: 'premium',
+          interval: isAnnual ? 'annual' : 'monthly',
+        })
+      "
+    >
+      <div class="flex items-center gap-3">
+        <div
+          class="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
+        >
+          <Icon name="ph:crown" class="w-4 h-4 text-purple-600" />
+        </div>
+        <div class="text-left">
+          <div class="font-medium">Premium Plan</div>
+          <div class="text-sm text-muted-foreground">
+            For dedicated learners
           </div>
         </div>
       </div>
+      <div class="text-right">
+        <div class="font-bold">
+          {{
+            isAnnual
+              ? course.pricing.premium.annual.amount
+              : course.pricing.premium.monthly.amount
+          }}
+          {{
+            isAnnual
+              ? course.pricing.premium.annual.currency
+              : course.pricing.premium.monthly.currency
+          }}
+        </div>
+        <div class="text-sm text-muted-foreground">
+          per {{ isAnnual ? "year" : "month" }}
+        </div>
+      </div>
+    </Button>
 
-      <div
-        class="bg-white rounded-lg border-2 border-purple-600 p-4 hover:bg-purple-50 cursor-pointer transition-colors"
-        @click="handleSelect({ type: 'premium', interval: 'annual' })"
-      >
-        <div class="flex items-start gap-4">
-          <div
-            class="w-10 h-10 rounded-lg bg-purple-100 flex items-center justify-center flex-shrink-0"
+    <!-- Compare Features Button -->
+    <Button
+      variant="ghost"
+      class="w-full mt-2"
+      @click="showFeatures = !showFeatures"
+    >
+      {{ showFeatures ? "Hide" : "Compare" }} Features
+      <Icon
+        :name="showFeatures ? 'ph:caret-up' : 'ph:caret-down'"
+        class="w-4 h-4 ml-1"
+      />
+    </Button>
+
+    <!-- Features Comparison -->
+    <div v-if="showFeatures" class="mt-4 border rounded-lg p-4">
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="text-left py-2">Features</th>
+            <th class="text-center py-2">Regular</th>
+            <th class="text-center py-2">Premium</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="feature in allFeatures"
+            :key="feature"
+            class="border-b last:border-0"
           >
-            <Icon name="ph:crown" class="w-5 h-5 text-purple-600" />
-          </div>
-          <div class="flex-1">
-            <div class="flex items-start justify-between gap-4">
-              <div>
-                <div class="font-medium">Premium Plan - Annual</div>
-                <div class="text-sm text-gray-600">
-                  Save {{ course.pricing.premium.annual.savings }}
-                </div>
-                <ul class="mt-2 space-y-1">
-                  <li
-                    v-for="feature in course.pricing.premium.features"
-                    :key="feature"
-                    class="flex items-center gap-2 text-sm text-gray-600"
-                  >
-                    <Icon name="ph:check" class="w-4 h-4 text-green-600" />
-                    {{ feature }}
-                  </li>
-                </ul>
-              </div>
-              <div class="text-right">
-                <div class="font-bold">
-                  {{ course.pricing.premium.annual.amount }}
-                  {{ course.pricing.premium.annual.currency }}
-                </div>
-                <div class="text-sm text-gray-600">per year</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            <td class="py-2">{{ feature }}</td>
+            <td class="text-center py-2">
+              <Icon
+                :name="hasFeature(feature, 'regular') ? 'ph:check' : 'ph:x'"
+                class="w-4 h-4 mx-auto"
+                :class="
+                  hasFeature(feature, 'regular')
+                    ? 'text-green-600'
+                    : 'text-gray-400'
+                "
+              />
+            </td>
+            <td class="text-center py-2">
+              <Icon
+                :name="hasFeature(feature, 'premium') ? 'ph:check' : 'ph:x'"
+                class="w-4 h-4 mx-auto"
+                :class="
+                  hasFeature(feature, 'premium')
+                    ? 'text-green-600'
+                    : 'text-gray-400'
+                "
+              />
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-    <p class="text-xs text-center text-gray-500">
+    <p class="text-xs text-center text-muted-foreground mt-4">
       All plans include 14-day money-back guarantee. Cancel anytime.
     </p>
   </div>
