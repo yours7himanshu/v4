@@ -45,9 +45,31 @@
             <ul class="space-y-2">
               <li>
                 <NuxtLink
+                  to="/feed"
+                  class="hover:text-foreground transition-colors"
+                  >Feed</NuxtLink
+                >
+              </li>
+              <li>
+                <NuxtLink
+                  to="/courses"
+                  class="hover:text-foreground transition-colors"
+                  >Courses</NuxtLink
+                >
+              </li>
+              <li>
+                <NuxtLink
                   to="/events"
                   class="hover:text-foreground transition-colors"
                   >Events</NuxtLink
+                >
+              </li>
+
+              <li>
+                <NuxtLink
+                  to="/groups"
+                  class="hover:text-foreground transition-colors"
+                  >Groups</NuxtLink
                 >
               </li>
               <li>
@@ -57,18 +79,12 @@
                   >Artists</NuxtLink
                 >
               </li>
+
               <li>
                 <NuxtLink
-                  to="/cities"
+                  to="/venues"
                   class="hover:text-foreground transition-colors"
-                  >Cities</NuxtLink
-                >
-              </li>
-              <li>
-                <NuxtLink
-                  to="/styles"
-                  class="hover:text-foreground transition-colors"
-                  >Dance Styles</NuxtLink
+                  >Venues</NuxtLink
                 >
               </li>
             </ul>
