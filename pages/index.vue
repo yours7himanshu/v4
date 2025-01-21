@@ -8,6 +8,10 @@
     title="Never Miss a Dance"
     description="Find events, share festival rides and accommodation, see who's going - make dance trips easier and more social"
   />
+  <LandingCourses
+    title="Level Up Your Dancing"
+    description="Learn dance online with high-quality video courses, get feedback from top instructors, and practice at your own pace"
+  />
   <LandingArtists
     title="Connect with Dance Artists"
     description="Find instructors, performers, DJs, musicians and more - all the talent you need for your dance journey"
