@@ -57,20 +57,13 @@
 - KR4: 10 videos of different dance styles in Munich
 - KR5: Voting for Pinakothek Booking Policy is posted by end of February 2025
 
-## Unknowns
+## Challenges
 
-- What is the optimal pricing strategy for online classes?
-- How to effectively onboard and support dance instructors in creating online content?
-- What are the key features needed for festival organizers vs regular party organizers?
-- What integrations are needed for different types of event organizers?
-- How to validate venue management needs across different types of dance studios?
-- What are the main pain points for artists in growing their audience?
-- How to effectively match artists with event organizers?
-- What are the specific needs of different user segments (DJs, bands, choreographers)?
-- How to measure and ensure quality of service across different provider types?
-- What are the key differentiators from existing solutions in each service area?
-- How to balance platform growth with community quality?
-- What are the most effective channels for reaching each target user group?
+- How can we effectively build a strong network of users and partners over time?
+- How can we stand out among competing platforms and social media groups vying for users' attention?
+- What challenges might arise in developing and maintaining a robust platform with various features?
+- How can we secure funding and manage cash flow effectively?
+- What legal and regulatory challenges should we anticipate, especially when expanding internationally?
 
 ## Next Actions
 
