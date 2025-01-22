@@ -2,12 +2,9 @@
 defineProps({
   title: {
     type: String,
-    default: "Ready to join the community?",
   },
   description: {
     type: String,
-    default:
-      "Start your dance journey today and connect with dancers worldwide",
   },
   secondary: {
     type: String,

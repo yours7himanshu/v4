@@ -1,12 +1,23 @@
+<script setup lang="ts">
+defineProps({
+  title: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+});
+</script>
+
 <template>
   <section class="py-24 bg-background">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16">
         <h2 class="text-4xl font-bold mb-4 text-foreground">
-          Start Dancing Today
+          {{ title }}
         </h2>
         <p class="text-xl text-muted-foreground">
-          Join 10,000+ dancers who found their dance community with WeDance
+          {{ description }}
         </p>
       </div>
 

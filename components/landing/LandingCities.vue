@@ -2,11 +2,9 @@
 defineProps({
   title: {
     type: String,
-    default: "Popular Cities",
   },
   description: {
     type: String,
-    default: "Explore dance communities worldwide",
   },
   muted: {
     type: Boolean,

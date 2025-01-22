@@ -1,5 +1,14 @@
-<script setup>
+<script setup lang="ts">
 import GradientBackground from "~/components/common/GradientBackground.vue";
+
+defineProps({
+  title: {
+    type: String,
+  },
+  description: {
+    type: String,
+  },
+});
 </script>
 
 <template>
@@ -8,10 +17,10 @@ import GradientBackground from "~/components/common/GradientBackground.vue";
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="text-center mb-12">
         <h2 class="text-4xl font-bold text-primary-foreground">
-          Loved by the Community
+          {{ title }}
         </h2>
         <p class="text-primary-foreground/80 mt-2">
-          Here's what our members say about WeDance
+          {{ description }}
         </p>
       </div>
 

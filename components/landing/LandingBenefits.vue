@@ -2,12 +2,9 @@
 defineProps({
   title: {
     type: String,
-    default: "Your Dance Community Awaits",
   },
   description: {
     type: String,
-    default:
-      "Join thousands of dancers, artists, and organizers making dance more accessible and connected",
   },
   muted: {
     type: Boolean,
