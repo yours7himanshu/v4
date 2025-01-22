@@ -1,25 +1,28 @@
 <template>
   <LandingHero />
-  <LandingBenefits />
+  <LandingBenefits
+    title="Your Dance Community Awaits"
+    description="Join thousands of dancers, artists, and organizers making dance more accessible and connected"
+  />
   <LandingCourses
-    title="Level Up Your Dancing"
-    description="Learn dance online with high-quality video courses, get feedback from top instructors, and practice at your own pace"
+    title="Learn from Top Dance Artists"
+    description="Access exclusive dance courses, get personalized feedback, and learn at your own pace - all in one place"
   />
   <LandingArtists
-    title="Connect with Dance Artists"
-    description="Find instructors, performers, DJs, musicians and more - all the talent you need for your dance journey"
+    title="Book Amazing Dance Talent"
+    description="Find and book dance artists for your events - teachers, performers, DJs, and musicians. Direct booking with the lowest fees."
   />
   <LandingEvents
-    title="Never Miss a Dance"
-    description="Find events, share festival rides and accommodation, see who's going - make dance trips easier and more social"
+    title="Discover & Create Dance Events"
+    description="Find local parties, festivals, and workshops. Or create your own with our powerful event tools."
   />
   <LandingVenues
-    title="The Perfect Space to Dance"
-    description="Find and book dance spaces - from practice rooms to event venues, with schedules and instant booking"
+    title="Book Dance Spaces Instantly"
+    description="Find and book dance studios and event venues. Real-time availability and instant booking."
   />
   <LandingCities
-    title="Dance Anywhere Like a Local"
-    description="Get insider tips from locals, find active WhatsApp groups, and discover the best spots in any city's dance scene"
+    title="Join Local Dance Communities"
+    description="Connect with dancers in any city, join local groups, and get insider tips from the community. Your dance network, everywhere."
   />
   <LandingTestimonials />
   <LandingHowItWorks />

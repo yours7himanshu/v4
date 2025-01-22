@@ -1,13 +1,34 @@
+<script setup lang="ts">
+import { mockCourses } from "@/data/mockCourses";
+
+defineProps({
+  title: {
+    type: String,
+    default: "Your Dance Community Awaits",
+  },
+  description: {
+    type: String,
+    default:
+      "Join thousands of dancers, artists, and organizers making dance more accessible and connected",
+  },
+  muted: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const featuredCourses = computed(() => mockCourses.slice(0, 3));
+</script>
+
 <template>
   <section class="py-16 bg-background">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12">
         <h2 class="text-3xl font-bold text-foreground">
-          Your Dance Community Awaits
+          {{ title }}
         </h2>
         <p class="text-muted-foreground mt-2">
-          Join thousands of dancers, artists, and organizers making dance more
-          accessible and connected
+          {{ description }}
         </p>
       </div>
 
