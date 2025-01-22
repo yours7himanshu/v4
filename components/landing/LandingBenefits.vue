@@ -115,8 +115,7 @@
               <div>
                 <h4 class="font-medium mb-1 text-foreground">Online Courses</h4>
                 <p class="text-sm text-muted-foreground">
-                  Create pre-recorded courses and live classes (30% fee,
-                  €0.25/ticket)
+                  Create pre-recorded courses and live classes
                 </p>
               </div>
             </div>
@@ -135,7 +134,7 @@
                   Private Bookings
                 </h4>
                 <p class="text-sm text-muted-foreground">
-                  Get booked for classes and performances (5% fee)
+                  Get booked for classes and performances
                 </p>
               </div>
             </div>
@@ -168,7 +167,7 @@
               For Organizers
             </h3>
             <p class="text-muted-foreground text-sm">
-              Create, promote, and sell out your events with ease
+              Create events, sell tickets, and grow your dance business
               <NuxtLink
                 to="/for/organizers"
                 class="text-primary hover:text-primary/90 font-medium ml-1"
@@ -187,32 +186,14 @@
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
               >
-                <Icon name="ph:star" class="w-3.5 h-3.5 text-primary" />
-              </div>
-              <div>
-                <h4 class="font-medium mb-1 text-foreground">
-                  Find Perfect Talent & Venues
-                </h4>
-                <p class="text-sm text-muted-foreground">
-                  Book artists, musicians, and spaces - all vetted by the dance
-                  community
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <div
-                class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
-              >
                 <Icon name="ph:ticket" class="w-3.5 h-3.5 text-primary" />
               </div>
               <div>
                 <h4 class="font-medium mb-1 text-foreground">
-                  Smart Ticket Sales
+                  Events & Festivals
                 </h4>
                 <p class="text-sm text-muted-foreground">
-                  Set early bird prices, create promo codes, and track sales in
-                  real-time
+                  Manage parties, courses, and festivals with simple ticketing
                 </p>
               </div>
             </div>
@@ -221,15 +202,26 @@
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
               >
-                <Icon name="ph:megaphone" class="w-3.5 h-3.5 text-primary" />
+                <Icon name="ph:users-three" class="w-3.5 h-3.5 text-primary" />
               </div>
               <div>
-                <h4 class="font-medium mb-1 text-foreground">
-                  Powerful Marketing Tools
-                </h4>
+                <h4 class="font-medium mb-1 text-foreground">Artist Booking</h4>
                 <p class="text-sm text-muted-foreground">
-                  Run referral campaigns, reward ambassadors, and reach the
-                  right audience
+                  Book teachers, DJs, and find volunteers for your events
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
+              >
+                <Icon name="ph:chart-line" class="w-3.5 h-3.5 text-primary" />
+              </div>
+              <div>
+                <h4 class="font-medium mb-1 text-foreground">Business Tools</h4>
+                <p class="text-sm text-muted-foreground">
+                  Marketing tools, analytics, and venue management included
                 </p>
               </div>
             </div>
