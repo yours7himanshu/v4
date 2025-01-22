@@ -51,20 +51,57 @@ export class OpenAIProvider extends BaseLLMProvider {
         history.find((msg) => msg.role === "system")?.content || ""
       );
 
-      const messages = history
+      const messages: OpenAI.ChatCompletionMessageParam[] = history
         .filter((msg) => msg.role !== "system")
-        .map((msg) => ({
-          role: msg.role,
-          content: String(msg.content),
-        }));
+        .map((msg) => {
+          if (msg.role === "assistant") {
+            return {
+              role: "assistant",
+              content: String(msg.content),
+            } as const;
+          }
+          return {
+            role: "user",
+            content: String(msg.content),
+          } as const;
+        });
 
-      const response = await this.client.chat.completions.create({
+      const request: OpenAI.ChatCompletionCreateParamsNonStreaming = {
         model: this.model,
-        messages: [{ role: "system", content: systemPrompt }, ...messages],
+        messages: [
+          { role: "system", content: systemPrompt } as const,
+          ...messages,
+        ],
         tools: this.tools,
-      });
+      };
 
-      this.logResponse(response, sessionId);
+      this.logRequest(request, sessionId);
+
+      const response = await this.client.chat.completions.create(request);
+
+      // Log the raw response for debugging
+      this.logResponse(
+        {
+          id: response.id,
+          model: response.model,
+          choices: response.choices.map((choice) => ({
+            message: {
+              role: choice.message.role,
+              content: choice.message.content,
+              tool_calls: choice.message.tool_calls?.map((tool) => ({
+                id: tool.id,
+                type: tool.type,
+                function: {
+                  name: tool.function.name,
+                  arguments: tool.function.arguments,
+                },
+              })),
+            },
+            finish_reason: choice.finish_reason,
+          })),
+        },
+        sessionId
+      );
 
       return this.processResponse(response);
     } catch (error: any) {
