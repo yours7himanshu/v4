@@ -232,9 +232,24 @@ onMounted(() => {
       </ScrollArea>
 
       <div
-        v-else-if="!searchQuery"
-        class="mt-4 flex-1 flex flex-col min-h-0 max-h-[300px]"
+        v-else-if="searchQuery"
+        class="mt-4 flex-1 flex flex-col items-center justify-center text-center px-4"
       >
+        <Icon
+          name="ph:magnifying-glass"
+          class="w-12 h-12 text-muted-foreground mb-4"
+        />
+        <p class="text-lg font-medium mb-2">No results found</p>
+        <p class="text-sm text-muted-foreground mb-4">
+          We couldn't find anything for "{{ searchQuery }}". Try searching for
+          something else.
+        </p>
+        <Button variant="outline" size="sm" @click="searchQuery = ''">
+          Clear search
+        </Button>
+      </div>
+
+      <div v-else class="mt-4 flex-1 flex flex-col min-h-0 max-h-[300px]">
         <div>
           <h3 class="mb-3 text-sm font-medium text-muted-foreground">
             Categories
