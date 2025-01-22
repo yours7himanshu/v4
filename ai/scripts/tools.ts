@@ -11,10 +11,15 @@ export interface Tool {
   execute: (...args: any[]) => Promise<string>;
 }
 
+const getFileName = (filePath: string) => {
+  return path.basename(filePath).replace(/\.[^/.]+$/, "");
+};
+
 export const tools: { [key: string]: Tool } = {
   read_file: {
     name: "read_file",
-    progress: (input: { filePath: string }) => `Reading file ${input.filePath}`,
+    progress: (input: { filePath: string }) =>
+      `Reading ${getFileName(input.filePath)}...`,
     description:
       "Read and return the contents of a file at the specified path. This tool is best used when you need to examine or analyze the contents of an existing file. It will return an error if the file doesn't exist or can't be read. The tool reads files as UTF-8 text, so it's not suitable for binary files. Use this when you need to understand what's in a file before making changes or when gathering information.",
     input_schema: {
