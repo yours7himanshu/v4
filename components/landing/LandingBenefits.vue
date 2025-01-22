@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { mockCourses } from "@/data/mockCourses";
-
 defineProps({
   title: {
     type: String,
@@ -16,8 +14,6 @@ defineProps({
     default: false,
   },
 });
-
-const featuredCourses = computed(() => mockCourses.slice(0, 3));
 </script>
 
 <template>

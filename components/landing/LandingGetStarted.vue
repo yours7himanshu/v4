@@ -1,3 +1,17 @@
+<script setup lang="ts">
+defineProps({
+  title: {
+    type: String,
+    default: "Ready to join the community?",
+  },
+  description: {
+    type: String,
+    default:
+      "Start your dance journey today and connect with dancers worldwide",
+  },
+});
+</script>
+
 <template>
   <section
     class="py-24 bg-gradient-to-br from-purple-600 to-purple-900 relative overflow-hidden"
@@ -9,10 +23,10 @@
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="text-center md:text-left">
           <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to join the community?
+            {{ title }}
           </h2>
           <p class="text-xl text-white/80 mb-8 max-w-lg">
-            Start your dance journey today and connect with dancers worldwide
+            {{ description }}
           </p>
 
           <div

@@ -438,28 +438,9 @@
       </div>
     </section>
 
-    <!-- Final CTA -->
-    <section class="py-16 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold mb-4">Be Among the First Artists</h2>
-        <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Join now and get exclusive founding member benefits
-        </p>
-        <div class="flex justify-center gap-4">
-          <Button size="lg" variant="secondary" class="text-lg px-12" as-child>
-            <NuxtLink
-              to="/register"
-              class="flex items-center justify-center gap-2"
-            >
-              Join Early Access
-              <Icon name="ph:arrow-right" class="w-5 h-5" />
-            </NuxtLink>
-          </Button>
-        </div>
-        <div class="mt-6 text-sm text-gray-500">
-          Limited spots available for early access
-        </div>
-      </div>
-    </section>
+    <LandingGetStarted
+      title="Be Among the First Artists"
+      description="Join now and get exclusive founding member benefits"
+    />
   </div>
 </template>

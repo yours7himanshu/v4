@@ -26,5 +26,8 @@
   />
   <LandingTestimonials />
   <LandingHowItWorks />
-  <LandingGetStarted />
+  <LandingGetStarted
+    title="Ready to join the community?"
+    description="Start your dance journey today and connect with dancers worldwide"
+  />
 </template>
