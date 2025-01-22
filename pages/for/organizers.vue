@@ -37,7 +37,7 @@
                   </NuxtLink>
                 </Button>
                 <Button size="lg" variant="secondary-on-dark" as-child>
-                  <NuxtLink to="#how-it-works">
+                  <NuxtLink to="/events/200">
                     How It Works
                     <Icon name="ph:play-circle" class="w-5 h-5" />
                   </NuxtLink>
