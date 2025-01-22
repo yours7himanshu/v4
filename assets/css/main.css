@@ -24,6 +24,12 @@
     --input: 0 0% 89%;
     --ring: 351 98% 48%;
     --radius: 0.5rem;
+
+    /* Gradient colors */
+    --gradient-base: 288 65% 12%;
+    --gradient-1: 300 100% 76%;
+    --gradient-2: 351 98% 48%;
+    --gradient-3: 270 100% 76%;
   }
 
   .dark {
@@ -46,5 +52,20 @@
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 351 98% 48%;
+
+    /* Gradient colors - same in dark mode */
+    --gradient-base: 288 65% 12%;
+    --gradient-1: 300 100% 76%;
+    --gradient-2: 351 98% 48%;
+    --gradient-3: 270 100% 76%;
+  }
+}
+
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
   }
 }

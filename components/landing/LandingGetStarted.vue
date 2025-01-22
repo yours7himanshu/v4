@@ -25,12 +25,8 @@ defineProps({
 </script>
 
 <template>
-  <section
-    class="py-24 bg-gradient-to-br from-purple-600 to-purple-900 relative overflow-hidden"
-  >
-    <div
-      class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-    ></div>
+  <section class="py-24 relative overflow-hidden">
+    <GradientBackground />
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
       <div class="grid md:grid-cols-2 gap-12 items-center">
         <div class="text-center md:text-left">

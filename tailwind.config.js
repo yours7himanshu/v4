@@ -81,23 +81,23 @@ export default {
         },
         blob: {
           "0%": {
-            transform: "translate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1) rotate(0deg)",
           },
           "33%": {
-            transform: "translate(30px, -50px) scale(1.1)",
+            transform: "translate(100px, -100px) scale(1.3) rotate(20deg)",
           },
           "66%": {
-            transform: "translate(-20px, 20px) scale(0.9)",
+            transform: "translate(-50px, 50px) scale(0.7) rotate(-20deg)",
           },
           "100%": {
-            transform: "translate(0px, 0px) scale(1)",
+            transform: "translate(0px, 0px) scale(1) rotate(0deg)",
           },
         },
       },
       animation: {
-        blob: "blob 7s infinite",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        blob: "blob 15s infinite cubic-bezier(0.4, 0, 0.2, 1)",
       },
       utilities: {
         ".animation-delay-2000": {
