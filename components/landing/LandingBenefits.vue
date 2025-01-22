@@ -91,7 +91,7 @@
             </div>
             <h3 class="text-xl font-bold mb-2 text-foreground">For Artists</h3>
             <p class="text-muted-foreground text-sm">
-              Focus on your art - we'll handle the business side
+              Create courses, get bookings, and grow your dance business
               <NuxtLink
                 to="/for/artists"
                 class="text-primary hover:text-primary/90 font-medium ml-1"
@@ -110,32 +110,13 @@
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
               >
-                <Icon name="ph:book" class="w-3.5 h-3.5 text-primary" />
-              </div>
-              <div>
-                <h4 class="font-medium mb-1 text-foreground">
-                  Effortless Business Growth
-                </h4>
-                <p class="text-sm text-muted-foreground">
-                  Accept bookings, manage classes, and get discovered by new
-                  students - all in one place
-                </p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3">
-              <div
-                class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
-              >
                 <Icon name="ph:video-camera" class="w-3.5 h-3.5 text-primary" />
               </div>
               <div>
-                <h4 class="font-medium mb-1 text-foreground">
-                  Showcase Your Talent
-                </h4>
+                <h4 class="font-medium mb-1 text-foreground">Online Courses</h4>
                 <p class="text-sm text-muted-foreground">
-                  Share performances, tutorials, and updates - build your brand
-                  and attract opportunities
+                  Create pre-recorded courses and live classes (30% fee,
+                  €0.25/ticket)
                 </p>
               </div>
             </div>
@@ -144,15 +125,31 @@
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
               >
-                <Icon name="ph:users" class="w-3.5 h-3.5 text-primary" />
+                <Icon
+                  name="ph:calendar-check"
+                  class="w-3.5 h-3.5 text-primary"
+                />
               </div>
               <div>
                 <h4 class="font-medium mb-1 text-foreground">
-                  Engaged Community
+                  Private Bookings
                 </h4>
                 <p class="text-sm text-muted-foreground">
-                  Keep students motivated, share resources, and build a loyal
-                  following that grows with you
+                  Get booked for classes and performances (5% fee)
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div
+                class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
+              >
+                <Icon name="ph:storefront" class="w-3.5 h-3.5 text-primary" />
+              </div>
+              <div>
+                <h4 class="font-medium mb-1 text-foreground">Business Tools</h4>
+                <p class="text-sm text-muted-foreground">
+                  Professional profile, payments, and analytics included
                 </p>
               </div>
             </div>
