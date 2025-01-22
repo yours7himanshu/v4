@@ -130,15 +130,15 @@
             <h3 class="text-foreground font-semibold mb-4">Connect</h3>
             <div class="flex gap-4">
               <a
-                href="https://twitter.com/wedanceorg"
+                href="https://t.me/WeDancePlatform"
                 target="_blank"
                 rel="noopener"
                 class="hover:text-foreground transition-colors"
               >
-                <Icon name="ph:twitter-logo" class="w-6 h-6" />
+                <Icon name="ph:telegram-logo" class="w-6 h-6" />
               </a>
               <a
-                href="https://instagram.com/wedanceorg"
+                href="https://www.instagram.com/wedanceplatform"
                 target="_blank"
                 rel="noopener"
                 class="hover:text-foreground transition-colors"
@@ -146,15 +146,24 @@
                 <Icon name="ph:instagram-logo" class="w-6 h-6" />
               </a>
               <a
-                href="https://facebook.com/wedanceorg"
+                href="https://twitter.com/WeDancePlatform"
                 target="_blank"
                 rel="noopener"
                 class="hover:text-foreground transition-colors"
               >
-                <Icon name="ph:facebook-logo" class="w-6 h-6" />
+                <Icon name="ph:x-logo" class="w-6 h-6" />
+              </a>
+
+              <a
+                href="https://open.spotify.com/show/7pSbE0qiPpnJ1v0GmnSSkn?si=351061249dd14cb3"
+                target="_blank"
+                rel="noopener"
+                class="hover:text-foreground transition-colors"
+              >
+                <Icon name="ph:spotify-logo" class="w-6 h-6" />
               </a>
               <a
-                href="https://youtube.com/wedanceorg"
+                href="https://www.youtube.com/@wedancestory"
                 target="_blank"
                 rel="noopener"
                 class="hover:text-foreground transition-colors"
