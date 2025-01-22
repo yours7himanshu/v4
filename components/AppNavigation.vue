@@ -124,14 +124,6 @@ watch(
             <Icon :name="item.icon" class="h-5 w-5" />
             {{ item.label }}
           </NuxtLink>
-          <div
-            class="flex items-center gap-2 px-3 py-2 text-gray-700 dark:text-gray-300"
-          >
-            <ThemeToggle />
-            <span class="text-sm text-gray-600 dark:text-gray-400"
-              >Toggle theme</span
-            >
-          </div>
           <template v-if="auth.isAuthenticated">
             <Button
               variant="ghost"
