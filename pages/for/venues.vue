@@ -378,6 +378,8 @@
     <LandingGetStarted
       title="Be Among the First Venues"
       description="Join now and get exclusive founding member benefits"
+      secondary="Founding Member Benefits"
+      secondaryLink="/founding-members"
     />
   </div>
 </template>

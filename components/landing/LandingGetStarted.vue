@@ -9,6 +9,18 @@ defineProps({
     default:
       "Start your dance journey today and connect with dancers worldwide",
   },
+  secondary: {
+    type: String,
+    default: "Compare Platforms",
+  },
+  secondaryLink: {
+    type: String,
+    default: "/vs",
+  },
+  time: {
+    type: String,
+    default: "5",
+  },
 });
 </script>
 
@@ -53,17 +65,17 @@ defineProps({
               as-child
             >
               <NuxtLink
-                to="/vs"
+                :to="secondaryLink"
                 class="flex items-center justify-center gap-2 text-white hover:text-white/90"
               >
-                Compare Platforms
+                {{ secondary }}
                 <Icon name="ph:arrow-right" class="w-5 h-5" />
               </NuxtLink>
             </Button>
           </div>
 
           <div class="text-sm text-white/60">
-            ⚡️ 2-minute setup • No credit card required
+            ⚡️ {{ time }}-minute setup • No credit card required
           </div>
         </div>
 
