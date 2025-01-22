@@ -12,8 +12,8 @@ export interface ModelInfo {
 }
 
 export interface ProviderConfig {
-  apiKey?: string;
-  model?: string;
+  apiKey: string;
+  model: string;
   host?: string;
 }
 

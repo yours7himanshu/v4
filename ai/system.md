@@ -73,33 +73,31 @@ We don't use TODO/FIXME/HACK/XXX/etc. in the codebase.
 
 ### Business
 
-- [Vision](docs/content/business/vision.md)
-- [Organization Canvas](docs/content/business/organization-canvas.md)
+- [Organization Canvas](docs/content/business/organization.md)
 - [OKRs](docs/content/business/okrs.md)
 - [Decisions](docs/content/governance/decisions/)
 
 ### Architecture
 
-- [Overview](docs/content/architecture/index.md)
-- [Actions](docs/content/architecture/actions.md)
-- [Dance Styles](docs/content/architecture/dance-styles.md)
-- [Events](docs/content/architecture/events.md)
-- [Event Types](docs/content/architecture/event-types.md)
-- [Levels](docs/content/architecture/levels.md)
-- [Pages](docs/content/architecture/pages.md)
-- [Points](docs/content/architecture/points.md)
-- [Posts](docs/content/architecture/posts.md)
-- [Profiles](docs/content/architecture/profiles.md)
-- [Schemas](docs/content/architecture/schemas.md)
-- [Voting](docs/content/architecture/voting.md)
+- [Overview](docs/content/product/architecture/index.md)
+- [Actions](docs/content/product/architecture/actions.md)
+- [Dance Styles](docs/content/product/architecture/dance-styles.md)
+- [Events](docs/content/product/architecture/events.md)
+- [Event Types](docs/content/product/architecture/event-types.md)
+- [Levels](docs/content/product/architecture/levels.md)
+- [Pages](docs/content/product/architecture/pages.md)
+- [Points](docs/content/product/architecture/points.md)
+- [Posts](docs/content/product/architecture/posts.md)
+- [Profiles](docs/content/product/architecture/profiles.md)
+- [Schemas](docs/content/product/architecture/schemas.md)
+- [Voting](docs/content/product/architecture/voting.md)
 
 ### Resources
 
-- [Blog](docs/content/blog/)
-- [Resources](docs/content/resources/)
+- [Blog](docs/content/resources/blog/)
+- [Initial ideas](docs/content/resources/idea/)
 
 ### Development
 
-- [Governance and Product Backlog](docs/content/operations/backlog.md)
 - [Epics](content/epics/)
 - [User Stories](content/issues/)

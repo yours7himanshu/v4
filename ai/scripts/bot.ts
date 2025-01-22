@@ -24,10 +24,14 @@ const CURRENT_PROVIDER = (process.env.LLM_PROVIDER as ProviderType) || "ollama";
 let llmProvider: BaseLLMProvider;
 
 try {
+  if (!process.env.LLM_API_KEY || !process.env.LLM_MODEL) {
+    throw new Error("LLM_API_KEY and LLM_MODEL must be set");
+  }
+
   llmProvider = ProviderFactory.create(CURRENT_PROVIDER, {
-    apiKey: process.env[`${CURRENT_PROVIDER.toUpperCase()}_API_KEY`],
-    model: process.env[`${CURRENT_PROVIDER.toUpperCase()}_MODEL`],
-    host: process.env.OLLAMA_HOST,
+    apiKey: process.env.LLM_API_KEY,
+    model: process.env.LLM_MODEL,
+    host: process.env.LLM_HOST,
   });
 } catch (error) {
   console.error(`Failed to initialize ${CURRENT_PROVIDER} provider:`, error);
