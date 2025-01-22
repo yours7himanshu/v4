@@ -4,6 +4,7 @@ import {
   HistoryMessage,
   ProviderConfig,
   LLMError,
+  ProcessedMessage,
 } from "./types";
 import { toolDefinitions } from "../tools";
 
@@ -35,7 +36,7 @@ export class ClaudeProvider extends BaseLLMProvider {
   async ask(
     history: HistoryMessage[],
     sessionId: number | string
-  ): Promise<Anthropic.Messages.Message> {
+  ): Promise<ProcessedMessage> {
     try {
       const systemPrompt = String(
         history.find((msg) => msg.role === "system")?.content || ""
@@ -54,8 +55,6 @@ export class ClaudeProvider extends BaseLLMProvider {
           {
             type: "text",
             text: systemPrompt,
-            // claude-3-sonnet-20240229 does not support cache_control
-            // cache_control: { type: "ephemeral" },
           },
         ],
         messages: messages,
@@ -68,7 +67,7 @@ export class ClaudeProvider extends BaseLLMProvider {
       const response = await this.client.messages.create(request);
       this.logResponse(response.content, sessionId);
 
-      return response;
+      return this.processResponse(response);
     } catch (error: any) {
       if (error.status === 401) {
         throw new LLMError(this.name, "API_KEY", "Invalid Anthropic API key");
@@ -86,5 +85,27 @@ export class ClaudeProvider extends BaseLLMProvider {
         error.message || "Unknown error occurred"
       );
     }
+  }
+
+  protected processResponse(response: Anthropic.Message): ProcessedMessage {
+    const result: ProcessedMessage = {};
+
+    // Process content blocks
+    for (const block of response.content) {
+      if (block.type === "text") {
+        result.text = block.text;
+      } else if (block.type === "tool_use") {
+        if (!result.toolCalls) {
+          result.toolCalls = [];
+        }
+        result.toolCalls.push({
+          id: block.id,
+          name: block.name,
+          input: block.input,
+        });
+      }
+    }
+
+    return result;
   }
 }

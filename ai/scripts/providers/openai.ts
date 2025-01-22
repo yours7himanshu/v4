@@ -4,6 +4,7 @@ import {
   HistoryMessage,
   ProviderConfig,
   LLMError,
+  ProcessedMessage,
 } from "./types";
 import { toolDefinitions } from "../tools";
 
@@ -44,7 +45,7 @@ export class OpenAIProvider extends BaseLLMProvider {
   async ask(
     history: HistoryMessage[],
     sessionId: number | string
-  ): Promise<any> {
+  ): Promise<ProcessedMessage> {
     try {
       const systemPrompt = String(
         history.find((msg) => msg.role === "system")?.content || ""
@@ -54,62 +55,47 @@ export class OpenAIProvider extends BaseLLMProvider {
         .filter((msg) => msg.role !== "system")
         .map((msg) => ({
           role: msg.role,
-          content:
-            typeof msg.content === "string"
-              ? msg.content
-              : JSON.stringify(msg.content),
+          content: String(msg.content),
         }));
 
-      // Add system message at the beginning
-      messages.unshift({
-        role: "system",
-        content: systemPrompt,
+      const response = await this.client.chat.completions.create({
+        model: this.model,
+        messages: [{ role: "system", content: systemPrompt }, ...messages],
+        tools: this.tools,
       });
 
-      const request = {
-        model: this.model,
-        messages,
-        tools: this.tools,
-        temperature: 0,
-      };
+      this.logResponse(response, sessionId);
 
-      this.logRequest(request.messages, sessionId);
-
-      const response = await this.client.chat.completions.create(request);
-
-      // Transform OpenAI response to match Anthropic's format
-      const transformedResponse = {
-        content: response.choices[0].message.content
-          ? [{ type: "text", text: response.choices[0].message.content }]
-          : [],
-        tool_calls:
-          response.choices[0].message.tool_calls?.map((tool) => ({
-            type: "tool_use",
-            id: tool.id,
-            name: tool.function.name,
-            input: JSON.parse(tool.function.arguments),
-          })) || [],
-      };
-
-      this.logResponse(transformedResponse, sessionId);
-
-      return transformedResponse;
+      return this.processResponse(response);
     } catch (error: any) {
-      if (error?.status === 401) {
-        throw new LLMError(this.name, "API_KEY", "Invalid OpenAI API key");
-      } else if (error?.status === 429) {
-        throw new LLMError(this.name, "CONNECTION", "Rate limit exceeded");
-      } else if (error?.status === 500) {
-        throw new LLMError(this.name, "UNKNOWN", "OpenAI service error");
-      } else if (error.code === "ETIMEDOUT") {
-        throw new LLMError(this.name, "TIMEOUT", "Request timed out");
-      }
-
       throw new LLMError(
         this.name,
         "UNKNOWN",
-        error.message || "Unknown error occurred"
+        `OpenAI API error: ${error.message}`
       );
     }
+  }
+
+  protected processResponse(
+    response: OpenAI.Chat.ChatCompletion
+  ): ProcessedMessage {
+    const message = response.choices[0].message;
+    const result: ProcessedMessage = {};
+
+    // Handle text content
+    if (message.content) {
+      result.text = message.content;
+    }
+
+    // Handle tool calls
+    if (message.tool_calls?.length) {
+      result.toolCalls = message.tool_calls.map((tool) => ({
+        id: tool.id,
+        name: tool.function.name,
+        input: JSON.parse(tool.function.arguments),
+      }));
+    }
+
+    return result;
   }
 }

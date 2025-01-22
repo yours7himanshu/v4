@@ -196,79 +196,23 @@ async function processMessage(
     ];
 
     let waitingForToolResponse = false;
-    for (const content of message.content) {
-      if (content.type === "text") {
-        await ctx.sendChatAction("typing");
 
-        const response = content.text;
+    // Handle text response if present
+    if (message.text) {
+      await handleTextResponse(
+        ctx,
+        history,
+        message.text,
+        isFirstMessage,
+        options
+      );
+    }
 
-        history.push({
-          role: "assistant",
-          content: content.text,
-        });
-
-        logger.log(ctx.chat?.id, "bot-response", content.text);
-
-        if (response) {
-          let reply_markup = undefined;
-
-          if (isFirstMessage) {
-            reply_markup = {
-              inline_keyboard: options.map((option) => [
-                {
-                  text: option,
-                  callback_data: option,
-                },
-              ]),
-            };
-          }
-
-          await ctx.reply(response, {
-            parse_mode: "HTML",
-            reply_markup: reply_markup,
-          });
-        }
-      }
-
-      if (content.type === "tool_use") {
-        await ctx.sendChatAction("typing");
-
+    // Handle tool calls if present
+    if (message.toolCalls?.length) {
+      for (const toolCall of message.toolCalls) {
+        await handleToolCall(ctx, history, toolCall);
         waitingForToolResponse = true;
-
-        // Add tool_use message to history
-        history.push({
-          role: "assistant",
-          content: [content],
-        });
-
-        const tool = tools[content.name] as Tool | undefined;
-
-        if (tool) {
-          const progress = tool.progress(content.input);
-
-          ctx.reply(`<i>${progress}</i>`, {
-            parse_mode: "HTML",
-          });
-
-          const toolResponse = await tool.execute(content.input);
-
-          const toolResult: ToolResultBlockParam = {
-            type: "tool_result",
-            tool_use_id: content.id,
-            content: toolResponse,
-          };
-
-          logger.log(ctx.chat?.id, "tool-execution", "", {
-            tool: content.name,
-            input: content.input,
-            output: toolResponse,
-          });
-
-          history.push({
-            role: "user",
-            content: [toolResult],
-          });
-        }
       }
     }
 
@@ -291,6 +235,101 @@ async function processMessage(
 
     await ctx.reply(errorMessage);
   }
+}
+
+async function handleToolCall(
+  ctx: Context,
+  history: HistoryMessage[],
+  toolCall: {
+    id: string;
+    name: string;
+    input: any;
+  }
+) {
+  if (!ctx.chat?.id || !ctx.from) return;
+
+  await ctx.sendChatAction("typing");
+
+  // Add tool_use message to history
+  history.push({
+    role: "assistant",
+    content: [
+      {
+        type: "tool_use",
+        id: toolCall.id,
+        name: toolCall.name,
+        input: toolCall.input,
+      },
+    ],
+  });
+
+  const tool = tools[toolCall.name] as Tool | undefined;
+
+  if (tool) {
+    const progress = tool.progress(toolCall.input);
+
+    await ctx.reply(`<i>${progress}</i>`, {
+      parse_mode: "HTML",
+    });
+
+    const toolResponse = await tool.execute(toolCall.input);
+
+    const toolResult: ToolResultBlockParam = {
+      type: "tool_result",
+      tool_use_id: toolCall.id,
+      content: toolResponse,
+    };
+
+    const logger = getLogger(ctx.from);
+    logger.log(ctx.chat?.id, "tool-execution", "", {
+      tool: toolCall.name,
+      input: toolCall.input,
+      output: toolResponse,
+    });
+
+    history.push({
+      role: "user",
+      content: [toolResult],
+    });
+  }
+}
+
+async function handleTextResponse(
+  ctx: Context,
+  history: HistoryMessage[],
+  text: string | undefined,
+  isFirstMessage: boolean,
+  options: string[]
+) {
+  if (!text) return;
+
+  await ctx.sendChatAction("typing");
+
+  history.push({
+    role: "assistant",
+    content: text,
+  });
+
+  const logger = getLogger(ctx.from!);
+  logger.log(ctx.chat!.id, "bot-response", text);
+
+  let reply_markup = undefined;
+
+  if (isFirstMessage) {
+    reply_markup = {
+      inline_keyboard: options.map((option) => [
+        {
+          text: option,
+          callback_data: option,
+        },
+      ]),
+    };
+  }
+
+  await ctx.reply(text, {
+    parse_mode: "HTML",
+    reply_markup: reply_markup,
+  });
 }
 
 function isDataCallbackQuery(

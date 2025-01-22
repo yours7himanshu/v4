@@ -17,6 +17,15 @@ export interface ProviderConfig {
   host?: string;
 }
 
+export interface ProcessedMessage {
+  text?: string;
+  toolCalls?: Array<{
+    id: string;
+    name: string;
+    input: any;
+  }>;
+}
+
 export abstract class BaseLLMProvider {
   protected abstract name: string;
   protected abstract model: string;
@@ -29,7 +38,9 @@ export abstract class BaseLLMProvider {
   abstract ask(
     history: HistoryMessage[],
     sessionId: number | string
-  ): Promise<Anthropic.Messages.Message>;
+  ): Promise<ProcessedMessage>;
+
+  protected abstract processResponse(response: any): ProcessedMessage;
 
   getModelInfo(): ModelInfo {
     return {
