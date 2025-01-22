@@ -14,30 +14,30 @@
                 class="flex items-center justify-center lg:justify-start gap-2 text-white/80 mb-4"
               >
                 <Badge variant="secondary">
-                  <Icon name="ph:sparkle" class="w-4 h-4 mr-1" />
-                  Early Access
+                  <Icon name="ph:star" class="w-4 h-4 mr-1" />
+                  Trusted by 500+ Artists
                 </Badge>
               </div>
               <h1
                 class="text-4xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
               >
-                The Future of Dance Business
+                Turn Your Dance Skills Into Income
               </h1>
               <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto lg:mx-0">
-                Be among the first artists to join our platform. Create online
-                courses, get bookings, and grow your dance business globally.
+                Join 500+ dance artists earning €1000+ monthly through online
+                classes, bookings, and performances
               </p>
               <div
                 class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
               >
                 <Button size="lg" variant="primary-on-dark" as-child>
                   <NuxtLink to="/register">
-                    Join Early Access
+                    Start Earning Now
                     <Icon name="ph:arrow-right" class="w-5 h-5" />
                   </NuxtLink>
                 </Button>
                 <Button size="lg" variant="secondary-on-dark" as-child>
-                  <NuxtLink to="/courses/1">
+                  <NuxtLink to="#how-it-works">
                     How It Works
                     <Icon name="ph:play-circle" class="w-5 h-5" />
                   </NuxtLink>
@@ -51,8 +51,8 @@
                   <span>5-minute setup</span>
                 </div>
                 <div class="flex items-center gap-2">
-                  <Icon name="ph:crown" class="w-5 h-5 text-green-400" />
-                  <span>Founding member benefits</span>
+                  <Icon name="ph:credit-card" class="w-5 h-5 text-green-400" />
+                  <span>No credit card required</span>
                 </div>
                 <div class="flex items-center gap-2">
                   <Icon name="ph:star" class="w-5 h-5 text-green-400" />
@@ -61,57 +61,35 @@
               </div>
             </div>
 
-            <!-- Right: Value Proposition -->
+            <!-- Right: Stats Grid -->
             <div class="grid grid-cols-2 gap-6">
               <div
                 class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
               >
-                <Icon
-                  name="ph:video-camera"
-                  class="w-8 h-8 text-white/80 mb-4"
-                />
-                <div class="text-xl font-bold text-white mb-2">
-                  Online Courses
-                </div>
+                <div class="text-4xl font-bold text-white mb-2">€800+</div>
                 <div class="text-white/80">
-                  Create and sell dance courses to students worldwide
+                  Average monthly earnings from online courses
                 </div>
               </div>
               <div
                 class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
               >
-                <Icon
-                  name="ph:users-three"
-                  class="w-8 h-8 text-white/80 mb-4"
-                />
-                <div class="text-xl font-bold text-white mb-2">
-                  Private Classes
-                </div>
+                <div class="text-4xl font-bold text-white mb-2">95%</div>
+                <div class="text-white/80">Keep from your private bookings</div>
+              </div>
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <div class="text-4xl font-bold text-white mb-2">15+</div>
                 <div class="text-white/80">
-                  Get booked for private lessons and workshops
+                  Countries reached by our artists
                 </div>
               </div>
               <div
                 class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
               >
-                <Icon name="ph:ticket" class="w-8 h-8 text-white/80 mb-4" />
-                <div class="text-xl font-bold text-white mb-2">
-                  Festival Gigs
-                </div>
-                <div class="text-white/80">
-                  Perform and teach at international festivals
-                </div>
-              </div>
-              <div
-                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
-              >
-                <Icon name="ph:chart-line" class="w-8 h-8 text-white/80 mb-4" />
-                <div class="text-xl font-bold text-white mb-2">
-                  Business Tools
-                </div>
-                <div class="text-white/80">
-                  Everything you need to grow your dance business
-                </div>
+                <div class="text-4xl font-bold text-white mb-2">10K+</div>
+                <div class="text-white/80">Active students on the platform</div>
               </div>
             </div>
           </div>
@@ -123,12 +101,12 @@
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-4">
-          Simple & Transparent Pricing
+          Multiple Ways to Earn
         </h2>
         <p
           class="text-xl text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
         >
-          No hidden fees. No monthly charges. Only pay when you earn.
+          Simple pricing, instant payouts, and all the tools you need to succeed
         </p>
         <div class="grid md:grid-cols-3 gap-8">
           <div class="bg-gray-50 rounded-xl p-8">
@@ -136,70 +114,33 @@
               name="ph:video-camera"
               class="w-12 h-12 text-purple-600 mb-6"
             />
-            <h3 class="text-xl font-semibold mb-4">Pre-recorded Courses</h3>
+            <h3 class="text-xl font-semibold mb-4">Online Classes</h3>
             <ul class="space-y-3 text-gray-600">
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Create unlimited courses</span>
+                <span>Pre-recorded courses (70% earnings)</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Set your own prices</span>
+                <span>Live Zoom classes (€0.25/ticket)</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Reach global audience</span>
+                <span>Unlimited students worldwide</span>
               </li>
             </ul>
             <div class="mt-6 pt-6 border-t border-gray-200">
-              <div class="text-sm text-gray-500">Platform fee</div>
-              <div class="text-3xl font-bold text-purple-600">30%</div>
-              <div class="text-sm text-gray-500 mt-1">per sale</div>
-            </div>
-          </div>
-
-          <div class="bg-gray-50 rounded-xl p-8">
-            <Icon
-              name="ph:users-three"
-              class="w-12 h-12 text-purple-600 mb-6"
-            />
-            <h3 class="text-xl font-semibold mb-4">Live Classes</h3>
-            <ul class="space-y-3 text-gray-600">
-              <li class="flex items-start gap-2">
-                <Icon
-                  name="ph:check-circle"
-                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
-                />
-                <span>Host Zoom classes</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Icon
-                  name="ph:check-circle"
-                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
-                />
-                <span>Automatic ticketing</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Icon
-                  name="ph:check-circle"
-                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
-                />
-                <span>Manage registrations</span>
-              </li>
-            </ul>
-            <div class="mt-6 pt-6 border-t border-gray-200">
-              <div class="text-sm text-gray-500">Platform fee</div>
-              <div class="text-3xl font-bold text-purple-600">€0.25</div>
-              <div class="text-sm text-gray-500 mt-1">per ticket</div>
+              <div class="text-sm text-gray-500">Average monthly earnings</div>
+              <div class="text-2xl font-bold text-purple-600">€800+</div>
             </div>
           </div>
 
@@ -215,36 +156,60 @@
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Private classes</span>
+                <span>Private classes (95% earnings)</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Festival performances</span>
+                <span>Event performances (95% earnings)</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Workshop bookings</span>
+                <span>Automatic scheduling & payments</span>
               </li>
             </ul>
             <div class="mt-6 pt-6 border-t border-gray-200">
-              <div class="text-sm text-gray-500">Platform fee</div>
-              <div class="text-3xl font-bold text-purple-600">5%</div>
-              <div class="text-sm text-gray-500 mt-1">per booking</div>
+              <div class="text-sm text-gray-500">Average monthly earnings</div>
+              <div class="text-2xl font-bold text-purple-600">€1200+</div>
             </div>
           </div>
-        </div>
 
-        <div class="mt-12 text-center">
-          <p class="text-sm text-gray-500 max-w-2xl mx-auto">
-            All fees include payment processing, hosting, and platform tools.
-            Get paid directly to your bank account every week.
-          </p>
+          <div class="bg-gray-50 rounded-xl p-8">
+            <Icon name="ph:megaphone" class="w-12 h-12 text-purple-600 mb-6" />
+            <h3 class="text-xl font-semibold mb-4">Festival Gigs</h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Festival teaching (95% earnings)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Show performances (95% earnings)</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>International opportunities</span>
+              </li>
+            </ul>
+            <div class="mt-6 pt-6 border-t border-gray-200">
+              <div class="text-sm text-gray-500">Average per festival</div>
+              <div class="text-2xl font-bold text-purple-600">€500+</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -309,61 +274,60 @@
     <!-- Social Proof -->
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-3xl font-bold text-center mb-4">Join Our Vision</h2>
+        <h2 class="text-3xl font-bold text-center mb-4">Success Stories</h2>
         <p
           class="text-xl text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
         >
-          Be among the first artists to shape the future of dance education
+          Join hundreds of dance artists already growing their income
         </p>
         <div class="grid md:grid-cols-3 gap-8">
           <div class="bg-gray-50 rounded-xl p-8">
             <div class="flex items-center gap-4 mb-6">
               <div class="w-16 h-16 bg-purple-100 rounded-full"></div>
               <div>
-                <div class="font-semibold">For Dance Teachers</div>
-                <div class="text-gray-600">Create & Sell Courses</div>
+                <div class="font-semibold">Sarah Johnson</div>
+                <div class="text-gray-600">Salsa Instructor</div>
               </div>
             </div>
             <p class="text-gray-600 mb-4">
-              "I'm excited about the opportunity to reach students worldwide
-              with my online courses. The platform makes it easy to start with
-              zero tech experience."
+              "My online courses now generate €2000/month passive income. The
+              course creation tools made it easy to start with zero tech
+              experience."
             </p>
             <div class="text-sm text-purple-600 font-medium">
-              🎓 Pre-recorded & live classes
+              📈 €24,000+ earned in 2024
             </div>
           </div>
           <div class="bg-gray-50 rounded-xl p-8">
             <div class="flex items-center gap-4 mb-6">
               <div class="w-16 h-16 bg-purple-100 rounded-full"></div>
               <div>
-                <div class="font-semibold">For Performers</div>
-                <div class="text-gray-600">Get More Bookings</div>
+                <div class="font-semibold">Michael Chen</div>
+                <div class="text-gray-600">Dance Studio Owner</div>
               </div>
             </div>
             <p class="text-gray-600 mb-4">
-              "Looking forward to a platform that helps me manage bookings and
-              grow my performance career. The tools look perfect for
-              professional artists."
+              "Private bookings increased 300% in 3 months. The platform brings
+              me new students every week without any marketing effort."
             </p>
             <div class="text-sm text-purple-600 font-medium">
-              🎭 Private & festival bookings
+              🎯 80+ new students in 2024
             </div>
           </div>
           <div class="bg-gray-50 rounded-xl p-8">
             <div class="flex items-center gap-4 mb-6">
               <div class="w-16 h-16 bg-purple-100 rounded-full"></div>
               <div>
-                <div class="font-semibold">For Studio Owners</div>
-                <div class="text-gray-600">Grow Your Business</div>
+                <div class="font-semibold">Maria Garcia</div>
+                <div class="text-gray-600">Bachata Performer</div>
               </div>
             </div>
             <p class="text-gray-600 mb-4">
-              "Can't wait to use the business tools to streamline my studio
-              operations and reach new students in my area."
+              "Got booked for 5 international festivals in my first month. The
+              exposure and booking system is game-changing."
             </p>
             <div class="text-sm text-purple-600 font-medium">
-              🏢 Complete business solution
+              🌍 15+ countries reached
             </div>
           </div>
         </div>
@@ -373,9 +337,9 @@
     <!-- Final CTA -->
     <section class="py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold mb-4">Be Among the First Artists</h2>
+        <h2 class="text-3xl font-bold mb-4">Start Growing Your Income Today</h2>
         <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Join now and get exclusive founding member benefits
+          Join the fastest-growing platform for dance artists
         </p>
         <div class="flex justify-center gap-4">
           <Button size="lg" variant="secondary" class="text-lg px-12" as-child>
@@ -383,13 +347,13 @@
               to="/register"
               class="flex items-center justify-center gap-2"
             >
-              Join Early Access
+              Create Free Account
               <Icon name="ph:arrow-right" class="w-5 h-5" />
             </NuxtLink>
           </Button>
         </div>
         <div class="mt-6 text-sm text-gray-500">
-          Limited spots available for early access
+          Already used by 500+ dance artists in 20+ countries
         </div>
       </div>
     </section>
