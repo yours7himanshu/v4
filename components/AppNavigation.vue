@@ -64,8 +64,8 @@ watch(
             <Icon :name="item.icon" class="h-4 w-4" />
             {{ item.label }}
           </NuxtLink>
-          <Button variant="ghost">
-            <Icon name="lucide:search" class="h-4 w-4" @click="handleSearch" />
+          <Button variant="ghost" @click="handleSearch">
+            <Icon name="lucide:search" class="h-4 w-4" />
           </Button>
           <template v-if="auth.isAuthenticated">
             <Button
@@ -88,8 +88,8 @@ watch(
         </div>
         <!-- Mobile menu button -->
         <div class="flex justify-end items-center sm:hidden">
-          <Button variant="ghost">
-            <Icon name="lucide:search" class="h-4 w-4" @click="handleSearch" />
+          <Button variant="ghost" @click="handleSearch">
+            <Icon name="lucide:search" class="h-4 w-4" />
           </Button>
           <Button
             variant="ghost"
