@@ -83,15 +83,22 @@ defineProps({
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
               >
-                <Icon name="ph:star" class="w-3.5 h-3.5 text-primary" />
+                <Icon name="ph:money" class="w-3.5 h-3.5 text-primary" />
               </div>
               <div>
-                <h4 class="font-medium mb-1 text-foreground">
-                  Local Scene Integration
-                </h4>
+                <h4 class="font-medium mb-1 text-foreground">Promote & Earn</h4>
                 <p class="text-sm text-muted-foreground">
-                  Get insider tips, join active groups, and feel at home in any
-                  city's dance scene
+                  Share events and earn rewards, grow your dance influence
+                  <NuxtLink
+                    to="/for/dancers"
+                    class="text-primary hover:text-primary/90 font-medium ml-1 whitespace-nowrap"
+                  >
+                    Learn more
+                    <Icon
+                      name="ph:arrow-right"
+                      class="inline-block w-3.5 h-3.5 ml-0.5"
+                    />
+                  </NuxtLink>
                 </p>
               </div>
             </div>

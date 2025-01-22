@@ -93,7 +93,18 @@ defineProps({
                 <div class="font-semibold text-white text-lg mb-1">
                   For Dancers
                 </div>
-                <p class="text-white/80">Find events & partners near you</p>
+                <p class="text-white/80">
+                  Promote events and earn rewards<NuxtLink
+                    to="/for/dancers"
+                    class="text-white hover:text-purple-200 font-medium ml-1 whitespace-nowrap"
+                  >
+                    Learn more
+                    <Icon
+                      name="ph:arrow-right"
+                      class="inline-block w-4 h-4 ml-0.5"
+                    />
+                  </NuxtLink>
+                </p>
               </div>
               <div
                 class="bg-white/10 backdrop-blur rounded-xl p-6 transform hover:-translate-y-1 transition-transform"
