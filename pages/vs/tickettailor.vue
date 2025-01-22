@@ -166,6 +166,92 @@
       </div>
     </section>
 
+    <!-- Pricing Comparison -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Simple & Fair Pricing
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-gray-50 rounded-xl p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <Icon name="ph:ticket-bold" class="w-8 h-8 text-gray-600" />
+              <h3 class="text-2xl font-semibold">TicketTailor</h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <div class="text-sm text-gray-500">Pay as You Sell</div>
+                <div class="text-3xl font-bold text-purple-600">€0.70</div>
+                <div class="text-sm text-gray-500">per ticket + VAT</div>
+              </div>
+              <div>
+                <div class="text-sm text-gray-500">Bulk Credits</div>
+                <div class="text-lg font-semibold text-gray-700">
+                  From €0.26
+                </div>
+                <div class="text-sm text-gray-500">
+                  per ticket + VAT (20k credits)
+                </div>
+              </div>
+              <div class="pt-4 border-t border-gray-200">
+                <div class="text-sm text-gray-500">Payment Processing</div>
+                <div class="text-lg font-semibold text-gray-700">
+                  1.5% + €0.25
+                </div>
+                <div class="text-sm text-gray-500">
+                  per transaction (Stripe)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-xl p-8 border-2 border-purple-600">
+            <div class="flex items-center gap-4 mb-6">
+              <div
+                class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center"
+              >
+                <Icon
+                  name="ph:heart-straight-fill"
+                  class="w-5 h-5 text-white"
+                />
+              </div>
+              <h3 class="text-2xl font-semibold">WeDance</h3>
+            </div>
+            <div class="space-y-4">
+              <div>
+                <div class="text-sm text-gray-500">Simple Pricing</div>
+                <div class="text-3xl font-bold text-purple-600">€0.25</div>
+                <div class="text-sm text-gray-500">per ticket</div>
+              </div>
+              <div>
+                <div class="text-sm text-gray-500">No Hidden Fees</div>
+                <div class="text-lg font-semibold text-gray-700">
+                  No Bulk Purchase Required
+                </div>
+                <div class="text-sm text-gray-500">
+                  Same low price for everyone
+                </div>
+              </div>
+              <div class="pt-4 border-t border-gray-200">
+                <div class="text-sm text-gray-500">Payment Processing</div>
+                <div class="text-lg font-semibold text-gray-700">
+                  1.5% + €0.25
+                </div>
+                <div class="text-sm text-gray-500">
+                  per transaction (Stripe)
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center text-sm text-gray-500 max-w-2xl mx-auto">
+          Payment processing fees are charged by Stripe and apply to both
+          platforms. The rates shown are for standard European cards.
+        </div>
+      </div>
+    </section>
+
     <!-- Features Section -->
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
