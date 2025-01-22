@@ -39,7 +39,7 @@ watch(
 
 <template>
   <nav
-    class="bg-white/80 backdrop-blur-sm shadow-sm fixed w-full z-50 dark:bg-slate-950/80 dark:border-b dark:border-slate-800"
+    class="bg-background/80 backdrop-blur-sm shadow-sm fixed w-full z-50 border-b border-border"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
@@ -56,8 +56,12 @@ watch(
             v-for="item in navigationItems"
             :key="item.to"
             :to="item.to"
-            class="flex items-center gap-2 text-gray-700 hover:text-purple-600 dark:text-gray-300 dark:hover:text-purple-400 transition-colors"
-            active-class="text-purple-600 dark:text-purple-400"
+            class="flex items-center gap-2 transition-colors"
+            :class="[
+              route.path === item.to
+                ? 'text-accent'
+                : 'text-muted-foreground hover:text-accent',
+            ]"
           >
             <Icon :name="item.icon" class="h-4 w-4" />
             {{ item.label }}
@@ -69,7 +73,7 @@ watch(
             <Button
               variant="ghost"
               @click="handleSignOut"
-              class="hover:text-purple-600 transition-colors"
+              class="hover:text-accent transition-colors"
             >
               Sign Out
             </Button>
@@ -77,7 +81,7 @@ watch(
           <template v-else>
             <Button
               variant="default"
-              class="hover:bg-purple-600 transition-colors"
+              class="hover:bg-accent transition-colors"
               as-child
             >
               <NuxtLink to="/login">Sign In</NuxtLink>
@@ -93,7 +97,7 @@ watch(
             variant="ghost"
             size="icon"
             @click="toggleMobileMenu"
-            class="hover:bg-purple-100 dark:hover:bg-purple-900/20 transition-colors"
+            class="hover:bg-accent/10 transition-colors"
           >
             <Icon
               :name="isMobileMenuOpen ? 'lucide:x' : 'lucide:menu'"
@@ -114,15 +118,19 @@ watch(
     >
       <div
         v-show="isMobileMenuOpen"
-        class="sm:hidden bg-white dark:bg-slate-950 shadow-lg border-t dark:border-slate-800"
+        class="sm:hidden bg-background shadow-lg border-t border-border"
       >
         <div class="px-2 pt-2 pb-3 space-y-1">
           <NuxtLink
             v-for="item in navigationItems"
             :key="item.to"
             :to="item.to"
-            class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-purple-600 hover:bg-purple-50 dark:text-gray-300 dark:hover:text-purple-400 dark:hover:bg-purple-900/20 transition-all"
-            active-class="text-purple-600 bg-purple-50 dark:text-purple-400 dark:bg-purple-900/20"
+            class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium transition-all"
+            :class="[
+              route.path === item.to
+                ? 'text-accent bg-accent/10'
+                : 'text-muted-foreground hover:text-accent hover:bg-accent/10',
+            ]"
           >
             <Icon :name="item.icon" class="h-5 w-5" />
             {{ item.label }}
@@ -131,7 +139,7 @@ watch(
             <Button
               variant="ghost"
               @click="handleSignOut"
-              class="w-full justify-start px-3 hover:text-purple-600 transition-colors"
+              class="w-full justify-start px-3 hover:text-accent transition-colors"
             >
               <Icon name="lucide:log-out" class="h-5 w-5 mr-2" />
               Sign Out
@@ -140,7 +148,7 @@ watch(
           <template v-else>
             <Button
               variant="default"
-              class="w-full mt-4 hover:bg-purple-600 transition-colors"
+              class="w-full mt-4 hover:bg-accent transition-colors"
               as-child
             >
               <NuxtLink to="/login">Sign In</NuxtLink>
