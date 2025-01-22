@@ -13,7 +13,7 @@
       <div class="relative">
         <!-- Connection Line (Desktop) -->
         <div
-          class="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20"
+          class="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-gradient-to-r from-accent/20 via-accent to-accent/20"
         ></div>
 
         <div class="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 relative">
@@ -21,7 +21,7 @@
           <div class="relative">
             <div class="flex flex-col items-center">
               <div
-                class="w-20 h-20 bg-gradient-to-br from-primary to-primary/90 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110"
+                class="w-20 h-20 rounded-[40%_60%_60%_40%_/_70%_30%_70%_30%] bg-gradient-to-br from-fuchsia-500 to-accent shadow-lg flex items-center justify-center mb-6 transform transition-all hover:scale-110 hover:rotate-6"
               >
                 <Icon
                   name="ph:compass"
@@ -29,7 +29,7 @@
                 />
               </div>
               <div class="text-center">
-                <div class="text-primary font-medium mb-2">Step 1</div>
+                <div class="text-accent font-medium mb-2">Step 1</div>
                 <h3 class="text-xl font-bold mb-3 text-foreground">
                   Find Your Scene
                 </h3>
@@ -45,7 +45,7 @@
           <div class="relative">
             <div class="flex flex-col items-center">
               <div
-                class="w-20 h-20 bg-gradient-to-br from-primary to-primary/90 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110"
+                class="w-20 h-20 rounded-[60%_40%_30%_70%_/_30%_30%_70%_70%] bg-gradient-to-br from-purple-500 to-accent shadow-lg flex items-center justify-center mb-6 transform transition-all hover:scale-110 hover:-rotate-6"
               >
                 <Icon
                   name="ph:users-three"
@@ -53,7 +53,7 @@
                 />
               </div>
               <div class="text-center">
-                <div class="text-primary font-medium mb-2">Step 2</div>
+                <div class="text-accent font-medium mb-2">Step 2</div>
                 <h3 class="text-xl font-bold mb-3 text-foreground">
                   Meet Dancers
                 </h3>
@@ -69,7 +69,7 @@
           <div class="relative">
             <div class="flex flex-col items-center">
               <div
-                class="w-20 h-20 bg-gradient-to-br from-primary to-primary/90 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110"
+                class="w-20 h-20 rounded-[40%_60%_30%_70%_/_60%_30%_70%_40%] bg-gradient-to-br from-orange-500 to-accent shadow-lg flex items-center justify-center mb-6 transform transition-all hover:scale-110 hover:rotate-6"
               >
                 <Icon
                   name="ph:calendar-check"
@@ -77,7 +77,7 @@
                 />
               </div>
               <div class="text-center">
-                <div class="text-primary font-medium mb-2">Step 3</div>
+                <div class="text-accent font-medium mb-2">Step 3</div>
                 <h3 class="text-xl font-bold mb-3 text-foreground">
                   Join Events
                 </h3>
@@ -92,7 +92,7 @@
           <div class="relative">
             <div class="flex flex-col items-center">
               <div
-                class="w-20 h-20 bg-gradient-to-br from-primary to-primary/90 rounded-2xl shadow-lg flex items-center justify-center mb-6 transform transition-transform hover:scale-110"
+                class="w-20 h-20 rounded-[30%_70%_70%_30%_/_50%_50%_50%_50%] bg-gradient-to-br from-pink-500 to-accent shadow-lg flex items-center justify-center mb-6 transform transition-all hover:scale-110 hover:-rotate-6"
               >
                 <Icon
                   name="ph:heart-fill"
@@ -100,7 +100,7 @@
                 />
               </div>
               <div class="text-center">
-                <div class="text-primary font-medium mb-2">Step 4</div>
+                <div class="text-accent font-medium mb-2">Step 4</div>
                 <h3 class="text-xl font-bold mb-3 text-foreground">
                   Fall in Love
                 </h3>
