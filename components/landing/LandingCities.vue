@@ -8,11 +8,18 @@ defineProps({
     type: String,
     default: "Explore dance communities worldwide",
   },
+  muted: {
+    type: Boolean,
+    default: false,
+  },
 });
 </script>
 
 <template>
-  <section class="py-16 bg-background">
+  <section
+    class="py-16"
+    :class="{ 'bg-background': !muted, 'bg-muted': muted }"
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="space-y-6 mb-12">
         <div>
