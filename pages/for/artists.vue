@@ -370,6 +370,74 @@
       </div>
     </section>
 
+    <!-- Comparison Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-4">Why Choose WeDance?</h2>
+        <p
+          class="text-xl text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
+        >
+          See how WeDance compares to platforms you might be using today
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <NuxtLink to="/vs/instagram" class="group">
+            <div
+              class="bg-gray-50 rounded-xl p-8 hover:bg-purple-50 transition-colors"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <Icon
+                  name="ph:instagram-logo"
+                  class="w-8 h-8 text-purple-600"
+                />
+                <h3 class="text-2xl font-semibold">vs Instagram</h3>
+              </div>
+              <p class="text-gray-600">
+                Better reach and direct student engagement vs social media
+                algorithms
+              </p>
+            </div>
+          </NuxtLink>
+
+          <NuxtLink to="/vs/skool" class="group">
+            <div
+              class="bg-gray-50 rounded-xl p-8 hover:bg-purple-50 transition-colors"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <Icon name="ph:student" class="w-8 h-8 text-purple-600" />
+                <h3 class="text-2xl font-semibold">vs Skool</h3>
+              </div>
+              <p class="text-gray-600">
+                Dance-specific features vs general course platform
+              </p>
+            </div>
+          </NuxtLink>
+
+          <NuxtLink to="/vs/tickettailor" class="group">
+            <div
+              class="bg-gray-50 rounded-xl p-8 hover:bg-purple-50 transition-colors"
+            >
+              <div class="flex items-center gap-4 mb-4">
+                <Icon name="ph:ticket" class="w-8 h-8 text-purple-600" />
+                <h3 class="text-2xl font-semibold">vs TicketTailor</h3>
+              </div>
+              <p class="text-gray-600">
+                Specialized dance event tools vs generic ticketing
+              </p>
+            </div>
+          </NuxtLink>
+        </div>
+
+        <div class="mt-8 text-center">
+          <Button variant="outline" as-child>
+            <NuxtLink to="/vs" class="flex items-center justify-center gap-2">
+              See All Comparisons
+              <Icon name="ph:arrow-right" class="w-5 h-5" />
+            </NuxtLink>
+          </Button>
+        </div>
+      </div>
+    </section>
+
     <!-- Final CTA -->
     <section class="py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
