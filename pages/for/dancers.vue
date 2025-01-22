@@ -2,29 +2,119 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <div class="relative min-h-[60vh] flex items-center overflow-hidden">
+    <div class="relative min-h-[80vh] flex items-center overflow-hidden">
       <GradientBackground />
 
       <!-- Content -->
       <div class="relative w-full py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="text-center">
-            <Badge variant="secondary" class="mb-4">
-              <Icon name="ph:star" class="w-4 h-4 mr-1" />
-              New Opportunity
-            </Badge>
-            <h1
-              class="text-4xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
-            >
-              Promote & Earn with WeDance
-            </h1>
-            <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Share your dance journey, grow your influence, and earn rewards by
-              promoting dance events and services.
-            </p>
-            <Button size="lg" as-child>
-              <NuxtLink to="/auth/register">Start Earning Now</NuxtLink>
-            </Button>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Content -->
+            <div class="text-center lg:text-left">
+              <div
+                class="flex items-center justify-center lg:justify-start gap-2 text-white/80 mb-4"
+              >
+                <Badge variant="secondary">
+                  <Icon name="ph:star" class="w-4 h-4 mr-1" />
+                  New Opportunity
+                </Badge>
+              </div>
+              <h1
+                class="text-4xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+              >
+                Share & Earn with Dance
+              </h1>
+              <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto lg:mx-0">
+                Turn your dance passion into earnings. Share events and services
+                with your network, grow your influence, and get rewarded.
+              </p>
+              <div
+                class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
+              >
+                <Button size="lg" variant="primary-on-dark" as-child>
+                  <NuxtLink to="/register">
+                    Start Earning Now
+                    <Icon name="ph:arrow-right" class="w-5 h-5" />
+                  </NuxtLink>
+                </Button>
+                <Button size="lg" variant="secondary-on-dark" as-child>
+                  <NuxtLink to="/courses/1">
+                    How It Works
+                    <Icon name="ph:play-circle" class="w-5 h-5" />
+                  </NuxtLink>
+                </Button>
+              </div>
+              <div
+                class="mt-8 flex items-center justify-center lg:justify-start gap-8 text-white/80"
+              >
+                <div class="flex items-center gap-2">
+                  <Icon name="ph:check-circle" class="w-5 h-5 text-green-400" />
+                  <span>No experience needed</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Icon name="ph:money" class="w-5 h-5 text-green-400" />
+                  <span>Earn from day one</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Icon name="ph:users" class="w-5 h-5 text-green-400" />
+                  <span>Grow your influence</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Value Proposition -->
+            <div class="grid grid-cols-2 gap-6">
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <Icon name="ph:ticket" class="w-8 h-8 text-white/80 mb-4" />
+                <div class="text-xl font-bold text-white mb-2">
+                  Event Tickets
+                </div>
+                <div class="text-white/80">
+                  Share events and earn commission on every ticket sale
+                </div>
+              </div>
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <Icon
+                  name="ph:graduation-cap"
+                  class="w-8 h-8 text-white/80 mb-4"
+                />
+                <div class="text-xl font-bold text-white mb-2">
+                  Class Packages
+                </div>
+                <div class="text-white/80">
+                  Refer students and earn from their first class
+                </div>
+              </div>
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <Icon
+                  name="ph:users-three"
+                  class="w-8 h-8 text-white/80 mb-4"
+                />
+                <div class="text-xl font-bold text-white mb-2">
+                  Partner Network
+                </div>
+                <div class="text-white/80">
+                  Connect with artists and venues for special deals
+                </div>
+              </div>
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <Icon name="ph:crown" class="w-8 h-8 text-white/80 mb-4" />
+                <div class="text-xl font-bold text-white mb-2">
+                  VIP Benefits
+                </div>
+                <div class="text-white/80">
+                  Unlock exclusive perks as your influence grows
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
