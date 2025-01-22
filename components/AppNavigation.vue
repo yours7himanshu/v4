@@ -1,4 +1,6 @@
 <script setup>
+import Button from "./ui/button/Button.vue";
+
 const route = useRoute();
 const auth = useAuthStore();
 const isMobileMenuOpen = ref(false);
@@ -57,7 +59,9 @@ watch(
             <Icon :name="item.icon" class="h-4 w-4" />
             {{ item.label }}
           </NuxtLink>
-          <ThemeToggle />
+          <Button variant="ghost">
+            <Icon name="lucide:search" class="h-4 w-4" />
+          </Button>
           <template v-if="auth.isAuthenticated">
             <Button
               variant="ghost"
@@ -78,7 +82,10 @@ watch(
           </template>
         </div>
         <!-- Mobile menu button -->
-        <div class="flex items-center sm:hidden">
+        <div class="flex justify-end items-center sm:hidden">
+          <Button variant="ghost">
+            <Icon name="lucide:search" class="h-4 w-4" />
+          </Button>
           <Button
             variant="ghost"
             size="icon"
