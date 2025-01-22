@@ -10,6 +10,26 @@ const router = useRouter();
 const searchQuery = ref("");
 const searchInput = ref();
 
+const categories = [
+  { name: "Events", icon: "ph:calendar", to: "/events" },
+  { name: "Artists", icon: "ph:users", to: "/artists" },
+  { name: "Venues", icon: "ph:map-pin", to: "/venues" },
+  { name: "Courses", icon: "ph:graduation-cap", to: "/courses" },
+  { name: "Posts", icon: "ph:newspaper", to: "/feed" },
+];
+
+const popularSearches = [
+  { query: "salsa", label: "Salsa" },
+  { query: "bachata", label: "Bachata" },
+  { query: "kizomba", label: "Kizomba" },
+  { query: "workshop", label: "Workshops" },
+  { query: "festival", label: "Festivals" },
+];
+
+const handlePopularSearch = (query: string) => {
+  searchQuery.value = query;
+};
+
 const searchResults = computed(() => {
   if (!searchQuery.value) return [];
 
@@ -210,6 +230,51 @@ onMounted(() => {
           </div>
         </div>
       </ScrollArea>
+
+      <div
+        v-else-if="!searchQuery"
+        class="mt-4 flex-1 flex flex-col min-h-0 max-h-[300px]"
+      >
+        <div>
+          <h3 class="mb-3 text-sm font-medium text-muted-foreground">
+            Categories
+          </h3>
+          <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+            <NuxtLink
+              v-for="category in categories"
+              :key="category.name"
+              :to="category.to"
+              class="flex flex-col items-center gap-2 p-3 hover:bg-muted rounded-lg text-center"
+              @click="dialog.close()"
+            >
+              <Icon :name="category.icon" class="w-6 h-6" />
+              <span class="text-sm">{{ category.name }}</span>
+            </NuxtLink>
+          </div>
+        </div>
+
+        <div class="mt-6 flex-1 flex flex-col min-h-0">
+          <h3 class="mb-3 text-sm font-medium text-muted-foreground">
+            Popular Searches
+          </h3>
+          <div class="flex flex-col gap-1">
+            <Button
+              v-for="search in popularSearches"
+              :key="search.query"
+              variant="ghost"
+              size="sm"
+              class="justify-start text-sm h-9"
+              @click="handlePopularSearch(search.query)"
+            >
+              <Icon
+                name="ph:magnifying-glass"
+                class="w-4 h-4 mr-2 text-muted-foreground"
+              />
+              {{ search.label }}
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
