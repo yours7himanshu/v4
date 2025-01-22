@@ -1,40 +1,180 @@
 <template>
   <div>
     <!-- Hero Section -->
-    <section
-      class="pt-32 pb-24 bg-gradient-to-br from-purple-600 to-purple-900 relative overflow-hidden"
-    >
-      <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
-      ></div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div class="text-center">
-          <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">
-            Fill Your Dance Space
-          </h1>
-          <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Connect with organizers, manage bookings, and grow your venue's
-            presence in the dance community
-          </p>
-          <div class="flex justify-center gap-4">
-            <Button
-              size="lg"
-              variant="secondary"
-              class="text-lg px-12"
-              as-child
-            >
-              <NuxtLink
-                to="/register"
-                class="flex items-center justify-center gap-2"
+    <div class="relative min-h-[80vh] flex items-center overflow-hidden">
+      <GradientBackground />
+
+      <!-- Content -->
+      <div class="relative w-full py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left: Content -->
+            <div class="text-center lg:text-left">
+              <div
+                class="flex items-center justify-center lg:justify-start gap-2 text-white/80 mb-4"
               >
-                List Your Venue
-                <Icon name="ph:arrow-right" class="w-5 h-5" />
-              </NuxtLink>
-            </Button>
+                <Badge variant="secondary">
+                  <Icon name="ph:sparkle" class="w-4 h-4 mr-1" />
+                  Early Access
+                </Badge>
+              </div>
+              <h1
+                class="text-4xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+              >
+                The Future of Dance Spaces
+              </h1>
+              <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto lg:mx-0">
+                Be among the first venues to join our platform. Connect with
+                organizers, manage bookings, and grow your dance business
+                globally.
+              </p>
+              <div
+                class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
+              >
+                <Button size="lg" variant="primary-on-dark" as-child>
+                  <NuxtLink to="/register">
+                    Join Early Access
+                    <Icon name="ph:arrow-right" class="w-5 h-5" />
+                  </NuxtLink>
+                </Button>
+                <Button size="lg" variant="secondary-on-dark" as-child>
+                  <NuxtLink to="/events/200">
+                    How It Works
+                    <Icon name="ph:play-circle" class="w-5 h-5" />
+                  </NuxtLink>
+                </Button>
+              </div>
+              <div
+                class="mt-8 flex items-center justify-center lg:justify-start gap-8 text-white/80"
+              >
+                <div class="flex items-center gap-2">
+                  <Icon name="ph:check-circle" class="w-5 h-5 text-green-400" />
+                  <span>5-minute setup</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Icon name="ph:crown" class="w-5 h-5 text-green-400" />
+                  <span>Founding member benefits</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <Icon name="ph:star" class="w-5 h-5 text-green-400" />
+                  <span>First month free</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Value Proposition -->
+            <div class="grid grid-cols-2 gap-6">
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <Icon name="ph:calendar" class="w-8 h-8 text-white/80 mb-4" />
+                <div class="text-xl font-bold text-white mb-2">
+                  Smart Scheduling
+                </div>
+                <div class="text-white/80">
+                  Manage multiple spaces and rooms with ease
+                </div>
+              </div>
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <Icon name="ph:users" class="w-8 h-8 text-white/80 mb-4" />
+                <div class="text-xl font-bold text-white mb-2">
+                  Event Discovery
+                </div>
+                <div class="text-white/80">
+                  Connect with organizers looking for spaces
+                </div>
+              </div>
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <Icon
+                  name="ph:credit-card"
+                  class="w-8 h-8 text-white/80 mb-4"
+                />
+                <div class="text-xl font-bold text-white mb-2">
+                  Simple Payments
+                </div>
+                <div class="text-white/80">
+                  Secure payments and automatic payouts
+                </div>
+              </div>
+              <div
+                class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <Icon name="ph:chart-line" class="w-8 h-8 text-white/80 mb-4" />
+                <div class="text-xl font-bold text-white mb-2">
+                  Business Tools
+                </div>
+                <div class="text-white/80">
+                  Analytics and marketing tools included
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="text-sm text-white/60 mt-4">
-            ⚡️ 5-minute setup • No credit card required
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-4">
+          Simple & Transparent Pricing
+        </h2>
+        <p
+          class="text-xl text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
+        >
+          No hidden fees. No monthly charges. Only pay when you get bookings.
+        </p>
+        <div class="max-w-lg mx-auto">
+          <div class="bg-gray-50 rounded-xl p-8">
+            <Icon name="ph:buildings" class="w-12 h-12 text-purple-600 mb-6" />
+            <h3 class="text-xl font-semibold mb-4">Venue Management</h3>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Studio & venue bookings</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Calendar management</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Automated scheduling</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Marketing tools</span>
+              </li>
+            </ul>
+            <div class="mt-6 pt-6 border-t border-gray-200">
+              <div class="text-sm text-gray-500">Platform fee</div>
+              <div class="text-3xl font-bold text-purple-600">5%</div>
+              <div class="text-sm text-gray-500 mt-1">per booking</div>
+            </div>
           </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <p class="text-sm text-gray-500 max-w-2xl mx-auto">
+            All fees include payment processing, hosting, and platform tools.
+            Get paid directly to your bank account every week.
+          </p>
         </div>
       </div>
     </section>
@@ -235,12 +375,12 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Final CTA -->
     <section class="py-16 bg-gray-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold mb-6">List Your Venue Today</h2>
+        <h2 class="text-3xl font-bold mb-4">Be Among the First Venues</h2>
         <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Join venues worldwide that trust WeDance to grow their dance business
+          Join now and get exclusive founding member benefits
         </p>
         <div class="flex justify-center gap-4">
           <Button size="lg" variant="secondary" class="text-lg px-12" as-child>
@@ -248,10 +388,13 @@
               to="/register"
               class="flex items-center justify-center gap-2"
             >
-              Get Started Free
+              Join Early Access
               <Icon name="ph:arrow-right" class="w-5 h-5" />
             </NuxtLink>
           </Button>
+        </div>
+        <div class="mt-6 text-sm text-gray-500">
+          Limited spots available for early access
         </div>
       </div>
     </section>
