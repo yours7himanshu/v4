@@ -1,8 +1,10 @@
 <script setup>
+import { onKeyStroke } from "@vueuse/core";
 import Button from "./ui/button/Button.vue";
 
 const route = useRoute();
 const auth = useAuthStore();
+const dialog = useDialog();
 const isMobileMenuOpen = ref(false);
 
 const navigationItems = [
@@ -18,6 +20,12 @@ const toggleMobileMenu = () => {
   isMobileMenuOpen.value = !isMobileMenuOpen.value;
 };
 
+const handleSearch = () => {
+  dialog.open({
+    component: "SearchDialog",
+  });
+};
+
 const handleSignOut = async () => {
   await auth.logout();
   // Optionally redirect to home or login page
@@ -30,6 +38,12 @@ watch(
     isMobileMenuOpen.value = false;
   }
 );
+
+// Handle keyboard shortcut
+onKeyStroke(["meta+k", "ctrl+k"], (e) => {
+  e.preventDefault();
+  handleSearch();
+});
 </script>
 
 <template>
@@ -60,7 +74,7 @@ watch(
             {{ item.label }}
           </NuxtLink>
           <Button variant="ghost">
-            <Icon name="lucide:search" class="h-4 w-4" />
+            <Icon name="lucide:search" class="h-4 w-4" @click="handleSearch" />
           </Button>
           <template v-if="auth.isAuthenticated">
             <Button
@@ -84,7 +98,7 @@ watch(
         <!-- Mobile menu button -->
         <div class="flex justify-end items-center sm:hidden">
           <Button variant="ghost">
-            <Icon name="lucide:search" class="h-4 w-4" />
+            <Icon name="lucide:search" class="h-4 w-4" @click="handleSearch" />
           </Button>
           <Button
             variant="ghost"
