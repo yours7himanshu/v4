@@ -138,7 +138,7 @@ const searchResults = computed(() => {
                 ? content.text
                 : "",
           image: "cover" in content ? content.cover : post.author.image,
-          to: `/posts/${post.id}`,
+          to: `/post/${post.id}`,
         };
       })
   );
