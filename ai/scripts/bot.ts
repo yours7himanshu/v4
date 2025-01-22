@@ -148,7 +148,25 @@ bot.command("start", async (ctx: Context) => {
 
   logger.log(chatId, "user", "/start");
 
-  await processMessage(ctx, getChatHistory(chatId), true);
+  const text = "What would you like to do?";
+
+  const options = [
+    "Give me a task for today",
+    "Summarize my tasks for this week",
+    "Update me on project progress",
+  ];
+
+  await ctx.reply(text, {
+    parse_mode: "HTML",
+    reply_markup: {
+      inline_keyboard: options.map((option) => [
+        {
+          text: option,
+          callback_data: option,
+        },
+      ]),
+    },
+  });
 });
 
 // Command to show current provider
@@ -189,23 +207,11 @@ async function processMessage(
     // Get initial response
     let message = await llmProvider.ask(history, ctx.chat?.id);
 
-    const options = [
-      "Prioritize my tasks for today",
-      "Summarize my tasks for this week",
-      "Update me on project progress",
-    ];
-
     let waitingForToolResponse = false;
 
     // Handle text response if present
     if (message.text) {
-      await handleTextResponse(
-        ctx,
-        history,
-        message.text,
-        isFirstMessage,
-        options
-      );
+      await handleTextResponse(ctx, history, message.text);
     }
 
     // Handle tool calls if present
@@ -297,9 +303,7 @@ async function handleToolCall(
 async function handleTextResponse(
   ctx: Context,
   history: HistoryMessage[],
-  text: string | undefined,
-  isFirstMessage: boolean,
-  options: string[]
+  text: string | undefined
 ) {
   if (!text) return;
 
@@ -313,22 +317,8 @@ async function handleTextResponse(
   const logger = getLogger(ctx.from!);
   logger.log(ctx.chat!.id, "bot-response", text);
 
-  let reply_markup = undefined;
-
-  if (isFirstMessage) {
-    reply_markup = {
-      inline_keyboard: options.map((option) => [
-        {
-          text: option,
-          callback_data: option,
-        },
-      ]),
-    };
-  }
-
   await ctx.reply(text, {
     parse_mode: "HTML",
-    reply_markup: reply_markup,
   });
 }
 

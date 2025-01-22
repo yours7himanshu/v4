@@ -57,12 +57,31 @@ export class OpenAIProvider extends BaseLLMProvider {
           if (msg.role === "assistant") {
             return {
               role: "assistant",
-              content: String(msg.content),
+              content: Array.isArray(msg.content)
+                ? msg.content
+                    .map((block) => {
+                      if (block.type === "text") return block.text;
+                      if (block.type === "tool_use") {
+                        return `Using tool: ${block.name} with input: ${JSON.stringify(block.input)}`;
+                      }
+                      return "";
+                    })
+                    .join("\n")
+                : String(msg.content),
             } as const;
           }
           return {
             role: "user",
-            content: String(msg.content),
+            content: Array.isArray(msg.content)
+              ? msg.content
+                  .map((block) => {
+                    if (block.type === "tool_result") {
+                      return `Tool result: ${JSON.stringify(block.content)}`;
+                    }
+                    return String(block);
+                  })
+                  .join("\n")
+              : String(msg.content),
           } as const;
         });
 
