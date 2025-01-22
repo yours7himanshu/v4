@@ -1,7 +1,4 @@
 <script setup>
-import { onKeyStroke } from "@vueuse/core";
-import Button from "./ui/button/Button.vue";
-
 const route = useRoute();
 const auth = useAuthStore();
 const dialog = useDialog();
@@ -38,12 +35,6 @@ watch(
     isMobileMenuOpen.value = false;
   }
 );
-
-// Handle keyboard shortcut
-onKeyStroke(["meta+k", "ctrl+k"], (e) => {
-  e.preventDefault();
-  handleSearch();
-});
 </script>
 
 <template>

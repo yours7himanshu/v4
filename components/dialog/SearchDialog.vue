@@ -2,6 +2,7 @@
 const dialog = useDialog();
 const router = useRouter();
 const searchQuery = ref("");
+const searchInput = ref();
 
 const handleSearch = () => {
   if (!searchQuery.value) return;
@@ -17,10 +18,10 @@ const handleSearch = () => {
 };
 
 // Focus input when dialog opens
-const searchInput = ref<HTMLInputElement | null>(null);
 onMounted(() => {
   nextTick(() => {
-    searchInput.value?.focus();
+    const input = searchInput.value?.$el?.querySelector("input");
+    input?.focus();
   });
 });
 </script>
@@ -28,10 +29,6 @@ onMounted(() => {
 <template>
   <DialogHeader>
     <DialogTitle>Search</DialogTitle>
-    <DialogDescription>
-      Press <kbd class="px-2 py-1 text-xs rounded bg-muted">⌘K</kbd> to search
-      anytime
-    </DialogDescription>
   </DialogHeader>
   <div class="mt-4">
     <Input
