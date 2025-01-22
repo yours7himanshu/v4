@@ -167,12 +167,12 @@ defineProps({
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
               >
-                <Icon name="ph:storefront" class="w-3.5 h-3.5 text-primary" />
+                <Icon name="ph:money" class="w-3.5 h-3.5 text-primary" />
               </div>
               <div>
-                <h4 class="font-medium mb-1 text-foreground">Business Tools</h4>
+                <h4 class="font-medium mb-1 text-foreground">Promote & Earn</h4>
                 <p class="text-sm text-muted-foreground">
-                  Professional profile, payments, and analytics included
+                  Let your students promote your classes and earn rewards
                 </p>
               </div>
             </div>
@@ -229,9 +229,11 @@ defineProps({
                 <Icon name="ph:users-three" class="w-3.5 h-3.5 text-primary" />
               </div>
               <div>
-                <h4 class="font-medium mb-1 text-foreground">Artist Booking</h4>
+                <h4 class="font-medium mb-1 text-foreground">
+                  Resource Booking
+                </h4>
                 <p class="text-sm text-muted-foreground">
-                  Book teachers, DJs, and find volunteers for your events
+                  Book venues, teachers, DJs, and manage your resources
                 </p>
               </div>
             </div>
@@ -240,12 +242,14 @@ defineProps({
               <div
                 class="w-6 h-6 flex items-center justify-center rounded-full bg-primary/10 flex-shrink-0 mt-0.5"
               >
-                <Icon name="ph:chart-line" class="w-3.5 h-3.5 text-primary" />
+                <Icon name="ph:money" class="w-3.5 h-3.5 text-primary" />
               </div>
               <div>
-                <h4 class="font-medium mb-1 text-foreground">Business Tools</h4>
+                <h4 class="font-medium mb-1 text-foreground">
+                  Community Growth
+                </h4>
                 <p class="text-sm text-muted-foreground">
-                  Marketing tools, analytics, and venue management included
+                  Empower your community to promote events and earn rewards
                 </p>
               </div>
             </div>

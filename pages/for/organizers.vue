@@ -119,7 +119,7 @@
       </div>
     </div>
 
-    <!-- Pricing Section -->
+    <!-- Revenue Streams Section -->
     <section class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold text-center mb-4">
@@ -128,50 +128,33 @@
         <p
           class="text-xl text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
         >
-          No hidden fees. No monthly charges. Only pay when you sell tickets.
+          No hidden fees. No monthly charges. Only pay when you earn.
         </p>
         <div class="grid md:grid-cols-3 gap-8">
           <div class="bg-gray-50 rounded-xl p-8">
-            <Icon
-              name="ph:calendar-check"
-              class="w-12 h-12 text-purple-600 mb-6"
-            />
-            <h3 class="text-xl font-semibold mb-4">Events & Festivals</h3>
+            <Icon name="ph:ticket" class="w-12 h-12 text-purple-600 mb-6" />
+            <h3 class="text-xl font-semibold mb-4">Event Tickets</h3>
             <ul class="space-y-3 text-gray-600">
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Regular parties & socials</span>
+                <span>Create unlimited events</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Festivals & congresses</span>
+                <span>Set your own prices</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Courses & workshops</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Icon
-                  name="ph:check-circle"
-                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
-                />
-                <span>Schedule management</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <Icon
-                  name="ph:check-circle"
-                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
-                />
-                <span>Automatic check-in</span>
+                <span>Global reach</span>
               </li>
             </ul>
             <div class="mt-6 pt-6 border-t border-gray-200">
@@ -186,28 +169,28 @@
               name="ph:users-three"
               class="w-12 h-12 text-purple-600 mb-6"
             />
-            <h3 class="text-xl font-semibold mb-4">Artist Booking</h3>
+            <h3 class="text-xl font-semibold mb-4">Artist Bookings</h3>
             <ul class="space-y-3 text-gray-600">
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Book teachers, DJs, and performers</span>
+                <span>Book teachers & DJs</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Find photographers and vendors</span>
+                <span>Automatic contracts</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Post volunteer opportunities</span>
+                <span>Secure payments</span>
               </li>
             </ul>
             <div class="mt-6 pt-6 border-t border-gray-200">
@@ -218,35 +201,38 @@
           </div>
 
           <div class="bg-gray-50 rounded-xl p-8">
-            <Icon name="ph:buildings" class="w-12 h-12 text-purple-600 mb-6" />
-            <h3 class="text-xl font-semibold mb-4">Venue Management</h3>
+            <Icon
+              name="ph:users-three"
+              class="w-12 h-12 text-purple-600 mb-6"
+            />
+            <h3 class="text-xl font-semibold mb-4">Community Referrals</h3>
             <ul class="space-y-3 text-gray-600">
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Studio & venue bookings</span>
+                <span>Reward promoters</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Calendar management</span>
+                <span>Grow attendance</span>
               </li>
               <li class="flex items-start gap-2">
                 <Icon
                   name="ph:check-circle"
                   class="w-5 h-5 text-green-500 mt-1 shrink-0"
                 />
-                <span>Automated scheduling</span>
+                <span>Track referrals</span>
               </li>
             </ul>
             <div class="mt-6 pt-6 border-t border-gray-200">
-              <div class="text-sm text-gray-500">Platform fee</div>
-              <div class="text-3xl font-bold text-purple-600">5%</div>
-              <div class="text-sm text-gray-500 mt-1">per booking</div>
+              <div class="text-sm text-gray-500">Commission</div>
+              <div class="text-3xl font-bold text-purple-600">10%</div>
+              <div class="text-sm text-gray-500 mt-1">to promoters</div>
             </div>
           </div>
         </div>
@@ -256,6 +242,117 @@
             All fees include payment processing, hosting, and platform tools.
             Get paid directly to your bank account every week.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community Growth Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-4">Grow Your Community</h2>
+        <p
+          class="text-xl text-center text-muted-foreground mb-12 max-w-2xl mx-auto"
+        >
+          Empower your community members to promote your events and earn rewards
+        </p>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="bg-white rounded-xl p-8">
+            <Icon
+              name="ph:users-three"
+              class="w-12 h-12 text-purple-600 mb-6"
+            />
+            <h3 class="text-xl font-semibold mb-4">Community Promoters</h3>
+            <p class="text-gray-600 mb-6">
+              Let your community members promote your events and earn
+              commission. They share, you grow.
+            </p>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Unique referral links</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Automatic commission tracking</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Performance analytics</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-xl p-8">
+            <Icon name="ph:chart-line" class="w-12 h-12 text-purple-600 mb-6" />
+            <h3 class="text-xl font-semibold mb-4">Growth Tools</h3>
+            <p class="text-gray-600 mb-6">
+              Tools to help your promoters succeed and track their performance.
+            </p>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Promotional materials</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Custom promo codes</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Sales dashboard</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-xl p-8">
+            <Icon name="ph:crown" class="w-12 h-12 text-purple-600 mb-6" />
+            <h3 class="text-xl font-semibold mb-4">VIP Program</h3>
+            <p class="text-gray-600 mb-6">
+              Reward your top promoters with exclusive benefits and higher
+              commissions.
+            </p>
+            <ul class="space-y-3 text-gray-600">
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Tiered commission rates</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Early access to events</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <Icon
+                  name="ph:check-circle"
+                  class="w-5 h-5 text-green-500 mt-1 shrink-0"
+                />
+                <span>Special promoter perks</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
